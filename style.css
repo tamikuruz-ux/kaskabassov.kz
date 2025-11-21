@@ -35,6 +35,13 @@ body {
   margin-left:0;               /* чтобы не толкать всё вправо */
   min-width:0;                 /* предотвращает «распирание» */
 }
+.signature-img {
+  height: 90px; /* подбери нужную высоту чтобы было как заголовок */
+  width: auto; /* чтобы не растягивалось */
+  display: block;
+  margin-bottom:15px;
+}
+
 .site-title{ margin:0; line-height:1; font-weight:400; }
 .home-link{ display:inline-block; text-decoration:none; color:inherit; }
 .home-link:hover{ opacity:.85; transition:opacity .2s; }
