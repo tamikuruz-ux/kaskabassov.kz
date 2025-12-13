@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <title>Фото галерея – Сейіт Қасқабасов</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Шрифты и стили как на главной -->
+  <link rel="stylesheet" href="http://fonts-online.ru/fonts/karsten/stylesheet.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?
+    family=Caveat:wght@600&
+    family=Bad+Script&
+    family=Italianno&
+    family=Parisienne&
+    display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
+
+  <!-- Lightbox CSS -->
+  <link href="lightbox.css" rel="stylesheet">
+
+  <!-- Твой основной CSS -->
+  <link href="style.css" rel="stylesheet">
+
+  <style>
+    /* Серая верхняя шапка уже есть в style.css, тут только доп. стили */
+
+/* Герой-шапка галереи с библиотекой */
+.gallery-hero {
+  position: relative;
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,0.38), rgba(0,0,0,0.50)),
+      url('images/library-bg.jpg'); /* твой фон библиотеки */
+  background-size: cover;
+  background-position: center 30%;  /* можно, при желании, center top */
+  background-repeat: no-repeat;
+  color: #f5f5f5;
+
+  height: 480px;            /* ниже, чем было */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px 15px;
+  text-align: center;
+}
+
+.gallery-hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.gallery-hero-breadcrumbs {
+  font-size: 0.9rem;
+  color: #d0d7dd;
+  margin-bottom: 6px;
+}
+
+.gallery-hero-breadcrumbs a {
+  color: inherit;
+  text-decoration: none;
+}
+.gallery-hero-breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+.gallery-hero h1 {
+  margin: 0 0 6px;
+  font-size: 2.6rem;        /* крупный заголовок в центре */
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.6);
+}
+
+.gallery-hero p {
+  margin: 0;
+  font-size: 1rem;
+  color: #e4ebf1;
+}
+
+
+ /* Контейнер галереи – чуть меньше отступы слева/справа */
+.gallery-wrap {
+  max-width: 1400px;          /* шире, меньше пустого поля */
+  margin: 15px auto 40px;
+  padding: 0 4px;            /* уменьшили отступы */
+}
+
+/* Masonry-раскладка как у nurshaikhov.kz */
+.gallery-masonry {
+  column-count: 6;            /* 5 колонок на десктопе */
+  column-gap: 8px;           /* маленький зазор */
+}
+
+/* На планшете – поменьше колонок */
+@media (max-width: 1200px) {
+  .gallery-masonry {
+    column-count: 4;
+  }
+}
+@media (max-width: 760px) {
+  .gallery-masonry {
+    column-count: 3;
+  }
+}
+@media (max-width: 540px) {
+  .gallery-masonry {
+    column-count: 2;
+  }
+}
+
+/* Один элемент галереи */
+.gallery-item {
+  display: block;
+  margin-bottom: 10px;
+  break-inside: avoid;        /* чтобы картинки не рвались между колонками */
+}
+
+/* Картинка – без фона, без скругления, без серого */
+.gallery-item img {
+  width: 100%;
+  height: auto;               /* НИКАКОГО object-fit */
+  display: block;
+  border-radius: 0;           /* убрали мягкие углы */
+  box-shadow: none;           /* можно включить, если захочешь */
+  cursor: zoom-in;
+  transition: transform .2s ease, filter .2s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.02);
+  filter: brightness(1.03);
+}
+
+
+/* Мобильная версия для экранов до 768px */
+@media (max-width: 768px) {
+  /* Галерея-шапка */
+  .gallery-hero {
+    height: 350px;  /* Уменьшаем высоту на мобильных */
+    padding: 20px 10px;  /* Меньше отступы */
+  }
+
+  .gallery-hero h1 {
+    font-size: 2rem; /* Уменьшаем размер заголовка */
+  }
+
+  .gallery-hero p {
+    font-size: 0.9rem; /* Уменьшаем размер текста */
+  }
+
+  /* Контейнер галереи */
+  .gallery-wrap {
+    max-width: 100%;
+    padding: 0 10px;  /* Добавляем немного отступов */
+  }
+
+  /* Masonry-раскладка на мобильных */
+  .gallery-masonry {
+    column-count: 2;  /* 2 колонки на мобильных */
+  }
+
+  /* Один элемент галереи */
+  .gallery-item {
+    margin-bottom: 12px;  /* Увеличиваем отступы между элементами */
+  }
+
+  /* Картинки в галерее */
+  .gallery-item img {
+    width: 100%; /* Картинка должна занимать 100% ширины */
+    height: auto;
+    transition: transform .2s ease, filter .2s ease;
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.05); /* Увеличиваем картинку при наведении */
+    filter: brightness(1.05); /* Добавляем яркость */
+  }
+}
+
+/* Мобильная версия для экранов до 480px */
+@media (max-width: 480px) {
+  /* Галерея-шапка */
+  .gallery-hero {
+    height: 300px; /* Еще меньше на очень маленьких экранах */
+  }
+
+  .gallery-hero h1 {
+    font-size: 1.6rem; /* Уменьшаем размер заголовка еще больше */
+  }
+
+  .gallery-hero p {
+    font-size: 0.85rem; /* Уменьшаем размер текста */
+  }
+
+  /* Контейнер галереи */
+  .gallery-wrap {
+    padding: 0 8px;  /* Меньше отступы */
+  }
+
+  /* Masonry-раскладка на маленьких экранах */
+  .gallery-masonry {
+    column-count: 1;  /* 1 колонка */
+  }
+
+  /* Один элемент галереи */
+  .gallery-item {
+    margin-bottom: 14px;
+  }
+
+  /* Картинки в галерее */
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.1); /* Увеличиваем картинку при наведении */
+    filter: brightness(1.1); /* Добавляем яркость */
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+<!-- Верхняя серая шапка (как на главной) -->
+<div class="header-top">
+  <div class="signature-block">
+<a href="index.html" class="logo-link">
+      <img src="images/logo.png" alt="Логотип С.А. Қасқабасов" class="logo-img">
+    </a>
+    <a href="index.html" class="logo-link">
+      <img src="images/sign.png" alt="Сейіт Қасқабасов" class="signature-img">
+    </a>
+  </div>
+
+  <div class="header-actions">
+    <div class="language-switcher" role="group" aria-label="Тіл таңдау">
+      <a href="gallery.html" class="lang-btn active-lang">Қаз</a>
+      <a href="gallery-ru.html" class="lang-btn">Рус</a>
+      <a href="gallery-en.html" class="lang-btn">Eng</a>
+    </div>
+
+    <button class="menu-btn" aria-controls="offcanvas" aria-expanded="false">
+      <span class="menu-icon"></span> Меню
+    </button>
+  </div>
+</div>
+
+<!-- Выезжающее меню -->
+<aside id="offcanvas" class="offcanvas" aria-hidden="true">
+  <button class="offcanvas-close" aria-label="Закрыть меню">×</button>
+
+  <nav class="offcanvas-nav" role="navigation" aria-label="Основное меню">
+    <a href="index.html">Басты бет</a>
+    <a href="bio.html">Өмірбаяны</a>
+    <a href="books.html">Кітаптар мен монографиялар</a>
+    <a href="awards.html">Марапаттар</a>
+    <a href="maqalalar.html">Мақалалар</a>
+    <a href="interview.html">Сұхбаттар</a>
+    <a href="qolzhazbalar.html">Қолжазбалар</a>
+    <a href="news.html">Жаңалықтар</a>
+    <a href="dissertations.html">Академик С.Қасқабасовтың ғылыми мектебі</a>
+    <a href="gallery.html">Галерея</a>
+  </nav>
+</aside>
+
+<div id="offcanvas-backdrop" class="offcanvas-backdrop" hidden></div>
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-overlay"></div>
+
+  <div class="header-content">
+    <h1 class="header-title">Галерея</h1>
+ </div>
+<nav class="breadcrumb">
+  <a href="index.html">Басты бет</a>
+  <span class="divider">|</span>
+  <a href="#" class="current-page">Галерея</a>
+</nav>
+</header>
+
+
+
+<main class="gallery-wrap">
+  <div class="gallery-masonry">
+
+    <!-- Тут просто очень много картинок.
+         Пути: gallery/gallery1.jpg … gallery/gallery100.jpg.
+         Удаляешь/добавляешь строки по необходимости. -->
+
+    <!-- 1–20 -->
+    <a href="gallery/gallery1.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery1.jpg" alt="">
+    </a>
+    <a href="gallery/gallery2.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery2.jpg" alt="">
+    </a>
+    <a href="gallery/gallery3.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery3.jpg" alt="">
+    </a>
+    <a href="gallery/gallery4.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery4.jpg" alt="">
+    </a>
+    <a href="gallery/gallery5.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery5.jpg" alt="">
+    </a>
+    <a href="gallery/gallery6.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery6.jpg" alt="">
+    </a>
+    <a href="gallery/gallery7.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery7.jpg" alt="">
+    </a>
+    <a href="gallery/gallery8.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery8.jpg" alt="">
+    </a>
+    <a href="gallery/gallery9.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery9.jpg" alt="">
+    </a>
+    <a href="gallery/gallery10.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery10.jpg" alt="">
+    </a>
+    <a href="gallery/gallery11.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery11.jpg" alt="">
+    </a>
+    <a href="gallery/gallery12.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery12.jpg" alt="">
+    </a>
+    <a href="gallery/gallery13.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery13.jpg" alt="">
+    </a>
+    <a href="gallery/gallery14.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery14.jpg" alt="">
+    </a>
+    <a href="gallery/gallery15.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery15.jpg" alt="">
+    </a>
+    <a href="gallery/gallery16.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery16.jpg" alt="">
+    </a>
+    <a href="gallery/gallery17.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery17.jpg" alt="">
+    </a>
+    <a href="gallery/gallery18.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery18.jpg" alt="">
+    </a>
+    <a href="gallery/gallery19.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery19.jpg" alt="">
+    </a>
+    <a href="gallery/gallery20.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery20.jpg" alt="">
+    </a>
+
+    <!-- 21–40 -->
+    <a href="gallery/gallery21.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery21.jpg" alt="">
+    </a>
+    <a href="gallery/gallery22.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery22.jpg" alt="">
+    </a>
+    <a href="gallery/gallery23.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery23.jpg" alt="">
+    </a>
+    <a href="gallery/gallery24.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery24.jpg" alt="">
+    </a>
+    <a href="gallery/gallery25.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery25.jpg" alt="">
+    </a>
+    <a href="gallery/gallery26.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery26.jpg" alt="">
+    </a>
+    <a href="gallery/gallery27.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery27.jpg" alt="">
+    </a>
+    <a href="gallery/gallery28.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery28.jpg" alt="">
+    </a>
+    <a href="gallery/gallery29.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery29.jpg" alt="">
+    </a>
+    <a href="gallery/gallery30.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery30.jpg" alt="">
+    </a>
+<a href="gallery/gallery31.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery31.jpg" alt="">
+    </a>
+    <a href="gallery/gallery32.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery32.jpg" alt="">
+    </a>
+    <a href="gallery/gallery33.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery33.jpg" alt="">
+    </a>
+    <a href="gallery/gallery34.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery34.jpg" alt="">
+    </a>
+    <a href="gallery/gallery35.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery35.jpg" alt="">
+    </a>
+    <a href="gallery/gallery36.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery36.jpg" alt="">
+    </a>
+    <a href="gallery/gallery37.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery37.jpg" alt="">
+    </a>
+    <a href="gallery/gallery38.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery38.jpg" alt="">
+    </a>
+    <a href="gallery/gallery39.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery39.jpg" alt="">
+    </a>
+    <a href="gallery/gallery40.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery40.jpg" alt="">
+    </a>
+    <a href="gallery/gallery41.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery41.jpg" alt="">
+    </a>
+    <a href="gallery/gallery42.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery42.jpg" alt="">
+    </a>
+    <a href="gallery/gallery43.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery43.jpg" alt="">
+    </a>
+    <a href="gallery/gallery44.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery44.jpg" alt="">
+    </a>
+    <a href="gallery/gallery45.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery45.jpg" alt="">
+    </a>
+    <a href="gallery/gallery46.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery46.jpg" alt="">
+    </a>
+    <a href="gallery/gallery47.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery47.jpg" alt="">
+    </a>
+    <a href="gallery/gallery48.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery48.jpg" alt="">
+    </a>
+    <a href="gallery/gallery49.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery49.jpg" alt="">
+    </a>
+    <a href="gallery/gallery50.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery50.jpg" alt="">
+    </a>
+
+    <!-- 21–40 -->
+    <a href="gallery/gallery51.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery51.jpg" alt="">
+    </a>
+    <a href="gallery/gallery52.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery52.jpg" alt="">
+    </a>
+    <a href="gallery/gallery53.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery53.jpg" alt="">
+    </a>
+    <a href="gallery/gallery54.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery54.jpg" alt="">
+    </a>
+    <a href="gallery/gallery55.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery55.jpg" alt="">
+    </a>
+    <a href="gallery/gallery56.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery56.jpg" alt="">
+    </a>
+    <a href="gallery/gallery57.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery57.jpg" alt="">
+    </a>
+    <a href="gallery/gallery58.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery58.jpg" alt="">
+    </a>
+    <a href="gallery/gallery59.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery59.jpg" alt="">
+    </a>
+    <a href="gallery/gallery60.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery60.jpg" alt="">
+    </a>
+  <a href="gallery/gallery61.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery61.jpg" alt="">
+    </a>
+    <a href="gallery/gallery62.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery62.jpg" alt="">
+    </a>
+    <a href="gallery/gallery63.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery63.jpg" alt="">
+    </a>
+    <a href="gallery/gallery64.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery64.jpg" alt="">
+    </a>
+    <a href="gallery/gallery65.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery65.jpg" alt="">
+    </a>
+    <a href="gallery/gallery66.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery66.jpg" alt="">
+    </a>
+    <a href="gallery/gallery67.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery67.jpg" alt="">
+    </a>
+    <a href="gallery/gallery68.jpg" data-lightbox="main-gallery" class="gallery-item">
+      <img src="gallery/gallery68.jpg" alt="">
+    </a>
+
+
+    <!-- если нужно ~100 фото, просто продолжай по этому же шаблону -->
+  </div>
+</main>
+
+<!-- Футер можно вставить тот же, что на главной (если хочешь, просто скопируй) -->
+<footer style="padding: 0; margin: 0;">
+  <div class="footer-content" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; padding:40px 20px 10px;">
+<div class="footer-links left" style="flex: 1; min-width: 200px;">
+  <h3>Материалдар</h3>
+  <div style="display: flex; gap: 150px;">
+    <ul style="list-style: none; padding: 0;">
+      <li><a href="bio.html">- Өмірбаяны</a></li>
+          <li><a href="books.html">- Кітаптар мен монографиялар</a></li>
+          <li><a href="awards.html">- Марапаттар</a></li>
+          <li><a href="maqalalar.html">- Мақалалар</a></li>
+        </ul>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="interview.html">- Сұхбаттар</a></li>
+          <li><a href="qolzhazbalar.html">- Қолжазбалар</a></li>
+          <li><a href="news.html">- Жаңалықтар</a></li>
+          <li><a href="dissertations.html">- Академик С.Қасқабасовтың ғылыми мектебі</a></li>
+        
+    </ul>
+  </div>
+</div>
+<div class="footer-gallery-block">
+   <div class="footer-gallery">
+    <a href="gallery/gallery1.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery1.jpg" alt=""></a>
+    <a href="gallery/gallery2.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery2.jpg" alt=""></a>
+    <a href="gallery/gallery3.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery3.jpg" alt=""></a>
+    <a href="gallery/gallery4.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery4.jpg" alt=""></a>
+    <a href="gallery/gallery5.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery5.jpg" alt=""></a>
+    <a href="gallery/gallery6.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery6.jpg" alt=""></a>
+  </div>
+
+  <div class="full-gallery-link">
+    <a href="gallery.html">→ Толық галереяны қарау </a>
+  </div>
+</div>
+
+
+    <div class="footer-contact" style="margin-top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 12px;">
+ <div class="contact-info" style="display: flex; gap: 20px;font-size: 1.3rem; color:#343c43;">
+        <span>📞 +7 777 877 8787</span>
+        <span>📧 seyt.kaskabasov@mail.kz</span>
+      </div>
+  </div>
+  </div>
+      
+   <div class="copyright" style="padding: 18px; text-align: center;">
+  © 2025 Сейіт Қасқабасовтың отбасы мен ұрпақтары
+</div>
+
+</footer>
+
+
+<!-- Скрипты -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="lightbox-plus-jquery.js"></script>
+
+<script>
+(() => {
+  const btn = document.querySelector('.menu-btn');
+  const panel = document.getElementById('offcanvas');
+  const backdrop = document.getElementById('offcanvas-backdrop');
+  if (!btn || !panel || !backdrop) return;
+
+  function openMenu(){
+    panel.classList.add('open');
+    backdrop.hidden = false;
+    document.body.style.overflow = 'hidden';
+    btn.setAttribute('aria-expanded','true');
+    panel.setAttribute('aria-hidden','false');
+  }
+  function closeMenu(){
+    panel.classList.remove('open');
+    backdrop.hidden = true;
+    document.body.style.overflow = '';
+    btn.setAttribute('aria-expanded','false');
+    panel.setAttribute('aria-hidden','true');
+  }
+
+  btn.addEventListener('click', () => {
+    panel.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  panel.querySelector('.offcanvas-close').addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+  window.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+})();
+</script>
+
+<script>
+  lightbox.option({
+    resizeDuration: 200,
+    wrapAround: true
+  });
+</script>
+
+</body>
+</html>
