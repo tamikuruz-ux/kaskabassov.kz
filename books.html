@@ -79,7 +79,7 @@
     .book-item:hover{ transform: translateY(-5px); }
     .book-item img{
       display:block;
-      width:100%; height:250px; object-fit:cover;
+      width:100%; height:auto; object-fit:contain;
       background:#f3f3f3;
     }
     .book-item p{
@@ -87,22 +87,109 @@
       font-weight:700; color:#252b30;
     }
     header p{ font-size:1.6rem; }
+
+/* Мобильная версия для экранов до 768px */
+@media (max-width: 768px) {
+
+  /* Адаптация контейнера */
+  .container {
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 0 15px;
+  }
+
+  /* Маленькие табы */
+  .books-tabs {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .books-tabs a {
+    padding: 6px 10px;
+  }
+
+  /* Заголовки секций */
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  /* Сетка карточек */
+  .book-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+  }
+
+
+  .book-item p {
+    font-size: 1rem;
+  }
+
+  header p {
+    font-size: 1.4rem;
+  }
+}
+
+/* Мобильная версия для экранов до 480px */
+@media (max-width: 480px) {
+
+  /* Адаптация контейнера */
+  .container {
+    max-width: 100%;
+    margin: 10px auto;
+    padding: 0 10px;
+  }
+
+  /* Маленькие табы */
+  .books-tabs {
+    gap: 8px;
+  }
+  .books-tabs a {
+    padding: 5px 8px;
+  }
+
+  /* Заголовки секций */
+  .section-title {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+
+  /* Сетка карточек */
+  .book-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+  }
+
+  .book-item p {
+    font-size: 0.9rem;
+  }
+
+  header p {
+    font-size: 1.2rem;
+  }
+}
+
   </style>
 </head>
 <body>
 
- <!-- Верхняя серая шапка -->
+<!-- Верхняя серая шапка -->
 <div class="header-top">
  <div class="signature-block">
-  <h1 class="site-title">Сейіт Қасқабасов</h1>
+<a href="index.html" class="logo-link">
+      <img src="images/logo.png" alt="Логотип С.А. Қасқабасов" class="logo-img">
+    </a>
+<a href="index.html" class="logo-link">
+  <img src="images/sign.png" alt="Сейіт Қасқабасов" class="signature-img">
+    </a>
 </div>
 
 
   <div class="header-actions">
     <div class="language-switcher" role="group" aria-label="Тіл таңдау">
-      <a href="index-kz.html" class="lang-btn active-lang">Қаз</a>
-      <a href="index-ru.html" class="lang-btn">Рус</a>
-      <a href="index-en.html" class="lang-btn">Eng</a>
+      <a href="books.html" class="lang-btn active-lang">Қаз</a>
+      <a href="books-ru.html" class="lang-btn">Рус</a>
+      <a href="books-en.html" class="lang-btn">Eng</a>
     </div>
 
     <button class="menu-btn" aria-controls="offcanvas" aria-expanded="false">
@@ -123,7 +210,7 @@
     <a href="maqalalar.html">Мақалалар</a>
     <a href="interview.html">Сұхбаттар</a>
     <a href="qolzhazbalar.html">Қолжазбалар</a>
-    <a href="comments.html">Пікірлер</a>
+    <a href="news.html">Жаңалықтар</a>
     <a href="dissertations.html">Академик С.Қасқабасовтың ғылыми мектебі</a>
     <a href="gallery.html">Галерея</a>
   </nav>
@@ -132,21 +219,19 @@
 <!-- Затемняющий фон под меню -->
 <div id="offcanvas-backdrop" class="offcanvas-backdrop" hidden></div>
 
-<header>
-  <div class="slideshow">
-    <img class="slide" src="images/show1.jpg" style="object-position:50% 30%" alt="">
-    <img class="slide" src="images/show2.jpg" alt="">
-    <img class="slide" src="images/show3.jpg" style="object-position:50% 30%" alt="">
-    <img class="slide" src="images/show4.jpg" style="object-position:50% 30%" alt="">
-    <img class="slide" src="images/show5.jpg" alt="">
-    <img class="slide" src="images/show6.jpg" alt="">
-    <img class="slide" src="images/show7.jpg" alt="">
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-overlay"></div>
 
-    <!-- ВОДЯНОЙ ЗНАК (подпись) -->
-    <img class="slideshow-watermark" src="signature.png" alt="">
+  <div class="header-content">
+    <h1 class="header-title">Кітаптар мен монографиялар</h1>
   </div>
+<nav class="breadcrumb">
+  <a href="index.html">Басты бет</a>
+  <span class="divider">|</span>
+  <a href="#" class="current-page">Кітаптар мен монографиялар</a>
+</nav>
 </header>
-   
 
   <!-- Контент -->
   <main class="container">
@@ -163,63 +248,119 @@
       <h2 class="section-title">Монографиялар</h2>
 
       <div class="book-grid">
-        <!-- Пример монографий -->
-        <a class="book-item" href="monograph1.html">
-          <img src="images/monograph1.jpg" alt="Монография 1">
-          <p>Қазақ эпосының поэтикасы</p>
-        </a>
-        <a class="book-item" href="monograph2.html">
-          <img src="images/monograph2.jpg" alt="Монография 2">
-          <p>Фольклор және дәстүр</p>
-        </a>
-        <a class="book-item" href="monograph3.html">
-          <img src="images/monograph3.jpg" alt="Монография 3">
-          <p>Миф пен эпос</p>
-        </a>
-        <a class="book-item" href="monograph4.html">
-          <img src="images/monograph4.jpg" alt="Монография 4">
-          <p>Қазақ халық прозасы</p>
-        </a>
-      </div>
-    </section>
 
-    <!-- Блок 2: Книги -->
-    <section id="books" class="book-section" style="display:none;">
-      <h2 class="section-title">Кітаптар</h2>
+    <!-- 1. Мировая фольклористика -->
+    <a class="book-item" href="monograph-mirovaya-folkloristika.html">
+      <img src="images/book1.jpg" alt="Мировая фольклористика">
+      <p>Мировая фольклористика</p>
+    </a>
 
-      <div class="book-grid">
-        <a class="book-item" href="book1.html">
-          <img src="images/book1.png" alt="Кітап 1">
-          <p>Қазақ эпосы</p>
-        </a>
-        <a class="book-item" href="book2.html">
-          <img src="https://via.placeholder.com/400x600?text=Кітап+2" alt="Кітап 2">
-          <p>Фольклор және әдебиет</p>
-        </a>
-        <a class="book-item" href="book3.html">
-          <img src="https://via.placeholder.com/400x600?text=Кітап+3" alt="Кітап 3">
-          <p>Жұмбақ әлем</p>
-        </a>
-        <a class="book-item" href="book4.html">
-          <img src="https://via.placeholder.com/400x600?text=Кітап+4" alt="Кітап 4">
-          <p>Ауыз әдебиеті</p>
-        </a>
-        <a class="book-item" href="book5.html">
-          <img src="https://via.placeholder.com/400x600?text=Кітап+5" alt="Кітап 5">
-          <p>Ертегілер әлемі</p>
-        </a>
-        <a class="book-item" href="book6.html"><img src="https://via.placeholder.com/200x300?text=Кітап+6"><p>Қазақ мәдениеті</p></a>
-        <a class="book-item" href="book7.html"><img src="https://via.placeholder.com/200x300?text=Кітап+7"><p>Миф және шежіре</p></a>
-        <a class="book-item" href="book8.html"><img src="https://via.placeholder.com/200x300?text=Кітап+8"><p>Тарихи фольклор</p></a>
-        <a class="book-item" href="book9.html"><img src="https://via.placeholder.com/200x300?text=Кітап+9"><p>Қазақтың батырлық жырлары</p></a>
-        <a class="book-item" href="book10.html"><img src="https://via.placeholder.com/200x300?text=Кітап+10"><p>Салт-дәстүр</p></a>
-        <a class="book-item" href="book11.html"><img src="https://via.placeholder.com/200x300?text=Кітап+11"><p>Таным мен тағылым</p></a>
-        <a class="book-item" href="book12.html"><img src="https://via.placeholder.com/200x300?text=Кітап+12"><p>Аңыздар жиынтығы</p></a>
-        <a class="book-item" href="book13.html"><img src="https://via.placeholder.com/200x300?text=Кітап+13"><p>Фольклор шежіресі</p></a>
-        <a class="book-item" href="book14.html"><img src="https://via.placeholder.com/200x300?text=Кітап+14"><p>Қазақ сөзі</p></a>
-        <a class="book-item" href="book15.html"><img src="https://via.placeholder.com/200x300?text=Кітап+15"><p>Ғылыми мұралар</p></a>
-      </div>
-    </section>
+    <!-- 2. Жылқышылық? (Нет – книга. Пропускаем) -->
+
+    <!-- 2. Ой-сана — НЕ монография. Пропускаем -->
+
+    <!-- 3. Живая вода бытия -->
+    <a class="book-item" href="monograph-zhivaya-voda.html">
+      <img src="images/book4.jpg" alt="Живая вода бытия">
+      <p>Живая вода бытия</p>
+    </a>
+
+    <!-- 4. Казахская несказочная проза -->
+    <a class="book-item" href="monograph-neskaz-proza.html">
+      <img src="images/book5.jpg" alt="Казахская несказочная проза">
+      <p>Казахская несказочная проза</p>
+    </a>
+
+    <!-- 5. Если есть Золотая жилы монография — НЕТ. Это книга -->
+
+    <!-- 6. Казактын халык прозасы -->
+    <a class="book-item" href="monograph-khalyk-prozasy.html">
+      <img src="images/book8.jpg" alt="Казактын халык прозасы">
+      <p>Қазақтың халық прозасы</p>
+    </a>
+
+    <!-- 7. The Cradle of Creativity — КНИГА, не монография -->
+
+    <!-- 8. Золотая жила — книга -->
+
+    <!-- 9. Абай (монографическое исследование) -->
+    <a class="book-item" href="monograph-abai.html">
+      <img src="images/book11.jpg" alt="Абай">
+      <p>Абай</p>
+    </a>
+
+  </div>
+</section>
+
+   <!-- Блок 2: Книги -->
+<section id="books" class="book-section" style="display:none;">
+  <h2 class="section-title">Кітаптар</h2>
+
+  <div class="book-grid">
+
+    <!-- 1. Жылқышылық (вторая картинка в списке) -->
+    <a class="book-item">
+      <img src="images/book2.jpg" alt="Жаназық">
+      <p>Жаназық</p>
+    </a>
+
+    <!-- 2. Ой-сана -->
+    <a class="book-item" href="book-oi-sana.html">
+      <img src="images/book3.jpg" alt="Ой-сана">
+      <p>Ой-сана. Суждения</p>
+    </a>
+
+    <!-- 3. Золотая жила (версия с всадницей) -->
+    <a class="book-item">
+      <img src="images/book7.jpg" alt="Алтын жылға">
+      <p>Алтын жылға</p>
+    </a>
+
+    <!-- 4. Алтын жыла -->
+    <a class="book-item">
+      <img src="images/book6.jpg" alt="Золотая жила">
+      <p>Золотая Жила</p>
+    </a>
+
+    <!-- 5. The Cradle of Creativity -->
+    <a class="book-item">
+      <img src="images/book9.jpg" alt="The Cradle of Creativity">
+      <p>The Cradle of Creativity</p>
+    </a>
+
+    <!-- 6. Золотая жила (вторая версия) -->
+    <a class="book-item" >
+      <img src="images/book10.jpg" alt="Золотая жила 2">
+      <p>Золотая жила 2</p>
+    </a>
+
+    <!-- 7. Таңдамалы -->
+    <a class="book-item">
+      <img src="images/book12.jpg" alt="Таңдамалы">
+      <p>Таңдамалы</p>
+    </a>
+
+    <!-- 8. Елзерде -->
+    <a class="book-item">
+      <img src="images/book13.jpg" alt="Елзерде">
+      <p>Елзерде</p>
+    </a>
+
+    <!-- 9. Ойөріс -->
+    <a class="book-item">
+      <img src="images/book14.jpg" alt="Ойөріс">
+      <p>Ойөріс</p>
+    </a>
+
+    <!-- 10. Заман және руханият -->
+    <a class="book-item" href="book-zaman.html">
+      <img src="images/book15.jpg" alt="Заман және руханият">
+      <p>Заман және руханият</p>
+    </a>
+
+  </div>
+</section>
+
   </main>
 
   <!-- Скрипт для переключателя вкладок -->
@@ -253,20 +394,20 @@
         <ul style="list-style: none; padding: 0;">
           <li><a href="interview.html">- Сұхбаттар</a></li>
           <li><a href="qolzhazbalar.html">- Қолжазбалар</a></li>
-          <li><a href="comments.html">- Пікірлер</a></li>
+          <li><a href="news.html">- Жаңалықтар</a></li>
           <li><a href="dissertations.html">- Академик С.Қасқабасовтың ғылыми мектебі</a></li>
         
     </ul>
   </div>
 </div>
 <div class="footer-gallery-block">
-  <div class="footer-gallery">
-    <a href="images/gallery1.jpg" data-lightbox="footer-gallery"><img src="images/gallery1.jpg" alt=""></a>
-    <a href="images/gallery2.jpg" data-lightbox="footer-gallery"><img src="images/gallery2.jpg" alt=""></a>
-    <a href="images/gallery3.jpg" data-lightbox="footer-gallery"><img src="images/gallery3.jpg" alt=""></a>
-    <a href="images/gallery4.jpg" data-lightbox="footer-gallery"><img src="images/gallery4.jpg" alt=""></a>
-    <a href="images/gallery5.jpg" data-lightbox="footer-gallery"><img src="images/gallery5.jpg" alt=""></a>
-    <a href="images/gallery6.jpg" data-lightbox="footer-gallery"><img src="images/gallery6.jpg" alt=""></a>
+   <div class="footer-gallery">
+    <a href="gallery/gallery1.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery1.jpg" alt=""></a>
+    <a href="gallery/gallery2.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery2.jpg" alt=""></a>
+    <a href="gallery/gallery3.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery3.jpg" alt=""></a>
+    <a href="gallery/gallery4.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery4.jpg" alt=""></a>
+    <a href="gallery/gallery5.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery5.jpg" alt=""></a>
+    <a href="gallery/gallery6.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery6.jpg" alt=""></a>
   </div>
 
   <div class="full-gallery-link">
@@ -280,7 +421,6 @@
         <span>📞 +7 777 877 8787</span>
         <span>📧 seyt.kaskabasov@mail.kz</span>
       </div>
-      <button class="order-btn" style=" border: none; padding: 10px 20px; color:#343c43; cursor: pointer;">Кітапқа тапсырыс</button>
     </div>
   </div>
       
