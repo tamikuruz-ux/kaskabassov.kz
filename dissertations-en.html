@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic School of Academician S. Kaskabasov</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="lightbox.css">
+  <link rel="stylesheet" href="http://fonts-online.ru/fonts/karsten/stylesheet.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="lightbox-plus-jquery.js"></script>
+
+  <style>
+    .wrap { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+    .page-title { font-size: 2.4rem; color: #252b30; font-weight: 800; margin: 0 0 20px; }
+    .intro-text { font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 20px; }
+    .section-title { font-size: 1.8rem; color: #252b30; margin-bottom: 15px; border-bottom: 2px solid #ccc; padding-bottom: 5px; }
+
+    .dissertation-list { list-style-type: none; padding: 0; }
+    .dissertation-item {
+      background: #ffffff;
+      border: 1px solid #e2e4de;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.2s ease;
+    }
+    .dissertation-item:hover {
+      transform: translateY(-3px);
+      border-color: #cfd5ce;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
+    }
+    .dissertation-item h2 { margin: 0 0 0.4rem; font-size: 1.25rem; }
+    .dissertation-item p { margin: 5px 0 10px; font-size: 1.1rem; color: #515e6a; }
+
+    @media (max-width: 768px) {
+      .wrap { padding: 0 10px; }
+      .page-title { font-size: 2rem; }
+      .intro-text { font-size: 1rem; }
+      .dissertation-item { padding: 15px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="header-top">
+  <div class="signature-block">
+    <a href="index-en.html" class="logo-link">
+      <img src="images/logo.png" alt="S.A. Kaskabasov logo" class="logo-img">
+    </a>
+    <a href="index-en.html" class="logo-link">
+      <img src="images/sign.png" alt="Seit Kaskabasov" class="signature-img">
+    </a>
+  </div>
+
+  <div class="header-actions">
+    <div class="language-switcher" role="group" aria-label="Language selection">
+      <a href="dissertations.html" class="lang-btn">Қаз</a>
+      <a href="dissertations-ru.html" class="lang-btn">Рус</a>
+      <a href="dissertations-en.html" class="lang-btn active-lang">Eng</a>
+    </div>
+
+    <button class="menu-btn" aria-controls="offcanvas" aria-expanded="false">
+      <span class="menu-icon"></span> Menu
+    </button>
+  </div>
+</div>
+
+<aside id="offcanvas" class="offcanvas" aria-hidden="true">
+  <button class="offcanvas-close" aria-label="Close menu">×</button>
+
+  <nav class="offcanvas-nav" role="navigation" aria-label="Main menu">
+    <a href="index.html">Home</a>
+    <a href="bio-en.html">Biography</a>
+    <a href="books-en.html">Books & Monographs</a>
+    <a href="awards-en.html">Awards</a>
+    <a href="maqalalar-en.html">Articles</a>
+    <a href="interview-en.html">Interviews</a>
+    <a href="qolzhazbalar-en.html">Manuscripts</a>
+    <a href="news-en.html">News</a>
+    <a href="dissertations-en.html">Academic School of S. Kaskabasov</a>
+    <a href="gallery-en.html">Gallery</a>
+  </nav>
+</aside>
+
+<div id="offcanvas-backdrop" class="offcanvas-backdrop" hidden></div>
+
+<header class="site-header">
+  <div class="header-overlay"></div>
+  <div class="header-content">
+    <h1 class="header-title">Academic School of Academician S. Kaskabasov</h1>
+  </div>
+
+  <nav class="breadcrumb">
+    <a href="index-en.html">Home</a>
+    <span class="divider">|</span>
+    <a href="#" class="current-page">Academic School</a>
+  </nav>
+</header>
+
+<main class="container">
+  <div class="intro-text">
+    <p>
+      Seit Kaskabasov’s academic school is remarkably extensive. Under his supervision, nearly twenty-five to around thirty PhD and Candidate of Science researchers were trained. Seit Askaruly produced numerous studies in folklore and literary scholarship. In total, he authored close to four hundred academic works, including twenty-two publications released under his direct authorship.
+      <br><br>
+      The 100-volume collection “Babalar sözi”, published within the national program “Mäдени мұра” (“Cultural Heritage”), as well as a twenty-volume set of works, demonstrate that Kaskabasov was not only a scholar but also a major organizer of academic life. In folklore studies, literary studies, and broadly in the humanities, as well as in shaping higher education and science in independent Kazakhstan, Seit Askaruly is considered one of the leading figures. His mentoring style was distinctive: he would not “show the way” step by step, but only indicate the direction—encouraging students to reach conclusions on their own, even when he already knew the outcome.
+    </p>
+  </div>
+
+  <h3 class="section-title">Doctoral Dissertations</h3>
+  <ul class="dissertation-list">
+    <li class="dissertation-item"><h2>Seidimbek A. — Kazakh kui legends (structure and genre features)</h2><p>Date: 1997</p></li>
+    <li class="dissertation-item"><h2>Azibaeva B.U. — Kazakh dastan epic</h2><p>Date: 1999</p></li>
+    <li class="dissertation-item"><h2>Kerim Sh. — The riddle genre in Kazakh folklore</h2><p>Date: 2000</p></li>
+    <li class="dissertation-item"><h2>Krivoshchapova T.V. — Russian literary fairy tale of the late 19th–early 20th century (genre evolution)</h2><p>Date: 2003</p></li>
+    <li class="dissertation-item"><h2>Matyzhanov K.I. — Kazakh family ritual folklore</h2><p>Date: 2004</p></li>
+    <li class="dissertation-item"><h2>Buzaubagarova K.S. — Epic artistic image in the aesthetics of identity (based on Kazakh heroic epic)</h2><p>Date: 2004</p></li>
+    <li class="dissertation-item"><h2>Vlasova G.I. — Ritual folklore of Eastern Slavs in the context of festive culture (20th-century recordings in Kazakhstan)</h2><p>Date: 2005</p></li>
+    <li class="dissertation-item"><h2>Zhusipov N.Q. — Kazakh folklore studies in the first half of the 20th century</h2><p>Date: 2005</p></li>
+    <li class="dissertation-item"><h2>Orazbek M. — The relationship between the creative persona and authorial position in fiction (literature of 1980–2000)</h2><p>Date: 2007</p></li>
+    <li class="dissertation-item"><h2>Abdrakhmanov A.S. — Theory and poetics of verse translation</h2><p>Date: 2007</p></li>
+    <li class="dissertation-item"><h2>Absadykov A. — Legends about historical events of the 15th–18th centuries: historicity, genesis, typology</h2><p>Date: 2009</p></li>
+    <li class="dissertation-item"><h2>Almukhanova R.T. — Typology of Kazakh folklore and classical antiquity literature</h2><p>Date: 2010</p></li>
+    <li class="dissertation-item"><h2>Pangereev A.Sh. — Kazakh toponymic folklore</h2><p>Date: 2010</p></li>
+  </ul>
+
+  <h3 class="section-title">Candidate Dissertations</h3>
+  <ul class="dissertation-list">
+    <li class="dissertation-item"><h2>Matyzhanov K.I. — Kazakh folklore children’s poetry</h2><p>Date: 1990</p></li>
+    <li class="dissertation-item"><h2>Kerim Sh.T. — Tradition and individuality in singer-poets’ poetry (late 19th–early 20th century)</h2><p>Date: 1991</p></li>
+    <li class="dissertation-item"><h2>Iskakova Z.Sh. — Kazakh heroic fairy tale</h2><p>Date: 1995</p></li>
+    <li class="dissertation-item"><h2>Gabdullina A.A. — Historical songs and legends about Kabanbai Batyr</h2><p>Date: 1995</p></li>
+    <li class="dissertation-item"><h2>Magauin E.M. — Historicity and artistic features of the “Edige” epic</h2><p>Date: 1995</p></li>
+    <li class="dissertation-item"><h2>Alpysbaeva Q.B. — Ch. Valikhanov as a folklore scholar</h2><p>Date: 1998</p></li>
+    <li class="dissertation-item"><h2>Zhusipov N.Q. — M. Zhusip Kopeuly’s folklore legacy</h2><p>Date: 1998</p></li>
+    <li class="dissertation-item"><h2>Absadykov A. — Legends about Ablai Khan</h2><p>Date: 1998</p></li>
+    <li class="dissertation-item"><h2>Abdrakhmanov S. — The place of A.S. Pushkin’s “Eugene Onegin” in Kazakh literary and folklore tradition</h2><p>Date: 1999</p></li>
+    <li class="dissertation-item"><h2>Aimukhambetova Zh.A. — Mythologism in Oralhan Bokey’s prose</h2><p>Date: 1999</p></li>
+    <li class="dissertation-item"><h2>Äuesbaeva P.T. — The narrative genre in Kazakh folklore</h2><p>Date: 1999</p></li>
+    <li class="dissertation-item"><h2>Kelgembaeva B. — Legends of East Kazakhstan region</h2><p>Date: 2000</p></li>
+    <li class="dissertation-item"><h2>Ospanova B. — Magical genres of Kazakh folklore</h2><p>Date: 2002</p></li>
+    <li class="dissertation-item"><h2>Äbjet B. — Indo-Iranian motifs in Kazakh fairy tales</h2><p>Date: 2002</p></li>
+    <li class="dissertation-item"><h2>Älbekov T. — The poetic heritage of Qulanayan Qulmambet</h2><p>Date: 2002</p></li>
+    <li class="dissertation-item"><h2>Beiseev A. — Kazakh animal tales</h2><p>Date: 2003</p></li>
+    <li class="dissertation-item"><h2>Tuleubaeva E. — “One Thousand and One Nights” in Kazakh folklore tradition (based on Kazakh fairy-tale epic)</h2><p>Date: 2004</p></li>
+    <li class="dissertation-item"><h2>Kusaiynov Sh.K. — Hagiography in Kazakh folklore</h2><p>Date: 2004</p></li>
+    <li class="dissertation-item"><h2>Bultbaeva A. — Performance features of Kazakh love epics</h2><p>Date: 2007</p></li>
+    <li class="dissertation-item"><h2>Mukataeva Q. — The scholarly legacy of Ysqaq Duisenbaev</h2><p>Date: 2007</p></li>
+    <li class="dissertation-item"><h2>Shainova G.B. — Folklore and mythology in the works of R. Seisenbaev</h2><p>Date: 2007</p></li>
+    <li class="dissertation-item"><h2>Toishanuly A. — Typology of Kazakh and Mongolian mythology</h2><p>Date: 2008</p></li>
+
+    <li class="dissertation-item"><h2>Ashenova A.T. — Kazakh folklore studies in the 1920s–1930s</h2><p>Date: 2010</p></li>
+    <li class="dissertation-item"><h2>Ashenova A.T. — Kazakh folklore studies in the 1920s–1930s</h2><p>Date: 2010</p></li>
+
+    <li class="dissertation-item"><h2>Baikadamova G.Q. — A.E. Alektorov as a publisher and researcher of Kazakh spiritual heritage</h2><p>Date: 2010</p></li>
+    <li class="dissertation-item"><h2>Kassimova Z.M. — Wedding ritual songs of Turkic-speaking peoples (comparative typological study)</h2><p>Date: 2010</p></li>
+    <li class="dissertation-item"><h2>Öten A.Zh. — The literary творчество of Kenen Äzirbaev</h2><p>Date: 2010</p></li>
+  </ul>
+
+</main>
+
+<footer style="padding: 0; margin: 0;">
+  <div class="footer-content" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; padding:40px 20px 10px;">
+    <div class="footer-links left" style="flex: 1; min-width: 200px;">
+      <h3>Materials</h3>
+      <div style="display: flex; gap: 150px;">
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="bio-en.html">- Biography</a></li>
+          <li><a href="books-en.html">- Books & Monographs</a></li>
+          <li><a href="awards-en.html">- Awards</a></li>
+          <li><a href="maqalalar-en.html">- Articles</a></li>
+        </ul>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="interview-en.html">- Interviews</a></li>
+          <li><a href="qolzhazbalar-en.html">- Manuscripts</a></li>
+          <li><a href="news-en.html">- News</a></li>
+          <li><a href="dissertations-en.html">- Academic School</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-gallery-block">
+      <div class="footer-gallery">
+        <a href="gallery/gallery1.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery1.jpg" alt=""></a>
+        <a href="gallery/gallery2.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery2.jpg" alt=""></a>
+        <a href="gallery/gallery3.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery3.jpg" alt=""></a>
+        <a href="gallery/gallery4.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery4.jpg" alt=""></a>
+        <a href="gallery/gallery5.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery5.jpg" alt=""></a>
+        <a href="gallery/gallery6.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery6.jpg" alt=""></a>
+      </div>
+      <div class="full-gallery-link">
+        <a href="gallery-en.html">→ View full gallery</a>
+      </div>
+    </div>
+
+    <div class="footer-contact" style="margin-top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 12px;">
+      <div class="contact-info" style="display: flex; gap: 20px;font-size: 1.3rem; color:#343c43;">
+        <span>📞 +7 777 877 8787</span>
+        <span>📧 seyt.kaskabasov@mail.kz</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="copyright" style="padding: 18px; text-align: center;">
+    © 2025 The family and descendants of Seit Kaskabasov
+  </div>
+</footer>
+
+<script>
+  lightbox.option({ resizeDuration: 200, wrapAround: true });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+(() => {
+  const btn = document.querySelector('.menu-btn');
+  const panel = document.getElementById('offcanvas');
+  const backdrop = document.getElementById('offcanvas-backdrop');
+  if (!btn || !panel || !backdrop) return;
+
+  function openMenu(){
+    panel.classList.add('open');
+    backdrop.hidden = false;
+    document.body.style.overflow = 'hidden';
+    btn.setAttribute('aria-expanded','true');
+    panel.setAttribute('aria-hidden','false');
+  }
+  function closeMenu(){
+    panel.classList.remove('open');
+    backdrop.hidden = true;
+    document.body.style.overflow = '';
+    btn.setAttribute('aria-expanded','false');
+    panel.setAttribute('aria-hidden','true');
+  }
+
+  btn.addEventListener('click', () => panel.classList.contains('open') ? closeMenu() : openMenu());
+  panel.querySelector('.offcanvas-close').addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+  window.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+})();
+</script>
+
+</body>
+</html>
