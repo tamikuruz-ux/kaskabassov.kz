@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Академик С.Қасқабасовтың ғылыми мектебі</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="lightbox.css">
+  <link rel="stylesheet" href="http://fonts-online.ru/fonts/karsten/stylesheet.css">
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- jQuery (CDN — если нет локального подключения) -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+<!-- Lightbox JS -->
+<script src="lightbox-plus-jquery.js"></script>
+  <style>
+    /* Общий стиль для страницы */
+
+    .wrap {
+      max-width: 1200px; /* Ограничение ширины */
+      margin: 40px auto; /* Центрируем контейнер */
+      padding: 0 20px; /* Добавляем отступы по бокам */
+    }
+
+    /* Стили для страницы */
+    .page-title {
+      font-size: 2.4rem;
+      color: #252b30;
+      font-weight: 800;
+      margin: 0 0 20px;
+    }
+
+    /* Стили для текста в разделе */
+    .intro-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    /* Заголовки разделов */
+    .section-title {
+      font-size: 1.8rem;
+      color: #252b30;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+    }
+
+    /* Стили для списка диссертаций */
+    .dissertation-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .dissertation-item {
+      background: #ffffff;
+      border: 1px solid #e2e4de;
+      border-radius: 12px; /* Скругленные углы */
+      margin-bottom: 15px;
+      padding: 20px; /* Увеличен отступ */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Больше тени для эффекта */
+      transition: all 0.2s ease;
+    }
+
+    .dissertation-item:hover {
+      transform: translateY(-3px); /* Эффект подъема */
+      border-color: #cfd5ce;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1); /* Тень при наведении */
+    }
+
+ .dissertation-item h2 {
+ margin: 0 0 0.4rem;
+  font-size: 1.25rem;
+
+}
+
+
+    .dissertation-item p {
+      margin: 5px 0 10px;
+      font-size: 1.1rem; /* Увеличен размер шрифта */
+      color: #515e6a;
+    }
+
+    /* Мобильная версия */
+    @media (max-width: 768px) {
+      .wrap {
+        padding: 0 10px;
+      }
+      .page-title {
+        font-size: 2rem;
+      }
+      .intro-text {
+        font-size: 1rem;
+      }
+      .dissertation-item {
+        padding: 15px; /* Уменьшаем отступ на мобильных */
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="header-top">
+ <div class="signature-block">
+ <a href="index.html" class="logo-link">
+      <img src="images/logo.png" alt="Логотип С.А. Қасқабасов" class="logo-img">
+    </a>
+<a href="index.html" class="logo-link">
+  <img src="images/sign.png" alt="Сейіт Қасқабасов" class="signature-img">
+    </a>
+</div>
+
+
+  <div class="header-actions">
+    <div class="language-switcher" role="group" aria-label="Тіл таңдау">
+      <a href="dissertations.html" class="lang-btn active-lang">Қаз</a>
+      <a href="dissertations-ru.html" class="lang-btn">Рус</a>
+      <a href="dissertations-en.html" class="lang-btn">Eng</a>
+    </div>
+
+    <button class="menu-btn" aria-controls="offcanvas" aria-expanded="false">
+      <span class="menu-icon"></span> Меню
+    </button>
+  </div>
+</div>
+
+<!-- Выезжающее меню -->
+<aside id="offcanvas" class="offcanvas" aria-hidden="true">
+  <button class="offcanvas-close" aria-label="Закрыть меню">×</button>
+
+  <nav class="offcanvas-nav" role="navigation" aria-label="Основное меню">
+    <a href="index.html">Басты бет</a>
+    <a href="bio.html">Өмірбаяны</a>
+    <a href="books.html">Кітаптар мен монографиялар</a>
+    <a href="awards.html">Марапаттар</a>
+    <a href="maqalalar.html">Мақалалар</a>
+    <a href="interview.html">Сұхбаттар</a>
+    <a href="qolzhazbalar.html">Қолжазбалар</a>
+    <a href="news.html">Жаңалықтар</a>
+    <a href="dissertations.html">Академик С.Қасқабасовтың ғылыми мектебі</a>
+    <a href="gallery.html">Галерея</a>
+  </nav>
+</aside>
+
+<!-- Затемняющий фон под меню -->
+<div id="offcanvas-backdrop" class="offcanvas-backdrop" hidden></div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-overlay"></div>
+
+  <div class="header-content">
+    <h1 class="header-title">Академик С.Қасқабасовтың ғылыми мектебі</h1>
+  </div>
+<nav class="breadcrumb">
+  <a href="index.html">Басты бет</a>
+  <span class="divider">|</span>
+  <a href="#" class="current-page">Академик С.Қасқабасовтың ғылыми мектебі</a>
+</nav>
+</header>
+   
+  <main class="container">
+
+    <div class="intro-text">
+      <p>
+        Сейіт Қасқабасовтың ғылыми мектебі өте ауқымды. Ол жиырма беске жуық, отызға тарта ғылым докторлары мен ғылым кандидаттарын даярлаған. Сейіт Асқарұлы фольклористика және әдебиеттану бағыттары бойынша көптеген ғылыми-зерттеу еңбектер жазды. Жалпы, оның төрт жүзге жуық ғылыми еңбегі бар, соның ішінде жиырма екі еңбек тікелей ағайдың өз авторлығымен шыққан екен. Сонымен қатар мемлекеттік деңгейдегі «Мәдени мұра» бағдарламасы бойынша жарық көрген «Бабалар сөзі» атты жүз томдық классикалық әдеби жәдігерлер жинағы, сондай-ақ жиырма томдық еңбектер Қасқабасовтың тек қана ғылыммен айналысқан емес, ғылымды ұйымдастырушы үлкен тұлға екенін көрсетеді.
+
+Фольклор саласында да, әдебиеттану саласында да, жалпы қоғамдық ғылымдарда, тәуелсіз Қазақстанның жоғары білім мен ғылымын ұйымдастыру ісінде Сейіт Асқарұлы – ірі өкілдердің бірі деп білеміз. Оның тақырып берудегі, шәкіртпен жұмыс жасаудағы ерекшелігі – негізгі нәтижеге жеткенше жолды өзі көрсетпей, тек бағытты меңзеумен шектелетінінде. Қорытындыны өзі біліп тұрса да, шәкірттің өздігінен жетуін қалайтын.
+      </p>
+    </div>
+
+ 
+<h3 class="section-title">Докторлық диссертациялар</h3>
+<ul class="dissertation-list">
+
+<li class="dissertation-item">
+  <h2>Сейдімбек А. — Қазақтың күй аңыздары (құрылымы және жанрлық ерекшеліктері)</h2>
+  <p>Дата: 1997</p>
+</li>
+
+<li class="dissertation-item">
+  <h2>Азибаева Б.У. — Казахский дастанный эпос</h2>
+  <p>Дата: 1999</p>
+</li>
+
+<li class="dissertation-item">
+  <h2>Керім Ш. — Қазақ фольклорындағы жұмбақ жанры</h2>
+  <p>Дата: 2000</p>
+</li>
+
+<li class="dissertation-item">
+  <h2>Кривощапова Т.В. — Русская литературная сказка конца XIX – начала XX века (эволюция жанра)</h2>
+  <p>Дата: 2003</p>
+</li>
+
+<li class="dissertation-item">
+  <h2>Матыжанов К.І. — Қазақтың отбасылық ғұрыптық фольклоры</h2>
+  <p>Дата: 2004</p>
+</li>
+
+<li class="dissertation-item">
+  <h2>Бузаубагарова К.С. — Эпический художественный образ в аспекте эстетики тождества (на материале казахского героического эпоса)</h2>
+  <p>Дата: 2004</p>
+</li>
+
+<li class="dissertation-item">
+  <h2>Власова Г.И. — Обрядовый фольклор восточных славян в контексте праздничной культуры (на материале записей XX века в Казахстане)</h2>
+  <p>Дата: 2005</p>
+</li>
+
+<li class="dissertation-item">
+  <h2>Жүсіпов Н.Қ. — XX ғасырдың бірінші жартысындағы қазақ фольклортану ғылымы</h2>
+  <p>Дата: 2005</p>
+</li>
+
+<li class="dissertation-item">
+  <h2>Оразбек М. — Көркем прозадағы шығармашылық тұлға мен авторлық позицияның арақатынасы (1980-2000 жж. әдебиеті бойынша)</h2>
+  <p>Дата: 2007</p>
+</li>
+
+<li class="dissertation-item">
+  <h2>Абдрахманов А.С. — Өлең аудармасының теориясы мен поэтикасы</h2>
+  <p>Дата: 2007</p>
+</li>
+
+<li class="dissertation-item">
+  <h2>Абсадықов А. — XV–XVIII ғасырлардағы тарихи оқиғалар туралы аңыздар: тарихилығы, генезисі, типологиясы</h2>
+  <p>Дата: 2009</p>
+</li>
+<li class="dissertation-item">
+  <h2>Әлмұханова Р.Т. — Қазақ фольклоры мен антика әдебиетінің типологиясы</h2>
+  <p>Дата: 2010</p>
+<li class="dissertation-item">
+  <h2>Пангереев А.Ш. — Қазақтың топонимдік фольклоры</h2>
+  <p>Дата: 2010</p>
+</li>
+</li>
+
+</ul>
+
+     <h3 class="section-title">Кандидаттық диссертациялар</h3>
+    <ul class="dissertation-list">
+      <li class="dissertation-item">
+        <h2>Матыжанов К.І. — Қазақтың фольклорлық балалар поэзиясы</h2>
+        <p>Дата: 1990</p>
+      </li>
+      <li class="dissertation-item">
+        <h2>Керім Ш.Т. — Әнші-ақындар поэзиясындағы дәстүр мен даралық мәселесі.XIX ғасырдың екінші жартысы мен XX ғасырдың басы</h2>
+        <p>Дата: 1991</p>
+      </li>
+      <li class="dissertation-item">
+        <h2>Искакова З.Ш. — Казахская богатырская сказка</h2>
+        <p>Дата: 1995</p>
+      </li>
+     <li class="dissertation-item">
+        <h2>Ғабдуллина А.А. —  Қабанбай батыр туралы тарихи жырлар мен аңыздар</h2>
+        <p>Дата: 1995</p>
+      </li>
+      <li class="dissertation-item">
+        <h2>Мағауин Е.М. — «Едіге» жырының тарихилығы және көркемдік ерекшеліктері</h2>
+        <p>Дата: 1995</p>
+      </li>
+      <li class="dissertation-item">
+        <h2>Алпысбаева Қ.Б. — Ш.Уәлиханов – фольклортанушы</h2>
+        <p>Дата: 1998</p>
+      </li>
+      <li class="dissertation-item">
+        <h2>Жүсіпов Н.Қ. — Мәшһүр Жүсіп Көпейұлының фольклорлық еңбегі</h2>
+        <p>Дата: 1998</p>
+      </li>
+      <li class="dissertation-item">
+        <h2>Әбсадықов А. — Абылай туралы аңыздар</h2>
+        <p>Дата: 1998</p>
+      </li>
+      <li class="dissertation-item">
+        <h2>Абдрахманов С. — А.С. Пушкиннің «Евгений Онегин» романының қазақ әдеби және фольклорлық дәстүріндегі орны</h2>
+        <p>Дата: 1999</p>
+      </li>
+      <li class="dissertation-item">
+        <h2>Аймұхамбетова Ж.Ә. — Оралхан Бөкей прозасындағы мифологизм мәселесі</h2>
+        <p>Дата: 1999</p>
+      </li>
+      <li class="dissertation-item">
+        <h2>Әуесбаева П.Т. — Қазақ фольклорындағы әңгіме жанры</h2>
+        <p>Дата: 1999</p>
+      </li>
+      <li class="dissertation-item">
+        <h2>Келгембаева Б. — Шығыс Қазақстан өңірі әпсаналары</h2>
+        <p>Дата: 2000</p>
+      </li>
+      <li class="dissertation-item">
+        <h2>Оспанова Б. — Магические жанры казахского фольклора</h2>
+        <p>Дата: 2002</p>
+      </li>
+      <li class="dissertation-item">
+        <h2>Әбжет Б. — Қазақ ертегілеріндегі үнді-иран мотивтері</h2>
+        <p>Дата: 2002</p>
+      </li>
+      <li class="dissertation-item">
+        <h2>Әлбеков Т. — Құланаян Құлмамбеттің ақындық мұрасы</h2>
+        <p>Дата: 2002</p>
+      </li>
+      <li class="dissertation-item">
+        <h2>Бейсеев А. — Қазахские сказки о животных</h2>
+        <p>Дата: 2003</p>
+      </li>
+      <li class="dissertation-item">
+        <h2>Тулеубаева Е. — «Тысяча и одна ночь» в казахской фольклорной традиции на примере казахского сказочного эпоса</h2>
+        <p>Дата: 2004</p>
+      </li>
+      <li class="dissertation-item">
+        <h2>Кусаиынов Ш.К. — Агиография в казахском фольклоре</h2>
+        <p>Дата: 2004</p>
+      </li>
+      <li class="dissertation-item">
+        <h2>Бұлтбаева А. — Қазақ ғашықтық жырларының орындалу ерекшеліктері</h2>
+        <p>Дата: 2007</p>
+      </li>
+      <li class="dissertation-item">
+        <h2>Мұқатаева Қ. — Ысқақ Дүйсенбаевтың ғылыми мұрасы</h2>
+        <p>Дата: 2007</p>
+      </li>
+      <li class="dissertation-item">
+        <h2>Шаинова Г.Б. — Фольклорно-мифологическое в творчестве Р.Сейсенбаева</h2>
+        <p>Дата: 2007</p>
+      </li>
+      <li class="dissertation-item">
+        <h2>Тойшанұлы А. — Қазақ пен моңғол мифологиясының типологиясы</h2>
+        <p>Дата: 2008</p>
+      </li>
+<li class="dissertation-item">
+        <h2>Ашенова А.Т.  — 1920-30 жылдарғы қазақ фольклортану ғылымы</h2>
+        <p>Дата: 2010</p>
+      </li>
+<li class="dissertation-item">
+        <h2>Ашенова А.Т.  — 1920-30 жылдарғы қазақ фольклортану ғылымы</h2>
+        <p>Дата: 2010</p>
+      </li>
+<li class="dissertation-item">
+        <h2>Байқадамова Г.Қ.  — А.Е. Алекторов - қазақ рухани мұрасын жариялаушы және зерттеуші</h2>
+        <p>Дата: 2010</p>
+      </li>
+<li class="dissertation-item">
+        <h2>Касимова З.М.  — Түркітілдес халықтардың үйлену салт әндері (салыстырмалы-типологиялық зерттеу)</h2>
+        <p>Дата: 2010</p>
+      </li>
+<li class="dissertation-item">
+        <h2>Өтен А.Ж  — Кенен Әзірбаевтың әдеби шығармашылығы</h2>
+        <p>Дата: 2010</p>
+      </li>
+
+    </ul>
+
+  </div>
+</main>
+
+
+    <footer style="padding: 0; margin: 0;">
+  <div class="footer-content" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; padding:40px 20px 10px;">
+<div class="footer-links left" style="flex: 1; min-width: 200px;">
+  <h3>Материалдар</h3>
+  <div style="display: flex; gap: 150px;">
+    <ul style="list-style: none; padding: 0;">
+      <li><a href="bio.html">- Өмірбаяны</a></li>
+          <li><a href="books.html">- Кітаптар мен монографиялар</a></li>
+          <li><a href="awards.html">- Марапаттар</a></li>
+          <li><a href="maqalalar.html">- Мақалалар</a></li>
+        </ul>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="interview.html">- Сұхбаттар</a></li>
+          <li><a href="qolzhazbalar.html">- Қолжазбалар</a></li>
+          <li><a href="news.html">- Жаңалықтар</a></li>
+          <li><a href="dissertations.html">- Академик С.Қасқабасовтың ғылыми мектебі</a></li>
+        
+    </ul>
+  </div>
+</div>
+<div class="footer-gallery-block">
+   <div class="footer-gallery">
+    <a href="gallery/gallery1.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery1.jpg" alt=""></a>
+    <a href="gallery/gallery2.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery2.jpg" alt=""></a>
+    <a href="gallery/gallery3.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery3.jpg" alt=""></a>
+    <a href="gallery/gallery4.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery4.jpg" alt=""></a>
+    <a href="gallery/gallery5.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery5.jpg" alt=""></a>
+    <a href="gallery/gallery6.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery6.jpg" alt=""></a>
+  </div>
+
+  <div class="full-gallery-link">
+    <a href="gallery.html">→ Толық галереяны қарау </a>
+  </div>
+</div>
+
+
+    <div class="footer-contact" style="margin-top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 12px;">
+ <div class="contact-info" style="display: flex; gap: 20px;font-size: 1.3rem; color:#343c43;">
+        <span>📞 +7 777 877 8787</span>
+        <span>📧 seyt.kaskabasov@mail.kz</span>
+      </div> 
+ </div>
+  </div>
+      
+   <div class="copyright" style="padding: 18px; text-align: center;">
+  © 2025 Сейіт Қасқабасовтың отбасы мен ұрпақтары
+</div>
+
+</footer>
+
+
+  <script>
+    function scrollCarousel(dir) {
+      document.getElementById('bookCarousel').scrollBy({
+        left: dir * 220,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+  <script>
+  lightbox.option({
+    'resizeDuration': 200,
+    'wrapAround': true,
+      });
+</script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  const booksSwiper = new Swiper('.books-swiper', {
+    spaceBetween: 24,
+    loop: true,
+    speed: 700,
+
+    /* 5 на экране и листаемся группами по 5 */
+    slidesPerView: 5,
+    slidesPerGroup: 5,
+
+    autoplay: {
+      delay: 3500,
+      disableOnInteraction: false
+    },
+
+    pagination: {
+      el: '.books-swiper .swiper-pagination',
+      clickable: true
+    },
+
+    /* адаптивность */
+    breakpoints: {
+      1200: { slidesPerView: 5, slidesPerGroup: 5 },
+      992:  { slidesPerView: 4, slidesPerGroup: 4 },
+      768:  { slidesPerView: 3, slidesPerGroup: 3 },
+      576:  { slidesPerView: 2, slidesPerGroup: 2 },
+      0:    { slidesPerView: 1, slidesPerGroup: 1 }
+    }
+  });
+</script>
+<script>
+(() => {
+  const btn = document.querySelector('.menu-btn');
+  const panel = document.getElementById('offcanvas');
+  const backdrop = document.getElementById('offcanvas-backdrop');
+
+  if (!btn || !panel || !backdrop) return; // страховка, если HTML не вставлен
+
+  function openMenu(){
+    panel.classList.add('open');
+    backdrop.hidden = false;
+    document.body.style.overflow = 'hidden';
+    btn.setAttribute('aria-expanded','true');
+    panel.setAttribute('aria-hidden','false');
+  }
+  function closeMenu(){
+    panel.classList.remove('open');
+    backdrop.hidden = true;
+    document.body.style.overflow = '';
+    btn.setAttribute('aria-expanded','false');
+    panel.setAttribute('aria-hidden','true');
+  }
+
+  btn.addEventListener('click', () => {
+    panel.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  panel.querySelector('.offcanvas-close').addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+  window.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+})();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const title = document.querySelector('.site-title');
+  if (!title) return;
+
+  // Делаем заголовок доступным как ссылка (клавиатура/скринридеры)
+  title.setAttribute('tabindex','0');
+  title.setAttribute('role','link');
+  title.setAttribute('aria-label','На главную: Сейіт Қасқабасов');
+
+  const goHome = () => { window.location.href = 'index.html'; };
+
+  title.addEventListener('click', goHome);
+  title.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goHome(); }
+  });
+});
+</script>
+
+</body>
+</html>
