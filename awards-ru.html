@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Сеит Каскабасов – Награды</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Шрифты -->
+  <link rel="stylesheet" href="http://fonts-online.ru/fonts/karsten/stylesheet.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?
+family=Caveat:wght@600&
+family=Bad+Script&
+family=Italianno&
+family=Parisienne&
+display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
+
+  <!-- Swiper CSS (если нужен на других страницах) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+  <!-- Lightbox CSS -->
+  <link href="lightbox.css" rel="stylesheet" />
+
+  <!-- Общий CSS сайта -->
+  <link href="style.css" rel="stylesheet" />
+
+<style>
+  /* Контейнер страницы */
+  .wrap {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px 40px;
+  }
+
+  /* Заголовок страницы */
+  .page-title {
+    font-size: 2.2rem;
+    margin: 0 0 10px;
+    color: #252b30;
+    font-weight: 800;
+    position: relative;
+    bottom: 15px;
+  }
+
+  /* Вступительный текст */
+  .intro-text {
+    max-width: 780px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #4b5563;
+    margin: 0 0 24px;
+  }
+
+  /* СПИСОК НАГРАД — по одной карточке в строке */
+  .awards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 5px;
+  }
+
+  /* Карточка награды */
+  .award-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid #e2e4de;
+    padding: 18px 20px 18px 22px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s ease;
+  }
+
+  .award-card:hover {
+    transform: translateY(-3px);
+    border-color: #cfd5ce;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Иконка слева */
+  .award-icon-wrap {
+    flex-shrink: 0;
+    margin-top: 4px;
+    margin-left: 4px;
+  }
+
+  .award-icon-circle {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 20%, #fff8d5, #d7b96a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    border: 2px solid rgba(255,255,255,0.7);
+  }
+
+  /* Контент награды */
+  .award-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .award-name {
+    display: inline-block;
+    margin: 0 0 4px;
+    font-size: 1.07rem;
+    font-weight: 700;
+    color: #252b30;
+    flex: 1;
+  }
+
+  .award-year {
+    font-size: .95rem;
+    font-weight: 500;
+    color: #555;
+    margin-left: 10px;
+  }
+
+  .award-meta {
+    font-size: 0.95rem;
+    color: #515e6a;
+  }
+
+  .award-text {
+    font-size: 0.95rem;
+    color: #374151;
+    margin-top: 2px;
+  }
+
+  /* ГАЛЕРЕЯ ГРАМОТ */
+  .awards-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .award-scan {
+    position: relative;
+    overflow: hidden;
+    background-color: #f3f3f3;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .award-scan.large-award {
+    grid-column: span 2;
+  }
+
+  .award-scan img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .award-scan:hover {
+    transform: translateY(-5px);
+  }
+
+  .award-scan:hover img {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+
+  .award-scan.large-award img {
+    height: auto;
+    object-fit: contain;
+  }
+
+  .awards-gallery-caption {
+    padding: 10px;
+    font-size: 1.2rem;
+    color: #252b30;
+    text-align: center;
+    font-weight: bold;
+    background-color: #ffffff;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 12px 12px;
+  }
+
+  /* ====== АДАПТИВ ДО 768px ====== */
+  @media (max-width: 768px) {
+    .page-title { font-size: 1.8rem; }
+    .intro-text { font-size: 0.95rem; line-height: 1.5; }
+
+    .award-card { padding: 14px 14px; gap: 12px; }
+    .award-icon-circle { width: 48px; height: 48px; font-size: 24px; }
+    .award-name { font-size: 1rem; }
+    .award-text, .award-meta { font-size: 0.9rem; }
+
+    .awards-gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    .awards-gallery-caption { font-size: 1rem; }
+  }
+
+  /* ====== АДАПТИВ ДО 480px ====== */
+  @media (max-width: 480px) {
+    .page-title { font-size: 1.5rem; margin-bottom: 8px; }
+    .intro-text { font-size: 0.9rem; line-height: 1.4; }
+
+    .awards-list { gap: 12px; }
+    .award-card { padding: 10px 12px; gap: 10px; }
+    .award-icon-circle { width: 42px; height: 42px; font-size: 20px; }
+    .award-name { font-size: 0.95rem; }
+    .award-text, .award-meta { font-size: 0.8rem; }
+
+    .awards-gallery-grid { grid-template-columns: 1fr; gap: 10px; }
+    .awards-gallery-caption { font-size: 0.9rem; }
+  }
+</style>
+
+</head>
+<body>
+
+<!-- Верхняя серая шапка -->
+<div class="header-top">
+  <div class="signature-block">
+    <a href="index-ru.html" class="logo-link">
+      <img src="images/logo.png" alt="Логотип С.А. Каскабасов" class="logo-img">
+    </a>
+    <a href="index-ru.html" class="logo-link">
+      <img src="images/sign.png" alt="Сеит Каскабасов" class="signature-img">
+    </a>
+  </div>
+
+  <div class="header-actions">
+    <div class="language-switcher" role="group" aria-label="Выбор языка">
+      <a href="awards.html" class="lang-btn">Қаз</a>
+      <a href="awards-ru.html" class="lang-btn active-lang">Рус</a>
+      <a href="awards-en.html" class="lang-btn">Eng</a>
+    </div>
+
+    <button class="menu-btn" aria-controls="offcanvas" aria-expanded="false">
+      <span class="menu-icon"></span> Меню
+    </button>
+  </div>
+</div>
+
+<!-- Выезжающее меню -->
+<aside id="offcanvas" class="offcanvas" aria-hidden="true">
+  <button class="offcanvas-close" aria-label="Закрыть меню">×</button>
+
+  <nav class="offcanvas-nav" role="navigation" aria-label="Основное меню">
+    <a href="index.html">Главная</a>
+    <a href="bio-ru.html">Биография</a>
+    <a href="books-ru.html">Книги и монографии</a>
+    <a href="awards-ru.html">Награды</a>
+    <a href="maqalalar-ru.html">Статьи</a>
+    <a href="interview-ru.html">Интервью</a>
+    <a href="qolzhazbalar-ru.html">Рукописи</a>
+    <a href="news-ru.html">Новости</a>
+    <a href="dissertations-ru.html">Научная школа академика С. Каскабасова</a>
+    <a href="gallery-ru.html">Галерея</a>
+  </nav>
+</aside>
+
+<!-- Затемняющий фон под меню -->
+<div id="offcanvas-backdrop" class="offcanvas-backdrop" hidden></div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-overlay"></div>
+
+  <div class="header-content">
+    <h1 class="header-title">Награды</h1>
+  </div>
+
+  <nav class="breadcrumb">
+    <a href="index-ru.html">Главная</a>
+    <span class="divider">|</span>
+    <a href="#" class="current-page">Награды</a>
+  </nav>
+</header>
+
+<!-- ОСНОВНОЙ КОНТЕНТ -->
+<main class="wrap">
+
+  <section>
+    <div class="awards-list">
+
+      <article class="award-card">
+        <div class="award-icon-wrap"><div class="award-icon-circle">🏅</div></div>
+        <div class="award-content">
+          <div class="award-top-row">
+            <h2 class="award-name">Лауреат государственной специальной премии имени Ш. Уалиханова</h2>
+            <span class="award-year">1986</span>
+          </div>
+          <p class="award-text">В 1986 году был награждён государственной специальной премией имени Шокана Уалиханова.</p>
+        </div>
+      </article>
+
+      <article class="award-card">
+        <div class="award-icon-wrap"><div class="award-icon-circle">🎖️</div></div>
+        <div class="award-content">
+          <div class="award-top-row">
+            <h2 class="award-name">Государственная премия Республики Казахстан в области науки и техники</h2>
+            <span class="award-year">1992</span>
+          </div>
+          <p class="award-text">В 1992 году стал лауреатом Государственной премии Республики Казахстан в области науки и техники.</p>
+        </div>
+      </article>
+
+      <article class="award-card">
+        <div class="award-icon-wrap"><div class="award-icon-circle">🏵️</div></div>
+        <div class="award-content">
+          <div class="award-top-row">
+            <h2 class="award-name">Международная премия имени Жамбыла</h2>
+            <span class="award-year">1996</span>
+          </div>
+          <p class="award-text">В 1996 году стал лауреатом международной премии имени Жамбыла.</p>
+        </div>
+      </article>
+
+      <article class="award-card">
+        <div class="award-icon-wrap"><div class="award-icon-circle">🎗️</div></div>
+        <div class="award-content">
+          <div class="award-top-row">
+            <h2 class="award-name">Медаль «10 лет независимости Казахстана»</h2>
+            <span class="award-year">2001</span>
+          </div>
+          <p class="award-text">В 2001 году был награждён юбилейной медалью «10 лет независимости Казахстана».</p>
+        </div>
+      </article>
+
+      <article class="award-card">
+        <div class="award-icon-wrap"><div class="award-icon-circle">🎓</div></div>
+        <div class="award-content">
+          <div class="award-top-row">
+            <h2 class="award-name">Медаль «За вклад в развитие науки»</h2>
+            <span class="award-year">2002</span>
+          </div>
+          <p class="award-text">В 2002 году был награждён медалью Министерства образования и науки РК «За вклад в развитие науки».</p>
+        </div>
+      </article>
+
+      <article class="award-card">
+        <div class="award-icon-wrap"><div class="award-icon-circle">🏵️</div></div>
+        <div class="award-content">
+          <div class="award-top-row">
+            <h2 class="award-name">Международная премия имени Махамбета</h2>
+            <span class="award-year">2003</span>
+          </div>
+          <p class="award-text">В 2003 году стал лауреатом международной премии имени Махамбета.</p>
+        </div>
+      </article>
+
+      <article class="award-card">
+        <div class="award-icon-wrap"><div class="award-icon-circle">⭐</div></div>
+        <div class="award-content">
+          <div class="award-top-row">
+            <h2 class="award-name">Заслуженный деятель Казахстана</h2>
+            <span class="award-year">2010</span>
+          </div>
+          <p class="award-text">В 2010 году указом Президента было присвоено почётное звание «Заслуженный деятель Казахстана».</p>
+        </div>
+      </article>
+
+      <article class="award-card">
+        <div class="award-icon-wrap"><div class="award-icon-circle">🎗️</div></div>
+        <div class="award-content">
+          <div class="award-top-row">
+            <h2 class="award-name">Медаль «20 лет независимости Казахстана»</h2>
+            <span class="award-year">2011</span>
+          </div>
+          <p class="award-text">В 2011 году был награждён юбилейной медалью «20 лет независимости Казахстана».</p>
+        </div>
+      </article>
+
+      <article class="award-card">
+        <div class="award-icon-wrap"><div class="award-icon-circle">🏅</div></div>
+        <div class="award-content">
+          <div class="award-top-row">
+            <h2 class="award-name">Межгосударственная премия «Звезда Содружества»</h2>
+            <span class="award-year">2011</span>
+          </div>
+          <p class="award-text">В 2011 году стал лауреатом межгосударственной премии «Звезда Содружества».</p>
+        </div>
+      </article>
+
+      <article class="award-card">
+        <div class="award-icon-wrap"><div class="award-icon-circle">🏵️</div></div>
+        <div class="award-content">
+          <div class="award-top-row">
+            <h2 class="award-name">Нагрудный знак «Отличник культуры Республики Казахстан»</h2>
+            <span class="award-year">2016</span>
+          </div>
+          <p class="award-text">В 2016 году был награждён нагрудным знаком Министерства культуры и спорта РК «Отличник культуры Республики Казахстан».</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Галерея грамот -->
+  <section>
+    <div class="awards-gallery-grid">
+
+      <div class="award-scan">
+        <a href="images/award1.jpg" data-lightbox="awards">
+          <img src="images/award1.jpg" alt="Грамота 1">
+        </a>
+      </div>
+
+      <div class="award-scan">
+        <a href="images/award2.jpg" data-lightbox="awards">
+          <img src="images/award2.jpg" alt="Грамота 2">
+        </a>
+      </div>
+
+      <div class="award-scan">
+        <a href="images/award3.jpg" data-lightbox="awards">
+          <img src="images/award3.jpg" alt="Грамота 3">
+        </a>
+      </div>
+
+      <div class="award-scan">
+        <a href="images/award4.jpg" data-lightbox="awards">
+          <img src="images/award4.jpg" alt="Грамота 4">
+        </a>
+      </div>
+
+      <div class="award-scan large-award">
+        <a href="images/award6.jpg" data-lightbox="awards">
+          <img src="images/award6.jpg" alt="Грамота 6">
+        </a>
+      </div>
+
+      <div class="award-scan large-award">
+        <a href="images/award9.jpg" data-lightbox="awards">
+          <img src="images/award9.jpg" alt="Грамота 9">
+        </a>
+      </div>
+
+      <div class="award-scan large-award">
+        <a href="images/award7.jpg" data-lightbox="awards">
+          <img src="images/award7.jpg" alt="Грамота 7">
+        </a>
+      </div>
+
+      <div class="award-scan large-award">
+        <a href="images/award8.jpg" data-lightbox="awards">
+          <img src="images/award8.jpg" alt="Грамота 8">
+        </a>
+      </div>
+
+      <div class="award-scan">
+        <a href="images/award5.jpg" data-lightbox="awards">
+          <img src="images/award5.jpg" alt="Грамота 5">
+        </a>
+      </div>
+
+      <div class="award-scan large-award">
+        <a href="images/award10.jpg" data-lightbox="awards">
+          <img src="images/award10.jpg" alt="Грамота 10">
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer style="padding: 0; margin: 0;">
+  <div class="footer-content" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; padding:40px 20px 10px;">
+    <div class="footer-links left" style="flex: 1; min-width: 200px;">
+      <h3>Материалы</h3>
+      <div style="display: flex; gap: 150px;">
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="bio-ru.html">- Биография</a></li>
+          <li><a href="books-ru.html">- Книги и монографии</a></li>
+          <li><a href="awards-ru.html">- Награды</a></li>
+          <li><a href="maqalalar-ru.html">- Статьи</a></li>
+        </ul>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="interview-ru.html">- Интервью</a></li>
+          <li><a href="qolzhazbalar-ru.html">- Рукописи</a></li>
+          <li><a href="news-ru.html">- Новости</a></li>
+          <li><a href="dissertations-ru.html">- Научная школа академика С. Каскабасова</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-gallery-block">
+      <div class="footer-gallery">
+        <a href="gallery/gallery1.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery1.jpg" alt=""></a>
+        <a href="gallery/gallery2.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery2.jpg" alt=""></a>
+        <a href="gallery/gallery3.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery3.jpg" alt=""></a>
+        <a href="gallery/gallery4.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery4.jpg" alt=""></a>
+        <a href="gallery/gallery5.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery5.jpg" alt=""></a>
+        <a href="gallery/gallery6.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery6.jpg" alt=""></a>
+      </div>
+
+      <div class="full-gallery-link">
+        <a href="gallery-ru.html">→ Смотреть полную галерею</a>
+      </div>
+    </div>
+
+    <div class="footer-contact" style="margin-top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 12px;">
+      <div class="contact-info" style="display: flex; gap: 20px;font-size: 1.3rem; color:#343c43;">
+        <span>📞 +7 777 877 8787</span>
+        <span>📧 seyt.kaskabasov@mail.kz</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="copyright" style="padding: 18px; text-align: center;">
+    © 2025 Семья и потомки Сеита Каскабасова
+  </div>
+</footer>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<!-- Lightbox JS -->
+<script src="lightbox-plus-jquery.js"></script>
+
+<script>
+  lightbox.option({
+    resizeDuration: 200,
+    wrapAround: true
+  });
+</script>
+
+<!-- Swiper JS (если нужен на других страницах) -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  const booksSwiper = new Swiper('.books-swiper', {
+    spaceBetween: 24,
+    loop: true,
+    speed: 700,
+    slidesPerView: 5,
+    slidesPerGroup: 5,
+    autoplay: { delay: 3500, disableOnInteraction: false },
+    pagination: { el: '.books-swiper .swiper-pagination', clickable: true },
+    breakpoints: {
+      1200: { slidesPerView: 5, slidesPerGroup: 5 },
+      992:  { slidesPerView: 4, slidesPerGroup: 4 },
+      768:  { slidesPerView: 3, slidesPerGroup: 3 },
+      576:  { slidesPerView: 2, slidesPerGroup: 2 },
+      0:    { slidesPerView: 1, slidesPerGroup: 1 }
+    }
+  });
+</script>
+
+<script>
+(() => {
+  const btn = document.querySelector('.menu-btn');
+  const panel = document.getElementById('offcanvas');
+  const backdrop = document.getElementById('offcanvas-backdrop');
+
+  if (!btn || !panel || !backdrop) return;
+
+  function openMenu(){
+    panel.classList.add('open');
+    backdrop.hidden = false;
+    document.body.style.overflow = 'hidden';
+    btn.setAttribute('aria-expanded','true');
+    panel.setAttribute('aria-hidden','false');
+  }
+  function closeMenu(){
+    panel.classList.remove('open');
+    backdrop.hidden = true;
+    document.body.style.overflow = '';
+    btn.setAttribute('aria-expanded','false');
+    panel.setAttribute('aria-hidden','true');
+  }
+
+  btn.addEventListener('click', () => {
+    panel.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  panel.querySelector('.offcanvas-close').addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+  window.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+})();
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const title = document.querySelector('.site-title');
+  if (!title) return;
+
+  title.setAttribute('tabindex','0');
+  title.setAttribute('role','link');
+  title.setAttribute('aria-label','На главную: Сеит Каскабасов');
+
+  const goHome = () => { window.location.href = 'index.html'; };
+
+  title.addEventListener('click', goHome);
+  title.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goHome(); }
+  });
+});
+</script>
+</body>
+</html>
