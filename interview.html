@@ -9,12 +9,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?
-family=Caveat:wght@600&
-family=Bad+Script&
-family=Italianno&
-family=Parisienne&
-display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
+
 <style>
 /* ================================
    Interviews Main Section
@@ -93,12 +88,82 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
   .interview-list {
     grid-template-columns: repeat(2, 1fr);
   }
+/* Мобильная версия для экранов до 768px */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .intro-text {
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
+
+  /* Сетка интервью */
+  .interview-list {
+    grid-template-columns: 1fr; /* Одна колонка на мобильных */
+  }
+
+  /* Карточка интервью */
+  .interview-card {
+    padding: 1rem;
+  }
+
+  .interview-card h2 {
+    font-size: 1.1rem;
+  }
+
+  .meta {
+    font-size: 0.85rem;
+  }
+
+  .desc {
+    font-size: 0.95rem;
+  }
+
+  .read-link {
+    font-size: 1rem;
+  }
 }
 
-@media (min-width: 980px) {
-  .interview-list {
-    grid-template-columns: repeat(3, 1fr);
+/* Мобильная версия для экранов до 480px */
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 1.3rem;
   }
+
+  .intro-text {
+    font-size: 0.9rem;
+  }
+
+  /* Сетка интервью */
+  .interview-list {
+    grid-template-columns: 1fr;
+  }
+
+  /* Карточка интервью */
+  .interview-card {
+    padding: 0.8rem;
+  }
+
+  .interview-card h2 {
+    font-size: 1rem;
+  }
+
+  .meta {
+    font-size: 0.8rem;
+  }
+
+  .desc {
+    font-size: 0.9rem;
+  }
+
+  .read-link {
+    font-size: 0.95rem;
+  }
+}
+
+
 }
 </style>
 
@@ -120,15 +185,20 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 <!-- Верхняя серая шапка -->
 <div class="header-top">
  <div class="signature-block">
-  <h1 class="site-title">Сейіт Қасқабасов</h1>
+<a href="index.html" class="logo-link">
+      <img src="images/logo.png" alt="Логотип С.А. Қасқабасов" class="logo-img">
+    </a>
+<a href="index.html" class="logo-link">
+  <img src="images/sign.png" alt="Сейіт Қасқабасов" class="signature-img">
+    </a>
 </div>
 
 
   <div class="header-actions">
     <div class="language-switcher" role="group" aria-label="Тіл таңдау">
-      <a href="index-kz.html" class="lang-btn active-lang">Қаз</a>
-      <a href="index-ru.html" class="lang-btn">Рус</a>
-      <a href="index-en.html" class="lang-btn">Eng</a>
+      <a href="interview.html" class="lang-btn active-lang">Қаз</a>
+      <a href="interview-ru.html" class="lang-btn">Рус</a>
+      <a href="interview-en.html" class="lang-btn">Eng</a>
     </div>
 
     <button class="menu-btn" aria-controls="offcanvas" aria-expanded="false">
@@ -149,7 +219,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
     <a href="maqalalar.html">Мақалалар</a>
     <a href="interview.html">Сұхбаттар</a>
     <a href="qolzhazbalar.html">Қолжазбалар</a>
-    <a href="comments.html">Пікірлер</a>
+    <a href="news.html">Жаңалықтар</a>
     <a href="dissertations.html">Академик С.Қасқабасовтың ғылыми мектебі</a>
     <a href="gallery.html">Галерея</a>
   </nav>
@@ -158,29 +228,25 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 <!-- Затемняющий фон под меню -->
 <div id="offcanvas-backdrop" class="offcanvas-backdrop" hidden></div>
 
-<header>
-  <div class="slideshow">
-    <img class="slide" src="images/show1.jpg" style="object-position:50% 30%" alt="">
-    <img class="slide" src="images/show2.jpg" alt="">
-    <img class="slide" src="images/show3.jpg" style="object-position:50% 30%" alt="">
-    <img class="slide" src="images/show4.jpg" style="object-position:50% 30%" alt="">
-    <img class="slide" src="images/show5.jpg" alt="">
-    <img class="slide" src="images/show6.jpg" alt="">
-    <img class="slide" src="images/show7.jpg" alt="">
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-overlay"></div>
 
-    <!-- ВОДЯНОЙ ЗНАК (подпись) -->
-    <img class="slideshow-watermark" src="signature.png" alt="">
-  </div>
+  <div class="header-content">
+    <h1 class="header-title">Сұхбаттар</h1>
+ </div>
+<nav class="breadcrumb">
+  <a href="index.html">Басты бет</a>
+  <span class="divider">|</span>
+  <a href="#" class="current-page">Сұхбаттар</a>
+</nav>
 </header>
+
 
 
   <!-- Негізгі бөлім -->
   <main class="container">
-  <h2 class="page-title">Интервьюлер</h2>
-  <p class="intro-text">
-    Бұл бетте академик Сейіт Қасқабасовпен әр жылдары жарық көрген сұхбаттар, телерадио-интервьюлер және ол туралы очерк-мақалалар тізімі берілген.
-  </p>
-
+  
   <div class="interview-list">
 
     <!-- 1. «Төрт елу» -->
@@ -334,20 +400,20 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
         <ul style="list-style: none; padding: 0;">
           <li><a href="interview.html">- Сұхбаттар</a></li>
           <li><a href="qolzhazbalar.html">- Қолжазбалар</a></li>
-          <li><a href="comments.html">- Пікірлер</a></li>
+          <li><a href="news.html">- Жаңалықтар</a></li>
           <li><a href="dissertations.html">- Академик С.Қасқабасовтың ғылыми мектебі</a></li>
         
     </ul>
   </div>
 </div>
 <div class="footer-gallery-block">
-  <div class="footer-gallery">
-    <a href="images/gallery1.jpg" data-lightbox="footer-gallery"><img src="images/gallery1.jpg" alt=""></a>
-    <a href="images/gallery2.jpg" data-lightbox="footer-gallery"><img src="images/gallery2.jpg" alt=""></a>
-    <a href="images/gallery3.jpg" data-lightbox="footer-gallery"><img src="images/gallery3.jpg" alt=""></a>
-    <a href="images/gallery4.jpg" data-lightbox="footer-gallery"><img src="images/gallery4.jpg" alt=""></a>
-    <a href="images/gallery5.jpg" data-lightbox="footer-gallery"><img src="images/gallery5.jpg" alt=""></a>
-    <a href="images/gallery6.jpg" data-lightbox="footer-gallery"><img src="images/gallery6.jpg" alt=""></a>
+   <div class="footer-gallery">
+    <a href="gallery/gallery1.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery1.jpg" alt=""></a>
+    <a href="gallery/gallery2.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery2.jpg" alt=""></a>
+    <a href="gallery/gallery3.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery3.jpg" alt=""></a>
+    <a href="gallery/gallery4.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery4.jpg" alt=""></a>
+    <a href="gallery/gallery5.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery5.jpg" alt=""></a>
+    <a href="gallery/gallery6.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery6.jpg" alt=""></a>
   </div>
 
   <div class="full-gallery-link">
@@ -356,14 +422,15 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 </div>
 
 
+
     <div class="footer-contact" style="margin-top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 12px;">
  <div class="contact-info" style="display: flex; gap: 20px;font-size: 1.3rem; color:#343c43;">
         <span>📞 +7 777 877 8787</span>
         <span>📧 seyt.kaskabasov@mail.kz</span>
-      </div>
-      <button class="order-btn" style=" border: none; padding: 10px 20px; color:#343c43; cursor: pointer;">Кітапқа тапсырыс</button>
     </div>
   </div>
+  </div>
+
       
    <div class="copyright" style="padding: 18px; text-align: center;">
   © 2025 Сейіт Қасқабасовтың отбасы мен ұрпақтары
