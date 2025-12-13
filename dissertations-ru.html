@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Научная школа академика С. Каскабасова</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="lightbox.css">
+  <link rel="stylesheet" href="http://fonts-online.ru/fonts/karsten/stylesheet.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="lightbox-plus-jquery.js"></script>
+
+  <style>
+    .wrap { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+    .page-title { font-size: 2.4rem; color: #252b30; font-weight: 800; margin: 0 0 20px; }
+    .intro-text { font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 20px; }
+    .section-title { font-size: 1.8rem; color: #252b30; margin-bottom: 15px; border-bottom: 2px solid #ccc; padding-bottom: 5px; }
+
+    .dissertation-list { list-style-type: none; padding: 0; }
+    .dissertation-item {
+      background: #ffffff;
+      border: 1px solid #e2e4de;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.2s ease;
+    }
+    .dissertation-item:hover {
+      transform: translateY(-3px);
+      border-color: #cfd5ce;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
+    }
+    .dissertation-item h2 { margin: 0 0 0.4rem; font-size: 1.25rem; }
+    .dissertation-item p { margin: 5px 0 10px; font-size: 1.1rem; color: #515e6a; }
+
+    @media (max-width: 768px) {
+      .wrap { padding: 0 10px; }
+      .page-title { font-size: 2rem; }
+      .intro-text { font-size: 1rem; }
+      .dissertation-item { padding: 15px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="header-top">
+  <div class="signature-block">
+    <a href="index-ru.html" class="logo-link">
+      <img src="images/logo.png" alt="Логотип С.А. Каскабасова" class="logo-img">
+    </a>
+    <a href="index-ru.html" class="logo-link">
+      <img src="images/sign.png" alt="Сеит Каскабасов" class="signature-img">
+    </a>
+  </div>
+
+  <div class="header-actions">
+    <div class="language-switcher" role="group" aria-label="Выбор языка">
+      <a href="dissertations.html" class="lang-btn">Қаз</a>
+      <a href="dissertations-ru.html" class="lang-btn active-lang">Рус</a>
+      <a href="dissertations-en.html" class="lang-btn">Eng</a>
+    </div>
+
+    <button class="menu-btn" aria-controls="offcanvas" aria-expanded="false">
+      <span class="menu-icon"></span> Меню
+    </button>
+  </div>
+</div>
+
+<aside id="offcanvas" class="offcanvas" aria-hidden="true">
+  <button class="offcanvas-close" aria-label="Закрыть меню">×</button>
+
+  <nav class="offcanvas-nav" role="navigation" aria-label="Основное меню">
+    <a href="index.html">Главная</a>
+    <a href="bio-ru.html">Биография</a>
+    <a href="books-ru.html">Книги и монографии</a>
+    <a href="awards-ru.html">Награды</a>
+    <a href="maqalalar-ru.html">Статьи</a>
+    <a href="interview-ru.html">Интервью</a>
+    <a href="qolzhazbalar-ru.html">Рукописи</a>
+    <a href="news-ru.html">Новости</a>
+    <a href="dissertations-ru.html">Научная школа академика С. Каскабасова</a>
+    <a href="gallery-ru.html">Галерея</a>
+  </nav>
+</aside>
+
+<div id="offcanvas-backdrop" class="offcanvas-backdrop" hidden></div>
+
+<header class="site-header">
+  <div class="header-overlay"></div>
+  <div class="header-content">
+    <h1 class="header-title">Научная школа академика С. Каскабасова</h1>
+  </div>
+
+  <nav class="breadcrumb">
+    <a href="index-ru.html">Главная</a>
+    <span class="divider">|</span>
+    <a href="#" class="current-page">Научная школа</a>
+  </nav>
+</header>
+
+<main class="container">
+  <div class="intro-text">
+    <p>
+      Научная школа Сеита Каскабасова чрезвычайно масштабна. Под его руководством подготовлено около двадцати пяти — почти тридцати докторов и кандидатов наук. Сеит Аскарович создал множество исследований в области фольклористики и литературоведения. Всего у него около четырёхсот научных работ, среди которых двадцать две вышли непосредственно под его авторством. Кроме того, издание стотомного собрания «Бабалар сөзі» в рамках государственной программы «Мәдени мұра», а также двадцатитомные труды демонстрируют, что Каскабасов был не только учёным, но и крупным организатором науки.
+      <br><br>
+      В фольклористике, литературоведении и в целом в гуманитарных науках, а также в деле организации высшего образования и науки независимого Казахстана Сеит Аскарович — один из ведущих представителей. Особенность его работы со студентами и аспирантами заключалась в том, что он не показывал путь напрямую до достижения результата: ограничивался лишь намёком на направление, позволяя ученику самостоятельно прийти к выводу, даже если сам уже знал итог.
+    </p>
+  </div>
+
+  <h3 class="section-title">Докторские диссертации</h3>
+  <ul class="dissertation-list">
+    <li class="dissertation-item"><h2>Сейдімбек А. — Қазақтың күй аңыздары (құрылымы және жанрлық ерекшеліктері)</h2><p>Дата: 1997</p></li>
+    <li class="dissertation-item"><h2>Азибаева Б.У. — Казахский дастанный эпос</h2><p>Дата: 1999</p></li>
+    <li class="dissertation-item"><h2>Керім Ш. — Қазақ фольклорындағы жұмбақ жанры</h2><p>Дата: 2000</p></li>
+    <li class="dissertation-item"><h2>Кривощапова Т.В. — Русская литературная сказка конца XIX – начала XX века (эволюция жанра)</h2><p>Дата: 2003</p></li>
+    <li class="dissertation-item"><h2>Матыжанов К.І. — Қазақтың отбасылық ғұрыптық фольклоры</h2><p>Дата: 2004</p></li>
+    <li class="dissertation-item"><h2>Бузаубагарова К.С. — Эпический художественный образ в аспекте эстетики тождества (на материале казахского героического эпоса)</h2><p>Дата: 2004</p></li>
+    <li class="dissertation-item"><h2>Власова Г.И. — Обрядовый фольклор восточных славян в контексте праздничной культуры (на материале записей XX века в Казахстане)</h2><p>Дата: 2005</p></li>
+    <li class="dissertation-item"><h2>Жүсіпов Н.Қ. — XX ғасырдың бірінші жартысындағы қазақ фольклортану ғылымы</h2><p>Дата: 2005</p></li>
+    <li class="dissertation-item"><h2>Оразбек М. — Көркем прозадағы шығармашылық тұлға мен авторлық позицияның арақатынасы (1980-2000 жж. әдебиеті бойынша)</h2><p>Дата: 2007</p></li>
+    <li class="dissertation-item"><h2>Абдрахманов А.С. — Өлең аудармасының теориясы мен поэтикасы</h2><p>Дата: 2007</p></li>
+    <li class="dissertation-item"><h2>Абсадықов А. — XV–XVIII ғасырлардағы тарихи оқиғалар туралы аңыздар: тарихилығы, генезисі, типологиясы</h2><p>Дата: 2009</p></li>
+    <li class="dissertation-item"><h2>Әлмұханова Р.Т. — Қазақ фольклоры мен антика әдебиетінің типологиясы</h2><p>Дата: 2010</p></li>
+    <li class="dissertation-item"><h2>Пангереев А.Ш. — Қазақтың топонимдік фольклоры</h2><p>Дата: 2010</p></li>
+  </ul>
+
+  <h3 class="section-title">Кандидатские диссертации</h3>
+  <ul class="dissertation-list">
+    <li class="dissertation-item"><h2>Матыжанов К.І. — Қазақтың фольклорлық балалар поэзиясы</h2><p>Дата: 1990</p></li>
+    <li class="dissertation-item"><h2>Керім Ш.Т. — Әнші-ақындар поэзиясындағы дәстүр мен даралық мәселесі. XIX ғасырдың екінші жартысы мен XX ғасырдың басы</h2><p>Дата: 1991</p></li>
+    <li class="dissertation-item"><h2>Искакова З.Ш. — Казахская богатырская сказка</h2><p>Дата: 1995</p></li>
+    <li class="dissertation-item"><h2>Ғабдуллина А.А. — Қабанбай батыр туралы тарихи жырлар мен аңыздар</h2><p>Дата: 1995</p></li>
+    <li class="dissertation-item"><h2>Мағауин Е.М. — «Едіге» жырының тарихилығы және көркемдік ерекшеліктері</h2><p>Дата: 1995</p></li>
+    <li class="dissertation-item"><h2>Алпысбаева Қ.Б. — Ш.Уәлиханов – фольклортанушы</h2><p>Дата: 1998</p></li>
+    <li class="dissertation-item"><h2>Жүсіпов Н.Қ. — Мәшһүр Жүсіп Көпейұлының фольклорлық еңбегі</h2><p>Дата: 1998</p></li>
+    <li class="dissertation-item"><h2>Әбсадықов А. — Абылай туралы аңыздар</h2><p>Дата: 1998</p></li>
+    <li class="dissertation-item"><h2>Абдрахманов С. — А.С. Пушкиннің «Евгений Онегин» романының қазақ әдеби және фольклорлық дәстүріндегі орны</h2><p>Дата: 1999</p></li>
+    <li class="dissertation-item"><h2>Аймұхамбетова Ж.Ә. — Оралхан Бөкей прозасындағы мифологизм мәселесі</h2><p>Дата: 1999</p></li>
+    <li class="dissertation-item"><h2>Әуесбаева П.Т. — Қазақ фольклорындағы әңгіме жанры</h2><p>Дата: 1999</p></li>
+    <li class="dissertation-item"><h2>Келгембаева Б. — Шығыс Қазақстан өңірі әпсаналары</h2><p>Дата: 2000</p></li>
+    <li class="dissertation-item"><h2>Оспанова Б. — Магические жанры казахского фольклора</h2><p>Дата: 2002</p></li>
+    <li class="dissertation-item"><h2>Әбжет Б. — Қазақ ертегілеріндегі үнді-иран мотивтері</h2><p>Дата: 2002</p></li>
+    <li class="dissertation-item"><h2>Әлбеков Т. — Құланаян Құлмамбеттің ақындық мұрасы</h2><p>Дата: 2002</p></li>
+    <li class="dissertation-item"><h2>Бейсеев А. — Қазахские сказки о животных</h2><p>Дата: 2003</p></li>
+    <li class="dissertation-item"><h2>Тулеубаева Е. — «Тысяча и одна ночь» в казахской фольклорной традиции на примере казахского сказочного эпоса</h2><p>Дата: 2004</p></li>
+    <li class="dissertation-item"><h2>Кусаиынов Ш.К. — Агиография в казахском фольклоре</h2><p>Дата: 2004</p></li>
+    <li class="dissertation-item"><h2>Бұлтбаева А. — Қазақ ғашықтық жырларының орындалу ерекшеліктері</h2><p>Дата: 2007</p></li>
+    <li class="dissertation-item"><h2>Мұқатаева Қ. — Ысқақ Дүйсенбаевтың ғылыми мұрасы</h2><p>Дата: 2007</p></li>
+    <li class="dissertation-item"><h2>Шаинова Г.Б. — Фольклорно-мифологическое в творчестве Р. Сейсенбаева</h2><p>Дата: 2007</p></li>
+    <li class="dissertation-item"><h2>Тойшанұлы А. — Қазақ пен моңғол мифологиясының типологиясы</h2><p>Дата: 2008</p></li>
+
+    <li class="dissertation-item"><h2>Ашенова А.Т. — 1920–30-жылдарғы қазақ фольклортану ғылымы</h2><p>Дата: 2010</p></li>
+    <li class="dissertation-item"><h2>Ашенова А.Т. — 1920–30-жылдарғы қазақ фольклортану ғылымы</h2><p>Дата: 2010</p></li>
+
+    <li class="dissertation-item"><h2>Байқадамова Г.Қ. — А.Е. Алекторов — жариялаушы және зерттеуші</h2><p>Дата: 2010</p></li>
+    <li class="dissertation-item"><h2>Касимова З.М. — Түркітілдес халықтардың үйлену салт әндері (салыстырмалы-типологиялық зерттеу)</h2><p>Дата: 2010</p></li>
+    <li class="dissertation-item"><h2>Өтен А.Ж. — Кенен Әзірбаевтың әдеби шығармашылығы</h2><p>Дата: 2010</p></li>
+  </ul>
+
+</main>
+
+<footer style="padding: 0; margin: 0;">
+  <div class="footer-content" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; padding:40px 20px 10px;">
+    <div class="footer-links left" style="flex: 1; min-width: 200px;">
+      <h3>Материалы</h3>
+      <div style="display: flex; gap: 150px;">
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="bio-ru.html">- Биография</a></li>
+          <li><a href="books-ru.html">- Книги и монографии</a></li>
+          <li><a href="awards-ru.html">- Награды</a></li>
+          <li><a href="maqalalar-ru.html">- Статьи</a></li>
+        </ul>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="interview-ru.html">- Интервью</a></li>
+          <li><a href="qolzhazbalar-ru.html">- Рукописи</a></li>
+          <li><a href="news-ru.html">- Новости</a></li>
+          <li><a href="dissertations-ru.html">- Научная школа</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-gallery-block">
+      <div class="footer-gallery">
+        <a href="gallery/gallery1.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery1.jpg" alt=""></a>
+        <a href="gallery/gallery2.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery2.jpg" alt=""></a>
+        <a href="gallery/gallery3.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery3.jpg" alt=""></a>
+        <a href="gallery/gallery4.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery4.jpg" alt=""></a>
+        <a href="gallery/gallery5.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery5.jpg" alt=""></a>
+        <a href="gallery/gallery6.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery6.jpg" alt=""></a>
+      </div>
+      <div class="full-gallery-link">
+        <a href="gallery-ru.html">→ Смотреть полную галерею</a>
+      </div>
+    </div>
+
+    <div class="footer-contact" style="margin-top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 12px;">
+      <div class="contact-info" style="display: flex; gap: 20px;font-size: 1.3rem; color:#343c43;">
+        <span>📞 +7 777 877 8787</span>
+        <span>📧 seyt.kaskabasov@mail.kz</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="copyright" style="padding: 18px; text-align: center;">
+    © 2025 Семья и потомки Сеита Каскабасова
+  </div>
+</footer>
+
+<script>
+  lightbox.option({ resizeDuration: 200, wrapAround: true });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+(() => {
+  const btn = document.querySelector('.menu-btn');
+  const panel = document.getElementById('offcanvas');
+  const backdrop = document.getElementById('offcanvas-backdrop');
+  if (!btn || !panel || !backdrop) return;
+
+  function openMenu(){
+    panel.classList.add('open');
+    backdrop.hidden = false;
+    document.body.style.overflow = 'hidden';
+    btn.setAttribute('aria-expanded','true');
+    panel.setAttribute('aria-hidden','false');
+  }
+  function closeMenu(){
+    panel.classList.remove('open');
+    backdrop.hidden = true;
+    document.body.style.overflow = '';
+    btn.setAttribute('aria-expanded','false');
+    panel.setAttribute('aria-hidden','true');
+  }
+
+  btn.addEventListener('click', () => panel.classList.contains('open') ? closeMenu() : openMenu());
+  panel.querySelector('.offcanvas-close').addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+  window.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+})();
+</script>
+
+</body>
+</html>
