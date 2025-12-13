@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<link rel="stylesheet" href="http://fonts-online.ru/fonts/karsten/stylesheet.css">
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?
+family=Caveat:wght@600&
+family=Bad+Script&
+family=Italianno&
+family=Parisienne&
+display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
+
+  <meta charset="UTF-8">
+  <title>Сеит Каскабасов – Биография</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+.section-head{ display:flex; align-items:center; justify-content:space-between; gap:20px; }
+.see-all{ text-decoration:none; color:#343c43; font-weight:700; }
+.see-all:hover{ color:#3e94ea; }
+
+/* === BIO: двухколоночный макет с лентой фото слева === */
+.bio-layout{
+  display:grid;
+  grid-template-columns: 260px 1fr;
+  gap:24px;
+  align-items:start;
+  margin-top: 0 !important;
+}
+
+/* Левая лента-рейл */
+.bio-rail{
+  position:sticky;
+  top:16px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  padding-right:6px;
+  scrollbar-width:thin;
+}
+.bio-rail::-webkit-scrollbar{width:8px}
+.bio-rail::-webkit-scrollbar-thumb{background:#c7c7c7;border-radius:8px}
+
+/* Превьюшки */
+.bio-thumb{
+  width:100%;
+  object-fit:contain;
+  border-radius:12px;
+  padding:4px;
+  display:block;
+  filter:brightness(0.98);
+  transition:transform .2s ease, filter .2s ease, box-shadow .2s ease;
+  box-shadow:0 1px 6px rgba(0,0,0,.08);
+}
+.bio-thumb:hover{
+  transform:translateY(-2px);
+  filter:brightness(1);
+  box-shadow:0 6px 16px rgba(0,0,0,.12);
+}
+
+/* Текстовый столбец */
+.bio-content{
+  min-width:0;
+  color:#343c43;
+  line-height:1.75;
+  font-size:1.05rem;
+}
+
+.bio-content h3{
+  margin:28px 0 8px;
+  font-size:1.25rem;
+}
+.bio-content p{ margin:0 0 16px; }
+
+/* Адаптив: на планшетах/мобилках фото-лента становится горизонтальной */
+@media (max-width: 992px){
+  .bio-layout{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+  .bio-rail{
+    position:static;
+    display:flex;
+    flex-direction:row;
+    gap:10px;
+    padding: 2px 0 6px;
+    margin-bottom:4px;
+  }
+  .bio-thumb{
+    width:180px;
+    aspect-ratio:3/4;
+    flex:0 0 auto;
+  }
+}
+
+/* ==================== Мобильная версия ==================== */
+@media (max-width: 768px) {
+  .section-head {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .see-all {
+    font-size: 1.2rem;
+  }
+
+  .bio-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .bio-rail {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 2px 0 6px;
+    margin-bottom: 4px;
+  }
+
+  .bio-thumb {
+    width: 180px;
+    aspect-ratio: 3/4;
+    flex: 0 0 auto;
+  }
+
+  .bio-content {
+    font-size: 1rem;
+  }
+
+  .bio-content h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-head {
+    gap: 5px;
+  }
+
+  .see-all {
+    font-size: 1rem;
+  }
+
+  .bio-layout {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .bio-rail {
+    padding: 0 0 4px;
+    margin-bottom: 3px;
+  }
+
+  .bio-thumb {
+    width: 150px;
+  }
+
+  .bio-content {
+    font-size: 0.95rem;
+  }
+
+  .bio-content h3 {
+    font-size: 1.1rem;
+  }
+}
+  </style>
+
+<!-- Lightbox CSS -->
+<link href="lightbox.css" rel="stylesheet" />
+<!-- Основной CSS -->
+<link href="style.css" rel="stylesheet" />
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<!-- Lightbox JS -->
+<script src="lightbox-plus-jquery.js"></script>
+</head>
+<body>
+
+<!-- Верхняя серая шапка -->
+<div class="header-top">
+  <div class="signature-block">
+    <a href="index-ru.html" class="logo-link">
+      <img src="images/logo.png" alt="Логотип С.А. Каскабасова" class="logo-img">
+    </a>
+    <a href="index-ru.html" class="logo-link">
+      <img src="images/sign.png" alt="Сеит Каскабасов" class="signature-img">
+    </a>
+  </div>
+
+  <div class="header-actions">
+    <div class="language-switcher" role="group" aria-label="Выбор языка">
+      <a href="bio.html" class="lang-btn">Қаз</a>
+      <a href="bio-ru.html" class="lang-btn active-lang">Рус</a>
+      <a href="bio-en.html" class="lang-btn">Eng</a>
+    </div>
+
+    <button class="menu-btn" aria-controls="offcanvas" aria-expanded="false">
+      <span class="menu-icon"></span> Меню
+    </button>
+  </div>
+</div>
+
+<!-- Выезжающее меню -->
+<aside id="offcanvas" class="offcanvas" aria-hidden="true">
+  <button class="offcanvas-close" aria-label="Закрыть меню">×</button>
+
+  <nav class="offcanvas-nav" role="navigation" aria-label="Основное меню">
+    <a href="index-ru.html">Главная</a>
+    <a href="bio-ru.html">Биография</a>
+    <a href="books-ru.html">Книги и монографии</a>
+    <a href="awards-ru.html">Награды</a>
+    <a href="maqalalar-ru.html">Статьи</a>
+    <a href="interview-ru.html">Интервью</a>
+    <a href="qolzhazbalar-ru.html">Рукописи</a>
+    <a href="news-ru.html">Новости</a>
+    <a href="dissertations-ru.html">Научная школа академика С. Каскабасова</a>
+    <a href="gallery-ru.html">Галерея</a>
+  </nav>
+</aside>
+
+<!-- Затемняющий фон под меню -->
+<div id="offcanvas-backdrop" class="offcanvas-backdrop" hidden></div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-overlay"></div>
+
+  <div class="header-content">
+    <h1 class="header-title">Биография</h1>
+  </div>
+
+  <nav class="breadcrumb">
+    <a href="index-ru.html">Главная</a>
+    <span class="divider">|</span>
+    <a href="#" class="current-page">Биография</a>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="bio-layout">
+    <!-- ЛЕНТА ФОТО СЛЕВА (подписи и alt оставляем по-казахски, как ты просила) -->
+    <aside class="bio-rail" aria-label="Фотолента биографии">
+      <a href="images/bio.1.png" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.1.png" alt="Қысқаша сипаттама" loading="lazy">
+      </a>
+      <a href="images/bio.2.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.2.jpg" alt="Қысқаша сипаттама" loading="lazy">
+      </a>
+      <a href="images/bio.3.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.3.jpg" alt="Қысқаша сипаттама" loading="lazy">
+      </a>
+      <a href="images/bio.4.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.4.jpg" alt="Қысқаша сипаттама" loading="lazy">
+      </a>
+      <a href="images/bio.5.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.5.jpg" alt="Қысқаша сипаттама" loading="lazy">
+      </a>
+      <a href="images/bio.6.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.6.jpg" alt="Қысқаша сипаттама" loading="lazy">
+      </a>
+      <a href="images/bio.7.png" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.7.png" alt="Қысқаша сипаттама" loading="lazy">
+      </a>
+      <a href="images/bio.8.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.8.jpg" alt="Қысқаша сипаттама" loading="lazy">
+      </a>
+      <a href="images/bio.9.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.9.jpg" alt="Қысқаша сипаттама" loading="lazy">
+      </a>
+      <a href="images/bio.10.png" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.10.png" alt="Қысқаша сипаттама" loading="lazy">
+      </a>
+    </aside>
+
+    <!-- ОСНОВНОЙ ТЕКСТ СПРАВА -->
+<article class="bio-content">
+
+<p>Сеит Аскарович Каскабасов родился 24 июня 1940 года в городе Семипалатинске Восточно-Казахстанской области.</p>
+
+<p><strong>1947–1950</strong> — учился в средней школе №5 города Семипалатинска.<br>
+<strong>1951–1954</strong> — учился в школе №87 колхоза имени Чапаева Каскеленского района Алма-Атинской области.<br>
+<strong>1954–1951957</strong> — окончил среднюю школу №12 имени С.М. Кирова города Алматы.<br>
+<strong>1957–1959</strong> — работал в колхозе имени Чапаева Каскеленского района.</p>
+
+<p><strong>1959–1964</strong> — студент историко-филологического факультета Казахского педагогического института имени Абая
+(ныне Казахский национальный педагогический университет имени Абая); окончил его с отличием.</p>
+
+<p>— заведующий музыкальным кабинетом КазПИ;<br>
+— участвовал в студенческих фольклорных экспедициях в Талдыкурганскую, Алма-Атинскую и Джамбульскую области;<br>
+— выступал с докладами на студенческих научных конференциях КазПИ, КазГУ, вузов Средней Азии;<br>
+— награждён дипломом Межвузовской студенческой научной конференции города Фрунзе (Киргизская ССР).</p>
+
+<p>— опубликована первая научная статья «Сказочник Шалкарбай Даньлаев» в сборнике статей в честь 60-летия Сабита Муканова 
+«Вопросы казахской филологии» (Издательство АН КазССР; совместно с Е. Турсуновым).</p>
+
+<p><strong>1964–1967</strong> — аспирант Института литературы и искусства имени М.О. Ауэзова Академии наук Казахской ССР.<br>
+<strong>1968–1970</strong> — младший научный сотрудник Института литературы и искусства имени М.О. Ауэзова.</p>
+
+<p><strong>1968</strong> — один из авторов 1-го тома «Истории казахской литературы» (совместно с Е. Турсуновым).<br>
+— защитил кандидатскую диссертацию «Казахская волшебная сказка» (1969).<br>
+<strong>1970–1979</strong> — научный сотрудник Отделения общественных наук АН КазССР;<br>
+— <strong>1976–1988</strong> — учёный секретарь журнала «Известия АН КазССР. Серия филологии и искусства»;<br>
+— издана монография «Казахская волшебная сказка», признанная одной из пяти лучших книг СССР (1972).</p>
+
+<p>— участвовал в подготовке академического издания «Казахский фольклор в собрании Г.Н. Потанина» (совместно с 
+Н. Смирновым и Е. Костюхиным).<br>
+— участвовал во Всесоюзном совещании по научной информации (Москва, 1971).</p>
+
+<p><strong>1979–1981</strong> — старший научный сотрудник и учёный секретарь Института литературы и искусства имени М.О. Ауэзова;<br>
+— составитель издания «Хайуанаттар туралы қазақ ертегілері» (совместно);<br>
+<strong>1981–1982</strong> — в научной командировке в Институте мировой литературы имени А.М. Горького АН СССР;<br>
+<strong>1983–1988</strong> — заведующий отделом жамбыловедения и современной народной прозы.</p>
+
+<p>— издана монография «Казахская народная проза»;<br>
+— награждён премией АН КазССР имени Ш. Уалиханова II степени;<br>
+— выступал с лекциями в Доме кино, Доме-музее М.О. Ауэзова;<br>
+— участвовал в подготовке коллективного труда «История казахской фольклористики».</p>
+
+<p><strong>1988–1990</strong> — консультант Идеологического отдела ЦК Компартии Казахстана;<br>
+— участвовал в подготовке документов по реабилитации репрессированных писателей 1930–40-х гг.;<br>
+— готовил документы по отмене партийных постановлений 1950-х гг. против деятелей культуры;<br>
+— член официальной делегации на «Днях культуры Казахстана» в Ленинградской и Астраханской областях.</p>
+
+<p><strong>1990–1991</strong> — руководитель Центра социологии политических процессов;<br>
+— участвовал в работе комиссии по реабилитации жертв политических репрессий.</p>
+
+<p><strong>1991–1992</strong> — заместитель заведующего отделом образования, культуры и спорта Аппарата Президента и Кабинета Министров РК;<br>
+— участвовал в организации первой инаугурации Президента РК;<br>
+— член комиссии по Государственным символам РК;<br>
+— внёс предложение о 31 мая как дне памяти жертв репрессий;<br>
+— член Комитета по Государственным премиям;<br>
+— награждён медалью «Ветеран труда».</p>
+
+<p><strong>1992–1994</strong> — Председатель Высшей Аттестационной Комиссии Республики Казахстан;<br>
+— присуждена Государственная премия РК за монографию «Казахская несказочная проза»;<br>
+— организовал Совет председателей ВАК стран СНГ (МАГАТ);<br>
+— председатель МАГАТ;<br>
+— вручил первые дипломы профессора и доцента ряду казахстанских учёных;<br>
+<strong>1994–1995</strong> — заместитель директора Института литературы и искусства имени М.О. Ауэзова АН Казахстана.</p>
+
+<p><strong>1995–1997</strong> — руководитель Центра рукописей и текстологии Института имени М.О. Ауэзова;<br>
+— издано исследование «Абай и фольклор»;<br>
+— участвовал в юбилейных мероприятиях к 150-летию Абая (Семей, Москва);<br>
+— подготовил научно-комментированное издание «Избранные сочинения Джамбула».</p>
+
+<p><strong>1997–1999</strong> — организатор и руководитель научного центра «Евразийство» в ЕНУ имени Л.Н. Гумилёва;<br>
+— профессор;<br>
+— подготовил коллективную монографию «Проблемы евразийства».</p>
+
+<p><strong>2000–2001</strong> — декан факультета востоковедения ЕНУ; руководитель Центра «Евразийство»;<br>
+<strong>2001</strong> — директор Института литературы и искусства имени М.О. Ауэзова;<br>
+<strong>2002</strong> — награждён нагрудным знаком МОН РК «За заслуги в развитии науки»;<br>
+<strong>2003</strong> — председатель секции «Культурное наследие»; член Национального совета РК;<br>
+— выступал с докладами по творчеству М.Ауэзова, Махамбета, И.Байзакова.</p>
+
+<p><strong>2004</strong> — медаль к 100-летию М.А. Шолохова (Москва).<br>
+<strong>2007</strong> — академик Международной Айтматовской академии.<br>
+<strong>2008</strong> — директор Института имени М.О. Ауэзова (при Комитете науки МОН РК).<br>
+<strong>2010</strong> — медаль «За научный вклад»; выступление на Корейско-Казахстанском творческом симпозиуме (Алматы, 25 августа).</p>
+
+<!-- ✦ ДОБАВЛЕННЫЙ ПЕРЕВОД ТЕКСТА ПОСЛЕ 2010 ГОДА (ТОГО, ЧЕГО НЕ БЫЛО В КАЗАХСКОЙ ВЕРСИИ) -->
+
+<p><strong>2010</strong> — награждён медалью «За научный вклад в образование России»; выступал на международных конференциях по фольклористике и литературоведению.</p>
+
+<p><strong>2011</strong> — получил медаль «20 лет независимости Казахстана»; удостоен международной премии «Достастық жұлдызы» за вклад в гуманитарное сотрудничество стран СНГ.</p>
+
+<p><strong>2016</strong> — награждён нагрудным знаком «Мәдениет саласының үздігі» Министерства культуры и спорта Республики Казахстан.</p>
+
+<p><strong>2010–2024</strong> — возглавлял научные проекты в М.О. Ауэзов атындағы институте; руководил сериями многотомных изданий по фольклору, текстологии, древней и новой литературе; читал курс по типологии фольклора, активно выступал в СМИ, продвигая гуманитарные науки.</p>
+
+<p><strong>2025</strong> — 28 апреля скончался. В республиканских и отраслевых изданиях опубликованы некрологи и воспоминания. 
+24 июня состоялась международная научно-теоретическая конференция 
+«Феномен академика Каскабасова: научные школы, теории и практики», посвящённая 85-летию ученого.</p>
+
+    </article>
+  </section>
+</main>
+
+<footer style="padding: 0; margin: 0;">
+  <div class="footer-content" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; padding:40px 20px 10px;">
+    <div class="footer-links left" style="flex: 1; min-width: 200px;">
+      <h3>Материалы</h3>
+      <div style="display: flex; gap: 150px;">
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="bio-ru.html">- Биография</a></li>
+          <li><a href="books-ru.html">- Книги и монографии</a></li>
+          <li><a href="awards-ru.html">- Награды</a></li>
+          <li><a href="maqalalar-ru.html">- Статьи</a></li>
+        </ul>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="interview-ru.html">- Интервью</a></li>
+          <li><a href="qolzhazbalar-ru.html">- Рукописи</a></li>
+          <li><a href="news-ru.html">- Новости</a></li>
+          <li><a href="dissertations-ru.html">- Научная школа академика С. Каскабасова</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-gallery-block">
+      <div class="footer-gallery">
+        <a href="gallery/gallery1.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery1.jpg" alt=""></a>
+        <a href="gallery/gallery2.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery2.jpg" alt=""></a>
+        <a href="gallery/gallery3.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery3.jpg" alt=""></a>
+        <a href="gallery/gallery4.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery4.jpg" alt=""></a>
+        <a href="gallery/gallery5.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery5.jpg" alt=""></a>
+        <a href="gallery/gallery6.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery6.jpg" alt=""></a>
+      </div>
+
+      <div class="full-gallery-link">
+        <a href="gallery-ru.html">→ Смотреть полную галерею </a>
+      </div>
+    </div>
+
+    <div class="footer-contact" style="margin-top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 12px;">
+      <div class="contact-info" style="display: flex; gap: 20px;font-size: 1.3rem; color:#343c43;">
+        <span>📞 +7 777 877 8787</span>
+        <span>📧 seyt.kaskabasov@mail.kz</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="copyright" style="padding: 18px; text-align: center;">
+    © 2025 Семья и потомки Сеита Каскабасова
+  </div>
+</footer>
+
+<script>
+  function scrollCarousel(dir) {
+    document.getElementById('bookCarousel').scrollBy({
+      left: dir * 220,
+      behavior: 'smooth'
+    });
+  }
+</script>
+<script>
+  lightbox.option({
+    'resizeDuration': 200,
+    'wrapAround': true,
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const booksSwiper = new Swiper('.books-swiper', {
+    spaceBetween: 24,
+    loop: true,
+    speed: 700,
+    slidesPerView: 5,
+    slidesPerGroup: 5,
+    autoplay: {
+      delay: 3500,
+      disableOnInteraction: false
+    },
+    pagination: {
+      el: '.books-swiper .swiper-pagination',
+      clickable: true
+    },
+    breakpoints: {
+      1200: { slidesPerView: 5, slidesPerGroup: 5 },
+      992:  { slidesPerView: 4, slidesPerGroup: 4 },
+      768:  { slidesPerView: 3, slidesPerGroup: 3 },
+      576:  { slidesPerView: 2, slidesPerGroup: 2 },
+      0:    { slidesPerView: 1, slidesPerGroup: 1 }
+    }
+  });
+</script>
+<script>
+(() => {
+  const btn = document.querySelector('.menu-btn');
+  const panel = document.getElementById('offcanvas');
+  const backdrop = document.getElementById('offcanvas-backdrop');
+
+  if (!btn || !panel || !backdrop) return;
+
+  function openMenu(){
+    panel.classList.add('open');
+    backdrop.hidden = false;
+    document.body.style.overflow = 'hidden';
+    btn.setAttribute('aria-expanded','true');
+    panel.setAttribute('aria-hidden','false');
+  }
+  function closeMenu(){
+    panel.classList.remove('open');
+    backdrop.hidden = true;
+    document.body.style.overflow = '';
+    btn.setAttribute('aria-expanded','false');
+    panel.setAttribute('aria-hidden','true');
+  }
+
+  btn.addEventListener('click', () => {
+    panel.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  panel.querySelector('.offcanvas-close').addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+  window.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+})();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const title = document.querySelector('.site-title');
+  if (!title) return;
+
+  title.setAttribute('tabindex','0');
+  title.setAttribute('role','link');
+  title.setAttribute('aria-label','На главную: Сеит Каскабасов');
+
+  const goHome = () => { window.location.href = 'index-ru.html'; };
+
+  title.addEventListener('click', goHome);
+  title.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goHome(); }
+  });
+});
+</script>
+
+</body>
+</html>
