@@ -5,104 +5,81 @@
   <title>Мақалалар – Сейт Қасқабасов</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="http://fonts-online.ru/fonts/karsten/stylesheet.css">
+  <link rel="stylesheet" href="http://fonts-online.ru/fonts/karsten/stylesheet.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Bad+Script&family=Italianno&family=Parisienne&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 
   <style>
-  ul {
-      padding-left: 20px;
+  /* ====== TOOLBAR ====== */
+    .wrap{max-width:1200px;margin:40px auto;padding:0 20px;}
+    .toolbar{display:flex;gap:12px;align-items:center;margin:10px 0 18px;}
+    .search{
+      width:100%; max-width:520px;
+      border:1px solid #d8ded8; border-radius:12px;
+      padding:12px 14px; outline:none;
+      font-size:1rem;
     }
 
-    ul li {
-      margin-bottom: 12px;
-      font-size: 1.1rem;
+    /* ====== MODE TOGGLE ====== */
+    .mode-toggle{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:10px 0 20px;}
+    .mode-btn{
+      border-radius:999px;padding:10px 22px;font-size:.95rem;font-weight:600;cursor:pointer;
+      border:1px solid #252b30;background:#fff;color:#252b30;
+      transition:background .2s ease,color .2s ease,box-shadow .2s ease;
+    }
+    .mode-btn.active{background:#252b30;color:#fff;box-shadow:0 2px 6px rgba(0,0,0,.25);}
+
+    /* ====== LIST/CARDS ====== */
+    .article-list{display:grid;gap:1.5rem;}
+    .article-card{
+      background:#fff;border:1px solid #e2e4de;border-radius:14px;
+      padding:1.4rem 1.6rem;box-shadow:0 4px 14px rgba(0,0,0,.05);
+      transition:all .2s ease;
+    }
+    .article-card:hover{transform:translateY(-3px);border-color:#cfd5ce;box-shadow:0 8px 22px rgba(0,0,0,.08);}
+    .year{display:inline-block;font-weight:800;color:#6a7571;margin-bottom:6px;}
+    .title{margin:0 0 .4rem;font-size:1.15rem;color:#343c43;}
+    .meta{font-size:.95rem;color:#666;margin-bottom:.6rem;line-height:1.4;}
+    .pages{font-size:.95rem;color:#2c2c2c;opacity:.9;}
+    .card-link{display:block;text-decoration:none;color:inherit;}
+
+    /* ====== PAGER ====== */
+    .pager{display:flex;gap:10px;align-items:center;justify-content:center;margin:22px 0;}
+    .page-btn{
+      border:none;background:transparent;padding:6px 10px;border-radius:8px;cursor:pointer;
+      font-weight:800;color:#6a7571;font-size:.95rem;transition:background .2s ease,color .2s ease;
+    }
+    .page-btn.active{background:#252b30;color:#fff;}
+    .page-btn:hover:not(.active){background:rgba(37,43,48,.06);}
+    .dots{color:#9aa7a1;padding:0 2px;}
+
+    @media (min-width: 640px){ .article-list{grid-template-columns:repeat(3,1fr);} }
+    @media (max-width: 768px){
+      .wrap{max-width:92%;margin:22px auto;padding:0 15px;}
+      .article-list{grid-template-columns:1fr;}
+      .article-card{padding:1rem;}
     }
 
-    .back-link {
-      display: inline-block;
-      margin-top: 30px;
-      color: #1e3d32;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    .back-link:hover {
-      color: #f2c94c;
-    }
-   
-    .wrap{max-width:1200px;margin:40px auto;padding:0 20px}
-    .toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:16px}
-    .toolbar h2{margin:0;color:#252b30}
-    .search{border:1px solid #cfd7d2;border-radius:10px;padding:10px 14px;min-width:280px;background:#fff}
-.mode-toggle{
-  display:flex;
-  gap:8px;
-  margin:8px 0 18px;
-  flex-wrap:wrap;
-}
-
-.mode-btn{
-  border-radius:999px;
-  border:1px solid #252b30;
-  background:#fff;
-  padding:6px 14px;
-  font-size:0.95rem;
-  cursor:pointer;
-  color:#252b30;
-  transition:background .2s, color .2s, border-color .2s;
-}
-
-.mode-btn.active{
-  background:#252b30;
-  color:#fff;
-}
-
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-    .card{background:#fff;border:1px solid #252b30;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:10px;box-shadow:0 2px 10px rgba(0,0,0,.04)}
-    .year{align-self:flex-start;background:#ebd97a;color:#f8f2d3;border-radius:999px;padding:3px 10px;font-weight:700;font-size:.9rem}
-    .title{margin:0;font-weight:800;color:#252b30}
-    .meta{color:#515e6a;font-size:.95rem;line-height:1.35}
-    .pages{font-size:.9rem;color:#2b4b40}
-    .muted{opacity:.8}
-
-
-    /* Пагинация */
-    .pager{display:flex;gap:10px;align-items:center;justify-content:center;margin:22px 0}
-    .page-btn{border:none;background:transparent;padding:6px 10px;border-radius:8px;cursor:pointer;font-weight:700;color:#6a7571}
-    .page-btn.active{background:#252b30;color:#fff}
-    .page-btn:hover{background:#eaf2ee}
-    .dots{color:#9aa7a1;padding:0 2px}
-
-    @media (max-width:560px){
-      header{height:200px}
-      .grid{grid-template-columns:1fr}
-    }
   </style>
- <!-- Lightbox CSS -->
-<link href="lightbox.css" rel="stylesheet" />
 
-<!-- Твой основной CSS -->
-<link href="style.css" rel="stylesheet" />
-
-<!-- jQuery (CDN — если нет локального подключения) -->
-<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-
-<!-- Lightbox JS -->
-<script src="lightbox-plus-jquery.js"></script>
-</head>
 <body>
-  <!-- Верхняя серая шапка -->
-<div class="header-top">
- <div class="signature-block">
-  <h1 class="site-title">Сейіт Қасқабасов</h1>
-</div>
 
+<!-- Верхняя серая шапка -->
+<div class="header-top">
+  <div class="signature-block">
+
+    <a href="index.html" class="logo-link">
+      <img src="images/sign.png" alt="Сейіт Қасқабасов" class="signature-img">
+    </a>
+  </div>
 
   <div class="header-actions">
     <div class="language-switcher" role="group" aria-label="Тіл таңдау">
-      <a href="index-kz.html" class="lang-btn active-lang">Қаз</a>
-      <a href="index-ru.html" class="lang-btn">Рус</a>
-      <a href="index-en.html" class="lang-btn">Eng</a>
+      <a href="maqalalar.html" class="lang-btn active-lang">Қаз</a>
+      <a href="maqalalar-ru.html" class="lang-btn">Рус</a>
+      <a href="maqalalar-en.html" class="lang-btn">Eng</a>
     </div>
 
     <button class="menu-btn" aria-controls="offcanvas" aria-expanded="false">
@@ -123,7 +100,7 @@
     <a href="maqalalar.html">Мақалалар</a>
     <a href="interview.html">Сұхбаттар</a>
     <a href="qolzhazbalar.html">Қолжазбалар</a>
-    <a href="comments.html">Пікірлер</a>
+    <a href="news.html">Жаңалықтар</a>
     <a href="dissertations.html">Академик С.Қасқабасовтың ғылыми мектебі</a>
     <a href="gallery.html">Галерея</a>
   </nav>
@@ -132,25 +109,22 @@
 <!-- Затемняющий фон под меню -->
 <div id="offcanvas-backdrop" class="offcanvas-backdrop" hidden></div>
 
-<header>
-  <div class="slideshow">
-    <img class="slide" src="images/show1.jpg" style="object-position:50% 30%" alt="">
-    <img class="slide" src="images/show2.jpg" alt="">
-    <img class="slide" src="images/show3.jpg" style="object-position:50% 30%" alt="">
-    <img class="slide" src="images/show4.jpg" style="object-position:50% 30%" alt="">
-    <img class="slide" src="images/show5.jpg" alt="">
-    <img class="slide" src="images/show6.jpg" alt="">
-    <img class="slide" src="images/show7.jpg" alt="">
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-overlay"></div>
 
-    <!-- ВОДЯНОЙ ЗНАК (подпись) -->
-    <img class="slideshow-watermark" src="signature.png" alt="">
+  <div class="header-content">
+    <h1 class="header-title">Мақалалар</h1>
   </div>
+<nav class="breadcrumb">
+  <a href="index.html">Басты бет</a>
+  <span class="divider">|</span>
+  <a href="#" class="current-page">Мақалалар</a>
+</nav>
 </header>
-
 
 <main class="wrap">
   <div class="toolbar">
-    <h2>Мақалалар</h2>
     <input id="q" class="search" type="search" placeholder="Іздеу: атауы, басылымы, жыл…">
   </div>
 
@@ -161,13 +135,21 @@
   </div>
 
   <!-- Один общий список, который будет меняться -->
-  <div id="list" class="grid"></div>
+  <div id="list" class="article-list"></div>
 
   <!-- Пагинация -->
   <div id="pager" class="pager"></div>
 </main>
 
-  <script>
+<script>
+const LANG = 'kz';
+
+const I18N = {
+  kz: { pages: 'Беттері', next: '›' },
+  ru: { pages: 'Страницы', next: '›' },
+  en: { pages: 'Pages', next: '›' }
+};
+
   // ===== ДАННЫЕ =====
   const DATA = [
     {y:1965,t:'Ілияс туралы үлкен еңбек',s:'Жетісу',d:'28 май, №103',p:'3 б.'},
@@ -245,11 +227,7 @@
     {y:2010,t:'Он екі беттік дәптерден басталған жазушылық сапар',s:'Қазақ әдебиеті',d:'7 мамыр (№18)',p:'5'},
     {y:2010,t:'Поэтика его судьбы',s:'Казахстанская правда',d:'17 февраль',p:'6'},
     {y:2010,t:'Немеркнущий шедевр',s:'Studii de slavistic',d:'№16',p:'—'},
-    {y:2010,t:'Немецкие ученые…',s:'Deutsche Allgemeine Zeitung',d:'21 август',p:'—'}
-  ];
-
-  // ===== ДОБАВИТЬ "ПРО НЕГО" =====
-  const NEW_ITEMS = [
+    {y:2010,t:'Немецкие ученые…',s:'Deutsche Allgemeine Zeitung',d:'21 август',p:'—'},
 {
     y: 2000,
     t: 'Ғылымның адамы',
@@ -389,120 +367,116 @@
     d: '22 маусым 2022',
     p: '—',
     about: true
-  },
-    { y:2015, t:'Фольклорист мирового масштаба', s:'Казахстанская правда', d:'2 октября 2015', p:'—', about:true },
-    { y:2020, t:'Сейіт', s:'Egemen Qazaqstan', d:'24 маусым 2020', p:'—', about:true },
-    { y:2020, t:'Золотое слово казахстанской фольклористики', s:'Казахстанская правда', d:'24 июня 2020', p:'—', about:true },
-    { y:2022, t:'Зерделі зерттеуші', s:'Aiqyn', d:'22 маусым 2022', p:'—', about:true }
+  }
   ];
 
-  DATA.push(...NEW_ITEMS);
 
   // ===== РЕНДЕР =====
-   const PER_PAGE = 8;
-  let state = { page:1, q:'', mode:'his' }; // mode: 'his' | 'about'
+const PER_PAGE = 9;
+let state = { page: 1, q: '', mode: 'his' }; // his | about
 
-  const pager   = document.getElementById('pager');
-  const qInput  = document.getElementById('q');
-  const listEl  = document.getElementById('list');
-  const modeBtns = document.querySelectorAll('.mode-btn');
+const pager   = document.getElementById('pager');
+const qInput  = document.getElementById('q');
+const listEl  = document.getElementById('list');
+const modeBtns = document.querySelectorAll('.mode-btn');
 
-  function fits(it){
-    const s = state.q.toLowerCase().trim();
-    if(!s) return true;
-    return [it.t,it.s,String(it.y),it.d||'',it.p||'']
-      .join(' ')
-      .toLowerCase()
-      .includes(s);
+function fits(it){
+  const s = state.q.toLowerCase().trim();
+  if(!s) return true;
+  return [it.t, it.s, String(it.y), it.d || '', it.p || '']
+    .join(' ')
+    .toLowerCase()
+    .includes(s);
+}
+
+function render(){
+  // фильтр по режиму
+  let base = DATA.filter(it => state.mode === 'about' ? it.about : !it.about);
+  base = base.filter(fits).sort((a,b) => (b.y||0) - (a.y||0));
+
+  const pages = Math.max(1, Math.ceil(base.length / PER_PAGE));
+  if(state.page > pages) state.page = pages;
+
+  const start = (state.page - 1) * PER_PAGE;
+  const slice = base.slice(start, start + PER_PAGE);
+
+  // список
+  listEl.innerHTML = slice.map(it => `
+    <article class="article-card">
+      <span class="year">${it.y}</span>
+      <h2 class="title">${it.t}</h2>
+      <div class="meta">${it.s}${it.d ? ` • ${it.d}` : ''}</div>
+      ${it.p ? `<div class="pages">${I18N[LANG].pages}: ${it.p}</div>` : ''}
+    </article>
+  `).join('');
+
+  // пагинация
+  pager.innerHTML = '';
+
+  function btn(n, label = n, active = false){
+    const b = document.createElement('button');
+    b.className = 'page-btn' + (active ? ' active' : '');
+    b.textContent = label;
+    b.onclick = () => { state.page = n; render(); };
+    pager.appendChild(b);
+  }
+  function dots(){
+    const s = document.createElement('span');
+    s.className = 'dots';
+    s.textContent = '…';
+    pager.appendChild(s);
   }
 
-  function render(){
-    // выбираем подмножество по режиму
-    let base = DATA.filter(it => state.mode === 'about' ? it.about : !it.about);
-    base = base.filter(fits).sort((a,b)=> (b.y||0)-(a.y||0));
+  if(pages <= 7){
+    for(let i=1;i<=pages;i++) btn(i,i,i===state.page);
+  } else {
+    const p = state.page;
+    btn(1,1,p===1);
+    if(p>3) dots();
+    const startP = Math.max(2, p-1);
+    const endP   = Math.min(pages-1, p+1);
+    for(let i=startP;i<=endP;i++) btn(i,i,i===p);
+    if(p<pages-2) dots();
+    btn(pages,pages,p===pages);
 
-    const pages = Math.max(1, Math.ceil(base.length / PER_PAGE));
-    if(state.page > pages) state.page = pages;
-
-    const start = (state.page-1)*PER_PAGE;
-    const slice = base.slice(start, start+PER_PAGE);
-
-    // список
-    listEl.innerHTML = slice.map(it => `
-      <article class="card${it.about ? ' about' : ''}">
-        <span class="year">${it.y}</span>
-        <h3 class="title">${it.t}</h3>
-        <div class="meta">
-          <span class="muted">${it.s}</span>${it.d ? ` • ${it.d}` : ''}
-        </div>
-        ${it.p ? `<div class="pages">Беттері: ${it.p}</div>` : ''}
-      </article>
-    `).join('');
-
-    // пагинация
-    pager.innerHTML = '';
-    function btn(n,label=n,active=false){
-      const b = document.createElement('button');
-      b.className = 'page-btn'+(active?' active':'');
-      b.textContent = label;
-      b.onclick = ()=>{ state.page=n; render(); };
-      pager.appendChild(b);
-    }
-    function dots(){
-      const s=document.createElement('span');
-      s.className='dots';
-      s.textContent='…';
-      pager.appendChild(s);
-    }
-
-    if(pages<=7){
-      for(let i=1;i<=pages;i++) btn(i,i,i===state.page);
-    } else {
-      const p = state.page;
-      btn(1,1,p===1);
-      if(p>3) dots();
-      const startP = Math.max(2,p-1);
-      const endP = Math.min(pages-1,p+1);
-      for(let i=startP;i<=endP;i++) btn(i,i,i===p);
-      if(p<pages-2) dots();
-      btn(pages,pages,p===pages);
-      const next = document.createElement('button');
-      next.className = 'page-btn';
-      next.textContent = '›';
-      next.onclick = ()=>{ if(state.page<pages){ state.page++; render(); } };
-      pager.appendChild(next);
-    }
+    const next = document.createElement('button');
+    next.className = 'page-btn';
+    next.textContent = I18N[LANG].next;
+    next.onclick = () => { if(state.page < pages){ state.page++; render(); } };
+    pager.appendChild(next);
   }
+}
 
-  // поиск
-  qInput.addEventListener('input', () => {
-    state.q = qInput.value;
+// поиск
+qInput.addEventListener('input', () => {
+  state.q = qInput.value;
+  state.page = 1;
+  render();
+});
+
+// режимы
+modeBtns.forEach(b => {
+  b.addEventListener('click', () => {
+    const mode = b.dataset.mode;
+    if(mode === state.mode) return;
+    state.mode = mode;
     state.page = 1;
+    modeBtns.forEach(x => x.classList.toggle('active', x === b));
     render();
   });
+});
 
-  // переключатель режимов
-  modeBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const mode = btn.dataset.mode; // 'his' или 'about'
-      if(mode === state.mode) return;
-      state.mode = mode;
-      state.page = 1;
-      modeBtns.forEach(b => b.classList.toggle('active', b === btn));
-      render();
-    });
-  });
 
   render();
 </script>
 
 <footer style="padding: 0; margin: 0;">
   <div class="footer-content" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; padding:40px 20px 10px;">
-<div class="footer-links left" style="flex: 1; min-width: 200px;">
-  <h3>Материалдар</h3>
-  <div style="display: flex; gap: 150px;">
-    <ul style="list-style: none; padding: 0;">
-      <li><a href="bio.html">- Өмірбаяны</a></li>
+    <div class="footer-links left" style="flex: 1; min-width: 200px;">
+      <h3>Материалдар</h3>
+      <div style="display: flex; gap: 150px;">
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="bio.html">- Өмірбаяны</a></li>
           <li><a href="books.html">- Кітаптар мен монографиялар</a></li>
           <li><a href="awards.html">- Марапаттар</a></li>
           <li><a href="maqalalar.html">- Мақалалар</a></li>
@@ -510,81 +484,49 @@
         <ul style="list-style: none; padding: 0;">
           <li><a href="interview.html">- Сұхбаттар</a></li>
           <li><a href="qolzhazbalar.html">- Қолжазбалар</a></li>
-          <li><a href="comments.html">- Пікірлер</a></li>
+          <li><a href="news.html">- Жаңалықтар</a></li>
           <li><a href="dissertations.html">- Академик С.Қасқабасовтың ғылыми мектебі</a></li>
-        
-    </ul>
-  </div>
-</div>
-<div class="footer-gallery-block">
-  <div class="footer-gallery">
-    <a href="images/gallery1.jpg" data-lightbox="footer-gallery"><img src="images/gallery1.jpg" alt=""></a>
-    <a href="images/gallery2.jpg" data-lightbox="footer-gallery"><img src="images/gallery2.jpg" alt=""></a>
-    <a href="images/gallery3.jpg" data-lightbox="footer-gallery"><img src="images/gallery3.jpg" alt=""></a>
-    <a href="images/gallery4.jpg" data-lightbox="footer-gallery"><img src="images/gallery4.jpg" alt=""></a>
-    <a href="images/gallery5.jpg" data-lightbox="footer-gallery"><img src="images/gallery5.jpg" alt=""></a>
-    <a href="images/gallery6.jpg" data-lightbox="footer-gallery"><img src="images/gallery6.jpg" alt=""></a>
-  </div>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-gallery-block">
+      <div class="footer-gallery">
+        <a href="gallery/gallery1.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery1.jpg" alt=""></a>
+        <a href="gallery/gallery2.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery2.jpg" alt=""></a>
+        <a href="gallery/gallery3.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery3.jpg" alt=""></a>
+        <a href="gallery/gallery4.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery4.jpg" alt=""></a>
+        <a href="gallery/gallery5.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery5.jpg" alt=""></a>
+        <a href="gallery/gallery6.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery6.jpg" alt=""></a>
+      </div>
 
-  <div class="full-gallery-link">
-    <a href="gallery.html">→ Толық галереяны қарау </a>
-  </div>
-</div>
-
+      <div class="full-gallery-link">
+        <a href="gallery.html">→ Толық галереяны қарау </a>
+      </div>
+    </div>
 
     <div class="footer-contact" style="margin-top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 12px;">
- <div class="contact-info" style="display: flex; gap: 20px;font-size: 1.3rem; color:#343c43;">
+      <div class="contact-info" style="display: flex; gap: 20px;font-size: 1.3rem; color:#343c43;">
         <span>📞 +7 777 877 8787</span>
         <span>📧 seyt.kaskabasov@mail.kz</span>
       </div>
-      <button class="order-btn" style=" border: none; padding: 10px 20px; color:#343c43; cursor: pointer;">Кітапқа тапсырыс</button>
-    </div>
+        </div>
   </div>
-      
-   <div class="copyright" style="padding: 18px; text-align: center;">
-  © 2025 Сейіт Қасқабасовтың отбасы мен ұрпақтары
-</div>
 
+  <div class="copyright" style="padding: 18px; text-align: center;">
+    © 2025 Сейіт Қасқабасовтың отбасы мен ұрпақтары
+  </div>
 </footer>
+
 <script>
   lightbox.option({
     'resizeDuration': 200,
     'wrapAround': true,
-      });
-</script>
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<script>
-  const booksSwiper = new Swiper('.books-swiper', {
-    spaceBetween: 24,
-    loop: true,
-    speed: 700,
-
-    /* 5 на экране и листаемся группами по 5 */
-    slidesPerView: 5,
-    slidesPerGroup: 5,
-
-    autoplay: {
-      delay: 3500,
-      disableOnInteraction: false
-    },
-
-    pagination: {
-      el: '.books-swiper .swiper-pagination',
-      clickable: true
-    },
-
-    /* адаптивность */
-    breakpoints: {
-      1200: { slidesPerView: 5, slidesPerGroup: 5 },
-      992:  { slidesPerView: 4, slidesPerGroup: 4 },
-      768:  { slidesPerView: 3, slidesPerGroup: 3 },
-      576:  { slidesPerView: 2, slidesPerGroup: 2 },
-      0:    { slidesPerView: 1, slidesPerGroup: 1 }
-    }
   });
 </script>
+
+
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="lightbox-plus-jquery.js"></script>
 <script>
 (() => {
   const btn = document.querySelector('.menu-btn');
@@ -616,31 +558,6 @@
   window.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
 })();
 </script>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const video = document.getElementById('bioVideo');
-  let visible = false;
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      const isNowVisible = entry.isIntersecting && entry.intersectionRatio > 0.3;
-
-      if (isNowVisible && !visible) {
-        visible = true;
-        video.currentTime = 0;
-        video.play();
-      } else if (!isNowVisible && visible) {
-        visible = false;
-        video.pause();
-        video.currentTime = 0; // возвращаемся к первому кадру
-      }
-    });
-  }, { threshold: [0, 0.3, 1] });
-
-  observer.observe(video);
-});
-</script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const title = document.querySelector('.site-title');
@@ -659,5 +576,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+
 </body>
 </html>
