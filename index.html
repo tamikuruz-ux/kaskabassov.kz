@@ -19,72 +19,104 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
   <title>Сейіт Қасқабасов – Басты бет</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f9f9f4;
-      color: #2c2c2c;
-    }
-    .lang-buttons {
-      display: flex;
-      gap: 10px;
-    }
-   
-    header p {
-      font-size: 1.8rem;
-      
-    }
+  
+    .section-head {
+  margin-top: 0 !important;
+  margin-bottom: 5px !important;
+}
 
-   
-   /* контейнер слайдера */
+
+/* контейнер свайпера */
 .books-swiper {
-  padding-bottom: 28px;      /* место для точек */
+  padding: 20px 0 28px;
+  background: transparent;
+  padding-top: 0 !important;
+  padding-bottom: 20px !important;
+  overflow: hidden !important;
+}
+
+
+/* ровно 5 слайдов в ряд */
+.books-swiper .swiper-wrapper {
+  display: flex;
+}
+
+.books-swiper .swiper-slide {
+  flex: 0 0 calc(100% / 5);   /* каждая книга занимает 1/5 ширины */
+  max-width: calc(100% / 5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
 }
 
 /* карточка книги */
 .book-card {
   display: block;
-  background: #fff;
-  border-radius: 0; /* ← прямые углы */
-  text-align: center;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
-  overflow: hidden;
-  text-decoration: none;
-  color: #343c43;
-  transition: transform .2s ease, box-shadow .2s ease;
+  padding: 0;
+  margin: 0;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  transform: none; /* сбрасываем лишнее */
+}
+#books {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
+/* картинка книги */
 .book-card img {
+  height: 300px;          /* подбери: 230–260px */
+  width: auto;            /* ширина подстраивается */
   display: block;
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 0; /* ← тоже убираем скругление у картинки */
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  object-fit: contain;    /* чтобы не искажалось */
 }
 
-.book-card p {
-  margin: 12px 10px 18px;
-  font-weight: 600;
-}
 
+/* ================= ХОВЕР (если хочешь оставить) ================= */
 .book-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 14px 24px rgba(0,0,0,0.12);
 }
 
-/* точки-пагинация */
-.books-swiper .swiper-pagination-bullets .swiper-pagination-bullet {
+/* подпись (если появится — у тебя есть p внутри book-card в коде) */
+.book-card p {
+  margin: 12px 10px 18px;
+  font-weight: 600;
+}
+
+/* ================= ТОЧКИ-ПАГИНАЦИЯ ================= */
+
+.books-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.books-page-bullet {
   width: 10px;
   height: 10px;
+  border-radius: 50%;
   background: #c7dfe8;
-  opacity: 1;
-  margin: 0 6px !important;
+  cursor: pointer;
   transition: transform .2s ease, background .2s ease;
 }
-.books-swiper .swiper-pagination-bullet-active {
+
+.books-page-bullet.active {
   background: #343c43;
   transform: scale(1.2);
 }
+
+
 .section-head{ display:flex; align-items:center; justify-content:space-between; gap:20px; }
 .see-all{ text-decoration:none; color:#343c43; font-weight:700; }
 .see-all:hover{ color:#3e94ea; }
@@ -94,6 +126,92 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
   padding-left: 0;
   padding-right: 0;
 }
+
+/* ==================== Мобильная версия ==================== */
+@media (max-width: 768px) {
+
+  /* Контейнер с книгами: уменьшаем количество слайдов в ряду */
+  .books-swiper .swiper-slide {
+    flex: 0 0 calc(100% / 2); /* каждая книга занимает 50% ширины */
+    max-width: calc(100% / 2);
+  }
+
+  /* Уменьшаем высоту изображений книг */
+  .book-card img {
+    height: 230px;
+  }
+
+  /* Пагинация точками: уменьшаем размер */
+  .books-pagination {
+    gap: 5px;
+  }
+
+  .books-page-bullet {
+    width: 8px;
+    height: 8px;
+  }
+
+  .books-page-bullet.active {
+    transform: scale(1.1);
+  }
+
+  /* Заголовок секции с книгами: делаем более компактным */
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .see-all {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* Контейнер с книгами: делаем еще больше адаптивным */
+  .books-swiper .swiper-slide {
+    flex: 0 0 100%; /* каждая книга занимает 100% ширины */
+    max-width: 100%;
+  }
+
+  /* Уменьшаем высоту изображений книг */
+  .book-card img {
+    height: 200px;
+  }
+
+  /* Пагинация точками: еще меньше */
+  .books-pagination {
+    gap: 3px;
+  }
+
+  .books-page-bullet {
+    width: 6px;
+    height: 6px;
+  }
+
+  .books-page-bullet.active {
+    transform: scale(1.05);
+  }
+
+  /* Заголовок секции с книгами: делаем еще более компактным */
+  .section-head {
+    gap: 5px;
+  }
+
+  .see-all {
+    font-size: 1rem;
+  }
+
+  /* Убираем отступы у контейнера с книгами */
+  #books.container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+
+
 
           </style>
 <!-- Lightbox CSS -->
@@ -113,13 +231,19 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 <!-- Верхняя серая шапка -->
 <div class="header-top">
  <div class="signature-block">
-  <h1 class="site-title">Сейіт Қасқабасов</h1>
+<a href="index.html" class="logo-link">
+      <img src="images/logo.png" alt="Логотип С.А. Қасқабасов" class="logo-img">
+    </a>
+<a href="index.html" class="logo-link">
+  <img src="images/sign.png" alt="Сейіт Қасқабасов" class="signature-img">
+    </a>
 </div>
+
 
 
   <div class="header-actions">
     <div class="language-switcher" role="group" aria-label="Тіл таңдау">
-      <a href="index-kz.html" class="lang-btn active-lang">Қаз</a>
+      <a href="index.html" class="lang-btn active-lang">Қаз</a>
       <a href="index-ru.html" class="lang-btn">Рус</a>
       <a href="index-en.html" class="lang-btn">Eng</a>
     </div>
@@ -142,7 +266,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
     <a href="maqalalar.html">Мақалалар</a>
     <a href="interview.html">Сұхбаттар</a>
     <a href="qolzhazbalar.html">Қолжазбалар</a>
-    <a href="comments.html">Пікірлер</a>
+    <a href="news.html">Жаңалықтар</a>
     <a href="dissertations.html">Академик С.Қасқабасовтың ғылыми мектебі</a>
     <a href="gallery.html">Галерея</a>
   </nav>
@@ -152,23 +276,34 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 <div id="offcanvas-backdrop" class="offcanvas-backdrop" hidden></div>
 
 <header>
-  <div class="slideshow">
-    <img class="slide" src="images/show1.jpg" style="object-position:50% 30%" alt="">
-    <img class="slide" src="images/show2.jpg" alt="">
-    <img class="slide" src="images/show3.jpg" style="object-position:50% 30%" alt="">
-    <img class="slide" src="images/show4.jpg" style="object-position:50% 30%" alt="">
-    <img class="slide" src="images/show5.jpg" alt="">
-    <img class="slide" src="images/show6.jpg" alt="">
-    <img class="slide" src="images/show7.jpg" alt="">
+   <div class="slider">
+    <div class="slides">
+      <div class="slide"><img src="images/show1.jpg" alt=""></div>
+      <div class="slide"><img src="images/show2.jpg" alt=""></div>
+      <div class="slide"><img src="images/show3.jpg" alt=""></div>
+      <div class="slide"><img src="images/show4.jpg" alt=""></div>
+      <div class="slide"><img src="images/show5.jpg" alt=""></div>
+      <div class="slide"><img src="images/show6.jpg" alt=""></div>
+      <div class="slide"><img src="images/show7.jpg" alt=""></div>
+      <!-- Пустой слайд для анимации -->
+      <div class="slide empty"></div>
+    </div>
 
-    <!-- ВОДЯНОЙ ЗНАК (подпись) -->
+    <!-- Подпись на слайдшоу -->
     <img class="slideshow-watermark" src="signature.png" alt="">
+
+    <!-- Пагинация точками -->
+    <div class="slider-pagination"></div>
   </div>
 </header>
 
-<section class="quote-banner">
-  <blockquote>«Халықтың тарихын тану үшін, алдымен, оның сөзін тану керек»</blockquote>
+<section class="quote-banner"> 
+<div class="quote-inner">
+  <blockquote> «Адамға керегі — кереметке құштарлық пен білімге шөлдеу. 
+Ежелде де солай еді, болашақта да солай болмақ.» </blockquote>
   <cite>— Сейіт Қасқабасов</cite>
+  </div>
+
 </section>
  
 
@@ -205,7 +340,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 
 
     <div class="section-head">
-  <h2 class="short-bio-title"><a href="books.html">Кітаптарынан үзінді</a></h2>
+  <h2 class="short-bio-title"><a href="books.html">Кітаптар жинағы</a></h2>
   <a class="see-all" href="books.html">Барлығын көру →</a>
 </div>
 
@@ -215,93 +350,93 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 
       <!-- по одному слайду на книгу -->
       <div class="swiper-slide">
-        <a class="book-card" href="book1.html">
+        <a class="book-card" href="books.html">
           <img src="images/book1.png" >
         </a>
       </div>
 
       <div class="swiper-slide">
-        <a class="book-card" href="book2.html">
-          <img src="images/book2.jpg">
+        <a class="book-card" href="books.html">
+          <img src="images/book2.png">
         </a>
       </div>
 
       <div class="swiper-slide">
-        <a class="book-card" href="book3.html">
-          <img src="images/book3.jpg">
+        <a class="book-card" href="books.html">
+          <img src="images/book3.png">
         </a>
       </div>
 
       <div class="swiper-slide">
-        <a class="book-card" href="book4.html">
-          <img src="images/book4.jpg">
+        <a class="book-card" href="books.html">
+          <img src="images/book4.png">
         </a>
       </div>
 
       <div class="swiper-slide">
-        <a class="book-card" href="book5.html">
-          <img src="images/book5.jpg">
+        <a class="book-card" href="books.html">
+          <img src="images/book5.png">
         </a>
       </div>
 
       <!-- добавляй дальше любые книги… -->
       <div class="swiper-slide">
-        <a class="book-card" href="book6.html">
-          <img src="images/book6.jpg">
+        <a class="book-card" href="books.html">
+          <img src="images/book6.png">
         </a>
       </div>
 
       <div class="swiper-slide">
-        <a class="book-card" href="book7.html">
-          <img src="images/book7.jpg">
+        <a class="book-card" href="books.html">
+          <img src="images/book7.png">
         </a>
       </div>
 
       <div class="swiper-slide">
-        <a class="book-card" href="book8.html">
-          <img src="images/book8.jpg">
+        <a class="book-card" href="books.html">
+          <img src="images/book8.png">
         </a>
       </div>
 
       <div class="swiper-slide">
-        <a class="book-card" href="book9.html">
-          <img src="images/book9.jpg">
+        <a class="book-card" href="books.html">
+          <img src="images/book9.png">
         </a>
       </div>
 
       <div class="swiper-slide">
-        <a class="book-card" href="book10.html">
-          <img src="images/book10.jpg">
+        <a class="book-card" href="books.html">
+          <img src="images/book10.png">
         </a>
       </div>
      
  <div class="swiper-slide">
-        <a class="book-card" href="book10.html">
-          <img src="images/book11.jpg">
+        <a class="book-card" href="books.html">
+          <img src="images/book11.png">
         </a>
       </div>
     
   <div class="swiper-slide">
-        <a class="book-card" href="book10.html">
-          <img src="images/book12.jpg">
+        <a class="book-card" href="books.html">
+          <img src="images/book12.png">
         </a>
       </div>
      
  <div class="swiper-slide">
-        <a class="book-card" href="book10.html">
-          <img src="images/book13.jpg">
+        <a class="book-card" href="books.html">
+          <img src="images/book13.png">
         </a>
       </div>
      
  <div class="swiper-slide">
-        <a class="book-card" href="book10.html">
-          <img src="images/book14.jpg">
+        <a class="book-card" href="books.html">
+          <img src="images/book14.png">
         </a>
       </div>
 
 <div class="swiper-slide">
-        <a class="book-card" href="book10.html">
-          <img src="images/book15.jpg">
+        <a class="book-card" href="books.html">
+          <img src="images/book15.png">
         </a>
       </div>
 
@@ -309,7 +444,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
     </div>
 
     <!-- точки -->
-    <div class="swiper-pagination"></div>
+    <div class="books-pagination"></div>
   </div>
 </section>
 
@@ -329,7 +464,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
         <ul style="list-style: none; padding: 0;">
           <li><a href="interview.html">- Сұхбаттар</a></li>
           <li><a href="qolzhazbalar.html">- Қолжазбалар</a></li>
-          <li><a href="comments.html">- Пікірлер</a></li>
+          <li><a href="news.html">- Жаңалықтар</a></li>
           <li><a href="dissertations.html">- Академик С.Қасқабасовтың ғылыми мектебі</a></li>
         
     </ul>
@@ -337,12 +472,12 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 </div>
 <div class="footer-gallery-block">
   <div class="footer-gallery">
-    <a href="images/gallery1.jpg" data-lightbox="footer-gallery"><img src="images/gallery1.jpg" alt=""></a>
-    <a href="images/gallery2.jpg" data-lightbox="footer-gallery"><img src="images/gallery2.jpg" alt=""></a>
-    <a href="images/gallery3.jpg" data-lightbox="footer-gallery"><img src="images/gallery3.jpg" alt=""></a>
-    <a href="images/gallery4.jpg" data-lightbox="footer-gallery"><img src="images/gallery4.jpg" alt=""></a>
-    <a href="images/gallery5.jpg" data-lightbox="footer-gallery"><img src="images/gallery5.jpg" alt=""></a>
-    <a href="images/gallery6.jpg" data-lightbox="footer-gallery"><img src="images/gallery6.jpg" alt=""></a>
+    <a href="gallery/gallery1.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery1.jpg" alt=""></a>
+    <a href="gallery/gallery2.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery2.jpg" alt=""></a>
+    <a href="gallery/gallery3.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery3.jpg" alt=""></a>
+    <a href="gallery/gallery4.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery4.jpg" alt=""></a>
+    <a href="gallery/gallery5.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery5.jpg" alt=""></a>
+    <a href="gallery/gallery6.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery6.jpg" alt=""></a>
   </div>
 
   <div class="full-gallery-link">
@@ -356,8 +491,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
         <span>📞 +7 777 877 8787</span>
         <span>📧 seyt.kaskabasov@mail.kz</span>
       </div>
-      <button class="order-btn" style=" border: none; padding: 10px 20px; color:#343c43; cursor: pointer;">Кітапқа тапсырыс</button>
-    </div>
+       </div>
   </div>
       
    <div class="copyright" style="padding: 18px; text-align: center;">
@@ -365,7 +499,53 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 </div>
 
 </footer>
+  <script>
+(function() {
+  const slider = document.querySelector('.slider');
+  const slides = slider.querySelector('.slides');
+  const slideCount = slides.children.length - 1;  // Учитываем пустой слайд
+  const pagination = document.querySelector('.slider-pagination');
+  let idx = 0;
+  let timer;
 
+  // Создаем точки пагинации
+  for (let i = 0; i < slideCount; i++) {
+    const dot = document.createElement('span');
+    dot.addEventListener('click', () => goToSlide(i));
+    pagination.appendChild(dot);
+  }
+
+  function goToSlide(i) {
+    slides.style.transform = `translateX(${-i * 100}%)`;
+    updatePagination(i);
+    idx = i;
+  }
+
+  function updatePagination(i) {
+    const dots = document.querySelectorAll('.slider-pagination span');
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === i);
+    });
+  }
+
+  function nextSlide() {
+    goToSlide((idx + 1) % slideCount);
+  }
+
+  function startAuto() {
+    timer = setInterval(nextSlide, 4000);
+  }
+
+  function stopAuto() {
+    clearInterval(timer);
+  }
+
+  // Запуск слайдера с начальной позиции
+  goToSlide(0);
+  startAuto();
+})();
+
+  </script>
 
   <script>
     function scrollCarousel(dir) {
@@ -384,36 +564,51 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+
 <script>
-  const booksSwiper = new Swiper('.books-swiper', {
-    spaceBetween: 24,
-    loop: true,
-    speed: 700,
+  // Инициализация слайдера
+const booksSwiper = new Swiper('.books-swiper', {
+  slidesPerView: 'auto',   // ширина задаётся CSS
+  slidesPerGroup: 5,       // листаем по 5
+  spaceBetween: 0,         // расстояние контролируем через CSS, не Swiper
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false
+  },
+  pagination: {
+    el: null
+  }
+});
 
-    /* 5 на экране и листаемся группами по 5 */
-    slidesPerView: 5,
-    slidesPerGroup: 5,
 
-    autoplay: {
-      delay: 3500,
-      disableOnInteraction: false
-    },
+  // Кастомная пагинация «по страницам»
+  const paginationEl = document.querySelector('.books-pagination');
+  if (paginationEl) {
+    const slidesPerGroup = booksSwiper.params.slidesPerGroup;
+    const totalPages = Math.ceil(booksSwiper.slides.length / slidesPerGroup);
 
-    pagination: {
-      el: '.books-swiper .swiper-pagination',
-      clickable: true
-    },
+    for (let i = 0; i < totalPages; i++) {
+      const bullet = document.createElement('span');
+      bullet.classList.add('books-page-bullet');
+      if (i === 0) bullet.classList.add('active');
 
-    /* адаптивность */
-    breakpoints: {
-      1200: { slidesPerView: 5, slidesPerGroup: 5 },
-      992:  { slidesPerView: 4, slidesPerGroup: 4 },
-      768:  { slidesPerView: 3, slidesPerGroup: 3 },
-      576:  { slidesPerView: 2, slidesPerGroup: 2 },
-      0:    { slidesPerView: 1, slidesPerGroup: 1 }
+      bullet.addEventListener('click', () => {
+        booksSwiper.slideToLoop(i * slidesPerGroup);
+      });
+
+      paginationEl.appendChild(bullet);
     }
-  });
+
+    booksSwiper.on('slideChange', () => {
+      const page = Math.floor(booksSwiper.realIndex / slidesPerGroup);
+      document
+        .querySelectorAll('.books-page-bullet')
+        .forEach((b, idx) => b.classList.toggle('active', idx === page));
+    });
+  }
 </script>
+
 <script>
 (() => {
   const btn = document.querySelector('.menu-btn');
