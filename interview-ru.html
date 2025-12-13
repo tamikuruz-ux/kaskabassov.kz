@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Интервью – Сеит Каскабасов</title>
+  <link rel="stylesheet" href="http://fonts-online.ru/fonts/karsten/stylesheet.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<style>
+.page-title{font-weight:700;margin-bottom:.8rem;color:#343c43;font-size:1.9rem;}
+.intro-text{max-width:70ch;font-size:1rem;color:#555;margin-bottom:2rem;line-height:1.6;}
+.interview-list{display:grid;gap:1.5rem;}
+.interview-card{background:#fff;border:1px solid #e2e4de;border-radius:14px;padding:1.4rem 1.6rem;box-shadow:0 4px 14px rgba(0,0,0,.05);transition:all .2s ease;}
+.interview-card:hover{transform:translateY(-3px);border-color:#cfd5ce;box-shadow:0 8px 22px rgba(0,0,0,.08);}
+.interview-card h2{margin:0 0 .4rem;font-size:1.25rem;color:#343c43;}
+.meta{font-size:.9rem;color:#666;margin-bottom:.8rem;}
+.desc{font-size:1rem;color:#2c2c2c;margin-bottom:.8rem;line-height:1.55;}
+.read-link{font-weight:600;color:#0a66c2;text-decoration:none;transition:color .2s ease;}
+.read-link:hover{color:#094b97;text-decoration:underline;}
+@media (min-width:640px){.interview-list{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:768px){
+  .page-title{font-size:1.5rem;}
+  .intro-text{font-size:.95rem;max-width:100%;}
+  .interview-list{grid-template-columns:1fr;}
+  .interview-card{padding:1rem;}
+  .interview-card h2{font-size:1.1rem;}
+  .meta{font-size:.85rem;}
+  .desc{font-size:.95rem;}
+  .read-link{font-size:1rem;}
+}
+@media (max-width:480px){
+  .page-title{font-size:1.3rem;}
+  .intro-text{font-size:.9rem;}
+  .interview-card{padding:.8rem;}
+  .interview-card h2{font-size:1rem;}
+  .meta{font-size:.8rem;}
+  .desc{font-size:.9rem;}
+  .read-link{font-size:.95rem;}
+}
+</style>
+
+<link href="lightbox.css" rel="stylesheet" />
+<link href="style.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="lightbox-plus-jquery.js"></script>
+</head>
+
+<body>
+
+<div class="header-top">
+  <div class="signature-block">
+    <a href="index-ru.html" class="logo-link">
+      <img src="images/logo.png" alt="Логотип С.А. Каскабасов" class="logo-img">
+    </a>
+    <a href="index-ru.html" class="logo-link">
+      <img src="images/sign.png" alt="Сеит Каскабасов" class="signature-img">
+    </a>
+  </div>
+
+  <div class="header-actions">
+    <div class="language-switcher" role="group" aria-label="Выбор языка">
+      <a href="interview.html" class="lang-btn">Қаз</a>
+      <a href="interview-ru.html" class="lang-btn active-lang">Рус</a>
+      <a href="interview-en.html" class="lang-btn">Eng</a>
+    </div>
+
+    <button class="menu-btn" aria-controls="offcanvas" aria-expanded="false">
+      <span class="menu-icon"></span> Меню
+    </button>
+  </div>
+</div>
+
+<aside id="offcanvas" class="offcanvas" aria-hidden="true">
+  <button class="offcanvas-close" aria-label="Закрыть меню">×</button>
+
+  <nav class="offcanvas-nav" role="navigation" aria-label="Основное меню">
+    <a href="index.html">Главная</a>
+    <a href="bio-ru.html">Биография</a>
+    <a href="books-ru.html">Книги и монографии</a>
+    <a href="awards-ru.html">Награды</a>
+    <a href="maqalalar-ru.html">Статьи</a>
+    <a href="interview-ru.html">Интервью</a>
+    <a href="qolzhazbalar-ru.html">Рукописи</a>
+    <a href="news-ru.html">Новости</a>
+    <a href="dissertations-ru.html">Научная школа академика С. Каскабасова</a>
+    <a href="gallery-ru.html">Галерея</a>
+  </nav>
+</aside>
+
+<div id="offcanvas-backdrop" class="offcanvas-backdrop" hidden></div>
+
+<header class="site-header">
+  <div class="header-overlay"></div>
+  <div class="header-content">
+    <h1 class="header-title">Интервью</h1>
+  </div>
+
+  <nav class="breadcrumb">
+    <a href="index-ru.html">Главная</a>
+    <span class="divider">|</span>
+    <a href="#" class="current-page">Интервью</a>
+  </nav>
+</header>
+
+<main class="container">
+  <div class="interview-list">
+
+    <div class="interview-card">
+      <h2>«Төрт елу»</h2>
+      <p class="meta"><strong>Издание:</strong> Egemen Qazaqstan — <em>27 сентября 2011 г.</em></p>
+      <p class="desc">
+        Большое интервью о жизненном пути учёного и его научной деятельности. Речь идёт о работе Института, серии «Бабалар сөзі» и новом этапе в литературоведении.
+      </p>
+      <a href="https://egemen.kz/article/15265-tort-elu" class="read-link" target="_blank" rel="noopener noreferrer">Читать →</a>
+    </div>
+
+    <div class="interview-card">
+      <h2>«Сеит Каскабасов: Главный вопрос — обновить национальное сознание, улучшить качество нации»</h2>
+      <p class="meta"><strong>Издание:</strong> Egemen Qazaqstan</p>
+      <p class="desc">
+        Глубокая беседа об обществе, национальном сознании, языковой политике и духовной модернизации. Рассматривается роль фольклора в контексте идей и концепции «Мәңгілік Ел».
+      </p>
+      <a href="https://egemen.kz/article/119676-seyit-qasqabasov-basty-masele-%E2%80%93-ult-sanasyn-dganhartu-ult-sapasyn-dgaqsartu" class="read-link" target="_blank" rel="noopener noreferrer">Читать →</a>
+    </div>
+
+    <div class="interview-card">
+      <h2>«Вечный фольклор Вечного Ел»</h2>
+      <p class="meta"><strong>Издание:</strong> Egemen Qazaqstan — <em>24 января 2014 г.</em></p>
+      <p class="desc">
+        Интервью о замысле стотомной серии «Бабалар сөзі», процессе подготовки и научной значимости проекта. Объясняются принципы сбора и публикации народного наследия.
+      </p>
+      <a href="https://egemen.kz/article/28695-manhgilik-eldinh-manhgilik-folklory" class="read-link" target="_blank" rel="noopener noreferrer">Читать →</a>
+    </div>
+
+    <div class="interview-card">
+      <h2>«Сюжетная основа поэмы “Ескендір”»</h2>
+      <p class="meta"><strong>Издание:</strong> Abai.KazNU / Qalamger — <em>8 декабря 2012 г.</em></p>
+      <p class="desc">
+        Аналитическая беседа об истоках поэмы Абая «Ескендір», её связях с восточными и западными традициями. Проводятся сопоставления с текстами Талмуда, Низами и Жуковского.
+      </p>
+      <a href="http://qasqabasov-seit.kalamger.kz/smi-bak/20-sejt-asabasov-eskendr-pojemasyny-sjuzhettk-negz.html" class="read-link" target="_blank" rel="noopener noreferrer">Читать →</a>
+    </div>
+
+    <div class="interview-card">
+      <h2>«Айтыс нужно поднимать до уровня подлинного искусства»</h2>
+      <p class="meta"><strong>Издание:</strong> Портал Qalamger — <em>14 декабря 2014 г.</em></p>
+      <p class="desc">
+        Интервью о природе айтыса, художественных критериях, сценической культуре и уровне современной айтыс-поэзии.
+      </p>
+      <a href="http://qasqabasov-seit.kalamger.kz/smi-bak/15-sejt-asabasov-ajtysty-shynajy-ner-degejne-kterumz-kerek.html" class="read-link" target="_blank" rel="noopener noreferrer">Читать →</a>
+    </div>
+
+    <div class="interview-card">
+      <h2>Сеит Каскабасов в программе «Өзекжарды»</h2>
+      <p class="meta"><strong>Формат:</strong> Qazaqstan TV, телепередача — <em>29 мая 2015 г.</em></p>
+      <p class="desc">
+        Студийная беседа о независимости, национальном духе, пути фольклористики и жизненных принципах учёного.
+      </p>
+      <a href="https://qazaqstan.tv/news/98830" class="read-link" target="_blank" rel="noopener noreferrer">Смотреть →</a>
+    </div>
+
+    <div class="interview-card">
+      <h2>«Сіз не дейсіз?» — Сеит Каскабасов</h2>
+      <p class="meta"><strong>Формат:</strong> Qazaqstan TV, телепроект — <em>25 апреля 2015 г.</em></p>
+      <p class="desc">
+        Телесюжет в формате вопросов и ответов о социальных темах, национальных ценностях и современности.
+      </p>
+      <a href="http://qasqabasov-seit.kalamger.kz/video-tv/12-sz-ne-dejsz-sejt-asabasov.html" class="read-link" target="_blank" rel="noopener noreferrer">Смотреть →</a>
+    </div>
+
+    <div class="interview-card">
+      <h2>«30 дней — 30 пожеланий»</h2>
+      <p class="meta"><strong>Формат:</strong> видеопроект, духовная беседа</p>
+      <p class="desc">
+        Видеозапись в рамках проекта мечети «Әзірет Сұлтан». Размышления академика о жизненных принципах, пожеланиях и духовных ценностях.
+      </p>
+      <a href="http://qasqabasov-seit.kalamger.kz/video-tv/17-30-knge-30-tlek-sejt-asabasov.html" class="read-link" target="_blank" rel="noopener noreferrer">Смотреть →</a>
+    </div>
+
+    <div class="interview-card">
+      <h2>«Книга Елбасы — история периода независимости»</h2>
+      <p class="meta"><strong>Формат:</strong> Qazaqstan TV / Qalamger — телепередача</p>
+      <p class="desc">
+        Экспертная беседа о исторической значимости трудов Елбасы, осмыслении эпохи независимости и национальной памяти.
+      </p>
+      <a href="http://qasqabasov-seit.kalamger.kz/video-tv/14-sejt-asabasov-elbasyny-ktaby-tuelszdk-kezen-tarihy.html" class="read-link" target="_blank" rel="noopener noreferrer">Смотреть →</a>
+    </div>
+
+  </div>
+</main>
+
+<!-- ФУТЕР оставлен как у тебя -->
+<footer style="padding:0;margin:0;">
+  <div class="footer-content" style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;padding:40px 20px 10px;">
+    <div class="footer-links left" style="flex:1;min-width:200px;">
+      <h3>Материалы</h3>
+      <div style="display:flex;gap:150px;">
+        <ul style="list-style:none;padding:0;">
+          <li><a href="bio-ru.html">- Биография</a></li>
+          <li><a href="books-ru.html">- Книги и монографии</a></li>
+          <li><a href="awards-ru.html">- Награды</a></li>
+          <li><a href="maqalalar-ru.html">- Статьи</a></li>
+        </ul>
+        <ul style="list-style:none;padding:0;">
+          <li><a href="interview-ru.html">- Интервью</a></li>
+          <li><a href="qolzhazbalar-ru.html">- Рукописи</a></li>
+          <li><a href="news-ru.html">- Новости</a></li>
+          <li><a href="dissertations-ru.html">- Научная школа</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-gallery-block">
+      <div class="footer-gallery">
+        <a href="gallery/gallery1.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery1.jpg" alt=""></a>
+        <a href="gallery/gallery2.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery2.jpg" alt=""></a>
+        <a href="gallery/gallery3.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery3.jpg" alt=""></a>
+        <a href="gallery/gallery4.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery4.jpg" alt=""></a>
+        <a href="gallery/gallery5.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery5.jpg" alt=""></a>
+        <a href="gallery/gallery6.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery6.jpg" alt=""></a>
+      </div>
+      <div class="full-gallery-link"><a href="gallery-ru.html">→ Смотреть полную галерею</a></div>
+    </div>
+
+    <div class="footer-contact" style="margin-top:0;width:100%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.2);padding-top:12px;">
+      <div class="contact-info" style="display:flex;gap:20px;font-size:1.3rem;color:#343c43;">
+        <span>📞 +7 777 877 8787</span>
+        <span>📧 seyt.kaskabasov@mail.kz</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="copyright" style="padding:18px;text-align:center;">
+    © 2025 Семья и потомки Сеита Каскабасова
+  </div>
+</footer>
+
+<script>
+lightbox.option({ resizeDuration: 200, wrapAround: true });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+(() => {
+  const btn = document.querySelector('.menu-btn');
+  const panel = document.getElementById('offcanvas');
+  const backdrop = document.getElementById('offcanvas-backdrop');
+  if (!btn || !panel || !backdrop) return;
+
+  function openMenu(){
+    panel.classList.add('open'); backdrop.hidden = false;
+    document.body.style.overflow = 'hidden';
+    btn.setAttribute('aria-expanded','true');
+    panel.setAttribute('aria-hidden','false');
+  }
+  function closeMenu(){
+    panel.classList.remove('open'); backdrop.hidden = true;
+    document.body.style.overflow = '';
+    btn.setAttribute('aria-expanded','false');
+    panel.setAttribute('aria-hidden','true');
+  }
+
+  btn.addEventListener('click', () => panel.classList.contains('open') ? closeMenu() : openMenu());
+  panel.querySelector('.offcanvas-close').addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+  window.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+})();
+</script>
+
+</body>
+</html>
