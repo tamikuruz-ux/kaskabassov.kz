@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сайт в разработке</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet" />
+  
+  <style>
+    /* Основные стили для страницы */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #f4f4f4;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      flex-direction: column;
+      background-color: #2d3d5e;
+    }
+.header-actions {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+      flex-direction: column;  /* Чтобы языки располагались в столбик */
+    }
+
+       .lang-btn {
+       background: white;
+      ;
+    }
+    /* Стили для текста */
+    h1 {
+      font-size: 3rem;
+      color: #fff;
+      margin: 20px 0;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #f0f0f0;
+      margin: 10px 0;
+    }
+
+    .coming-soon {
+      font-size: 2rem;
+      color: #e6a21e;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .countdown {
+      font-size: 2rem;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .message {
+      font-size: 1rem;
+      color: #ddd;
+      margin-top: 20px;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
+      color: #fff;
+    }
+
+       .back-to-home {
+      font-size: 1rem;
+      color: #f0f0f0;
+      text-decoration: none;
+      margin-top: 30px;
+      transition: color 0.3s;
+    }
+
+    .back-to-home:hover {
+      color: #e6a21e;
+    }
+
+/* Мобильная версия для экранов до 768px */
+@media (max-width: 768px) {
+  body {
+    font-size: 1rem; /* Уменьшаем шрифт для мобильных */
+    padding: 10px;
+    text-align: left;
+  }
+
+  /* Языковые кнопки */
+  .header-actions {
+    top: 10px;
+    right: 10px;
+    flex-direction: row; /* Меняем на строку */
+    gap: 5px;
+  }
+
+  .lang-btn {
+    padding: 8px;
+  }
+
+  h1 {
+    font-size: 2.5rem; /* Уменьшаем размер заголовка */
+    margin: 10px 0;
+  }
+
+  p {
+    font-size: 1rem; /* Уменьшаем размер параграфа */
+    margin: 5px 0;
+  }
+
+  .coming-soon {
+    font-size: 1.5rem; /* Уменьшаем размер текста для "coming soon" */
+    margin-bottom: 10px;
+  }
+
+  .countdown {
+    font-size: 1.5rem; /* Уменьшаем размер текста для таймера */
+    margin-bottom: 10px;
+  }
+
+  .message {
+    font-size: 0.9rem; /* Уменьшаем размер текста для сообщения */
+  }
+
+  .footer {
+    font-size: 0.8rem; /* Уменьшаем размер текста в футере */
+  }
+
+  .back-to-home {
+    font-size: 0.9rem; /* Уменьшаем размер текста для ссылки */
+    margin-top: 15px;
+  }
+}
+
+/* Мобильная версия для экранов до 480px */
+@media (max-width: 480px) {
+  body {
+    font-size: 0.9rem; /* Еще меньше шрифт для очень маленьких экранов */
+  }
+
+  h1 {
+    font-size: 2rem; /* Уменьшаем заголовок для маленьких экранов */
+  }
+
+  .coming-soon {
+    font-size: 1.2rem; /* Еще уменьшаем размер текста для "coming soon" */
+  }
+
+  .countdown {
+    font-size: 1.2rem; /* Уменьшаем таймер для маленьких экранов */
+  }
+
+  .message {
+    font-size: 0.85rem; /* Уменьшаем сообщение для маленьких экранов */
+  }
+
+  .back-to-home {
+    font-size: 0.8rem; /* Уменьшаем ссылку для маленьких экранов */
+  }
+}
+
+
+  </style>
+</head>
+<body>
+  <!-- Переключатель языков -->
+  <div class="header-actions">
+    <div class="language-switcher" role="group" aria-label="Тіл таңдау">
+      <a href="qolzhazbalar.html" class="lang-btn active-lang">Қаз</a>
+      <a href="qolzhazbalar-ru.html" class="lang-btn">Рус</a>
+      <a href="qolzhazbalar-en.html" class="lang-btn">Eng</a>
+    </div>
+  </div>
+
+  <!-- Основной контент страницы -->
+  <h1>Сайт әзірленуде</h1>
+  <div class="countdown">
+    <p>Біз жұмыс істеп жатырмыз. Бір сәт күтіңіз...</p>
+    <p>Жақында қолжетімді болады!</p>
+  </div>
+  <a href="index.html" class="back-to-home">← Қайту басты бетке</a>
+
+
+  <div class="footer">
+    <p>© 2025 Сейіт Қасқабасовтың отбасы мен ұрпақтары</p>
+  </div>
+</body>
+</html>
