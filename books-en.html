@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Кітаптар – Сейт Қасқабасов</title>
+
+  <!-- Общие стили/шрифты -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="http://fonts-online.ru/fonts/karsten/stylesheet.css">
+  <link href="lightbox.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Lightbox CSS -->
+<link href="lightbox.css" rel="stylesheet" />
+
+<!-- Твой основной CSS -->
+<link href="style.css" rel="stylesheet" />
+
+<!-- jQuery (CDN — если нет локального подключения) -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+<!-- Lightbox JS -->
+<script src="lightbox-plus-jquery.js"></script>
+
+  <style>
+    /* Контейнер страницы */
+    .container{
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    /* Маленькие табы-якоря */
+    .books-tabs{
+      display:flex; gap:14px; align-items:center; flex-wrap:wrap;
+      margin: 12px 0 24px;
+    }
+    .books-tabs a{
+      text-decoration:none;
+      border:1px solid #cfd6d0;
+      padding:8px 12px;
+      border-radius:8px;
+      color:#252b30;
+      font-weight:600;
+      background:#fff;
+    }
+    .books-tabs a:hover{ background:#252b30; color:#fff; border-color:#252b30; }
+
+    .books-tabs a.active{ background:#252b30; color:#fff; border-color:#252b30; }
+
+    /* Заголовки секций */
+    .section-title{
+      color: #252b30;
+      font-size: 1.8rem;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
+    }
+
+    /* Сетка карточек */
+    .book-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 30px;
+      transition: opacity 0.3s ease-in-out;
+    }
+    .book-item{
+      display:block;
+      background:#fff;
+      border-radius:0;                /* без скруглений */
+      box-shadow:0 4px 12px rgba(0,0,0,0.1);
+      overflow:hidden;
+      text-align:center;
+      transition:transform .3s;
+      text-decoration:none;
+    }
+    .book-item:hover{ transform: translateY(-5px); }
+    .book-item img{
+      display:block;
+      width:100%; height:auto; object-fit:contain;
+      background:#f3f3f3;
+    }
+    .book-item p{
+      margin:0; padding:12px;
+      font-weight:700; color:#252b30;
+    }
+    header p{ font-size:1.6rem; }
+
+/* Мобильная версия для экранов до 768px */
+@media (max-width: 768px) {
+
+  /* Адаптация контейнера */
+  .container {
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 0 15px;
+  }
+
+  /* Маленькие табы */
+  .books-tabs {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .books-tabs a {
+    padding: 6px 10px;
+  }
+
+  /* Заголовки секций */
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  /* Сетка карточек */
+  .book-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+  }
+
+
+  .book-item p {
+    font-size: 1rem;
+  }
+
+  header p {
+    font-size: 1.4rem;
+  }
+}
+
+/* Мобильная версия для экранов до 480px */
+@media (max-width: 480px) {
+
+  /* Адаптация контейнера */
+  .container {
+    max-width: 100%;
+    margin: 10px auto;
+    padding: 0 10px;
+  }
+
+  /* Маленькие табы */
+  .books-tabs {
+    gap: 8px;
+  }
+  .books-tabs a {
+    padding: 5px 8px;
+  }
+
+  /* Заголовки секций */
+  .section-title {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+
+  /* Сетка карточек */
+  .book-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+  }
+
+  .book-item p {
+    font-size: 0.9rem;
+  }
+
+  header p {
+    font-size: 1.2rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<!-- Верхняя серая шапка -->
+<div class="header-top">
+ <div class="signature-block">
+<a href="index-en.html" class="logo-link">
+      <img src="images/logo.png" alt="Логотип С.А. Қасқабасов" class="logo-img">
+    </a>
+<a href="index-en.html" class="logo-link">
+  <img src="images/sign.png" alt="Сейіт Қасқабасов" class="signature-img">
+    </a>
+</div>
+
+
+  <div class="header-actions">
+    <div class="language-switcher" role="group" aria-label="Тіл таңдау">
+      <a href="books.html" class="lang-btn">Қаз</a>
+      <a href="books-ru.html" class="lang-btn">Рус</a>
+      <a href="books-en.html" class="lang-btn active-lang">Eng</a>
+    </div>
+
+    <button class="menu-btn" aria-controls="offcanvas" aria-expanded="false">
+      <span class="menu-icon"></span> Menu
+    </button>
+  </div>
+</div>
+
+<!-- Выезжающее меню -->
+<aside id="offcanvas" class="offcanvas" aria-hidden="true">
+  <button class="offcanvas-close" aria-label="Закрыть меню">×</button>
+
+
+  <nav class="offcanvas-nav" role="navigation" aria-label="Main menu">
+    <a href="index.html">Home</a>
+    <a href="bio-en.html">Biography</a>
+    <a href="books-en.html">Books & Monographs</a>
+    <a href="awards-en.html">Awards</a>
+    <a href="maqalalar-en.html">Articles</a>
+    <a href="interview-en.html">Interviews</a>
+    <a href="qolzhazbalar-en.html">Manuscripts</a>
+    <a href="news-en.html">News</a>
+    <a href="dissertations-en.html">Academic School of S. Kaskabasov</a>
+    <a href="gallery-en.html">Gallery</a>
+  </nav>
+</aside>
+
+<!-- Затемняющий фон под меню -->
+<div id="offcanvas-backdrop" class="offcanvas-backdrop" hidden></div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-overlay"></div>
+
+  <div class="header-content">
+    <h1 class="header-title">Books and Monographs</h1>
+  </div>
+<nav class="breadcrumb">
+  <a href="index-en.html">Home</a>
+  <span class="divider">|</span>
+  <a href="#" class="current-page">Books</a>
+</nav>
+</header>
+
+  <!-- Контент -->
+  <main class="container">
+    
+
+    <!-- Переключатель монографий и книг -->
+    <div class="books-tabs">
+      <a href="javascript:void(0)" class="active" onclick="showTab('monographs')">Monographs</a>
+      <a href="javascript:void(0)" onclick="showTab('books')">Books</a>
+    </div>
+
+    <!-- Блок 1: Монографии -->
+    <section id="monographs" class="book-section">
+      <h2 class="section-title">Monographs</h2>
+
+      <div class="book-grid">
+
+    <!-- 1. Мировая фольклористика -->
+    <a class="book-item" href="monograph-mirovaya-folkloristika.html">
+      <img src="images/book1.jpg" alt="Мировая фольклористика">
+<p>World Folklore Studies</p>
+    </a>
+
+    <!-- 2. Жылқышылық? (Нет – книга. Пропускаем) -->
+
+    <!-- 2. Ой-сана — НЕ монография. Пропускаем -->
+
+    <!-- 3. Живая вода бытия -->
+    <a class="book-item" href="monograph-zhivaya-voda.html">
+      <img src="images/book4.jpg" alt="Живая вода бытия">
+<p>The Living Water of Being</p>
+    </a>
+
+    <!-- 4. Казахская несказочная проза -->
+    <a class="book-item" href="monograph-neskaz-proza.html">
+      <img src="images/book5.jpg" alt="Казахская несказочная проза">
+<p>Kazakh Non-Fairytale Prose</p>
+    </a>
+
+    <!-- 5. Если есть Золотая жилы монография — НЕТ. Это книга -->
+
+    <!-- 6. Казактын халык прозасы -->
+    <a class="book-item" href="monograph-khalyk-prozasy.html">
+      <img src="images/book8.jpg" alt="Казактын халык прозасы">
+<p>Qazaqtyñ halyq prozasy</p>
+    </a>
+
+
+    <!-- 9. Абай (монографическое исследование) -->
+    <a class="book-item" href="monograph-abai.html">
+      <img src="images/book11.jpg" alt="Абай">
+<p>Abai</p>
+    </a>
+
+  </div>
+</section>
+
+   <!-- Блок 2: Книги -->
+<section id="books" class="book-section" style="display:none;">
+  <h2 class="section-title">Books</h2>
+
+  <div class="book-grid">
+
+    <!-- 1. Жылқышылық (вторая картинка в списке) -->
+    <a class="book-item">
+      <img src="images/book2.jpg" alt="Жаназық">
+<p>Janazyq</p>
+    </a>
+
+    <!-- 2. Ой-сана -->
+    <a class="book-item" href="book-oi-sana.html">
+      <img src="images/book3.jpg" alt="Ой-сана">
+<p>Thought and Consciousness: Reflections</p>
+    </a>
+
+    <!-- 3. Золотая жила (версия с всадницей) -->
+    <a class="book-item">
+      <img src="images/book7.jpg" alt="Алтын жылға">
+<p>Altyn jylğa</p>
+    </a>
+
+    <!-- 4. Алтын жыла -->
+    <a class="book-item">
+      <img src="images/book6.jpg" alt="Золотая жила">
+<p>The Golden Vein</p>
+    </a>
+
+    <!-- 5. The Cradle of Creativity -->
+    <a class="book-item">
+      <img src="images/book9.jpg" alt="The Cradle of Creativity">
+      <p>The Cradle of Creativity</p>
+    </a>
+
+    <!-- 6. Золотая жила (вторая версия) -->
+    <a class="book-item" >
+      <img src="images/book10.jpg" alt="Золотая жила 2">
+<p>The Golden Vein 2</p>
+    </a>
+
+    <!-- 7. Таңдамалы -->
+    <a class="book-item">
+      <img src="images/book12.jpg" alt="Таңдамалы">
+<p>Tańdamaly</p>
+    </a>
+
+    <!-- 8. Елзерде -->
+    <a class="book-item">
+      <img src="images/book13.jpg" alt="Елзерде">
+<p>Elzerde</p>
+    </a>
+
+    <!-- 9. Ойөріс -->
+    <a class="book-item">
+      <img src="images/book14.jpg" alt="Ойөріс">
+<p>Oyöris</p>
+    </a>
+
+    <!-- 10. Заман және руханият -->
+    <a class="book-item" href="book-zaman.html">
+      <img src="images/book15.jpg" alt="Заман және руханият">
+   <p>Zaman jáne ruhanïyat</p>    </a>
+
+  </div>
+</section>
+
+  </main>
+
+  <!-- Скрипт для переключателя вкладок -->
+  <script>
+    function showTab(tabName) {
+      const allSections = document.querySelectorAll('.book-section');
+      allSections.forEach(section => section.style.display = 'none');
+      document.getElementById(tabName).style.display = 'block';
+
+      const tabs = document.querySelectorAll('.books-tabs a');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      const activeTab = Array.from(tabs).find(tab => tab.innerText.toLowerCase() === tabName);
+      activeTab.classList.add('active');
+    }
+
+    // Изначально показываем Монографии
+    showTab('monographs');
+  </script>
+
+ <footer style="padding: 0; margin: 0;">
+    <div class="footer-content" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; padding:40px 20px 10px;">
+    <div class="footer-links left" style="flex: 1; min-width: 200px;">
+      <h3>Материалы</h3>
+      <div style="display:flex;gap:150px;">
+        <ul style="list-style:none;padding:0;">
+          <li><a href="bio-en.html">- Biography</a></li>
+          <li><a href="books-en.html">- Books & Monographs</a></li>
+          <li><a href="awards-en.html">- Awards</a></li>
+          <li><a href="maqalalar-en.html">- Articles</a></li>
+        </ul>
+        <ul style="list-style:none;padding:0;">
+          <li><a href="interview-en.html">- Interviews</a></li>
+          <li><a href="qolzhazbalar-en.html">- Manuscripts</a></li>
+          <li><a href="news-en.html">- News</a></li>
+          <li><a href="dissertations-en.html">- Academic School</a></li>
+        </ul>
+      </div>
+</div>
+<div class="footer-gallery-block">
+   <div class="footer-gallery">
+    <a href="gallery/gallery1.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery1.jpg" alt=""></a>
+    <a href="gallery/gallery2.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery2.jpg" alt=""></a>
+    <a href="gallery/gallery3.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery3.jpg" alt=""></a>
+    <a href="gallery/gallery4.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery4.jpg" alt=""></a>
+    <a href="gallery/gallery5.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery5.jpg" alt=""></a>
+    <a href="gallery/gallery6.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery6.jpg" alt=""></a>
+  </div>
+
+  <div class="full-gallery-link">
+    <a href="gallery.html">→ View full gallery</a>
+  </div>
+</div>
+
+
+    <div class="footer-contact" style="margin-top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 12px;">
+ <div class="contact-info" style="display: flex; gap: 20px;font-size: 1.3rem; color:#343c43;">
+        <span>📞 +7 777 877 8787</span>
+        <span>📧 seyt.kaskabasov@mail.kz</span>
+      </div>
+    </div>
+  </div>
+      
+   <div class="copyright" style="padding: 18px; text-align: center;">
+  © 2025 The family and descendants of Seit Kaskabasov
+</div>
+
+</footer>
+
+
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="lightbox-plus-jquery.js"></script>
+<script>
+(() => {
+  const btn = document.querySelector('.menu-btn');
+  const panel = document.getElementById('offcanvas');
+  const backdrop = document.getElementById('offcanvas-backdrop');
+
+  if (!btn || !panel || !backdrop) return; // страховка, если HTML не вставлен
+
+  function openMenu(){
+    panel.classList.add('open');
+    backdrop.hidden = false;
+    document.body.style.overflow = 'hidden';
+    btn.setAttribute('aria-expanded','true');
+    panel.setAttribute('aria-hidden','false');
+  }
+  function closeMenu(){
+    panel.classList.remove('open');
+    backdrop.hidden = true;
+    document.body.style.overflow = '';
+    btn.setAttribute('aria-expanded','false');
+    panel.setAttribute('aria-hidden','true');
+  }
+
+  btn.addEventListener('click', () => {
+    panel.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  panel.querySelector('.offcanvas-close').addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+  window.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+})();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const title = document.querySelector('.site-title');
+  if (!title) return;
+
+  // Делаем заголовок доступным как ссылка (клавиатура/скринридеры)
+  title.setAttribute('tabindex','0');
+  title.setAttribute('role','link');
+  title.setAttribute('aria-label','На главную: Сейіт Қасқабасов');
+
+  const goHome = () => { window.location.href = 'index.html'; };
+
+  title.addEventListener('click', goHome);
+  title.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goHome(); }
+  });
+});
+</script>
+
+</body>
+</html>
