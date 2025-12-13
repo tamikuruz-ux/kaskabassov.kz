@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="http://fonts-online.ru/fonts/karsten/stylesheet.css">
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?
+family=Caveat:wght@600&
+family=Bad+Script&
+family=Italianno&
+family=Parisienne&
+display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
+
+  <meta charset="UTF-8">
+  <title>Сеит Каскабасов – Биография</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+.section-head{ display:flex; align-items:center; justify-content:space-between; gap:20px; }
+.see-all{ text-decoration:none; color:#343c43; font-weight:700; }
+.see-all:hover{ color:#3e94ea; }
+
+/* === BIO: двухколоночный макет с лентой фото слева === */
+.bio-layout{
+  display:grid;
+  grid-template-columns: 260px 1fr;
+  gap:24px;
+  align-items:start;
+  margin-top: 0 !important;
+}
+
+/* Левая лента-рейл */
+.bio-rail{
+  position:sticky;
+  top:16px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  padding-right:6px;
+  scrollbar-width:thin;
+}
+.bio-rail::-webkit-scrollbar{width:8px}
+.bio-rail::-webkit-scrollbar-thumb{background:#c7c7c7;border-radius:8px}
+
+/* Превьюшки */
+.bio-thumb{
+  width:100%;
+  object-fit:contain;
+  border-radius:12px;
+  padding:4px;
+  display:block;
+  filter:brightness(0.98);
+  transition:transform .2s ease, filter .2s ease, box-shadow .2s ease;
+  box-shadow:0 1px 6px rgba(0,0,0,.08);
+}
+.bio-thumb:hover{
+  transform:translateY(-2px);
+  filter:brightness(1);
+  box-shadow:0 6px 16px rgba(0,0,0,.12);
+}
+
+/* Текстовый столбец */
+.bio-content{
+  min-width:0;
+  color:#343c43;
+  line-height:1.75;
+  font-size:1.05rem;
+}
+
+.bio-content h3{
+  margin:28px 0 8px;
+  font-size:1.25rem;
+}
+.bio-content p{ margin:0 0 16px; }
+
+/* Адаптив: на планшетах/мобилках фото-лента становится горизонтальной */
+@media (max-width: 992px){
+  .bio-layout{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+  .bio-rail{
+    position:static;
+    display:flex;
+    flex-direction:row;
+    gap:10px;
+    padding: 2px 0 6px;
+    margin-bottom:4px;
+  }
+  .bio-thumb{
+    width:180px;
+    aspect-ratio:3/4;
+    flex:0 0 auto;
+  }
+}
+
+/* ==================== Мобильная версия ==================== */
+@media (max-width: 768px) {
+  .section-head {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .see-all {
+    font-size: 1.2rem;
+  }
+
+  .bio-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .bio-rail {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 2px 0 6px;
+    margin-bottom: 4px;
+  }
+
+  .bio-thumb {
+    width: 180px;
+    aspect-ratio: 3/4;
+    flex: 0 0 auto;
+  }
+
+  .bio-content {
+    font-size: 1rem;
+  }
+
+  .bio-content h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-head {
+    gap: 5px;
+  }
+
+  .see-all {
+    font-size: 1rem;
+  }
+
+  .bio-layout {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .bio-rail {
+    padding: 0 0 4px;
+    margin-bottom: 3px;
+  }
+
+  .bio-thumb {
+    width: 150px;
+  }
+
+  .bio-content {
+    font-size: 0.95rem;
+  }
+
+  .bio-content h3 {
+    font-size: 1.1rem;
+  }
+}
+  </style>
+
+<!-- Lightbox CSS -->
+<link href="lightbox.css" rel="stylesheet" />
+<!-- Основной CSS -->
+<link href="style.css" rel="stylesheet" />
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<!-- Lightbox JS -->
+<script src="lightbox-plus-jquery.js"></script>
+</head>
+<body>
+
+<!-- Верхняя серая шапка -->
+<div class="header-top">
+  <div class="signature-block">
+    <a href="index-en.html" class="logo-link">
+      <img src="images/logo.png" alt="Логотип С.А. Каскабасова" class="logo-img">
+    </a>
+    <a href="index-en.html" class="logo-link">
+      <img src="images/sign.png" alt="Сеит Каскабасов" class="signature-img">
+    </a>
+  </div>
+
+  <div class="header-actions">
+    <div class="language-switcher" role="group" aria-label="Выбор языка">
+      <a href="bio.html" class="lang-btn">Қаз</a>
+      <a href="bio-ru.html" class="lang-btn">Рус</a>
+      <a href="bio-en.html" class="lang-btn active-lang">Eng</a>
+    </div>
+
+    <button class="menu-btn" aria-controls="offcanvas" aria-expanded="false">
+      <span class="menu-icon"></span> Menu
+    </button>
+  </div>
+</div>
+
+<!-- Выезжающее меню -->
+<aside id="offcanvas" class="offcanvas" aria-hidden="true">
+  <button class="offcanvas-close" aria-label="Закрыть меню">×</button>
+
+   <nav class="offcanvas-nav" role="navigation" aria-label="Основное меню">
+    <a href="index-en.html">Home</a>
+    <a href="bio-en.html">Biography</a>
+    <a href="books-en.html">Books & Monographs</a>
+    <a href="awards-en.html">Awards</a>
+    <a href="maqalalar-en.html">Articles</a>
+    <a href="interview-en.html">Interviews</a>
+    <a href="qolzhazbalar-en.html">Manuscripts</a>
+    <a href="news-en.html">News</a>
+    <a href="dissertations-en.html">Academic School of S. Kaskabassov</a>
+    <a href="gallery-en.html">Галерея</a>
+  </nav>
+</aside>
+
+<!-- Затемняющий фон под меню -->
+<div id="offcanvas-backdrop" class="offcanvas-backdrop" hidden></div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-overlay"></div>
+
+  <div class="header-content">
+    <h1 class="header-title">Biography</h1>
+  </div>
+
+  <nav class="breadcrumb">
+    <a href="index-en.html">Home</a>
+    <span class="divider">|</span>
+    <a href="#" class="current-page">Biography</a>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="bio-layout">
+    <!-- ЛЕНТА ФОТО СЛЕВА (подписи и alt оставляем по-казахски, как ты просила) -->
+    <aside class="bio-rail" aria-label="Фотолента биографии">
+      <a href="images/bio.1.png" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.1.png" alt="Қысқаша сипаттама" loading="lazy">
+      </a>
+      <a href="images/bio.2.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.2.jpg" alt="Қысқаша сипаттама" loading="lazy">
+      </a>
+      <a href="images/bio.3.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.3.jpg" alt="Қысқаша сипаттама" loading="lazy">
+      </a>
+      <a href="images/bio.4.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.4.jpg" alt="Қысқаша сипаттама" loading="lazy">
+      </a>
+      <a href="images/bio.5.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.5.jpg" alt="Қысқаша сипаттама" loading="lazy">
+      </a>
+      <a href="images/bio.6.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.6.jpg" alt="Қысқаша сипаттама" loading="lazy">
+      </a>
+      <a href="images/bio.7.png" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.7.png" alt="Қысқаша сипаттама" loading="lazy">
+      </a>
+      <a href="images/bio.8.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.8.jpg" alt="Қысқаша сипаттама" loading="lazy">
+      </a>
+      <a href="images/bio.9.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.9.jpg" alt="Қысқаша сипаттама" loading="lazy">
+      </a>
+      <a href="images/bio.10.png" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.10.png" alt="Қысқаша сипаттама" loading="lazy">
+      </a>
+    </aside>
+
+    <!-- ОСНОВНОЙ ТЕКСТ СПРАВА -->
+    <!-- MAIN TEXT RIGHT -->
+    <article class="bio-content">
+
+      <p>Kaskabassov Seit Askarovich was born on 24 June 1940 in Semipalatinsk, East Kazakhstan region.</p>
+
+      <p><strong>1947–1950</strong> — He studied at the secondary school № 5 in Semipalatinsk.<br>
+         <strong>1951–1954</strong> — He went to school № 87 in Chapaev farm in Kaskelen district of Alma-Ata region.<br>
+         <strong>1954–1957</strong> — He studied at the secondary school № 12 named after S.M. Kirov in Alma-Ata and graduated from it.<br>
+         <strong>1957–1959</strong> — He worked on Chapaev farm in Kaskelen district of Alma-Ata region.</p>
+
+      <p><strong>1959–1964</strong> — Student of the Faculty of History and Philology, Kazakh State Pedagogical Institute named after Abay (now Abay Kazakh National Pedagogical University). He graduated with honours.</p>
+
+      <p>- Head of music room at KazPI named after Abay.<br>
+         - As a student, he took part in folklore expeditions to Taldy-Kurgan, Alma-Ata and Dzhambul regions.<br>
+         - Presented papers at student conferences in KazPI, KazSU, Alma-Ata and the Central Asian Republics.<br>
+         - Was awarded a Diplomas of the Inter-university student conference in Frunze (Kirghiz SSR).</p>
+
+      <p>- His first scientific work, “Storyteller Shalkarbay Danybayev”, in the collection of works dedicated to the 60th Anniversary of Sabit Mukanov, “Issues of Kazakh Philology”, was published at the publishing house of the Academy of Sciences of Kazakh SSR (co-authored with E. Tursunov).</p>
+
+      <p><strong>1964–1967</strong> — Postgraduate student at the Institute of Literature and Art named after M.O. Auezov, Academy of Sciences of the Kazakh SSR.<br>
+         <strong>1968–1970</strong> — Junior researcher at the Institute of Literature and Art named after M.O. Auezov.</p>
+
+      <p>- One of the authors of the 1st volume of the “History of Kazakh Literature”, published in 1968 by the Institute of Literature and Art named after M.O. Auezov, Academy of Sciences of the Kazakh SSR (co-authored with E. Tursunov).<br>
+         - Defended the dissertation for the degree of the Candidate of Philology on the topic “Kazakh Fairy Tale”, 1969.</p>
+
+      <p><strong>1970–1979</strong> — Scientific Secretary of the Department of Social Sciences, Academy of Sciences of the Kazakh SSR.<br>
+         - Executive Secretary of the “Proceedings of the AS of the Kazakh SSR, Series of Philology and Art History” journal from 1976 to 1988.<br>
+         - His monograph “Kazakh Fairy Tale” was published. It is recognized by the Bureau of the AS USSR as one of the five best books published in the system of the Union Academy of Sciences in 1972.</p>
+
+      <p>- The first academic edition of the texts collected by G.N. Potanin: “Kazakh folklore in G.N. Potanin’s collections” (jointly with N. Smirnova and E. Tursunov) was published.<br>
+         - Participated in the All-Union meeting dedicated to the issues of scientific information in the field of social sciences (IISC AS USSR), Moscow, November 1971.<br>
+         - Member of the Union of Journalists of the USSR.</p>
+
+      <p><strong>1979–1981</strong> — Senior Researcher, Scientific Secretary of the Institute of Literature and Art named after M.O. Auezov, AS of the Kazakh SSR.<br>
+         - For the first time the scientific publication “Kazakh folk tales about animals” was done (together with E. Kosystykhina, N. Smirnova and E. Tursunov).</p>
+
+      <p><strong>1981–1982</strong> — By the Decree of the Presidium of the AS of the USSR he visited the Institute of World Literature named after M. Gorky to carry out the research work at the Institute of Art History, Moscow, as a senior researcher for one year.</p>
+
+      <p><strong>1983–1988</strong> — Worked at the Institute of Literature and Art named after M.O. Auezov, Kazakh Academy of Sciences as a senior, leading researcher, then as the head of Department of Zhambyl studies.<br>
+         - His monograph “Kazakh folk prose” in Kazakh language was published. It received the highest award of the Academy of Sciences of Kazakhstan SSR — the Kazakh SSR State Prize of the 2nd degree for the monograph. The Kazakh folklore prose was presented in the Republic House of Cinema with a lecture “Radlov — collector and publisher of folklore”.</p>
+
+      <p>- The collective work “History of Kazakh folklore science” (pre-revolutionary period) was published by M. Auezov Institute, in which several chapters were written by S. Kaskabassov.<br>
+         - Popular lectures on folklore were published; he was presented at the House of Cinema; lectures on folklore and cinema were delivered in the House-museum of M.O. Auezov and people’s universities.</p>
+
+      <p><strong>1988–1990</strong> — Consultant in the ideological Department of the CC of the Communist Party of Kazakhstan.<br>
+         - Participated in preparation of materials on rehabilitation of suppressed poets, writers and statesmen of the Republic in 1930–1940s.<br>
+         - Prepared documents on the abolition of the Party resolutions on history, literature and culture, which resulted in 1950s in persecution of the prominent scientists, writers and artists of the Kazakh people and distorting the objective course of historical processes.<br>
+         - As a member of the official delegation participated in the activities dedicated to the Days of Culture of Kazakhstan in Leningrad and Astrakhan region.</p>
+
+      <p><strong>1990–1991</strong> — Head of the Centre of Sociology of Political Processes, the CC of Communist Party of Kazakhstan.<br>
+         - Carried out the sociological research on topical issues of political and social life of the Republic.<br>
+         - Took part in the work of the Commission on rehabilitation of the victims of political repression in 1930–40 and 50s.<br>
+         - Took part in the Conference of the All-Union Association of Sociologists, January 1991, Moscow. Admitted as a member of this Association.<br>
+         - Participated at a meeting in the CC CPSU on the issues of cultural sociology, July 1991, Moscow.<br>
+         - He has made the proposal to the Supreme Soviet of the Republic to announce May 31 as a Memorial Day of victims of famine of the 1930s.</p>
+
+      <p><strong>1991–1992</strong> — Head of the Department of Cultural, Sports, Youth Affairs in the Office of the President and the Cabinet of Ministers of the Republic of Kazakhstan.<br>
+         - Participated in organizing and conducting the events to mark the inauguration of the first President of the Republic of Kazakhstan.<br>
+         - Member of the work group of the Supreme Council of the Republic of Kazakhstan on the State Symbols (herald, anthem, flag).<br>
+         - Member of the Committee on State Prizes of the Republic of Kazakhstan in the field of literature, art and architecture for several years.<br>
+         - Member of the Republican onomastic commission.</p>
+
+      <p><strong>1992–1994</strong> — By the decision of the Cabinet of Ministers of the Republic of Kazakhstan he was appointed the Chairman of the newly established Higher Certifying Commission of the Republic of Kazakhstan (HCC RK).<br>
+         - Developed and proposed to the Government of the Republic of Kazakhstan the regulation on the HCC of the Republic.<br>
+         - Developed the Regulations on the Dissertation Councils, the expert boards and procedural rules for defence of Candidate and Doctoral degrees and for examination of the Dissertations in the Republic.<br>
+         - As a member of HCC of CIS countries he took part in the activities of HCC of CIS countries. A new network of HCC Certification Bodies of the CIS countries was formed successfully.</p>
+
+      <p>- Was awarded the State Prize of the Republic of Kazakhstan in the field of literature, art and architecture for the monograph “The Kazakh non-tale prose”.<br>
+         - The “Days of Auezov” were organized in Moscow.<br>
+         - Was selected a member of the International Association of Auezov’s Studies (MAAT). Later he was elected Chairman of MAAT.<br>
+         - Held a meeting of the MAAT in St Petersburg, Moscow and Kiev.</p>
+
+      <p><strong>1994–1995</strong> — Deputy Director of the Institute of Literature and Art named after M.O. Auezov, National Academy of Sciences, Republic of Kazakhstan.<br>
+         - He published the academic edition of V. Radlov’s collection of Kazakh language “Folk Literature of Turkic Tribes. Kazakh Folk Tales”, vol. 1 “Magic Tales”, published in “Gylym” (Science), Almaty.</p>
+
+      <p><strong>1995–1997</strong> — Head of the Centre of Manuscripts and Textual Studies at the Institute of Literature and Art named after M.O. Auezov, NAS RK.<br>
+         - Developed and implemented a program on compiling the electronic catalogue on three parameters, in the Kazakh language.<br>
+         - The book “Aby and Folklore” in the Kazakh language was published, 1995.<br>
+         - Participated in the celebrations on the occasion of 150th Anniversary of Abay, Semey region.<br>
+         - In Turkey, two books for the series “Studies on folklore of Kazakh People” and “A person who was struggling with death” were published in English.</p>
+
+      <p>- Was elected a member of the National Academy of Sciences of the Republic of Kazakhstan.<br>
+         - Was awarded the title of Professor.<br>
+         - Was awarded the Zhambyl Prize of Zhambyl International Fund.</p>
+
+      <p><strong>1997–1999</strong> — He organized and headed the scientific research centre for Eurasian Studies at Eurasian University named after L.N. Gumilyov. In parallel, he worked as Dean of the Philological Faculty and teacher of the course on folklore studies.<br>
+         - He published “Selected Works of Zhambyl”, with his research articles and scientific comments.<br>
+         - Chairman of the first Dissertation Council at Eurasian University for defence of dissertations of Candidate of Sciences ID 10.01.01 (Literature) and 10.01.02 (Folklore studies).<br>
+         - First monograph “Issues of Eurasian studies”, prepared by the staff of the Eurasian Centre under his supervision, was published with a big introduction article, 1998.</p>
+
+      <p><strong>2000</strong> — Dean of the newly organized Department of Oriental Studies at Eurasian University named after L.N. Gumilyov and Director of Research Center “Eurasian Studies”.<br>
+         - Prepared and published a collection of I. Bayzakov’s works “Aqbope”.</p>
+
+      <p><strong>2001</strong> — Participated in the celebration of 90th Anniversary of K. Amangeldin.<br>
+         - From 26 September he is the Director of the Institute of Literature and Art named after M. Auezov, Ministry of Education and Science of the Republic of Kazakhstan.</p>
+
+      <p><strong>2002</strong> — Was selected a member of the National Council under the President of the Republic of Kazakhstan for the state policy in the sphere of culture.<br>
+         - Received the sign “For the merits in the development of science of the Republic of Kazakhstan”.</p>
+
+      <p><strong>2003</strong> — Chairman of the State Committee for the Programme “Cultural Heritage”.<br>
+         - Made a presentation at the solemn meeting dedicated to the 100th Anniversary of M. Auezov, Almaty University, September.<br>
+         - Made a report “Makhambet — classic of Kazakh literature” at the M. Otel Headquarters, Paris, UNESCO.<br>
+         - Made a report “Cultural Heritage — the basis of spiritual revival” at the National Council under the President of Kazakhstan, Astana, November 28.</p>
+
+      <p><strong>2004</strong> — Was awarded the M. Sholokhov International Prize “For Contribution to Peace and Spiritual Harmony”.</p>
+
+      <p><strong>2007</strong> — Was elected a Corresponding Member of the International Aitmatov Academy, Bishkek.</p>
+
+      <p><strong>2008</strong> — Chairman of the Dissertation Council ID 53.34.01 on awarding the Doctoral degree in philology at the Institute of Literature and Art named after M.O. Auezov, Scientific Committee, MES RK.<br>
+         - Was awarded the Medal of Mashkhur Zhusup Kopeev.<br>
+         - Was selected Academician of the World Academy named after Genghis Khan (Mongolia).<br>
+         - Under his initiative the M.O. Auezov MES RK Dissertational Council K 53.34.03 for conferment of Scientific degree of Candidates and Doctors in specialties 10.01.01 — literature and 17.00.04 — graphic, decorative and applied art and architecture has been created and continues to work successfully.</p>
+
+      <p><strong>2010</strong> — He was awarded a medal “For scientific contribution to education of Russia”, Moscow, 24 March.<br>
+         - Presentation on the topic “Folklore in the system of cultural heritage of the 20th century” at the Korean-Central Asian creative symposium, Almaty, 20–25 August.</p>
+
+      <!-- Additional information after 2010 -->
+
+      <p><strong>2011</strong> — Received the jubilee medal “20 Years of Independence of the Republic of Kazakhstan” and became a laureate of the CIS prize “Star of the Commonwealth” for his contribution to the development of cultural and humanitarian cooperation.</p>
+
+      <p><strong>2016</strong> — Awarded the badge of the Ministry of Culture and Sport of the Republic of Kazakhstan “Honoured Worker of Culture of the Republic of Kazakhstan”.</p>
+
+      <p><strong>2010–2024</strong> — At the M.O. Auezov Institute of Literature and Art he formed a strong scholarly school, supervised multi-volume academic editions in folklore studies, the history of old and modern literature and textual criticism; delivered lectures on the typology of Kazakh folklore and prose and, in interviews and articles, consistently defended the role of the humanities in public life.</p>
+
+      <p><strong>2025</strong> — Died on 28 April. Obituaries and commemorative essays devoted to his life and work were published in national and professional periodicals. On 24 June, an international scholarly conference “The Phenomenon of Academician Kaskabassov: Scholarly Schools, Theories and Practices” was held to mark his 85th anniversary.</p>
+
+    </article>
+
+  </section>
+</main>
+
+<footer style="padding: 0; margin: 0;">
+  <div class="footer-content" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; padding:40px 20px 10px;">
+    <div class="footer-links left" style="flex: 1; min-width: 200px;">
+      <h3>Материалы</h3>
+       <div style="display: flex; gap: 150px;">
+    <ul style="list-style: none; padding: 0;">
+      <li><a href="bio-en.html">- Bioagraphy</a></li>
+          <li><a href="books-en.html">- Books & Monographs</a></li>
+          <li><a href="awards-en.html">- Awards</a></li>
+          <li><a href="maqalalar-en.html">- Articles</a></li>
+        </ul>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="interview-en.html">- Interviews</a></li>
+          <li><a href="qolzhazbalar-en.html">- Manuscripts</a></li>
+          <li><a href="news-en.html">- News</a></li>
+          <li><a href="dissertations-en.html">- Academic School of S. Kaskabassovа</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-gallery-block">
+      <div class="footer-gallery">
+        <a href="gallery/gallery1.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery1.jpg" alt=""></a>
+        <a href="gallery/gallery2.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery2.jpg" alt=""></a>
+        <a href="gallery/gallery3.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery3.jpg" alt=""></a>
+        <a href="gallery/gallery4.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery4.jpg" alt=""></a>
+        <a href="gallery/gallery5.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery5.jpg" alt=""></a>
+        <a href="gallery/gallery6.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery6.jpg" alt=""></a>
+      </div>
+
+      <div class="full-gallery-link">
+        <a href="gallery-en.html">→ View full gallery</a>
+      </div>
+    </div>
+
+    <div class="footer-contact" style="margin-top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 12px;">
+      <div class="contact-info" style="display: flex; gap: 20px;font-size: 1.3rem; color:#343c43;">
+        <span>📞 +7 777 877 8787</span>
+        <span>📧 seyt.kaskabasov@mail.kz</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="copyright" style="padding: 18px; text-align: center;">
+    © 2025 The family and descendants of Seit Kaskabasov</div>
+</footer>
+
+<script>
+  function scrollCarousel(dir) {
+    document.getElementById('bookCarousel').scrollBy({
+      left: dir * 220,
+      behavior: 'smooth'
+    });
+  }
+</script>
+<script>
+  lightbox.option({
+    'resizeDuration': 200,
+    'wrapAround': true,
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const booksSwiper = new Swiper('.books-swiper', {
+    spaceBetween: 24,
+    loop: true,
+    speed: 700,
+    slidesPerView: 5,
+    slidesPerGroup: 5,
+    autoplay: {
+      delay: 3500,
+      disableOnInteraction: false
+    },
+    pagination: {
+      el: '.books-swiper .swiper-pagination',
+      clickable: true
+    },
+    breakpoints: {
+      1200: { slidesPerView: 5, slidesPerGroup: 5 },
+      992:  { slidesPerView: 4, slidesPerGroup: 4 },
+      768:  { slidesPerView: 3, slidesPerGroup: 3 },
+      576:  { slidesPerView: 2, slidesPerGroup: 2 },
+      0:    { slidesPerView: 1, slidesPerGroup: 1 }
+    }
+  });
+</script>
+<script>
+(() => {
+  const btn = document.querySelector('.menu-btn');
+  const panel = document.getElementById('offcanvas');
+  const backdrop = document.getElementById('offcanvas-backdrop');
+
+  if (!btn || !panel || !backdrop) return;
+
+  function openMenu(){
+    panel.classList.add('open');
+    backdrop.hidden = false;
+    document.body.style.overflow = 'hidden';
+    btn.setAttribute('aria-expanded','true');
+    panel.setAttribute('aria-hidden','false');
+  }
+  function closeMenu(){
+    panel.classList.remove('open');
+    backdrop.hidden = true;
+    document.body.style.overflow = '';
+    btn.setAttribute('aria-expanded','false');
+    panel.setAttribute('aria-hidden','true');
+  }
+
+  btn.addEventListener('click', () => {
+    panel.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  panel.querySelector('.offcanvas-close').addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+  window.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+})();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const title = document.querySelector('.site-title');
+  if (!title) return;
+
+  title.setAttribute('tabindex','0');
+  title.setAttribute('role','link');
+  title.setAttribute('aria-label','На главную: Сеит Каскабасов');
+
+  const goHome = () => { window.location.href = 'index-ru.html'; };
+
+  title.addEventListener('click', goHome);
+  title.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goHome(); }
+  });
+});
+</script>
+
+</body>
+</html>
