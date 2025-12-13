@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interviews – Seit Kaskabasov</title>
+  <link rel="stylesheet" href="http://fonts-online.ru/fonts/karsten/stylesheet.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<style>
+.page-title{font-weight:700;margin-bottom:.8rem;color:#343c43;font-size:1.9rem;}
+.intro-text{max-width:70ch;font-size:1rem;color:#555;margin-bottom:2rem;line-height:1.6;}
+.interview-list{display:grid;gap:1.5rem;}
+.interview-card{background:#fff;border:1px solid #e2e4de;border-radius:14px;padding:1.4rem 1.6rem;box-shadow:0 4px 14px rgba(0,0,0,.05);transition:all .2s ease;}
+.interview-card:hover{transform:translateY(-3px);border-color:#cfd5ce;box-shadow:0 8px 22px rgba(0,0,0,.08);}
+.interview-card h2{margin:0 0 .4rem;font-size:1.25rem;color:#343c43;}
+.meta{font-size:.9rem;color:#666;margin-bottom:.8rem;}
+.desc{font-size:1rem;color:#2c2c2c;margin-bottom:.8rem;line-height:1.55;}
+.read-link{font-weight:600;color:#0a66c2;text-decoration:none;transition:color .2s ease;}
+.read-link:hover{color:#094b97;text-decoration:underline;}
+@media (min-width:640px){.interview-list{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:768px){
+  .page-title{font-size:1.5rem;}
+  .intro-text{font-size:.95rem;max-width:100%;}
+  .interview-list{grid-template-columns:1fr;}
+  .interview-card{padding:1rem;}
+  .interview-card h2{font-size:1.1rem;}
+  .meta{font-size:.85rem;}
+  .desc{font-size:.95rem;}
+  .read-link{font-size:1rem;}
+}
+@media (max-width:480px){
+  .page-title{font-size:1.3rem;}
+  .intro-text{font-size:.9rem;}
+  .interview-card{padding:.8rem;}
+  .interview-card h2{font-size:1rem;}
+  .meta{font-size:.8rem;}
+  .desc{font-size:.9rem;}
+  .read-link{font-size:.95rem;}
+}
+</style>
+
+<link href="lightbox.css" rel="stylesheet" />
+<link href="style.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="lightbox-plus-jquery.js"></script>
+</head>
+
+<body>
+
+<div class="header-top">
+  <div class="signature-block">
+    <a href="index-en.html" class="logo-link">
+      <img src="images/logo.png" alt="S.A. Kaskabasov logo" class="logo-img">
+    </a>
+    <a href="index-en.html" class="logo-link">
+      <img src="images/sign.png" alt="Seit Kaskabasov" class="signature-img">
+    </a>
+  </div>
+
+  <div class="header-actions">
+    <div class="language-switcher" role="group" aria-label="Language selection">
+      <a href="interview.html" class="lang-btn">Қаз</a>
+      <a href="interview-ru.html" class="lang-btn">Рус</a>
+      <a href="interview-en.html" class="lang-btn active-lang">Eng</a>
+    </div>
+
+    <button class="menu-btn" aria-controls="offcanvas" aria-expanded="false">
+      <span class="menu-icon"></span> Menu
+    </button>
+  </div>
+</div>
+
+<aside id="offcanvas" class="offcanvas" aria-hidden="true">
+  <button class="offcanvas-close" aria-label="Close menu">×</button>
+
+  <nav class="offcanvas-nav" role="navigation" aria-label="Main menu">
+    <a href="index.html">Home</a>
+    <a href="bio-en.html">Biography</a>
+    <a href="books-en.html">Books & Monographs</a>
+    <a href="awards-en.html">Awards</a>
+    <a href="maqalalar-en.html">Articles</a>
+    <a href="interview-en.html">Interviews</a>
+    <a href="qolzhazbalar-en.html">Manuscripts</a>
+    <a href="news-en.html">News</a>
+    <a href="dissertations-en.html">Academic school of S. Kaskabasov</a>
+    <a href="gallery-en.html">Gallery</a>
+  </nav>
+</aside>
+
+<div id="offcanvas-backdrop" class="offcanvas-backdrop" hidden></div>
+
+<header class="site-header">
+  <div class="header-overlay"></div>
+  <div class="header-content">
+    <h1 class="header-title">Interviews</h1>
+  </div>
+
+  <nav class="breadcrumb">
+    <a href="index-en.html">Home</a>
+    <span class="divider">|</span>
+    <a href="#" class="current-page">Interviews</a>
+  </nav>
+</header>
+
+<main class="container">
+  <div class="interview-list">
+
+    <div class="interview-card">
+      <h2>“Tört elu”</h2>
+      <p class="meta"><strong>Outlet:</strong> Egemen Qazaqstan — <em>27 September 2011</em></p>
+      <p class="desc">
+        A wide-ranging interview about the scholar’s life path and academic work, including the Institute’s activities, the “Babalar sözi” series, and new directions in literary studies.
+      </p>
+      <a href="https://egemen.kz/article/15265-tort-elu" class="read-link" target="_blank" rel="noopener noreferrer">Read →</a>
+    </div>
+
+    <div class="interview-card">
+      <h2>“Seit Kaskabasov: The key task is to renew national consciousness and improve the nation’s quality”</h2>
+      <p class="meta"><strong>Outlet:</strong> Egemen Qazaqstan</p>
+      <p class="desc">
+        A deep conversation about society, national identity, language policy, and spiritual modernization. The role of folklore is discussed in the context of the “Mangilik El” concept.
+      </p>
+      <a href="https://egemen.kz/article/119676-seyit-qasqabasov-basty-masele-%E2%80%93-ult-sanasyn-dganhartu-ult-sapasyn-dgaqsartu" class="read-link" target="_blank" rel="noopener noreferrer">Read →</a>
+    </div>
+
+    <div class="interview-card">
+      <h2>“The Eternal Folklore of Mangilik El”</h2>
+      <p class="meta"><strong>Outlet:</strong> Egemen Qazaqstan — <em>24 January 2014</em></p>
+      <p class="desc">
+        An interview on the idea behind the 100-volume “Babalar sözi” series, its editorial process, and scholarly significance, including principles of collecting and publishing heritage materials.
+      </p>
+      <a href="https://egemen.kz/article/28695-manhgilik-eldinh-manhgilik-folklory" class="read-link" target="_blank" rel="noopener noreferrer">Read →</a>
+    </div>
+
+    <div class="interview-card">
+      <h2>“The Plot Foundations of the Poem ‘Eskendir’”</h2>
+      <p class="meta"><strong>Outlet:</strong> Abai.KazNU / Qalamger — <em>8 December 2012</em></p>
+      <p class="desc">
+        An analytical talk on the sources of Abai’s poem “Eskendir” and its links to Eastern and Western traditions, with comparisons to texts associated with the Talmudic tradition, Nizami, and Zhukovsky.
+      </p>
+      <a href="http://qasqabasov-seit.kalamger.kz/smi-bak/20-sejt-asabasov-eskendr-pojemasyny-sjuzhettk-negz.html" class="read-link" target="_blank" rel="noopener noreferrer">Read →</a>
+    </div>
+
+    <div class="interview-card">
+      <h2>“Aitys must be raised to the level of genuine art”</h2>
+      <p class="meta"><strong>Outlet:</strong> Qalamger portal — <em>14 December 2014</em></p>
+      <p class="desc">
+        A conversation about the nature of aitys, artistic criteria, stage culture, and the contemporary state of aitys poetry.
+      </p>
+      <a href="http://qasqabasov-seit.kalamger.kz/smi-bak/15-sejt-asabasov-ajtysty-shynajy-ner-degejne-kterumz-kerek.html" class="read-link" target="_blank" rel="noopener noreferrer">Read →</a>
+    </div>
+
+    <div class="interview-card">
+      <h2>Seit Kaskabasov on the program “Özekjardy”</h2>
+      <p class="meta"><strong>Format:</strong> Qazaqstan TV, talk show — <em>29 May 2015</em></p>
+      <p class="desc">
+        A studio interview about independence, national spirit, the development of folklore studies, and the scholar’s core life principles.
+      </p>
+      <a href="https://qazaqstan.tv/news/98830" class="read-link" target="_blank" rel="noopener noreferrer">Watch →</a>
+    </div>
+
+    <div class="interview-card">
+      <h2>“Siz ne deysiz?” — Seit Kaskabasov</h2>
+      <p class="meta"><strong>Format:</strong> Qazaqstan TV, TV project — <em>25 April 2015</em></p>
+      <p class="desc">
+        A Q&A-format TV interview discussing social issues, national values, and contemporary questions.
+      </p>
+      <a href="http://qasqabasov-seit.kalamger.kz/video-tv/12-sz-ne-dejsz-sejt-asabasov.html" class="read-link" target="_blank" rel="noopener noreferrer">Watch →</a>
+    </div>
+
+    <div class="interview-card">
+      <h2>“30 days — 30 wishes”</h2>
+      <p class="meta"><strong>Format:</strong> video project, reflective talk</p>
+      <p class="desc">
+        A video made within the “Äziret Sultan” Mosque project, featuring the academician’s reflections on values, life principles, and heartfelt wishes.
+      </p>
+      <a href="http://qasqabasov-seit.kalamger.kz/video-tv/17-30-knge-30-tlek-sejt-asabasov.html" class="read-link" target="_blank" rel="noopener noreferrer">Watch →</a>
+    </div>
+
+    <div class="interview-card">
+      <h2>“The President’s book is the history of the independence era”</h2>
+      <p class="meta"><strong>Format:</strong> Qazaqstan TV / Qalamger — TV program</p>
+      <p class="desc">
+        An expert conversation about the historical significance of the President’s works, interpreting the independence period, and national memory.
+      </p>
+      <a href="http://qasqabasov-seit.kalamger.kz/video-tv/14-sejt-asabasov-elbasyny-ktaby-tuelszdk-kezen-tarihy.html" class="read-link" target="_blank" rel="noopener noreferrer">Watch →</a>
+    </div>
+
+  </div>
+</main>
+
+<footer style="padding:0;margin:0;">
+  <div class="footer-content" style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;padding:40px 20px 10px;">
+    <div class="footer-links left" style="flex:1;min-width:200px;">
+      <h3>Materials</h3>
+      <div style="display:flex;gap:150px;">
+        <ul style="list-style:none;padding:0;">
+          <li><a href="bio-en.html">- Biography</a></li>
+          <li><a href="books-en.html">- Books & Monographs</a></li>
+          <li><a href="awards-en.html">- Awards</a></li>
+          <li><a href="maqalalar-en.html">- Articles</a></li>
+        </ul>
+        <ul style="list-style:none;padding:0;">
+          <li><a href="interview-en.html">- Interviews</a></li>
+          <li><a href="qolzhazbalar-en.html">- Manuscripts</a></li>
+          <li><a href="news-en.html">- News</a></li>
+          <li><a href="dissertations-en.html">- Academic School</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-gallery-block">
+      <div class="footer-gallery">
+        <a href="gallery/gallery1.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery1.jpg" alt=""></a>
+        <a href="gallery/gallery2.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery2.jpg" alt=""></a>
+        <a href="gallery/gallery3.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery3.jpg" alt=""></a>
+        <a href="gallery/gallery4.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery4.jpg" alt=""></a>
+        <a href="gallery/gallery5.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery5.jpg" alt=""></a>
+        <a href="gallery/gallery6.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery6.jpg" alt=""></a>
+      </div>
+      <div class="full-gallery-link"><a href="gallery-en.html">→ View full gallery</a></div>
+    </div>
+
+    <div class="footer-contact" style="margin-top:0;width:100%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.2);padding-top:12px;">
+      <div class="contact-info" style="display:flex;gap:20px;font-size:1.3rem;color:#343c43;">
+        <span>📞 +7 777 877 8787</span>
+        <span>📧 seyt.kaskabasov@mail.kz</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="copyright" style="padding:18px;text-align:center;">
+    © 2025 The family and descendants of Seit Kaskabasov
+  </div>
+</footer>
+
+<script>
+lightbox.option({ resizeDuration: 200, wrapAround: true });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+(() => {
+  const btn = document.querySelector('.menu-btn');
+  const panel = document.getElementById('offcanvas');
+  const backdrop = document.getElementById('offcanvas-backdrop');
+  if (!btn || !panel || !backdrop) return;
+
+  function openMenu(){
+    panel.classList.add('open'); backdrop.hidden = false;
+    document.body.style.overflow = 'hidden';
+    btn.setAttribute('aria-expanded','true');
+    panel.setAttribute('aria-hidden','false');
+  }
+  function closeMenu(){
+    panel.classList.remove('open'); backdrop.hidden = true;
+    document.body.style.overflow = '';
+    btn.setAttribute('aria-expanded','false');
+    panel.setAttribute('aria-hidden','true');
+  }
+
+  btn.addEventListener('click', () => panel.classList.contains('open') ? closeMenu() : openMenu());
+  panel.querySelector('.offcanvas-close').addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+  window.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+})();
+</script>
+
+</body>
+</html>
