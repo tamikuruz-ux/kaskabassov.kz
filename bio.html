@@ -28,11 +28,12 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 /* === BIO: двухколоночный макет с лентой фото слева === */
 .bio-layout{
   display:grid;
-  grid-template-columns: 260px 1fr; /* ширина ленты | основное тело */
-  gap:32px;
+  grid-template-columns: 260px 1fr;
+  gap:24px;
   align-items:start;
-  margin-top:28px;
+  margin-top: 0 !important;
 }
+
 
 /* Левая лента-рейл */
 .bio-rail{
@@ -50,9 +51,9 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 /* Превьюшки */
 .bio-thumb{
   width:100%;
-  aspect-ratio:3/4;         /* единый аккуратный формат */
-  object-fit:cover;
+  object-fit:contain;     /* Показывает фото полностью */
   border-radius:12px;
+  padding:4px;            /* небольшая «рамка», чтобы горизонтальные фото не прилипали к границам */
   display:block;
   filter:brightness(0.98);
   transition:transform .2s ease, filter .2s ease, box-shadow .2s ease;
@@ -71,12 +72,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
   line-height:1.75;
   font-size:1.05rem;
 }
-.bio-content h2{
-  font-family:"Karsten", serif;
-  font-weight:700;
-  font-size:2rem;
-  margin:0 0 12px;
-}
+
 .bio-content h3{
   margin:28px 0 8px;
   font-size:1.25rem;
@@ -104,6 +100,91 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
   }
 }
 
+/* ==================== Мобильная версия ==================== */
+@media (max-width: 768px) {
+
+  /* Секция с книгами: уменьшаем количество слайдов в ряду */
+  .section-head {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .see-all {
+    font-size: 1.2rem;
+  }
+
+  /* Контейнер для биографии: делаем в одну колонку */
+  .bio-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Левая лента-рейл: переходим на горизонтальный режим */
+  .bio-rail {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 2px 0 6px;
+    margin-bottom: 4px;
+  }
+
+  /* Превьюшки: уменьшаем ширину */
+  .bio-thumb {
+    width: 180px;            /* ширина карточки в горизонтальной ленте */
+    aspect-ratio: 3/4;
+    flex: 0 0 auto;
+  }
+
+  /* Текстовый столбец: уменьшаем отступы и шрифт */
+  .bio-content {
+    font-size: 1rem;
+  }
+
+  .bio-content h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* Секция с книгами: продолжаем адаптацию */
+  .section-head {
+    gap: 5px;
+  }
+
+  .see-all {
+    font-size: 1rem;
+  }
+
+  /* Контейнер для биографии: в одну колонку */
+  .bio-layout {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  /* Лента-рейл: уменьшаем расстояния */
+  .bio-rail {
+    padding: 0 0 4px;
+    margin-bottom: 3px;
+  }
+
+  /* Превьюшки: еще меньше для маленьких экранов */
+  .bio-thumb {
+    width: 150px;
+  }
+
+  /* Текстовый столбец: уменьшаем шрифт */
+  .bio-content {
+    font-size: 0.95rem;
+  }
+
+  .bio-content h3 {
+    font-size: 1.1rem;
+  }
+}
+
+
      </style>
 <!-- Lightbox CSS -->
 <link href="lightbox.css" rel="stylesheet" />
@@ -122,15 +203,20 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 <!-- Верхняя серая шапка -->
 <div class="header-top">
  <div class="signature-block">
-  <h1 class="site-title">Сейіт Қасқабасов</h1>
+ <a href="index.html" class="logo-link">
+      <img src="images/logo.png" alt="Логотип С.А. Қасқабасов" class="logo-img">
+    </a>
+<a href="index.html" class="logo-link">
+  <img src="images/sign.png" alt="Сейіт Қасқабасов" class="signature-img">
+    </a>
 </div>
 
 
   <div class="header-actions">
     <div class="language-switcher" role="group" aria-label="Тіл таңдау">
-      <a href="index-kz.html" class="lang-btn active-lang">Қаз</a>
-      <a href="index-ru.html" class="lang-btn">Рус</a>
-      <a href="index-en.html" class="lang-btn">Eng</a>
+      <a href="bio.html" class="lang-btn active-lang">Қаз</a>
+      <a href="bio-ru.html" class="lang-btn">Рус</a>
+      <a href="bio-en.html" class="lang-btn">Eng</a>
     </div>
 
 
@@ -152,7 +238,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
     <a href="maqalalar.html">Мақалалар</a>
     <a href="interview.html">Сұхбаттар</a>
     <a href="qolzhazbalar.html">Қолжазбалар</a>
-    <a href="comments.html">Пікірлер</a>
+    <a href="news.html">Жаңалықтар</a>
     <a href="dissertations.html">Академик С.Қасқабасовтың ғылыми мектебі</a>
     <a href="gallery.html">Галерея</a>
   </nav>
@@ -161,71 +247,69 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 <!-- Затемняющий фон под меню -->
 <div id="offcanvas-backdrop" class="offcanvas-backdrop" hidden></div>
 
-<header>
-  <div class="slideshow">
-    <img class="slide" src="images/show1.jpg" style="object-position:50% 30%" alt="">
-    <img class="slide" src="images/show2.jpg" alt="">
-    <img class="slide" src="images/show3.jpg" style="object-position:50% 30%" alt="">
-    <img class="slide" src="images/show4.jpg" style="object-position:50% 30%" alt="">
-    <img class="slide" src="images/show5.jpg" alt="">
-    <img class="slide" src="images/show6.jpg" alt="">
-    <img class="slide" src="images/show7.jpg" alt="">
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-overlay"></div>
 
-    <!-- ВОДЯНОЙ ЗНАК (подпись) -->
-    <img class="slideshow-watermark" src="signature.png" alt="">
+  <div class="header-content">
+    <h1 class="header-title">Өмірбаяны</h1>
   </div>
+
+<nav class="breadcrumb">
+  <a href="index.html">Басты бет</a>
+  <span class="divider">|</span>
+  <a href="#" class="current-page">Өмірбаяны</a>
+</nav>
 </header>
-  </div>
-</section>
 
-
+  
     <main class="container">
   <section class="bio-layout">
     <!-- ЛЕНТА ФОТО СЛЕВА -->
     <aside class="bio-rail" aria-label="Фотолента биографии">
       <!-- Добавляй/удаляй блоки ниже по мере надобности -->
-      <a href="images/bio/1.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама"> >
-        <img class="bio-thumb" src="images/bio/1.jpg" alt="1950-ы: мектеп жылдары" loading="lazy">
+      <a href="images/bio.1.png" data-lightbox="bio-rail" data-title="Қысқаша сипаттама"> 
+        <img class="bio-thumb" src="images/bio.1.png" alt="1950-ы: мектеп жылдары" loading="lazy">
       </a>
 
-      <a href="images/bio/2.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
-        <img class="bio-thumb" src="images/bio/2.jpg" alt="Қысқаша сипаттама" loading="lazy">
+      <a href="images/bio.2.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.2.jpg" alt="Қысқаша сипаттама" loading="lazy">
       </a>
 
-      <a href="images/bio/3.jpg" data-lightbox="bio-rail"data-title="Қысқаша сипаттама">
-        <img class="bio-thumb" src="images/bio/3.jpg" alt="Қысқаша сипаттама" loading="lazy">
+      <a href="images/bio.3.jpg" data-lightbox="bio-rail"data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.3.jpg" alt="Қысқаша сипаттама" loading="lazy">
       </a>
 
-      <a href="images/bio/4.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
-        <img class="bio-thumb" src="images/bio/4.jpg" alt="Қысқаша сипаттама" loading="lazy">
+      <a href="images/bio.4.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.4.jpg" alt="Қысқаша сипаттама" loading="lazy">
       </a>
 
- <a href="images/bio/5.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
-        <img class="bio-thumb" src="images/bio/5.jpg" alt="Қысқаша сипаттама" loading="lazy">
+ <a href="images/bio.5.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.5.jpg" alt="Қысқаша сипаттама" loading="lazy">
       </a>
 
- <a href="images/bio/6.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
-        <img class="bio-thumb" src="images/bio/6.jpg" alt="Қысқаша сипаттама" loading="lazy">
-      </a>
-
-
- <a href="images/bio/7.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
-        <img class="bio-thumb" src="images/bio/7.jpg" alt="Қысқаша сипаттама" loading="lazy">
+ <a href="images/bio.6.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.6.jpg" alt="Қысқаша сипаттама" loading="lazy">
       </a>
 
 
- <a href="images/bio/7.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
-        <img class="bio-thumb" src="images/bio/7.jpg" alt="Қысқаша сипаттама" loading="lazy">
+ <a href="images/bio.7.png" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.7.png" alt="Қысқаша сипаттама" loading="lazy">
       </a>
 
 
- <a href="images/bio/8.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
-        <img class="bio-thumb" src="images/bio/8.jpg" alt="Қысқаша сипаттама" loading="lazy">
+ <a href="images/bio.8.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.8.jpg" alt="Қысқаша сипаттама" loading="lazy">
       </a>
 
 
- <a href="images/bio/9.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
-        <img class="bio-thumb" src="images/bio/9.jpg" alt="Қысқаша сипаттама" loading="lazy">
+ <a href="images/bio.9.jpg" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.9.jpg" alt="Қысқаша сипаттама" loading="lazy">
+      </a>
+
+
+ <a href="images/bio.10.png" data-lightbox="bio-rail" data-title="Қысқаша сипаттама">
+        <img class="bio-thumb" src="images/bio.10.png" alt="Қысқаша сипаттама" loading="lazy">
       </a>
 
 
@@ -234,7 +318,6 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 
     <!-- ОСНОВНОЙ ТЕКСТ СПРАВА -->
     <article class="bio-content">
-      <h2>Толық өмірбаяны</h2>
 
       <p>Сейіт Асқарұлы Қасқабасов 1940 жылы 24 маусымда Шығыс Қазақстан облысының Семей қаласында дүниеге келді.</p>
 
@@ -364,20 +447,20 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
         <ul style="list-style: none; padding: 0;">
           <li><a href="interview.html">- Сұхбаттар</a></li>
           <li><a href="qolzhazbalar.html">- Қолжазбалар</a></li>
-          <li><a href="comments.html">- Пікірлер</a></li>
+          <li><a href="news.html">- Жаңалықтар</a></li>
           <li><a href="dissertations.html">- Академик С.Қасқабасовтың ғылыми мектебі</a></li>
         
     </ul>
   </div>
 </div>
-<div class="footer-gallery-block">
-  <div class="footer-gallery">
-    <a href="images/gallery1.jpg" data-lightbox="footer-gallery"><img src="images/gallery1.jpg" alt=""></a>
-    <a href="images/gallery2.jpg" data-lightbox="footer-gallery"><img src="images/gallery2.jpg" alt=""></a>
-    <a href="images/gallery3.jpg" data-lightbox="footer-gallery"><img src="images/gallery3.jpg" alt=""></a>
-    <a href="images/gallery4.jpg" data-lightbox="footer-gallery"><img src="images/gallery4.jpg" alt=""></a>
-    <a href="images/gallery5.jpg" data-lightbox="footer-gallery"><img src="images/gallery5.jpg" alt=""></a>
-    <a href="images/gallery6.jpg" data-lightbox="footer-gallery"><img src="images/gallery6.jpg" alt=""></a>
+<div class="footer-gallery-block"> 
+<div class="footer-gallery">
+    <a href="gallery/gallery1.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery1.jpg" alt=""></a>
+    <a href="gallery/gallery2.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery2.jpg" alt=""></a>
+    <a href="gallery/gallery3.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery3.jpg" alt=""></a>
+    <a href="gallery/gallery4.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery4.jpg" alt=""></a>
+    <a href="gallery/gallery5.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery5.jpg" alt=""></a>
+    <a href="gallery/gallery6.jpg" data-lightbox="footer-gallery"><img src="gallery/gallery6.jpg" alt=""></a>
   </div>
 
   <div class="full-gallery-link">
@@ -391,9 +474,9 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
         <span>📞 +7 777 877 8787</span>
         <span>📧 seyt.kaskabasov@mail.kz</span>
       </div>
-      <button class="order-btn" style=" border: none; padding: 10px 20px; color:#343c43; cursor: pointer;">Кітапқа тапсырыс</button>
-    </div>
   </div>
+  </div>
+
       
    <div class="copyright" style="padding: 18px; text-align: center;">
   © 2025 Сейіт Қасқабасовтың отбасы мен ұрпақтары
