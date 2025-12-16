@@ -133,90 +133,86 @@
 }
 
 
-/* Мобильная версия для экранов до 768px */
+/* ==================== Мобильная версия ==================== */
 @media (max-width: 768px) {
-  /* Галерея-шапка */
-  .gallery-hero {
-    height: 350px;  /* Уменьшаем высоту на мобильных */
-    padding: 20px 10px;  /* Меньше отступы */
+
+  /* HERO */
+  .gallery-hero{
+    height: 340px;
+    padding: 20px 14px;
+    background-position: center 35%;
   }
 
-  .gallery-hero h1 {
-    font-size: 2rem; /* Уменьшаем размер заголовка */
+  .gallery-hero h1{
+    font-size: 2.05rem;
+    margin-bottom: 6px;
   }
 
-  .gallery-hero p {
-    font-size: 0.9rem; /* Уменьшаем размер текста */
+  .gallery-hero p{
+    font-size: 0.95rem;
   }
 
-  /* Контейнер галереи */
-  .gallery-wrap {
+  /* Контейнер */
+  .gallery-wrap{
     max-width: 100%;
-    padding: 0 10px;  /* Добавляем немного отступов */
+    padding: 0 10px;
   }
 
-  /* Masonry-раскладка на мобильных */
-  .gallery-masonry {
-    column-count: 2;  /* 2 колонки на мобильных */
+  /* 🔥 4 колонки на больших мобильных / планшетах */
+  .gallery-masonry{
+    column-count: 4;
+    column-gap: 8px;
   }
 
-  /* Один элемент галереи */
-  .gallery-item {
-    margin-bottom: 12px;  /* Увеличиваем отступы между элементами */
+  .gallery-item{
+    margin-bottom: 10px;
   }
 
-  /* Картинки в галерее */
-  .gallery-item img {
-    width: 100%; /* Картинка должна занимать 100% ширины */
-    height: auto;
-    transition: transform .2s ease, filter .2s ease;
+  /* Мягкий hover для тача */
+  .gallery-item img{
+    transition: transform .15s ease, filter .15s ease;
   }
 
-  .gallery-item:hover img {
-    transform: scale(1.05); /* Увеличиваем картинку при наведении */
-    filter: brightness(1.05); /* Добавляем яркость */
+  .gallery-item:hover img{
+    transform: scale(1.015);
+    filter: brightness(1.03);
   }
 }
 
-/* Мобильная версия для экранов до 480px */
+/* Обычные телефоны */
 @media (max-width: 480px) {
-  /* Галерея-шапка */
-  .gallery-hero {
-    height: 300px; /* Еще меньше на очень маленьких экранах */
+
+  .gallery-hero{
+    height: 300px;
+    padding: 18px 12px;
   }
 
-  .gallery-hero h1 {
-    font-size: 1.6rem; /* Уменьшаем размер заголовка еще больше */
+  .gallery-hero h1{
+    font-size: 1.65rem;
   }
 
-  .gallery-hero p {
-    font-size: 0.85rem; /* Уменьшаем размер текста */
+  .gallery-hero p{
+    font-size: 0.88rem;
   }
 
-  /* Контейнер галереи */
-  .gallery-wrap {
-    padding: 0 8px;  /* Меньше отступы */
+  .gallery-wrap{
+    padding: 0 8px;
   }
 
-  /* Masonry-раскладка на маленьких экранах */
-  .gallery-masonry {
-    column-count: 1;  /* 1 колонка */
+  /* 🔥 3 колонки даже на маленьких */
+  .gallery-masonry{
+    column-count: 3;
+    column-gap: 6px;
   }
 
-  /* Один элемент галереи */
-  .gallery-item {
-    margin-bottom: 14px;
+  .gallery-item{
+    margin-bottom: 8px;
   }
 
-  /* Картинки в галерее */
-  .gallery-item img {
-    width: 100%;
-    height: auto;
-  }
-
-  .gallery-item:hover img {
-    transform: scale(1.1); /* Увеличиваем картинку при наведении */
-    filter: brightness(1.1); /* Добавляем яркость */
+  /* почти без hover */
+  .gallery-item:hover img{
+    transform: scale(1.01);
+    filter: brightness(1.02);
   }
 }
 
