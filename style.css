@@ -903,13 +903,13 @@ footer {
   align-items: start !important;
 }
 
-#bio-row .bio-text{ min-width:0 !important; }
+#bio-row .bio-text{ min-width:0 ; }
 #bio-row .bio-media{
-  min-width:0 !important;
-  display:flex !important;
-  justify-content:center !important;
-  align-items:center !important;
-  background: transparent !important;
+  min-width:0;
+  display:flex ;
+  justify-content:center;
+  align-items:center ;
+  background: transparent ;
 }
 
 /* Видео без карточек/рамок */
@@ -1247,6 +1247,7 @@ white-space: normal;
 
 
 }
+
 
 
 
