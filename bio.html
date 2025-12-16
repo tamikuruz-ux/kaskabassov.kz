@@ -100,87 +100,66 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
   }
 }
 
-/* ==================== Мобильная версия ==================== */
+/* ==================== Мобильная версия (исправленная) ==================== */
 @media (max-width: 768px) {
 
-  /* Секция с книгами: уменьшаем количество слайдов в ряду */
-  .section-head {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .see-all {
-    font-size: 1.2rem;
-  }
-
-  /* Контейнер для биографии: делаем в одну колонку */
-  .bio-layout {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  /* Левая лента-рейл: переходим на горизонтальный режим */
-  .bio-rail {
-    position: static;
-    display: flex;
+  /* Заголовок секции оставляем как на ПК, только компактнее */
+  .section-head{
     flex-direction: row;
-    gap: 10px;
-    padding: 2px 0 6px;
-    margin-bottom: 4px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .see-all{
+    font-size: 1.05rem;
+    white-space: nowrap;
   }
 
-  /* Превьюшки: уменьшаем ширину */
-  .bio-thumb {
-    width: 180px;            /* ширина карточки в горизонтальной ленте */
-    aspect-ratio: 3/4;
+  /* bio уже становится в колонку на 992px — здесь только тонкая настройка */
+  .bio-layout{
+    gap: 16px;
+  }
+
+  /* Горизонтальная лента фото: делаем скролл и аккуратный размер */
+  .bio-rail{
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    padding-bottom: 6px;
+  }
+
+  .bio-thumb{
+    width: 160px;
+    aspect-ratio: 3 / 4;
     flex: 0 0 auto;
   }
 
-  /* Текстовый столбец: уменьшаем отступы и шрифт */
-  .bio-content {
+  /* Текст чуть компактнее */
+  .bio-content{
     font-size: 1rem;
+    line-height: 1.65;
   }
-
-  .bio-content h3 {
-    font-size: 1.2rem;
+  .bio-content h3{
+    font-size: 1.18rem;
+    margin: 22px 0 8px;
   }
 }
 
+/* Очень маленькие телефоны */
 @media (max-width: 480px) {
 
-  /* Секция с книгами: продолжаем адаптацию */
-  .section-head {
-    gap: 5px;
+  .section-head{ gap: 10px; }
+  .see-all{ font-size: 1rem; }
+
+  .bio-thumb{
+    width: 140px;
   }
 
-  .see-all {
-    font-size: 1rem;
-  }
-
-  /* Контейнер для биографии: в одну колонку */
-  .bio-layout {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  /* Лента-рейл: уменьшаем расстояния */
-  .bio-rail {
-    padding: 0 0 4px;
-    margin-bottom: 3px;
-  }
-
-  /* Превьюшки: еще меньше для маленьких экранов */
-  .bio-thumb {
-    width: 150px;
-  }
-
-  /* Текстовый столбец: уменьшаем шрифт */
-  .bio-content {
+  .bio-content{
     font-size: 0.95rem;
   }
-
-  .bio-content h3 {
-    font-size: 1.1rem;
+  .bio-content h3{
+    font-size: 1.08rem;
   }
 }
 
@@ -585,3 +564,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
