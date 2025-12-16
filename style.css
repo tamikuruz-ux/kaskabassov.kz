@@ -969,7 +969,7 @@ header, .slider, .slides, .slide{
   .slideshow-watermark{
     width: clamp(140px, 42vw, 260px);
     right: 8px;
-    bottom: -80px;          /* подними, чтобы не “утягивало” вниз */
+    bottom: -18px;          /* подними, чтобы не “утягивало” вниз */
     max-width: 70vw;
   }
 
@@ -1017,10 +1017,10 @@ header, .slider, .slides, .slide{
   /* лого+подпись реально растягиваются и не “микро” */
   .signature-block{
     display:flex;
-    align-items:center;
-    gap:10px;
-    flex: 1 1 auto;      /* ← забирает свободное место */
-    min-width: 0;
+    flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  line-height: 1;
   }
 
   .logo-link{ display:flex; align-items:center; }
@@ -1217,6 +1217,7 @@ white-space: normal;
 
 
 }
+
 
 
 
