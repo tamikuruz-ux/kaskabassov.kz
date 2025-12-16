@@ -628,6 +628,16 @@ h2 a:hover {
   padding: 0 20px;
 }
 
+
+
+/* Работает в современных браузерах */
+main.container:has(> .bio-text):has(> .bio-media){
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:36px;
+  align-items:start;
+}
+
 .bio-video, .bio-grid{
   display: grid;
   grid-template-columns: minmax(0,1fr) minmax(0,1fr); /* не даём переполнить колонку */
@@ -657,9 +667,9 @@ h2 a:hover {
 }
 .ornament-wrap{ position:relative; display:inline-block; }
 .ornament-wrap > video{
-  width:100%;
-  max-width: var(--v-max-w);
-  max-height: var(--v-max-h);
+  width:100% !important;
+  max-width: var(--v-max-w) !important;
+  max-height: var(--v-max-h) !important;
   height:auto !important;
   object-fit: contain !important;  /* без обрезки и без чёрных полей */
   display:block !important;
@@ -887,19 +897,19 @@ footer {
 }
 /* ===== БИО: жёсткая сетка 50/50 ===== */
 #bio-row{
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 36px;
-  align-items: start;
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important;
+  gap: 36px !important;
+  align-items: start !important;
 }
 
-.bio-text{ min-width:0; }
-.bio-media{
-  min-width:0;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background: transparent;
+#bio-row .bio-text{ min-width:0 !important; }
+#bio-row .bio-media{
+  min-width:0 !important;
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  background: transparent !important;
 }
 
 /* Видео без карточек/рамок */
@@ -928,6 +938,10 @@ header, .slider, .slides, .slide{
 
 /* Планшеты и телефоны */
 
+/* Адаптив: в столбик на узких */
+@media (max-width: 992px){
+    :root { --topbar-h: 64px; } /* можно 60px ниже на телефонах */
+}
   @media (max-width: 900px){
   :root { --topbar-h: 64px; } /* можно 60px ниже на телефонах */
 
@@ -961,26 +975,18 @@ header, .slider, .slides, .slide{
 
   .slider-pagination{ bottom: 14px; gap: 8px; }
   .slider-pagination span{ width: 7px; height: 7px; }
-    
+}
 :root{
-    --v-max-w: 480px;
-    --v-max-h: 360px;
-    --orn-w: 44px;
-    --orn-gap: 12px;
-    --orn-over: 8px;
-  }
+  --orn-w: 38px;
+  --orn-gap: 10px;
+  --orn-over: 8px;
+  --v-max-h: 360px;
+}
 
 .ornament-wrap > video{
-  max-width: 100% 
-  max-height: var(--v-max-h) 
+  max-width: 100% !important;
+  max-height: var(--v-max-h) !important;
 }
-/* ===== TABLET ===== */
-  #bio-row{
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-}
-
 
 @media (max-width: 768px) {
   :root { --topbar-h: 60px; }
@@ -1070,57 +1076,46 @@ header, .slider, .slides, .slide{
   }
   .quote-banner cite{ font-size: 1.05rem; }
 
-    #bio-row{
-    display: grid !important;
-    grid-template-columns: 1fr;
-    gap: 14px;
-    align-items: start !important;
-  }
- .bio-media{ order:1; }
-  .bio-text{ order:2; }
-
-
-  /* само видео */
-  #bioVideo{
-    width: min(92vw, 360px);
-    height: auto;
-    max-height: 240px;
-    display: block;
+   #bio-row{
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr) !important;
+    gap: 14px !important;
   }
 
-
-  .ornament-wrap{
-    display:block;
-    margin: 0 auto;
-  }
-
-  .ornament-wrap > video,
-  .ornament-wrap > img{
-    max-width: 340px;
-    max-height: 240px;
-    margin: 0 auto;
-  }
-
-  /* орнамент уже и ближе */
-  :root{
-    --orn-w: 18px;
-    --orn-gap: 8px;
-    --orn-over: 6px;
+  /* 2) текст меньше и плотнее */
+  .bio-text .section-title{
+    font-size: 1.75rem;
+    line-height: 1.05;
+    margin-bottom: 10px;
   }
 
   .bio-text p{
-    font-size: 0.92rem;
-    line-height: 1.42;
+    font-size: 0.88rem;  /* было крупнее */
+    line-height: 1.32;
   }
 
-  .bio-more .bio-btn{
-    padding: 6px 12px;
-    font-size: 0.85rem;
+  /* 3) медиа компактнее (видео/фото) */
+  .ornament-wrap > video,
+  .ornament-wrap > img{
+    max-height: 220px;   /* было больше */
+  }
+
+  /* 4) КНОПКА “полная биография” — значительно меньше */
+  .bio-more{ margin-top: 10px; }
+
+  .bio-btn{
+    display: inline-block;
+    padding: 8px 14px;     /* уменьшили */
+    font-size: 0.92rem;    /* уменьшили */
     border-radius: 999px;
   }
-}
 
 
+  /* 3) РАМКА-ОРНАМЕНТ: НЕ занимает место в потоке */
+  .ornament-wrap{
+    position: relative;
+    display: block;
+    padding: 6px;         /* “рамка” ближе к видео */
+  }
 
   .ornament-wrap::before,
   .ornament-wrap::after{
@@ -1129,12 +1124,28 @@ header, .slider, .slides, .slide{
     bottom: 6px;
     width: 18px;          /* ключ: уменьшаем ширину орнамента */
     pointer-events: none;
-    
   }
 
   /* если орнамент слева/справа — он не должен расширять блок */
   .ornament-wrap::before{ left: -10px; }
   .ornament-wrap::after{ right: -10px; }
+
+  /* 4) видео/картинка компактно и красиво */
+  .ornament-wrap > video,
+  .ornament-wrap > img{
+    width: 100%;
+    height: auto;
+    max-height: 260px;
+    display: block;
+    object-fit: cover;
+  }
+
+.bio-media video{
+  width: 100%;
+  height: auto;
+  max-height: 260px;
+  display: block;
+}
 
 
 
@@ -1216,22 +1227,29 @@ white-space: normal;
     width: clamp(130px, 44vw, 220px);
   }
 
- .bio-text p{ font-size: 0.88rem; line-height: 1.38; }
-
-  .ornament-wrap > video,
-  .ornament-wrap > img{
-    max-width: 320px;
-    max-height: 220px;
+  #bio-row{
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr) !important;
+    gap: 10px !important;
   }
-
-  .bio-more .bio-btn{
-    padding: 6px 10px;
-    font-size: 0.82rem;
-  }
-  #bioVideo{ max-height: 240px; width: min(92vw, 330px); }
+  .bio-text .section-title{ font-size: 1.7rem; }
   .ornament-wrap::before,
   .ornament-wrap::after{ width: 14px; }
-}
+
+  .bio-video iframe,
+  .bio-video video{
+    height: 210px;
+  }
+ :root{
+    --orn-w: 28px;
+    --orn-gap: 8px;
+    --orn-over: 6px;
+    --v-max-w: 100%;
+    --v-max-h: 260px;
+  }
+
+  .ornament-wrap > video{
+    max-height: 260px !important;
+  }
 
   .footer-links ul li a{
     font-size: 0.95rem;
@@ -1239,10 +1257,6 @@ white-space: normal;
 
 
 }
-
-
-
-
 
 
 
