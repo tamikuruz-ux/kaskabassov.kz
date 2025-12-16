@@ -57,22 +57,6 @@ body {
   filter:drop-shadow(0 1px 4px rgba(0,0,0,.25));
   opacity:.98;
   transform:translateY(1px);
-}
-
-
-
-/* Мобильная адаптация */
-@media (max-width: 768px) {
-  .signature-block {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    margin-left: 10px;
-  }
-  .name-logo {
-    height: 170px;
-    transform: none;
-  }
  
 }
 /* языки + меню в одну линию справа */
@@ -958,26 +942,25 @@ footer {
   /* ---------- TOP BAR (лого + подпись + языки + меню в один ряд) ---------- */
   .header-top{
     padding: 10px 14px;
+    gap: 10px;
     height: auto;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: 12px;
   }
 
+  .signature-block{
+    gap:10px;
+  }
+
+  .logo-img{ height: 44px; }
+  .signature-img{ height: 22px; }
+
+  .lang-btn{ padding: 6px 9px; font-size: 13px; }
+  .menu-btn{ padding: 8px 12px; font-size: 13px; }
+}
   /* если у тебя есть обёртка для лого+подписи — идеально */
   .logo-wrap{
     display: flex;
     align-items: center;
     gap: 10px;
-  }
-
-  .logo-img{ height: 46px; }
-
-  /* подпись рядом; если хочешь строго под лого — см. ниже комментарий */
-  .signature-img{
-    height: 22px;
-    margin: 0;
   }
 
   .header-actions{
