@@ -126,6 +126,48 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
   padding-left: 0;
   padding-right: 0;
 }
+    /* ===================== INDEX-ONLY: MOBILE ===================== */
+
+/* Планшет/телефон: 3 книги в ряд */
+@media (max-width: 900px){
+  .books-swiper .swiper-slide{
+    flex: 0 0 calc(100% / 3);
+    max-width: calc(100% / 3);
+  }
+  .book-card img{ height: 210px; }
+
+  .section-head{
+    gap: 12px;
+    align-items: center;
+  }
+  .see-all{ white-space: nowrap; font-size: 1.05rem; }
+
+  .books-pagination{ gap: 6px; }
+  .books-page-bullet{ width: 8px; height: 8px; }
+  .books-page-bullet.active{ transform: scale(1.12); }
+
+  /* hover на тач-устройствах не залипаем */
+  .book-card:hover{ transform: none; box-shadow: none; }
+}
+
+/* Телефон: 2 книги в ряд */
+@media (max-width: 520px){
+  .books-swiper .swiper-slide{
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .book-card img{ height: 185px; }
+
+  .see-all{ font-size: 1rem; }
+
+  .books-pagination{ gap: 4px; }
+  .books-page-bullet{ width: 6px; height: 6px; }
+  .books-page-bullet.active{ transform: scale(1.06); }
+
+  /* если хочешь убрать лишние боковые отступы только у секции книг */
+  #books.container{ padding-left: 0; padding-right: 0; }
+}
+
 
 
           </style>
@@ -599,6 +641,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
