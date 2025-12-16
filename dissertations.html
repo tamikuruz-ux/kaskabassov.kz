@@ -85,21 +85,61 @@
       color: #515e6a;
     }
 
-    /* Мобильная версия */
-    @media (max-width: 768px) {
-      .wrap {
-        padding: 0 10px;
-      }
-      .page-title {
-        font-size: 2rem;
-      }
-      .intro-text {
-        font-size: 1rem;
-      }
-      .dissertation-item {
-        padding: 15px; /* Уменьшаем отступ на мобильных */
-      }
-    }
+   /* Мобильная версия */
+@media (max-width: 768px) {
+  .wrap {
+    padding: 0 10px;
+  }
+  .page-title {
+    font-size: 2rem;
+  }
+  .intro-text {
+    font-size: 1rem;
+  }
+  .dissertation-item {
+    padding: 15px; /* Уменьшаем отступ на мобильных */
+  }
+}
+/* Очень маленькие телефоны */
+@media (max-width: 480px) {
+
+  .wrap{
+    margin: 16px auto;
+    padding: 0 12px;
+  }
+
+  .page-title{
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+  }
+
+  .intro-text{
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+
+  .section-title{
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  .dissertation-item{
+    padding: 12px;
+    margin-bottom: 10px;
+  }
+
+  .dissertation-item h2{
+    font-size: 1.02rem;
+    line-height: 1.25;
+  }
+
+  .dissertation-item p{
+    font-size: 0.9rem;
+    line-height: 1.45;
+    margin: 6px 0 8px;
+  }
+}
 
   </style>
 </head>
