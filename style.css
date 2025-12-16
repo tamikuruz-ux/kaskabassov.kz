@@ -1076,25 +1076,39 @@ header, .slider, .slides, .slide{
   }
   .quote-banner cite{ font-size: 1.05rem; }
 
-  #bio-row{
-    display: grid !important;
-    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr) !important;
+   #bio-row{
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr) !important;
     gap: 14px !important;
-    align-items: start !important;
   }
 
-  .bio-text, .bio-media{ min-width: 0; } /* чтобы сетка не “ломалась” */
-
-  /* 2) уменьшаем заголовок/текст, чтобы влезало */
+  /* 2) текст меньше и плотнее */
   .bio-text .section-title{
-    font-size: 1.9rem;   /* подгони при желании */
+    font-size: 1.75rem;
     line-height: 1.05;
     margin-bottom: 10px;
   }
+
   .bio-text p{
-    font-size: 0.92rem;
-    line-height: 1.38;
+    font-size: 0.88rem;  /* было крупнее */
+    line-height: 1.32;
   }
+
+  /* 3) медиа компактнее (видео/фото) */
+  .ornament-wrap > video,
+  .ornament-wrap > img{
+    max-height: 220px;   /* было больше */
+  }
+
+  /* 4) КНОПКА “полная биография” — значительно меньше */
+  .bio-more{ margin-top: 10px; }
+
+  .bio-btn{
+    display: inline-block;
+    padding: 8px 14px;     /* уменьшили */
+    font-size: 0.92rem;    /* уменьшили */
+    border-radius: 999px;
+  }
+
 
   /* 3) РАМКА-ОРНАМЕНТ: НЕ занимает место в потоке */
   .ornament-wrap{
@@ -1243,6 +1257,7 @@ white-space: normal;
 
 
 }
+
 
 
 
