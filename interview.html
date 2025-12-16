@@ -88,77 +88,83 @@
   .interview-list {
     grid-template-columns: repeat(2, 1fr);
   }
-/* Мобильная версия для экранов до 768px */
+}
+/* ==================== Мобильная версия ==================== */
 @media (max-width: 768px) {
-  .page-title {
-    font-size: 1.5rem;
+
+  .page-title{
+    font-size: 1.55rem;
   }
 
-  .intro-text {
+  .intro-text{
     font-size: 0.95rem;
     max-width: 100%;
   }
 
-  /* Сетка интервью */
-  .interview-list {
-    grid-template-columns: 1fr; /* Одна колонка на мобильных */
+  /* 🔥 2 колонки, а не 1 */
+  .interview-list{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
   }
 
-  /* Карточка интервью */
-  .interview-card {
-    padding: 1rem;
+  .interview-card{
+    padding: 1.1rem 1.2rem;
   }
 
-  .interview-card h2 {
+  .interview-card h2{
     font-size: 1.1rem;
+    line-height: 1.3;
   }
 
-  .meta {
+  .meta{
     font-size: 0.85rem;
   }
 
-  .desc {
+  .desc{
     font-size: 0.95rem;
+    line-height: 1.45;
   }
 
-  .read-link {
-    font-size: 1rem;
+  /* hover на таче мягкий */
+  .interview-card:hover{
+    transform: none;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.05);
   }
 }
 
-/* Мобильная версия для экранов до 480px */
+/* Очень маленькие телефоны — ТОЖЕ 2 колонки */
 @media (max-width: 480px) {
-  .page-title {
-    font-size: 1.3rem;
+
+  .page-title{
+    font-size: 1.35rem;
   }
 
-  .intro-text {
+  .intro-text{
     font-size: 0.9rem;
   }
 
-  /* Сетка интервью */
-  .interview-list {
-    grid-template-columns: 1fr;
+  .interview-list{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
   }
 
-  /* Карточка интервью */
-  .interview-card {
-    padding: 0.8rem;
+  .interview-card{
+    padding: 0.95rem 1rem;
   }
 
-  .interview-card h2 {
+  .interview-card h2{
     font-size: 1rem;
   }
 
-  .meta {
+  .meta{
     font-size: 0.8rem;
   }
 
-  .desc {
+  .desc{
     font-size: 0.9rem;
   }
 
-  .read-link {
+  .read-link{
     font-size: 0.95rem;
   }
 }
@@ -538,3 +544,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
