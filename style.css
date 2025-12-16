@@ -1175,16 +1175,6 @@ header, .slider, .slides, .slide{
 white-space: normal;
   overflow-wrap: anywhere;  }
 
-  .footer-gallery{
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 100%;
-  }
-
-  .footer-gallery img{
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
-  }
 
   .footer-contact{
     flex-direction: column;
@@ -1257,6 +1247,7 @@ white-space: normal;
 
 
 }
+
 
 
 
