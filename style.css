@@ -263,7 +263,7 @@ header {
 .slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 }
 
@@ -891,6 +891,9 @@ footer {
     gap: 18px !important;
     margin: 22px 0;
   }
+    #bio-row .bio-media{ order: 1 !important; }
+  #bio-row .bio-text{ order: 2 !important; }
+}
 
   /* ленты у видео выключаем на мобилке */
   .ornament-wrap::before,
@@ -938,4 +941,32 @@ footer {
     font-size: 1rem;
     padding: 14px;
   }
+  /* --- FIX: никаких горизонтальных вылетов --- */
+html, body{
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
+
+img, video, svg, canvas{
+  max-width: 100%;
+  height: auto;
+}
+
+/* Частая причина пустоты — элементы на 100vw + padding.
+   Поэтому: */
+header, .slider, .slides, .slide{
+  width: 100%;
+  max-width: 100%;
+}
+
+/* если где-то есть 100vw — переопредели */
+@media (max-width: 900px){
+    header{ height: 60svh; min-height: 420px; }
+  .slider, .slides, .slide { width: 100% !important; }
+  .slideshow-watermark{ right: 0 !important; max-width: 65vw !important; }
+  .ornament-wrap::before{ left: 0 !important; }
+  .ornament-wrap::after{ right: 0 !important; }
+}
+}
+
