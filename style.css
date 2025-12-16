@@ -939,157 +939,184 @@ footer {
 /* Видео без карточек/рамок */
 #bio-row .video-frame{ background:transparent !important; box-shadow:none !important; padding:0 !important; border-radius:0 !important; }
 
-/* ==================== Мобильная версия ==================== */
-@media (max-width: 768px) {
+/* =========================================
+   MOBILE BASELINE (только для главной базы)
+   Не ломает ПК. Держит стиль, но оптимизирует.
+========================================= */
 
-  /* Адаптация верхней шапки */
-  .header-top {
+@media (max-width: 900px) {
+  :root { --topbar-h: 60px; }
+
+  .container {
+    padding: 28px 16px;
+  }
+
+  /* ---------- TOP BAR ---------- */
+  .header-top{
+    padding: 10px 14px;
+    gap: 12px;
+    height: auto;              /* важно: не зажимать в 64px */
+  }
+
+  .logo-img{ height: 76px; }
+  .signature-img{
+    height: 44px;
+    margin: 0;
+    margin-left: -10px;
+  }
+
+  .header-actions{ gap: 10px; }
+
+  .language-switcher{ gap: 6px; }
+  .lang-btn{
+    padding: 6px 9px;
+    font-size: 13px;
+  }
+
+  .menu-btn{
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  /* ---------- HERO / SLIDER ---------- */
+  header{
+    height: 56vh;              /* вместо 88vh */
+    min-height: 320px;
+  }
+
+  .slides{ transition: transform 0.55s ease; }
+
+  .slide img{
+    object-fit: cover;         /* НЕ contain */
+    object-position: center;
+  }
+
+  .slideshow-watermark{
+    width: clamp(140px, 38vw, 260px);
+    right: 10px;
+    bottom: -120px;            /* было -190px, на мобиле слишком низко */
+  }
+
+  .slider-pagination{
+    bottom: 14px;
+    gap: 8px;
+  }
+  .slider-pagination span{
+    width: 7px;
+    height: 7px;
+  }
+
+  /* ---------- QUOTE ---------- */
+  .quote-banner{
+    padding: 28px 14px;
+    margin-top: 18px;
+  }
+  .quote-banner blockquote{
+    font-size: 1.35rem;
+    line-height: 1.35;
+  }
+  .quote-banner cite{
+    font-size: 1.15rem;
+  }
+
+  /* ---------- BIO (текст + видео) ---------- */
+  #bio-row{
+    grid-template-columns: 1fr !important; /* колонка */
+    gap: 20px !important;
+  }
+
+  .bio-text p{ font-size: 1.05rem; }
+
+  /* орнаменты на видео лучше убрать на мобиле */
+  .ornament-wrap::before,
+  .ornament-wrap::after{ display:none; }
+
+  /* ---------- BOOKS SWIPER ---------- */
+  /* чтобы не было "одна книга на весь экран", но и не 5 */
+  .books-swiper .swiper-slide{
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .book-card img{ height: 220px; }
+
+  /* ---------- FOOTER ---------- */
+  .footer-content{
     flex-direction: column;
+    align-items: stretch;
+    gap: 22px;
+    padding: 28px 16px 10px;
+    column-gap: 0;
+  }
+
+  .footer-links{
+    min-width: 0;
+  }
+
+  .footer-links h3{
+    font-size: 1.7rem;
+  }
+
+  /* убираем гигантский gap:150px в футере (у тебя inline),
+     но хотя бы ломаем переносом */
+  .footer-links > div{
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px !important;
+  }
+
+  .footer-links ul li a{
+    font-size: 1.1rem;
+  }
+
+  .footer-gallery-block{
+    margin-top: 0;
     align-items: flex-start;
-    gap: 10px;
-    padding: 10px 20px;
   }
 
-  /* Логотип в верхней шапке */
-  .signature-img {
-    height: 70px;
-    margin-bottom: 0;
-  }
-
-  /* Языковая панель */
-  .language-switcher {
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  /* Кнопка меню */
-  .menu-btn {
-    width: 100%;
-    justify-content: center;
-    margin-top: 15px;
-  }
-
-  /* Слайдер: адаптация для мобильных устройств */
-  header {
-    height: 50vh;
-  }
-
-  .slide img {
-    object-fit: cover;
-  }
-
-  /* Адаптация контейнера с книгами */
-  .books-swiper .swiper-slide {
-    flex: 0 0 100%;
+  .footer-gallery{
+    grid-template-columns: repeat(3, 1fr);
     max-width: 100%;
   }
 
-  /* Мобильная навигация */
-  .offcanvas-nav a {
-    font-size: 1.2rem;
-    padding: 12px;
-  }
-
-  /* Пагинация слайдера */
-  .slider-pagination {
-    bottom: 20px;
-  }
-
-  /* Адаптация для мобильных кнопок и футера */
-  .footer-content {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .footer-links {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .footer-gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 колонки */
-    gap: 10px;
-  }
-
-  .footer-contact {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .order-btn {
+  .footer-gallery img{
     width: 100%;
-    text-align: center;
+    height: auto;
+    aspect-ratio: 4 / 3;
   }
 
-  .copyright {
+  .footer-contact{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding-top: 18px;
+  }
+
+  .contact-info{
+    flex-wrap: wrap;
+    gap: 10px 16px;
+    font-size: 1.1rem;
+  }
+
+  .copyright{
     font-size: 1rem;
+    padding: 14px;
   }
 }
 
-@media (max-width: 480px) {
+/* Очень маленькие телефоны */
+@media (max-width: 520px) {
+  .books-swiper .swiper-slide{
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .book-card img{ height: 210px; }
 
-  /* Слайдер: уменьшение высоты */
-  header {
-    height: 45vh;
+  .footer-links > div{
+    grid-template-columns: 1fr !important;
   }
 
-  /* Слайдер изображения */
-  .slide img {
-    object-fit: contain;
-  }
-
-  /* Шрифт в секциях */
-  h1, h2 {
-    font-size: 1.5rem;
-  }
-
-  /* Мобильная навигация */
-  .footer-content {
-    padding: 20px 10px;
-  }
-
-  .footer-links {
-    font-size: 1rem;
-  }
-
-  /* Скрытие орнаментов у видео */
-  .bio-media::before,
-  .bio-media::after {
-    display: none;
-  }
-
-  /* Уменьшаем размер шрифта на всей странице */
-  p {
-    font-size: 1rem;
-  }
-
-  .quote-banner blockquote {
-    font-size: 1.4rem;
-  }
-
-  .quote-banner cite {
-    font-size: 1.2rem;
-  }
-
-  .container {
-    padding: 20px;
-  }
-
-  /* Адаптация для двухколоночной структуры в био */
-  #bio-row {
-    grid-template-columns: 1fr; /* 1 колонка на мобильных устройствах */
-    gap: 20px;
-  }
-
-  #bio-row .bio-text {
-    font-size: 0.9rem;
-  }
-
-  #bio-row .bio-media {
-    justify-content: center;
+  .slideshow-watermark{
+    bottom: -95px;
+    width: clamp(130px, 44vw, 220px);
   }
 }
