@@ -5,16 +5,25 @@ body {
   color: #2c2c2c;
 }
 
-/* ВЕРХНЯЯ ШАПКА */
-/* ── компактная верхняя шапка ───────────────────────── */
+/* =========================
+   VARIABLES (объединено)
+   ========================= */
+:root{
+  --topbar-h: 64px;
 
-/* переменная высоты шапки: легко менять в одном месте */
-:root { --topbar-h: 64px; }             /* было 64px; сделаем крупнее */
+  --orn-w: 62px;
+  --orn-gap: 18px;
+  --orn-over: 10px;
+  --v-max-w: 600px;
+  --v-max-h: 480px;
+  --orn-bottom: -72px;
+}
 
-/* ── верхняя шапка ───────────────────── */
+/* =========================
+   TOP HEADER
+   ========================= */
 .header-top{
   background:#f9f9f4;
-  /* color:#fff;  ← убери белый цвет, иначе текст «исчезает» */
   color:#343c43;
   display:flex;
   align-items:center;
@@ -24,54 +33,47 @@ body {
   height:var(--topbar-h);
   position:relative;
   z-index:5;
-  flex-wrap:nowrap;            /* не переносим на новую строку */
+  flex-wrap:nowrap;
 }
-
 
 .signature-block{
   display:flex;
   align-items:center;
-  min-width:0;                 /* предотвращает «распирание» */
+  min-width:0;
 }
 
 .logo-img {
-  height: 145px; /* можешь менять по вкусу */
+  height: 145px;
   width: auto;
 }
+
 .signature-img {
-  height: 70px; /* подбери нужную высоту чтобы было как заголовок */
-  width: auto; /* чтобы не растягивалось */
+  height: 70px;
+  width: auto;
   display: block;
   margin-bottom:15px;
-  margin-left:-25px;   /* приближает подпись к логотипу */
+  margin-left:-25px;
 }
-
-.site-title{ margin:0; line-height:1; font-weight:400; }
-.home-link{ display:inline-block; text-decoration:none; color:inherit; }
-.home-link:hover{ opacity:.85; transition:opacity .2s; }
 
 .name-logo{
   height:auto;
-  max-height:calc(var(--topbar-h) - 8px); /* вписываем в топ-бар */
+  max-height:calc(var(--topbar-h) - 8px);
   object-fit:contain;
   filter:drop-shadow(0 1px 4px rgba(0,0,0,.25));
   opacity:.98;
   transform:translateY(1px);
- 
-}
-/* языки + меню в одну линию справа */
-.header-actions{
-  margin-left:auto;            /* прижать вправо */
-  display:flex;
-  align-items:center;
-  gap:14px;
 }
 
-/* аккуратные «пилюли» языков */
+/* =========================
+   ACTIONS (оставляем ПОСЛЕДНЮЮ версию ниже в файле)
+   ========================= */
+/* (первый .header-actions был переопределён дальше — удалён безопасно) */
+
 .language-switcher{
   display:flex;
   gap:8px;
 }
+
 .lang-btn{
   display:inline-block;
   padding:6px 10px;
@@ -81,27 +83,29 @@ body {
   color:#343c43;
   border:1px solid rgba(255,255,255,.25);
   transition: background 0.3s, color 0.3s, border-color 0.3s;
-
 }
 .lang-btn:hover {
-  color: #e0c430;            /* контрастный тёмно-зелёный */
-  border-color: white;     /* совпадает с фоном для гармонии */
+  color: #e0c430;
+  border-color: white;
 }
+
 .active-lang{
   background:#ffffff;
   color:#3e94ea;
   border-color:#ffffff;
 }
+
 .lang-btn:focus-visible, .menu-btn:focus-visible, .cta:focus-visible{
-  outline:2px solid #2c333a; outline-offset:2px;
+  outline:2px solid #2c333a;
+  outline-offset:2px;
 }
+
 .site-title{ cursor:pointer; }
 .site-title:focus-visible{ outline:2px solid #3e94ea; outline-offset:2px; }
 
-
-
-/* кнопка меню */
-/* КНОПКА МЕНЮ */
+/* =========================
+   MENU BUTTON
+   ========================= */
 .menu-btn {
   display: flex;
   align-items: center;
@@ -137,7 +141,9 @@ body {
 .menu-icon::before { top: -6px; }
 .menu-icon::after { top: 6px; }
 
-/* ВЫЕЗЖАЮЩЕЕ МЕНЮ */
+/* =========================
+   OFFCANVAS
+   ========================= */
 .offcanvas {
   position: fixed;
   top: 0;
@@ -152,9 +158,8 @@ body {
   z-index: 2100;
   padding: 20px;
 }
-.offcanvas.open {
-  transform: translateX(0);
-}
+.offcanvas.open { transform: translateX(0); }
+
 .offcanvas-close {
   position: absolute;
   top: 8px;
@@ -168,6 +173,7 @@ body {
   font-size: 22px;
   line-height: 1;
 }
+
 .offcanvas-nav {
   display: flex;
   flex-direction: column;
@@ -195,44 +201,44 @@ body {
   background: rgba(0, 0, 0, .35);
   z-index: 2000;
 }
-.home-link {
-  text-decoration: none;      /* убирает подчёркивание */
-  color: inherit;             /* использует цвет заголовка */
-}
 
+/* HOME LINK (оставляем ПОСЛЕДНЮЮ версию — эта была ниже и переопределяла раннюю) */
+.home-link {
+  text-decoration: none;
+  color: inherit;
+}
 .home-link:hover {
-  opacity: 0.8;               /* лёгкий эффект при наведении */
+  opacity: 0.8;
   transition: opacity 0.3s;
 }
-
 
 /* если старая горизонтальная .topbar где-то осталась */
 .topbar{ display:none; }
 
-
-
-/* СЛАЙДШОУ */
- header {
-      position: relative;
-      width: 100%;
-      height: 88vh;
-      overflow: hidden;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: flex-end;
-      color: white;
-      background-size: cover;
-      background-position: center;
-      margin-bottom: 0;
-      margin: 0;  /* подтягиваем вниз на 2px */
-      padding: 0 !important;
-      border: 0 !important;
-      box-shadow: none !important;
-      display: flex;
-      line-height: 0;  
-margin-bottom: 0 !important;
+/* =========================
+   SLIDESHOW
+   ========================= */
+header {
+  position: relative;
+  width: 100%;
+  height: 88vh;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  display: flex;
+  line-height: 0;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
   padding-bottom: 0 !important;
-} 
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
 .slider {
   position: relative;
   width: 100%;
@@ -262,35 +268,15 @@ margin-bottom: 0 !important;
 }
 
 /* Фокус на лице для каждого слайда */
-.slideshow .slide:nth-of-type(1) img {
-  object-position: 50% 50%; /* Фокусируемся на верхней части */
-}
+.slideshow .slide:nth-of-type(1) img { object-position: 50% 50%; }
+.slideshow .slide:nth-of-type(2) img { object-position: 50% 15%; }
+.slideshow .slide:nth-of-type(3) img { object-position: 50% 30%; }
+.slideshow .slide:nth-of-type(4) img { object-position: 50% 30%; }
+.slideshow .slide:nth-of-type(5) img { object-position: 50% 50%; }
+.slideshow .slide:nth-of-type(6) img { object-position: 50% 30%; }
+.slideshow .slide:nth-of-type(7) img { object-position: 50% 50%; }
 
-.slideshow .slide:nth-of-type(2) img {
-  object-position: 50% 15%; /* Немного сдвигаем вниз */
-}
-
-.slideshow .slide:nth-of-type(3) img {
-  object-position: 50% 30%; /* Слегка смещаем вниз */
-}
-
-.slideshow .slide:nth-of-type(4) img {
-  object-position: 50% 30%; /* Сдвигаем еще ниже */
-}
-
-.slideshow .slide:nth-of-type(5) img {
-  object-position: 50% 50%; /* Центр */
-}
-
-.slideshow .slide:nth-of-type(6) img {
-  object-position: 50% 30%; /* Центр */
-}
-
-.slideshow .slide:nth-of-type(7) img {
-  object-position: 50% 50%; /* Центр */
-}
-
-/* Пагинация точками */
+/* Пагинация */
 .slider-pagination {
   position: absolute;
   bottom: 10px;
@@ -299,7 +285,6 @@ margin-bottom: 0 !important;
   display: flex;
   gap: 10px;
 }
-
 .slider-pagination span {
   width: 8px;
   height: 8px;
@@ -308,15 +293,8 @@ margin-bottom: 0 !important;
   cursor: pointer;
   transition: background-color 0.3s;
 }
-
-.slider-pagination span.active {
-  background-color: rgba(255, 255, 255, 1);
-}
-
-/* Убираем пустой слайд с пагинации */
-.slide.empty {
-  display: none;
-}
+.slider-pagination span.active { background-color: rgba(255, 255, 255, 1); }
+.slide.empty { display: none; }
 
 .slideshow-watermark {
   position: absolute;
@@ -332,24 +310,30 @@ margin-bottom: 0 !important;
   image-rendering: -webkit-optimize-contrast;
 }
 
-  header .content{
-  position:absolute; right:60px; bottom:40px;
-  display:flex; flex-direction:column; align-items:flex-end; gap:12px; z-index:3;
+header .content{
+  position:absolute;
+  right:60px;
+  bottom:40px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:12px;
+  z-index:3;
 }
 
 .hero-badge{
   background:rgba(0,0,0,.25);
-  padding:10px 14px; border-radius:12px;
+  padding:10px 14px;
+  border-radius:12px;
   backdrop-filter:saturate(120%) blur(2px);
 }
 
-   header .overlay {
-  position: relative; 
-  inset:0; 
-  z-index: 1;         
+header .overlay {
+  position: relative;
+  inset:0;
+  z-index: 1;
   text-align: center;
 }
-
 
 header::after {
   content:"";
@@ -361,10 +345,11 @@ header::after {
     rgba(0,0,0,.25) 0%,
     rgba(0,0,0,.25) 97%,
     rgba(0,0,0,.05) 100%
-)
+  );
   z-index:1;
-
 }
+
+/* header-actions (ПОСЛЕДНЯЯ версия — оставляем её) */
 .header-actions {
   display: flex;
   align-items: center;
@@ -376,24 +361,26 @@ header h1 {
   text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
+/* site-title (ПОСЛЕДНЯЯ версия — оставляем её) */
 .site-title {
   font-family: 'Karsten', serif;
   font-weight: 300;
   font-style: italic;
   color:#343c43;
-  font-size: 38px;          /* подберите размер под макет */
+  font-size: 38px;
   line-height: 1;
-  margin: 0 0 0 25px;       /* как было у .signature-block */
+  margin: 0 0 0 25px;
   white-space: nowrap;
 }
 
 .signature { display: none !important; }
+
 /* HEADER WITH DARKENED BACKGROUND IMAGE */
 .site-header {
   position: relative;
   width: 100%;
-  height: 380px; /* можешь менять */
-  background-image: url('images/header-bg.png'); 
+  height: 380px;
+  background-image: url('images/header-bg.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -405,22 +392,18 @@ header h1 {
   overflow: hidden;
 }
 
-/* Затемняющая подложка */
 .header-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.2); /* степень затемнения — меняй! */
+  background: rgba(0, 0, 0, 0.2);
   backdrop-filter: brightness(0.8);
   z-index: 1;
 }
 
-.header-content {
-  position: relative;
-  z-index: 2;
-}
+.header-content { position: relative; z-index: 2; }
 
 .header-title {
-font-family: 'Karsten', serif;
+  font-family: 'Karsten', serif;
   font-style: italic;
   font-size: 3rem;
   font-weight: 700;
@@ -433,35 +416,31 @@ font-family: 'Karsten', serif;
   opacity: 0.9;
 }
 
-
-
-    .main-title {
+.main-title {
   font-family: 'Karsten', serif;
   font-weight: 300;
   font-style: italic;
   font-size: 3.5rem;
   color: white;
   margin: 0;
-
 }
 
-    header p {
-     margin: 0;          /* было margin-top: 20px; */
+header p {
+  margin: 0;
   font-size: 1.8rem;
-  color: white ;
+  color: white;
   opacity:0.9;
 }
-      
- p {
-      font-size: 1.2rem;
-      line-height: 1.7;
-      margin-bottom: 0;
-      font-family: 'Segoe UI', sans-serif;
-    
-    }
 
+/* общие p (оставляем один блок) */
+p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  margin-bottom: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
 
- h2 {
+h2 {
   font-family:"Karsten", serif;
   font-weight:700;
   color: #343c43;
@@ -471,51 +450,41 @@ font-family: 'Karsten', serif;
   margin: 40px 0 20px 0;
   transition: color 0.3s, border-color 0.3s;
 }
-
-/* Ссылки внутри h2 */
 h2 a {
   color: inherit;
   text-decoration: none;
   transition: color 0.3s;
 }
-
-/* При наведении меняется цвет */
 h2:hover,
 h2 a:hover {
-  color: #3e94ea; /* фирменный акцент */
+  color: #3e94ea;
   border-color: #3e94ea;
   cursor: pointer;
 }
 
+/* container (оставляем один блок; !important не трогаю, чтобы не сломать ПК) */
 .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      margin-bottom: 0;
-     margin-top: 0 !important;
- 
-    }
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  margin-bottom: 0;
+  margin-top: 0 !important;
+}
 .prev-section { margin-bottom: 0 !important; }
-/* ===== ШАПКА ПОДСТРАНИЦ ===== */
 
+/* ===== SUBPAGE HEADER ===== */
 .subpage-header {
   position: relative;
   width: 100%;
-  height: 160px;                 /* регулируй высоту */
-  background: linear-gradient(
-      rgba(38, 92, 138, 0.55),
-      rgba(38, 92, 138, 0.55)
-    ),
-    #2b4f6b;                      /* тёмно-голубая база */
+  height: 160px;
+  background: linear-gradient(rgba(38, 92, 138, 0.55), rgba(38, 92, 138, 0.55)), #2b4f6b;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  margin-bottom: 0;           /* на всякий случай */
-
+  margin-bottom: 0;
 }
 
-/* Заголовок */
 .subpage-title {
   color: #ffffff;
   font-size: 2.4rem;
@@ -523,32 +492,24 @@ h2 a:hover {
   z-index: 5;
   text-align: center;
   margin: 0;
-  font-family: 'Karsten', serif;     /* под твой стиль */
+  font-family: 'Karsten', serif;
 }
 
-/* Орнаменты по бокам */
 .ornament-left,
 .ornament-right {
   position: absolute;
   top: 0;
-  width: 200px;                     /* ширина орнамента */
+  width: 200px;
   height: 100%;
-  background-image: url('images/kazakh-ornament.png');  /* замени путь */
+  background-image: url('images/kazakh-ornament.png');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  opacity: 0.25;                    /* затемнение орнамента */
+  opacity: 0.25;
   z-index: 3;
 }
-
-.ornament-left {
-  left: 0;
-}
-
-.ornament-right {
-  right: 0;
-  transform: scaleX(-1);            /* зеркалим правую сторону */
-}
+.ornament-left { left: 0; }
+.ornament-right { right: 0; transform: scaleX(-1); }
 
 .breadcrumb {
   width: 100%;
@@ -563,35 +524,24 @@ h2 a:hover {
   position: relative;
   z-index: 5;
   transition: color 0.3s, border-color 0.3s;
-
 }
-
 .breadcrumb a {
   color: #d9d9d9;
   text-decoration: none;
   transition: 0.3s;
 }
-
-
 .breadcrumb:hover,
 .breadcrumb a:hover {
-  color: #3e94ea; /* фирменный акцент */
+  color: #3e94ea;
   border-color: #3e94ea;
   cursor: pointer;
 }
-.breadcrumb .divider {
-  margin: 0 12px;
-  color: #999;
-}
+.breadcrumb .divider { margin: 0 12px; color: #999; }
+.breadcrumb .current-page { color: #ffffff; font-weight: 500; }
 
-.breadcrumb .current-page {
-  color: #ffffff;
-  font-weight: 500;
-}
-
+/* quote */
 .quote-banner {
   position: relative;
-  /* width: 100%;  можно вообще убрать, блок и так на 100% */
   padding: 60px 20px;
   margin-top: 40px;
   display: flex;
@@ -602,7 +552,7 @@ h2 a:hover {
   background: rgba(62, 148, 234, 0.12);
   border-top: 1px solid rgba(62, 148, 234, 0.25);
   border-bottom: 1px solid rgba(62, 148, 234, 0.25);
-  box-sizing: border-box; /* 👈 обязательно */
+  box-sizing: border-box;
 }
 .quote-banner blockquote {
   font-family: 'Georgia', serif;
@@ -612,23 +562,19 @@ h2 a:hover {
   margin: 0;
   padding: 0;
 }
-
 .quote-banner cite {
   margin-top: 12px;
   font-size: 1.7rem;
   color: #3e94ea;
   opacity: 0.9;
- font-family: 'Segoe UI', sans-serif; /* ← тот же шрифт, что и основной текст */
-  font-style: normal; /* убираем курсив */
-}/* Узкая область внутри широкой полосы */
-
+  font-family: 'Segoe UI', sans-serif;
+  font-style: normal;
+}
 .quote-inner {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
-
-
 
 /* Работает в современных браузерах */
 main.container:has(> .bio-text):has(> .bio-media){
@@ -640,12 +586,13 @@ main.container:has(> .bio-text):has(> .bio-media){
 
 .bio-video, .bio-grid{
   display: grid;
-  grid-template-columns: minmax(0,1fr) minmax(0,1fr); /* не даём переполнить колонку */
-  align-items: start;    /* чтобы верхушки были на одной линии */
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  align-items: start;
   gap: 36px;
   margin: 40px 0;
 }
 .bio-text{ margin: 0; }
+
 .bio-media{
   display:flex;
   min-width:0;
@@ -655,23 +602,13 @@ main.container:has(> .bio-text):has(> .bio-media){
   overflow: visible;
 }
 
-/* ===== Переменные ===== */
-:root{
-  --orn-w: 62px;        /* ширина орнамента */
-  --orn-gap: 18px;      /* зазор от видео до орнамента */
-  --orn-over: 10px;     /* орнамент выше/ниже видео на столько */
-  --v-max-w: 600px;     /* ширина видео */
-  --v-max-h: 480px;     /* потолок по высоте */
-  --orn-bottom: -72px;   /* увеличь по месту: -60…-90px */
-
-}
 .ornament-wrap{ position:relative; display:inline-block; }
 .ornament-wrap > video{
   width:100% !important;
   max-width: var(--v-max-w) !important;
   max-height: var(--v-max-h) !important;
   height:auto !important;
-  object-fit: contain !important;  /* без обрезки и без чёрных полей */
+  object-fit: contain !important;
   display:block !important;
   background: transparent !important;
   border:0 !important;
@@ -679,7 +616,6 @@ main.container:has(> .bio-text):has(> .bio-media){
   border-radius:0 !important;
 }
 
-/* Ленты по бокам только у видео */
 .ornament-wrap::before,
 .ornament-wrap::after{
   content:"";
@@ -696,30 +632,22 @@ main.container:has(> .bio-text):has(> .bio-media){
 .ornament-wrap::before{ left: calc(-1 * (var(--orn-w) + var(--orn-gap))); }
 .ornament-wrap::after { right: calc(-1 * (var(--orn-w) + var(--orn-gap))); }
 
-
-/* ===== Видео без карточек/фонов ===== */
+/* Видео без карточек/фонов */
 .bio-media .video-frame,
-.video-frame{ background: transparent !important; box-shadow:none !important; border-radius:0 !important; padding:0 !important; }
-
-
-.bio-media::before{
-  left: calc(-1 * (var(--orn-w) + var(--orn-gap)));   /* слева от колонки */
+.video-frame{
+  background: transparent !important;
+  box-shadow:none !important;
+  border-radius:0 !important;
+  padding:0 !important;
 }
 
-.bio-media::after{
-  right: calc(-1 * (var(--orn-w) + var(--orn-gap)));  /* справа от колонки */
-}
-
-
-.bio-more {
-  margin-top: 22px;          /* отступ от текста */
-}
+.bio-more { margin-top: 22px; }
 
 .bio-btn {
   display: inline-block;
   padding: 8px 20px;
   font-size: 1.05rem;
-  border: 1px solid #596673; /* тёплый коричневый */
+  border: 1px solid #596673;
   color: #343c43;
   text-decoration: none;
   border-radius: 18px;
@@ -728,31 +656,33 @@ main.container:has(> .bio-text):has(> .bio-media){
   position: relative;
   top: 0;
 }
-
 .bio-btn:hover {
   background: #82919f;
   color: #fff8f2;
 }
 
-/* ПОДВАЛ */
+/* =========================
+   FOOTER
+   ========================= */
 footer {
   color: #343c43;
   padding: 0;
   margin: 0;
   background-color:#f9f9f4;
-  position: relative; /* важно — чтобы псевдоэлемент знал границы футера */
-
+  position: relative;
 }
+
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 40px 20px 10px; /* 🔹 немного снизу, чтобы контакты не прилипали */
+  padding: 40px 20px 10px;
   gap: 8px 200px;
   column-gap: 200px;
 }
+
 .footer-links {
   flex: 1;
   min-width: 200px;
@@ -768,36 +698,31 @@ footer {
   color:#343c43;
 }
 .footer-links h3:after{
-  content:''; display:block; width:100%; max-width:700px; height:1px;
-  background-color: rgba(52,60,67,0.25); /* было белое на светлом */
+  content:'';
+  display:block;
+  width:100%;
+  max-width:700px;
+  height:1px;
+  background-color: rgba(52,60,67,0.25);
   margin-top:8px;
 }
-.footer-links ul {
-  list-style: none;
-  padding: 0;
-}
-.footer-links ul li {
-  margin-bottom: 10px;
-}
+.footer-links ul { list-style: none; padding: 0; }
+.footer-links ul li { margin-bottom: 10px; }
 .footer-links ul li a {
   color: #343c43;
   font-size: 1.3rem;
   text-decoration: none;
 }
-.footer-links ul li a:hover {
-  text-decoration: underline;
-}
+.footer-links ul li a:hover { text-decoration: underline; }
 
-
-/* ГАЛЕРЕЯ В ПОДВАЛЕ */
+/* GALLERY */
 .footer-gallery {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* жёстко 3 колонки */
+  grid-template-columns: repeat(3, 1fr);
   gap: 8px;
-  max-width: 300px; /* 3 фото по 150px + 2 gap по 15px */
+  max-width: 300px;
   justify-content: center;
 }
-
 .footer-gallery img {
   width: 100px;
   height: 90px;
@@ -810,8 +735,7 @@ footer {
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
-  margin-top: 40px; /* 🔹 опускает галерею вниз */
-
+  margin-top: 40px;
 }
 
 .full-gallery-link a {
@@ -824,40 +748,35 @@ footer {
   border-radius: 6px;
   transition: background 0.3s, color 0.3s;
 }
-
 .full-gallery-link a:hover {
   background: #f9f9f4;
   color:#6294c6;
 }
 
-
-
-/* КОНТАКТЫ И КНОПКА */
+/* CONTACT + ORDER */
 .footer-contact {
-  margin-top: 0; 
+  margin-top: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  border-top: none !important; 
-  padding-top: 25px; /* 🔹 чуть больше для баланса */
+  border-top: none !important;
+  padding-top: 25px;
   font-size: 1.3rem;
   color: #343c43;
-  position: relative; /* нужно для before */
-
+  position: relative;
 }
-
 
 .contact-info {
   display: flex;
-  gap: 24px; /* немного больше расстояние между email и телефоном */
-  font-size: 1.3rem; /* увеличен шрифт */
+  gap: 24px;
+  font-size: 1.3rem;
 }
 
 .order-btn {
-  padding: 10px 20px; /* увеличена кнопка */
-  border: 1px solid #343c43; /* тёплый коричневый */
+  padding: 10px 20px;
+  border: 1px solid #343c43;
   color: #343c43;
   text-decoration: none;
   border-radius: 18px;
@@ -866,395 +785,157 @@ footer {
   transition: background 0.3s;
   display: inline-block;
   background: #82919f;
-
 }
-
 .order-btn:hover {
   background: transparent;
   color: #fff8f2;
 }
+
 .copyright {
   margin-top: 30px;
   background-color: #f9f9f4;
   color: #343c43;
-  padding: 18px; /* чуть больше */
+  padding: 18px;
   text-align: center;
-  font-size: 1.2rem; /* увеличен шрифт */
-  position: relative; 
-
+  font-size: 1.2rem;
+  position: relative;
 }
 .copyright:before{
   content: '';
   position: absolute;
   left: 50%;
-  top: -3px;              /* подними/опусти линию числом */
-  width: 100%;            /* вся ширина окна */
+  top: -3px;
+  width: 100%;
   height: 1px;
   margin-top:0;
-  display:block; 
-  background-color: rgba(52,60,67,0.25); /* было белое на светлом */
+  display:block;
+  background-color: rgba(52,60,67,0.25);
   transform: translateX(-50%);
 }
-/* ===== БИО: жёсткая сетка 50/50 ===== */
+
+/* ===== БИО: жёсткая сетка 50/50 (оставила как у тебя, чтобы ПК точно не сдвинулся) ===== */
 #bio-row{
   display: grid !important;
   grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important;
   gap: 36px !important;
   align-items: start !important;
 }
-
-#bio-row .bio-text{ min-width:0 ; }
+#bio-row .bio-text{ min-width:0 !important; }
 #bio-row .bio-media{
-  min-width:0;
-  display:flex ;
-  justify-content:center;
-  align-items:center ;
-  background: transparent ;
+  min-width:0 !important;
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  background: transparent !important;
+}
+#bio-row .video-frame{
+  background:transparent !important;
+  box-shadow:none !important;
+  padding:0 !important;
+  border-radius:0 !important;
 }
 
-/* Видео без карточек/рамок */
-#bio-row .video-frame{ background:transparent !important; box-shadow:none !important; padding:0 !important; border-radius:0 !important; }
+/* =========================================================
+   ================== MOBILE ONLY (в самом конце) ==========
+   ========================================================= */
+@media (max-width: 768px){
 
-/* =========================================
-   MOBILE BASELINE (только для главной базы)
-   Не ломает ПК. Держит стиль, но оптимизирует.
-========================================= */
+  /* текст/контейнер */
+  .container{ padding: 22px 16px; }
+  h2{ font-size: 1.55rem; margin: 28px 0 16px; }
+  p{ font-size: 1.05rem; line-height: 1.65; }
 
-/* FIX: убираем горизонтальный вылет/пустоту справа */
-html, body{
-  width: 100%;
-  overflow-x: hidden;
-}
+  /* top header */
+  .header-top{
+    padding: 10px 14px;
+    gap: 10px;
+  }
+  .logo-img{ height: 74px; }
+  .signature-img{
+    height: 42px;
+    margin: 0;
+    margin-left: -8px;
+  }
 
-*, *::before, *::after{
-  box-sizing: border-box;
-}
+  /* actions справа */
+  .header-actions{ gap: 8px; }
+  .language-switcher{ gap: 6px; }
+  .lang-btn{ padding: 6px 10px; font-size: .92rem; }
+  .menu-btn{ padding: 8px 12px; font-size: .95rem; }
 
-/* иногда iOS даёт микро-вылет */
-header, .slider, .slides, .slide{
-  width: 100%;
-}
-
-
-/* Планшеты и телефоны */
-
-/* Адаптив: в столбик на узких */
-@media (max-width: 992px){
-    :root { --topbar-h: 64px; } /* можно 60px ниже на телефонах */
-}
-  @media (max-width: 900px){
-  :root { --topbar-h: 64px; } /* можно 60px ниже на телефонах */
-
+  /* slideshow/header */
   header{
-    height: clamp(320px, 55svh, 520px);
+    height: 62vh;
     min-height: 420px;
   }
-
-  .slider, .slides, .slide{
-    height: 100%;
+  header .content{
+    right: 14px;
+    left: 14px;
+    bottom: 16px;
   }
+  .main-title{ font-size: 2.2rem; }
+  header p{ font-size: 1.15rem; }
 
-  .slides{ width: 100%; }
-  .slide{ min-width: 100%; }
-
-  .slide img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;      /* ВАЖНО: закрывает блок, без “низа” */
-    object-position: center;
-    display: block;
-  }
-
-  /* watermark не должен вызывать overflow справа */
+  /* watermark (чтобы не улетал вниз на мобилке) */
   .slideshow-watermark{
-    width: clamp(140px, 42vw, 260px);
-    right: 8px;
-    bottom: -90px;          /* подними, чтобы не “утягивало” вниз */
-    max-width: 70vw;
-  }
-
-  .slider-pagination{ bottom: 14px; gap: 8px; }
-  .slider-pagination span{ width: 7px; height: 7px; }
-}
-:root{
-  --orn-w: 38px;
-  --orn-gap: 10px;
-  --orn-over: 8px;
-  --v-max-h: 360px;
-}
-
-.ornament-wrap > video{
-  max-width: 100% !important;
-  max-height: var(--v-max-h) !important;
-}
-
-@media (max-width: 768px) {
-  :root { --topbar-h: 60px; }
-
-  .container { padding: 24px 14px; }
-
-  /* ---------- TOP BAR (лого + подпись + языки + меню в один ряд) ---------- */
-   .header-top{
-    width: 100%;
-    padding: 10px 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    height: var(--topbar-h);
-  }
-
-  /* ВАЖНО: убираем "абсолют", если он где-то остался */
-  .header-actions{
-    position: static !important;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-left: auto;
-    flex: 0 0 auto;
-  }
-
-  /* лого+подпись реально растягиваются и не “микро” */
-   .signature-block{
-    display:flex;
-    align-items:center;
-    gap:4px;
-    flex: 1 1 auto;      /* ← забирает свободное место */
-    min-width: 0;
-  }
-
-  .logo-link{ display:flex; align-items:center; }
-
-  .logo-img{ height: 52px; width:auto; display:block; }
-  .signature-img{
-    height: 26px;
-    width:auto;
-    display:block;
-    max-width: 55vw;     /* чтобы подпись не выталкивала кнопки */
-    object-fit: contain;
-  }
-
-  /* кнопки компактные и не растягиваются */
-  .language-switcher{ display:flex; gap:6px; }
-  .lang-btn{ padding:6px 9px; font-size:13px; }
-  .menu-btn{ padding:8px 12px; font-size:13px; white-space:nowrap; }
-
-
-
- 
-  .slides{ transition: transform 0.55s ease; }
-
-  .slide img{
-   object-fit: cover;
-  object-position: center;
-  }
-
-  .slideshow-watermark{
-      position: absolute;
-    width: clamp(140px, 38vw, 260px);
+    width: 240px;
     right: 10px;
-    bottom: -130px;
+    bottom: 10px;
   }
 
-  .slider-pagination{
-    bottom: 14px;
-    gap: 8px;
-  }
-  .slider-pagination span{
-    width: 7px;
-    height: 7px;
-  }
-
-  /* ---------- QUOTE ---------- */
-  .quote-banner{
-    padding: 26px 14px;
-    margin-top: 16px;
-  }
-  .quote-banner blockquote{
-    font-size: 1.25rem;
-    line-height: 1.35;
-  }
-  .quote-banner cite{ font-size: 1.05rem; }
-
-   #bio-row{
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr) !important;
-    gap: 14px !important;
+  /* BIO: в столбик */
+  #bio-row,
+  .bio-video,
+  .bio-grid{
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    margin: 22px 0;
   }
 
-  /* 2) текст меньше и плотнее */
-  .bio-text .section-title{
-    font-size: 1.75rem;
-    line-height: 1.05;
-    margin-bottom: 10px;
-  }
-
-  .bio-text p{
-    font-size: 0.88rem;  /* было крупнее */
-    line-height: 1.32;
-  }
-
-  /* 3) медиа компактнее (видео/фото) */
-  .ornament-wrap > video,
-  .ornament-wrap > img{
-    max-height: 220px;   /* было больше */
-  }
-
-  /* 4) КНОПКА “полная биография” — значительно меньше */
-  .bio-more{ margin-top: 10px; }
-
-  .bio-btn{
-    display: inline-block;
-    padding: 8px 14px;     /* уменьшили */
-    font-size: 0.92rem;    /* уменьшили */
-    border-radius: 999px;
-  }
-
-
-  /* 3) РАМКА-ОРНАМЕНТ: НЕ занимает место в потоке */
-  .ornament-wrap{
-    position: relative;
-    display: block;
-    padding: 6px;         /* “рамка” ближе к видео */
-  }
-
+  /* ленты у видео выключаем на мобилке */
   .ornament-wrap::before,
-  .ornament-wrap::after{
-    position: absolute;
-    top: 6px;
-    bottom: 6px;
-    width: 18px;          /* ключ: уменьшаем ширину орнамента */
-    pointer-events: none;
+  .ornament-wrap::after{ display: none; }
+
+  /* видео — без “сжатия” */
+  .ornament-wrap > video{
+    max-width: 100% !important;
+    max-height: none !important;
   }
 
-  /* если орнамент слева/справа — он не должен расширять блок */
-  .ornament-wrap::before{ left: -10px; }
-  .ornament-wrap::after{ right: -10px; }
-
-  /* 4) видео/картинка компактно и красиво */
-  .ornament-wrap > video,
-  .ornament-wrap > img{
-    width: 100%;
-    height: auto;
-    max-height: 260px;
-    display: block;
-    object-fit: cover;
-  }
-
-.bio-media video{
-  width: 100%;
-  height: auto;
-  max-height: 260px;
-  display: block;
-}
-
-
-
-
-  /* ---------- FOOTER (две колонки ровно, компактнее контакты/кнопка) ---------- */
+  /* footer */
   .footer-content{
-    flex-direction: column;
-    align-items: stretch;
-    gap: 20px;
-    padding: 26px 14px 10px;
+    padding: 28px 16px 10px;
+    gap: 22px;
     column-gap: 0;
   }
-
-  .footer-links{ min-width: 0; }
-
-  .footer-links h3{ font-size: 1.55rem; }
-
-  .footer-links > div{
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 12px !important;
-    align-items: start;
+  .footer-gallery{
+    max-width: 100%;
   }
-
-  .footer-links ul li a{
-    font-size: 1rem;
-white-space: normal;
-  overflow-wrap: anywhere;  }
-
+  .footer-gallery img{
+    width: 100%;
+    height: 90px;
+  }
 
   .footer-contact{
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
-    padding-top: 14px;
+    gap: 14px;
+    font-size: 1.1rem;
+    padding-top: 16px;
   }
-
   .contact-info{
-    flex-wrap: wrap;
-    gap: 8px 14px;
-    font-size: 0.95rem;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 1.1rem;
   }
-
-  .footer-contact .btn,
-  .footer-contact .order-btn,
-  .footer-contact a.btn{
-    padding: 8px 12px;
-    font-size: 0.9rem;
+  .order-btn{
+    width: 100%;
+    text-align: center;
+    font-size: 1.15rem;
+    padding: 12px 18px;
   }
-
   .copyright{
-    font-size: 0.95rem;
-    padding: 12px;
+    font-size: 1rem;
+    padding: 14px;
   }
 }
-
-
-/* Очень маленькие телефоны */
-@media (max-width: 520px) {
-
-  /* HERO чуть ниже */
-  header{
-    height: clamp(300px, 48svh, 460px);
-    min-height: 300px;
-  }
-
-  .slideshow-watermark{
-    bottom: -115px;
-    width: clamp(130px, 44vw, 220px);
-  }
-
-  #bio-row{
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr) !important;
-    gap: 10px !important;
-  }
-  .bio-text .section-title{ font-size: 1.7rem; }
-  .ornament-wrap::before,
-  .ornament-wrap::after{ width: 14px; }
-
-  .bio-video iframe,
-  .bio-video video{
-    height: 210px;
-  }
- :root{
-    --orn-w: 28px;
-    --orn-gap: 8px;
-    --orn-over: 6px;
-    --v-max-w: 100%;
-    --v-max-h: 260px;
-  }
-
-  .ornament-wrap > video{
-    max-height: 260px !important;
-  }
-
-  .footer-links ul li a{
-    font-size: 0.95rem;
-  }
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
