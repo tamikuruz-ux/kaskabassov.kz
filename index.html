@@ -519,13 +519,16 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 <script>
   // Инициализация слайдера
 const booksSwiper = new Swiper('.books-swiper', {
- loop: true,
-  autoplay: { delay: 3000, disableOnInteraction: false },
-  spaceBetween: 0,
-
-  breakpoints: {
-    0:   { slidesPerView: 3, slidesPerGroup: 3 },
-    901: { slidesPerView: 5, slidesPerGroup: 5 }
+  slidesPerView: 'auto',   // ширина задаётся CSS
+  slidesPerGroup: 5,       // листаем по 5
+  spaceBetween: 0,         // расстояние контролируем через CSS, не Swiper
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false
+  },
+  pagination: {
+    el: null
   }
 });
 
@@ -635,6 +638,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
