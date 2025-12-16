@@ -127,74 +127,6 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
   padding-right: 0;
 }
 
-/* ==================== Мобильная версия (исправленная) ==================== */
-@media (max-width: 768px) {
-
-  /* 2 книги в ряд */
-  .books-swiper .swiper-slide {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-
-  /* чуть меньше обложки */
-  .book-card img {
-    height: 220px;
-  }
-
-  /* Заголовок секции НЕ колонкой — как на ПК, просто компактнее */
-  .section-head {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-  }
-
-  .see-all {
-    font-size: 1.05rem;
-    white-space: nowrap;
-  }
-
-  /* точки компактнее */
-  .books-pagination { gap: 6px; }
-  .books-page-bullet { width: 8px; height: 8px; }
-  .books-page-bullet.active { transform: scale(1.12); }
-
-  /* hover на телефонах выключаем, чтобы не залипало */
-  .book-card:hover {
-    transform: none;
-    box-shadow: none;
-  }
-}
-
-/* маленькие телефоны: 1 книга в ряд */
-@media (max-width: 520px) {
-
-  .books-swiper .swiper-slide {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-
-  .book-card img {
-    height: 205px;
-  }
-
-  .see-all {
-    font-size: 1rem;
-  }
-
-  .books-pagination { gap: 4px; }
-  .books-page-bullet { width: 6px; height: 6px; }
-  .books-page-bullet.active { transform: scale(1.06); }
-
-  /* если хочешь убрать боковые отступы именно у секции книг */
-  #books.container {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-
-
-
 
           </style>
 <!-- Lightbox CSS -->
@@ -667,5 +599,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
