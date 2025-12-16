@@ -946,7 +946,7 @@ header, .slider, .slides, .slide{
   :root { --topbar-h: 64px; } /* можно 60px ниже на телефонах */
 
   header{
-    height: calc(100svh - var(--topbar-h));
+    height: clamp(320px, 55svh, 520px);
     min-height: 420px;
   }
 
@@ -1046,10 +1046,8 @@ header, .slider, .slides, .slide{
   }
   .logo-img{ grid-column: 1; }
   .signature-img{ grid-column: 1; margin-top: 2px; }
-  */
 
  
-
   .slides{ transition: transform 0.55s ease; }
 
   .slide img{
@@ -1172,7 +1170,7 @@ white-space: normal;
 
   /* HERO чуть ниже */
   header{
-    height: 48svh;
+    height: clamp(300px, 48svh, 460px);
     min-height: 300px;
   }
 
@@ -1219,6 +1217,7 @@ white-space: normal;
 
 
 }
+
 
 
 
