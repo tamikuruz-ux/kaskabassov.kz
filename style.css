@@ -1181,16 +1181,32 @@ white-space: normal;
     width: clamp(130px, 44vw, 220px);
   }
 
-  /* BIO в колонку (иначе будет тесно) */
-  #bio-row{
-    grid-template-columns: 1fr !important;
+ #bio-row{
+    grid-template-columns: 1.05fr 0.95fr !important; /* текст+видео рядом */
+    gap: 12px !important;
+    align-items: start !important;
   }
 
   .bio-video iframe,
   .bio-video video{
     height: 210px;
   }
+ :root{
+    --orn-w: 28px;
+    --orn-gap: 8px;
+    --orn-over: 6px;
+    --v-max-w: 100%;
+    --v-max-h: 260px;
+  }
 
+  .ornament-wrap > video{
+    max-height: 260px !important;
+  }
+
+  .bio-text p{
+    font-size: 0.92rem;
+    line-height: 1.4;
+  }
   /* FOOTER: две колонки всё равно, но если прям не влезет — можно раскомментить 1 колонку
   .footer-links > div{
     grid-template-columns: 1fr !important;
@@ -1203,6 +1219,7 @@ white-space: normal;
 
 
 }
+
 
 
 
