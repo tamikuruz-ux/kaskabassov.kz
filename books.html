@@ -89,85 +89,125 @@
     header p{ font-size:1.6rem; }
 
 /* Мобильная версия для экранов до 768px */
+/* ==================== Мобильная версия ==================== */
 @media (max-width: 768px) {
 
-  /* Адаптация контейнера */
-  .container {
-    max-width: 90%;
-    margin: 20px auto;
-    padding: 0 15px;
+  /* Контейнер */
+  .container{
+    max-width: 100%;
+    margin: 22px auto;
+    padding: 0 14px;
   }
 
-  /* Маленькие табы */
-  .books-tabs {
-    flex-direction: column;
-    align-items: flex-start;
+  /* Табы: НЕ колонкой, а горизонтальная лента как на ПК */
+  .books-tabs{
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     gap: 10px;
+    padding-bottom: 6px;
+    margin: 10px 0 18px;
   }
-  .books-tabs a {
-    padding: 6px 10px;
-  }
-
-  /* Заголовки секций */
-  .section-title {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-  }
-
-  /* Сетка карточек */
-  .book-grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
+  .books-tabs a{
+    flex: 0 0 auto;
+    padding: 7px 10px;
+    font-size: 0.95rem;
+    white-space: nowrap;
   }
 
-
-  .book-item p {
-    font-size: 1rem;
+  /* Заголовок */
+  .section-title{
+    font-size: 1.45rem;
+    margin-bottom: 14px;
   }
 
-  header p {
-    font-size: 1.4rem;
+  /* Сетка книг: 2 колонки стабильно */
+  .book-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
   }
+
+  .book-item p{
+    font-size: 0.98rem;
+    padding: 10px;
+  }
+
+  header p{ font-size: 1.35rem; }
 }
 
-/* Мобильная версия для экранов до 480px */
+/* Очень маленькие телефоны */
 @media (max-width: 480px) {
 
-  /* Адаптация контейнера */
-  .container {
-    max-width: 100%;
-    margin: 10px auto;
-    padding: 0 10px;
+  .container{
+    margin: 16px auto;
+    padding: 0 12px;
   }
 
-  /* Маленькие табы */
-  .books-tabs {
+  .books-tabs{
     gap: 8px;
+    padding-bottom: 6px;
   }
-  .books-tabs a {
-    padding: 5px 8px;
-  }
-
-  /* Заголовки секций */
-  .section-title {
-    font-size: 1.3rem;
-    margin-bottom: 12px;
-  }
-
-  /* Сетка карточек */
-  .book-grid {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 15px;
-  }
-
-  .book-item p {
+  .books-tabs a{
+    padding: 6px 9px;
     font-size: 0.9rem;
   }
 
-  header p {
-    font-size: 1.2rem;
+  .section-title{
+    font-size: 1.25rem;
+    margin-bottom: 12px;
   }
+
+  /* Сетка книг: 1 колонка только на маленьких */
+  .book-grid{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .book-item p{
+    font-size: 0.95rem;
+  }
+
+  header p{ font-size: 1.2rem; }
 }
+
+/* Мобильная версия для экранов до 480px */
+/* Очень маленькие телефоны — тоже 2 колонки */
+@media (max-width: 480px) {
+
+  .container{
+    margin: 16px auto;
+    padding: 0 12px;
+  }
+
+  .books-tabs{
+    gap: 8px;
+    padding-bottom: 6px;
+  }
+  .books-tabs a{
+    padding: 6px 9px;
+    font-size: 0.9rem;
+  }
+
+  .section-title{
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+  }
+
+  /* 2 колонки даже на маленьких */
+  .book-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .book-item p{
+    font-size: 0.9rem;
+    padding: 9px;
+  }
+
+  header p{ font-size: 1.2rem; }
+}
+    }
 
   </style>
 </head>
@@ -485,3 +525,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
