@@ -920,16 +920,37 @@ footer {
    Не ломает ПК. Держит стиль, но оптимизирует.
 ========================================= */
 
-/* =========================================
-   MOBILE BASELINE (исправлено под 768 + 520)
-   Никаких 900 — только твоя система.
-========================================= */
+/* FIX: убираем горизонтальный вылет/пустоту справа */
+html, body{
+  width: 100%;
+  overflow-x: hidden;
+}
+
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+
+/* иногда iOS даёт микро-вылет */
+header, .slider, .slides, .slide{
+  width: 100vw;
+}
+
 
 /* Планшеты и телефоны */
 
 /* Адаптив: в столбик на узких */
 @media (max-width: 992px){
   .bio-grid{ grid-template-columns: 1fr; gap:20px; }
+    header{
+    height: calc(100dvh - var(--topbar-h));
+    min-height: 420px;
+  }
+
+  .slide img{
+    object-fit: contain;
+    object-position: center;
+    background: #000; /* чтобы “поля” выглядели как киношный фон */
+  }
 }
 @media (max-width: 820px){
   .ornament-wrap::before,
@@ -996,16 +1017,12 @@ footer {
   .signature-img{ grid-column: 1; margin-top: 2px; }
   */
 
-  /* ---------- HERO / SLIDER (целиком видно, не режется) ---------- */
-  header{
-    height: 52vh;
-    min-height: 320px;
-  }
+ 
 
   .slides{ transition: transform 0.55s ease; }
 
   .slide img{
-    object-fit: cover;       /* целиком */
+    object-fit: contain;       /* целиком */
     object-position: center;
   }
 
@@ -1170,5 +1187,21 @@ white-space: normal;
   .footer-links ul li a{
     font-size: 0.95rem;
   }
+  /* FIX: убираем любой горизонтальный “вылет” и пустоту справа */
+html, body{
+  width: 100%;
+  overflow-x: hidden;
 }
+
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+
+/* иногда iOS даёт микро-вылет из-за 100%/flex */
+header, .slider, .slides, .slide{
+  width: 100vw;
+}
+
+}
+
 
