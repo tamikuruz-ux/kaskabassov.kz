@@ -944,57 +944,88 @@ footer {
    Не ломает ПК. Держит стиль, но оптимизирует.
 ========================================= */
 
-@media (max-width: 900px) {
+/* =========================================
+   MOBILE BASELINE (исправлено под 768 + 520)
+   Никаких 900 — только твоя система.
+========================================= */
+
+/* Планшеты и телефоны */
+@media (max-width: 768px) {
   :root { --topbar-h: 60px; }
 
-  .container {
-    padding: 28px 16px;
-  }
+  .container { padding: 24px 14px; }
 
-  /* ---------- TOP BAR ---------- */
+  /* ---------- TOP BAR (лого + подпись + языки + меню в один ряд) ---------- */
   .header-top{
     padding: 10px 14px;
+    height: auto;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
     gap: 12px;
-    height: auto;              /* важно: не зажимать в 64px */
   }
 
-  .logo-img{ height: 76px; }
+  /* если у тебя есть обёртка для лого+подписи — идеально */
+  .logo-wrap{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-img{ height: 46px; }
+
+  /* подпись рядом; если хочешь строго под лого — см. ниже комментарий */
   .signature-img{
-    height: 44px;
+    height: 22px;
     margin: 0;
-    margin-left: -10px;
   }
 
-  .header-actions{ gap: 10px; }
+  .header-actions{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
 
   .language-switcher{ gap: 6px; }
   .lang-btn{
-    padding: 6px 9px;
+    padding: 6px 10px;
     font-size: 13px;
+    white-space: nowrap;
   }
 
   .menu-btn{
     padding: 8px 12px;
     font-size: 13px;
+    white-space: nowrap;
   }
 
-  /* ---------- HERO / SLIDER ---------- */
+  /* Если у тебя НЕТ .logo-wrap и логотип/подпись отдельно в .header-top,
+     и ты хочешь подпись ПОД логотипом — раскомментируй это:
+
+  .header-top{
+    grid-template-columns: auto 1fr auto;
+  }
+  .logo-img{ grid-column: 1; }
+  .signature-img{ grid-column: 1; margin-top: 2px; }
+  */
+
+  /* ---------- HERO / SLIDER (целиком видно, не режется) ---------- */
   header{
-    height: 56vh;              /* вместо 88vh */
+    height: 52vh;
     min-height: 320px;
   }
 
   .slides{ transition: transform 0.55s ease; }
 
   .slide img{
-    object-fit: cover;         /* НЕ contain */
+    object-fit: contain;       /* целиком */
     object-position: center;
   }
 
   .slideshow-watermark{
     width: clamp(140px, 38vw, 260px);
     right: 10px;
-    bottom: -120px;            /* было -190px, на мобиле слишком низко */
+    bottom: -120px;
   }
 
   .slider-pagination{
@@ -1008,69 +1039,67 @@ footer {
 
   /* ---------- QUOTE ---------- */
   .quote-banner{
-    padding: 28px 14px;
-    margin-top: 18px;
+    padding: 26px 14px;
+    margin-top: 16px;
   }
   .quote-banner blockquote{
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     line-height: 1.35;
   }
-  .quote-banner cite{
-    font-size: 1.15rem;
-  }
+  .quote-banner cite{ font-size: 1.05rem; }
 
-  /* ---------- BIO (текст + видео) ---------- */
+  /* ---------- BIO (текст + видео в один ряд) ---------- */
   #bio-row{
-    grid-template-columns: 1fr !important; /* колонка */
-    gap: 20px !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 14px !important;
+    align-items: start;
   }
 
-  .bio-text p{ font-size: 1.05rem; }
+  .bio-text p{
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
 
-  /* орнаменты на видео лучше убрать на мобиле */
+  /* если видео в iframe/видео теге — подстрой высоту */
+  .bio-video iframe,
+  .bio-video video{
+    width: 100%;
+    height: 200px;
+  }
+
   .ornament-wrap::before,
   .ornament-wrap::after{ display:none; }
 
-  /* ---------- BOOKS SWIPER ---------- */
-  /* чтобы не было "одна книга на весь экран", но и не 5 */
+  /* ---------- BOOKS SWIPER (3 книги в ряд) ---------- */
   .books-swiper .swiper-slide{
-    flex: 0 0 50%;
-    max-width: 50%;
+    flex: 0 0 33.333%;
+    max-width: 33.333%;
   }
-  .book-card img{ height: 220px; }
+  .book-card img{ height: 190px; }
 
-  /* ---------- FOOTER ---------- */
+  /* ---------- FOOTER (две колонки ровно, компактнее контакты/кнопка) ---------- */
   .footer-content{
     flex-direction: column;
     align-items: stretch;
-    gap: 22px;
-    padding: 28px 16px 10px;
+    gap: 20px;
+    padding: 26px 14px 10px;
     column-gap: 0;
   }
 
-  .footer-links{
-    min-width: 0;
-  }
+  .footer-links{ min-width: 0; }
 
-  .footer-links h3{
-    font-size: 1.7rem;
-  }
+  .footer-links h3{ font-size: 1.55rem; }
 
-  /* убираем гигантский gap:150px в футере (у тебя inline),
-     но хотя бы ломаем переносом */
   .footer-links > div{
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 16px !important;
+    gap: 12px !important;
+    align-items: start;
   }
 
   .footer-links ul li a{
-    font-size: 1.1rem;
-  }
-
-  .footer-gallery-block{
-    margin-top: 0;
-    align-items: flex-start;
+    font-size: 1rem;
+    white-space: nowrap; /* меньше переносов */
   }
 
   .footer-gallery{
@@ -1087,36 +1116,68 @@ footer {
   .footer-contact{
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
-    padding-top: 18px;
+    gap: 10px;
+    padding-top: 14px;
   }
 
   .contact-info{
     flex-wrap: wrap;
-    gap: 10px 16px;
-    font-size: 1.1rem;
+    gap: 8px 14px;
+    font-size: 0.95rem;
+  }
+
+  .footer-contact .btn,
+  .footer-contact .order-btn,
+  .footer-contact a.btn{
+    padding: 8px 12px;
+    font-size: 0.9rem;
   }
 
   .copyright{
-    font-size: 1rem;
-    padding: 14px;
+    font-size: 0.95rem;
+    padding: 12px;
   }
 }
 
+
 /* Очень маленькие телефоны */
 @media (max-width: 520px) {
-  .books-swiper .swiper-slide{
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-  .book-card img{ height: 210px; }
 
-  .footer-links > div{
-    grid-template-columns: 1fr !important;
+  /* HERO чуть ниже */
+  header{
+    height: 48vh;
+    min-height: 300px;
   }
 
   .slideshow-watermark{
     bottom: -95px;
     width: clamp(130px, 44vw, 220px);
+  }
+
+  /* BIO в колонку (иначе будет тесно) */
+  #bio-row{
+    grid-template-columns: 1fr !important;
+  }
+
+  .bio-video iframe,
+  .bio-video video{
+    height: 210px;
+  }
+
+  /* BOOKS: 2 книги в ряд (как ты просила) */
+  .books-swiper .swiper-slide{
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .book-card img{ height: 175px; }
+
+  /* FOOTER: две колонки всё равно, но если прям не влезет — можно раскомментить 1 колонку
+  .footer-links > div{
+    grid-template-columns: 1fr !important;
+  }
+  */
+
+  .footer-links ul li a{
+    font-size: 0.95rem;
   }
 }
