@@ -710,14 +710,6 @@ main.container:has(> .bio-text):has(> .bio-media){
   right: calc(-1 * (var(--orn-w) + var(--orn-gap)));  /* справа от колонки */
 }
 
-/* Адаптив: в столбик на узких */
-@media (max-width: 992px){
-  .bio-grid{ grid-template-columns: 1fr; gap:20px; }
-}
-@media (max-width: 820px){
-  .ornament-wrap::before,
-  .ornament-wrap::after{ display:none; }
-}
 
 .bio-more {
   margin-top: 22px;          /* отступ от текста */
@@ -934,53 +926,65 @@ footer {
 ========================================= */
 
 /* Планшеты и телефоны */
+
+/* Адаптив: в столбик на узких */
+@media (max-width: 992px){
+  .bio-grid{ grid-template-columns: 1fr; gap:20px; }
+}
+@media (max-width: 820px){
+  .ornament-wrap::before,
+  .ornament-wrap::after{ display:none; }
+}
 @media (max-width: 768px) {
   :root { --topbar-h: 60px; }
 
   .container { padding: 24px 14px; }
 
   /* ---------- TOP BAR (лого + подпись + языки + меню в один ряд) ---------- */
-  .header-top{
-    padding: 10px 14px;
-    gap: 10px;
-    height: auto;
-  }
-
-  .signature-block{
-    gap:10px;
-  }
-
-  .logo-img{ height: 44px; }
-  .signature-img{ height: 22px; }
-
-  .lang-btn{ padding: 6px 9px; font-size: 13px; }
-  .menu-btn{ padding: 8px 12px; font-size: 13px; }
-}
-  /* если у тебя есть обёртка для лого+подписи — идеально */
-  .logo-wrap{
+   .header-top{
+    width: 100%;
+    padding: 10px 12px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 10px;
   }
 
+  /* ВАЖНО: убираем "абсолют", если он где-то остался */
   .header-actions{
+    position: static !important;
     display: flex;
     align-items: center;
     gap: 8px;
+    margin-left: auto;
+    flex: 0 0 auto;
   }
 
-  .language-switcher{ gap: 6px; }
-  .lang-btn{
-    padding: 6px 10px;
-    font-size: 13px;
-    white-space: nowrap;
+  /* лого+подпись реально растягиваются и не “микро” */
+  .signature-block{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex: 1 1 auto;      /* ← забирает свободное место */
+    min-width: 0;
   }
 
-  .menu-btn{
-    padding: 8px 12px;
-    font-size: 13px;
-    white-space: nowrap;
+  .logo-link{ display:flex; align-items:center; }
+
+  .logo-img{ height: 52px; width:auto; display:block; }
+  .signature-img{
+    height: 26px;
+    width:auto;
+    display:block;
+    max-width: 55vw;     /* чтобы подпись не выталкивала кнопки */
+    object-fit: contain;
   }
+
+  /* кнопки компактные и не растягиваются */
+  .language-switcher{ display:flex; gap:6px; }
+  .lang-btn{ padding:6px 9px; font-size:13px; }
+  .menu-btn{ padding:8px 12px; font-size:13px; white-space:nowrap; }
+
 
   /* Если у тебя НЕТ .logo-wrap и логотип/подпись отдельно в .header-top,
      и ты хочешь подпись ПОД логотипом — раскомментируй это:
@@ -1001,7 +1005,7 @@ footer {
   .slides{ transition: transform 0.55s ease; }
 
   .slide img{
-    object-fit: contain;       /* целиком */
+    object-fit: cover;       /* целиком */
     object-position: center;
   }
 
@@ -1036,7 +1040,9 @@ footer {
     grid-template-columns: 1fr 1fr !important;
     gap: 14px !important;
     align-items: start;
+    
   }
+
 
   .bio-text p{
     font-size: 0.95rem;
@@ -1048,6 +1054,7 @@ footer {
   .bio-video video{
     width: 100%;
     height: 200px;
+    align-self: start;
   }
 
   .ornament-wrap::before,
@@ -1082,8 +1089,8 @@ footer {
 
   .footer-links ul li a{
     font-size: 1rem;
-    white-space: nowrap; /* меньше переносов */
-  }
+white-space: normal;
+  overflow-wrap: anywhere;  }
 
   .footer-gallery{
     grid-template-columns: repeat(3, 1fr);
@@ -1164,3 +1171,4 @@ footer {
     font-size: 0.95rem;
   }
 }
+
