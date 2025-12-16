@@ -87,84 +87,141 @@
     .back-to-home:hover {
       color: #e6a21e;
     }
-/* Мобильная версия для экранов до 768px */
+/* ==================== MOBILE MAX (без ломания ПК) ==================== */
+
+/* Планшеты + телефоны */
 @media (max-width: 768px) {
-  body {
-    font-size: 1rem; /* Уменьшаем шрифт для мобильных */
-    padding: 10px;
-    text-align: left;
+
+  /* Safe-area для айфонов с вырезом */
+  body{
+    padding:
+      calc(18px + env(safe-area-inset-top))
+      calc(14px + env(safe-area-inset-right))
+      calc(18px + env(safe-area-inset-bottom))
+      calc(14px + env(safe-area-inset-left));
+
+    text-align: center;              /* держим стиль как на ПК */
+    height: 100dvh;                  /* вместо 100vh */
+    min-height: 100dvh;
+    justify-content: center;
   }
 
-  /* Языковые кнопки */
-  .header-actions {
-    top: 10px;
-    right: 10px;
-    flex-direction: row; /* Меняем на строку */
-    gap: 5px;
+  /* Чтобы контент не растягивался на всю ширину */
+  h1, p, .coming-soon, .countdown, .message, .back-to-home{
+    max-width: 34ch;                 /* читабельная ширина строк */
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .lang-btn {
-    padding: 8px;
+  /* Языки — компактно, удобно нажимать */
+  .header-actions{
+    top: calc(10px + env(safe-area-inset-top));
+    right: calc(10px + env(safe-area-inset-right));
+    flex-direction: row;
+    gap: 8px;
   }
 
-  h1 {
-    font-size: 2.5rem; /* Уменьшаем размер заголовка */
-    margin: 10px 0;
+  .lang-btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 10px;
+    font-size: 0.9rem;
+    border-radius: 12px;
+    min-height: 40px;                /* норм тап-зона */
+    min-width: 44px;
   }
 
-  p {
-    font-size: 1rem; /* Уменьшаем размер параграфа */
-    margin: 5px 0;
+  h1{
+    font-size: clamp(1.9rem, 5.5vw, 2.35rem);
+    margin: 12px 0 10px;
+    line-height: 1.1;
   }
 
-  .coming-soon {
-    font-size: 1.5rem; /* Уменьшаем размер текста для "coming soon" */
-    margin-bottom: 10px;
+  p{
+    font-size: 1rem;
+    line-height: 1.55;
+    margin: 8px 0;
   }
 
-  .countdown {
-    font-size: 1.5rem; /* Уменьшаем размер текста для таймера */
-    margin-bottom: 10px;
+  .coming-soon{
+    font-size: clamp(1.15rem, 4.2vw, 1.5rem);
+    margin: 10px 0 8px;
   }
 
-  .message {
-    font-size: 0.9rem; /* Уменьшаем размер текста для сообщения */
+  .countdown{
+    font-size: clamp(1.15rem, 4.2vw, 1.55rem);
+    margin: 10px 0 8px;
   }
 
-  .footer {
-    font-size: 0.8rem; /* Уменьшаем размер текста в футере */
+  .message{
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-top: 14px;
+    opacity: 0.95;
   }
 
-  .back-to-home {
-    font-size: 0.9rem; /* Уменьшаем размер текста для ссылки */
-    margin-top: 15px;
+  .back-to-home{
+    font-size: 0.95rem;
+    margin-top: 18px;
+    display: inline-block;
+    padding: 10px 14px;              /* удобнее как кнопка */
+    border-radius: 12px;
+  }
+
+  /* Футер: на телефонах лучше НЕ absolute, чтобы не налезал */
+  .footer{
+    position: static;
+    margin-top: 16px;
+    font-size: 0.85rem;
+    opacity: 0.95;
   }
 }
 
-/* Мобильная версия для экранов до 480px */
-@media (max-width: 480px) {
-  body {
-    font-size: 0.9rem; /* Еще меньше шрифт для очень маленьких экранов */
+/* Очень маленькие телефоны */
+@media (max-width: 480px){
+
+  body{
+    padding:
+      calc(16px + env(safe-area-inset-top))
+      calc(12px + env(safe-area-inset-right))
+      calc(16px + env(safe-area-inset-bottom))
+      calc(12px + env(safe-area-inset-left));
   }
 
-  h1 {
-    font-size: 2rem; /* Уменьшаем заголовок для маленьких экранов */
+  h1, p, .coming-soon, .countdown, .message, .back-to-home{
+    max-width: 30ch;
   }
 
-  .coming-soon {
-    font-size: 1.2rem; /* Еще уменьшаем размер текста для "coming soon" */
+  .header-actions{
+    top: calc(8px + env(safe-area-inset-top));
+    right: calc(8px + env(safe-area-inset-right));
+    gap: 6px;
   }
 
-  .countdown {
-    font-size: 1.2rem; /* Уменьшаем таймер для маленьких экранов */
+  .lang-btn{
+    padding: 7px 9px;
+    font-size: 0.86rem;
+    min-height: 38px;
+    min-width: 42px;
   }
 
-  .message {
-    font-size: 0.85rem; /* Уменьшаем сообщение для маленьких экранов */
+  .back-to-home{
+    font-size: 0.92rem;
+    padding: 9px 12px;
   }
+}
 
-  .back-to-home {
-    font-size: 0.8rem; /* Уменьшаем ссылку для маленьких экранов */
+/* Низкие экраны (например, старые телефоны в ландшафте) */
+@media (max-height: 520px){
+  body{
+    height: auto;
+    min-height: 100dvh;
+    padding-top: calc(14px + env(safe-area-inset-top));
+    padding-bottom: calc(14px + env(safe-area-inset-bottom));
+  }
+  .footer{
+    margin-top: 10px;
   }
 }
 
