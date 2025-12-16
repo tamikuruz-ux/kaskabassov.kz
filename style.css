@@ -1105,12 +1105,6 @@ header, .slider, .slides, .slide{
 
 
 
-  /* ---------- BOOKS SWIPER (3 книги в ряд) ---------- */
-  .books-swiper .swiper-slide{
-    flex: 0 0 33.333%;
-    max-width: 33.333%;
-  }
-  .book-card img{ height: 190px; }
 
   /* ---------- FOOTER (две колонки ровно, компактнее контакты/кнопка) ---------- */
   .footer-content{
@@ -1199,13 +1193,6 @@ white-space: normal;
     height: 210px;
   }
 
-  /* BOOKS: 2 книги в ряд (как ты просила) */
-  .books-swiper .swiper-slide{
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-  .book-card img{ height: 175px; }
-
   /* FOOTER: две колонки всё равно, но если прям не влезет — можно раскомментить 1 колонку
   .footer-links > div{
     grid-template-columns: 1fr !important;
@@ -1218,6 +1205,7 @@ white-space: normal;
 
 
 }
+
 
 
 
