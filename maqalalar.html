@@ -55,12 +55,87 @@
     .page-btn:hover:not(.active){background:rgba(37,43,48,.06);}
     .dots{color:#9aa7a1;padding:0 2px;}
 
-    @media (min-width: 640px){ .article-list{grid-template-columns:repeat(3,1fr);} }
-    @media (max-width: 768px){
-      .wrap{max-width:92%;margin:22px auto;padding:0 15px;}
-      .article-list{grid-template-columns:1fr;}
-      .article-card{padding:1rem;}
-    }
+   @media (max-width: 768px){
+  .wrap{
+    max-width: 100%;
+    margin: 22px auto;
+    padding: 0 14px;
+  }
+
+  /* Toolbar: пусть переносится красиво */
+  .toolbar{
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0 16px;
+  }
+  .search{
+    max-width: 100%;
+    padding: 11px 12px;
+    font-size: 0.98rem;
+  }
+
+  .mode-toggle{
+    gap: 10px;
+    margin: 10px 0 16px;
+  }
+  .mode-btn{
+    padding: 9px 16px;
+    font-size: 0.9rem;
+  }
+
+  /* 🔥 не 1 колонка, а 2 */
+  .article-list{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .article-card{
+    padding: 1rem 1.05rem;
+  }
+
+  .title{
+    font-size: 1.02rem;
+    line-height: 1.25;
+  }
+  .meta, .pages{
+    font-size: 0.9rem;
+  }
+
+  /* hover на таче мягкий */
+  .article-card:hover{
+    transform: none;
+    box-shadow: 0 4px 14px rgba(0,0,0,.05);
+  }
+}
+
+/* Очень маленькие телефоны — тоже 2 колонки */
+@media (max-width: 480px){
+  .wrap{
+    margin: 16px auto;
+    padding: 0 12px;
+  }
+
+  .mode-btn{
+    padding: 8px 14px;
+    font-size: 0.88rem;
+  }
+
+  .article-list{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
+  }
+
+  .article-card{
+    padding: 0.9rem 0.95rem;
+  }
+
+  .title{ font-size: 0.98rem; }
+  .meta, .pages{ font-size: 0.86rem; }
+
+  .pager{ margin: 16px 0; }
+  .page-btn{ padding: 6px 8px; font-size: 0.9rem; }
+}
+
 
   </style>
 
@@ -579,3 +654,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
