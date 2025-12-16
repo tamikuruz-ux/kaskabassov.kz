@@ -657,9 +657,9 @@ h2 a:hover {
 }
 .ornament-wrap{ position:relative; display:inline-block; }
 .ornament-wrap > video{
-  width:100% 
-  max-width: var(--v-max-w) 
-  max-height: var(--v-max-h) 
+  width:100%;
+  max-width: var(--v-max-w);
+  max-height: var(--v-max-h);
   height:auto !important;
   object-fit: contain !important;  /* без обрезки и без чёрных полей */
   display:block !important;
@@ -961,7 +961,7 @@ header, .slider, .slides, .slide{
 
   .slider-pagination{ bottom: 14px; gap: 8px; }
   .slider-pagination span{ width: 7px; height: 7px; }
-}
+    
 :root{
     --v-max-w: 480px;
     --v-max-h: 360px;
@@ -1239,6 +1239,7 @@ white-space: normal;
 
 
 }
+
 
 
 
