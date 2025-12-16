@@ -1040,8 +1040,6 @@ header, .slider, .slides, .slide{
   .menu-btn{ padding:8px 12px; font-size:13px; white-space:nowrap; }
 
 
-  /* Если у тебя НЕТ .logo-wrap и логотип/подпись отдельно в .header-top,
-     и ты хочешь подпись ПОД логотипом — раскомментируй это:
 
   .header-top{
     grid-template-columns: auto 1fr auto;
@@ -1174,7 +1172,7 @@ white-space: normal;
 
   /* HERO чуть ниже */
   header{
-    height: 48vh;
+    height: 48svh;
     min-height: 300px;
   }
 
@@ -1205,6 +1203,7 @@ white-space: normal;
 
 
 }
+
 
 
 
