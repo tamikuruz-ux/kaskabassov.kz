@@ -129,6 +129,9 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
     /* ===================== INDEX-ONLY: MOBILE ===================== */
 
 /* Планшет/телефон: 3 книги в ряд */
+/* ===================== INDEX: Books mobile ===================== */
+
+/* 3 книги в ряд на мобилках */
 @media (max-width: 900px){
   .books-swiper .swiper-slide{
     flex: 0 0 calc(100% / 3);
@@ -146,28 +149,22 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
   .books-page-bullet{ width: 8px; height: 8px; }
   .books-page-bullet.active{ transform: scale(1.12); }
 
-  /* hover на тач-устройствах не залипаем */
-  .book-card:hover{ transform: none; box-shadow: none; }
+  /* hover на тачах не залипает */
+  .book-card:hover{ transform:none; box-shadow:none; }
 }
 
-/* Телефон: 2 книги в ряд */
+/* телефон: тоже 3 книги в ряд (как ты просила) */
 @media (max-width: 520px){
   .books-swiper .swiper-slide{
-    flex: 0 0 50%;
-    max-width: 50%;
+    flex: 0 0 calc(100% / 3);
+    max-width: calc(100% / 3);
   }
-  .book-card img{ height: 185px; }
-
-  .see-all{ font-size: 1rem; }
+  .book-card img{ height: 170px; }
 
   .books-pagination{ gap: 4px; }
   .books-page-bullet{ width: 6px; height: 6px; }
   .books-page-bullet.active{ transform: scale(1.06); }
-
-  /* если хочешь убрать лишние боковые отступы только у секции книг */
-  #books.container{ padding-left: 0; padding-right: 0; }
 }
-
 
 
           </style>
@@ -641,6 +638,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
