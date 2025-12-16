@@ -987,6 +987,13 @@ header, .slider, .slides, .slide{
   max-width: 100% !important;
   max-height: var(--v-max-h) !important;
 }
+/* ===== TABLET ===== */
+  #bio-row{
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
 
 @media (max-width: 768px) {
   :root { --topbar-h: 60px; }
@@ -1082,20 +1089,15 @@ header, .slider, .slides, .slide{
     gap: 14px !important;
     align-items: start !important;
   }
-
-  /* видео/фото в центре и не огромное */
-  .bio-media{
-    order: 1;
-  }
-  .bio-text{
-    order: 2;
+ .bio-media{ order:1; }
+  .bio-text{ order:2; }
 
 
   /* само видео */
   #bioVideo{
     width: min(92vw, 360px);
     height: auto;
-    max-height: 320px;
+    max-height: 240px;
     display: block;
   }
 
@@ -1110,8 +1112,8 @@ header, .slider, .slides, .slide{
   /* кнопка заметно меньше */
   .bio-more .bio-btn{
     display: inline-block;
-    padding: 10px 14px;
-    font-size: 0.95rem;
+    padding: 6px 12px;
+    font-size: 0.85rem;
     border-radius: 999px;
   }
 
@@ -1125,6 +1127,7 @@ header, .slider, .slides, .slide{
     bottom: 6px;
     width: 18px;          /* ключ: уменьшаем ширину орнамента */
     pointer-events: none;
+    
   }
 
   /* если орнамент слева/справа — он не должен расширять блок */
@@ -1139,6 +1142,10 @@ header, .slider, .slides, .slide{
     max-height: 260px;
     display: block;
     object-fit: cover;
+    
+  }
+   .ornament-wrap{
+    margin: 0 auto 10px;
   }
 
 
@@ -1255,6 +1262,7 @@ white-space: normal;
 
 
 }
+
 
 
 
