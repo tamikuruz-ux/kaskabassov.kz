@@ -679,8 +679,9 @@ footer {
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 40px 20px 10px;
-  gap: 8px 200px;
-  column-gap: 200px;
+  gap: 24px 80px;      /* как “по-человечески” */
+column-gap: 120px;
+
 }
 
 .footer-links {
@@ -754,24 +755,15 @@ footer {
 }
 
 /* CONTACT + ORDER */
-.footer-contact {
-  margin-top: 0;
+.footer-contact{
   width: 100%;
-  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
   justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  border-top: none !important;
-  padding-top: 25px;
-  font-size: 1.3rem;
-  color: #343c43;
-  position: relative;
+  gap: 22px;                 /* расстояние между телефоном/почтой */
 }
-
-.contact-info {
-  display: flex;
-  gap: 24px;
-  font-size: 1.3rem;
+.contact-info{
+  justify-content: center;
 }
 
 .order-btn {
@@ -958,6 +950,7 @@ img, video, svg, canvas{
 header, .slider, .slides, .slide{
   width: 100%;
   max-width: 100%;
+} 
 }
 
 /* если где-то есть 100vw — переопредели */
@@ -968,5 +961,69 @@ header, .slider, .slides, .slide{
   .ornament-wrap::before{ left: 0 !important; }
   .ornament-wrap::after{ right: 0 !important; }
 }
+/* =========================
+   DESKTOP RESTORE (>= 901px)
+   ========================= */
+@media (min-width: 901px){
+
+  /* Слайдер на ПК обратно: фото можно cover (как раньше) */
+  .slide img{
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+
+  /* Видео на ПК обратно по прежним лимитам */
+  :root{
+    --v-max-w: 600px;
+    --v-max-h: 480px;
+    --orn-w: 62px;
+    --orn-gap: 18px;
+    --orn-over: 10px;
+  }
+
+  .ornament-wrap > video{
+    width: 100% !important;
+    max-width: var(--v-max-w) !important;
+    max-height: var(--v-max-h) !important;
+  }
+
+  /* Орнамент гарантированно включён */
+  .ornament-wrap{ overflow: visible !important; position: relative !important; }
+  .ornament-wrap::before,
+  .ornament-wrap::after{
+    content:"" !important;
+    display:block !important;
+    position:absolute !important;
+    top: calc(-1 * var(--orn-over)) !important;
+    bottom: calc(-1 * var(--orn-over)) !important;
+    width: var(--orn-w) !important;
+    background-image: url("images/ornament-vertical.png") !important;
+    background-repeat: repeat-y !important;
+    background-size: contain !important;
+    opacity: .8 !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
+  }
+  .ornament-wrap::before{ left: calc(-1 * (var(--orn-w) + var(--orn-gap))) !important; }
+  .ornament-wrap::after { right: calc(-1 * (var(--orn-w) + var(--orn-gap))) !important; }
+}
+/* =========================
+   MOBILE ONLY (<= 900px)
+   ========================= */
+@media (max-width: 900px){
+  html, body{ overflow-x: hidden; }
+
+  /* убираем “пустоту справа” */
+  header, .slider, .slides, .slide{ width:100%; max-width:100%; }
+
+  /* фото в слайдере на мобилке полностью */
+  .slide{ background:#000; }
+  .slide img{ object-fit: contain !important; }
+
+  /* видео раньше текста в био */
+  #bio-row{ grid-template-columns: 1fr !important; }
+  #bio-row .bio-media{ order: 1 !important; }
+  #bio-row .bio-text{ order: 2 !important; }
 }
 
+}
