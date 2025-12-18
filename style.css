@@ -955,12 +955,93 @@ header, .slider, .slides, .slide{
 
 /* если где-то есть 100vw — переопредели */
 @media (max-width: 900px){
-    header{ height: 60svh; min-height: 420px; }
-  .slider, .slides, .slide { width: 100% !important; }
-  .slideshow-watermark{ right: 0 !important; max-width: 65vw !important; }
-  .ornament-wrap::before{ left: 0 !important; }
-  .ornament-wrap::after{ right: 0 !important; }
-}
+ :root { --topbar-h: 60px; }
+
+  .container {
+    padding: 28px 16px;
+  }
+
+  /* ---------- TOP BAR ---------- */
+  .header-top{
+    padding: 10px 14px;
+    gap: 12px;
+    height: auto;              /* важно: не зажимать в 64px */
+  }
+
+  .logo-img{ height: 76px; }
+  .signature-img{
+    height: 44px;
+    margin: 0;
+    margin-left: -10px;
+  }
+
+  .header-actions{ gap: 10px; }
+
+  .language-switcher{ gap: 6px; }
+  .lang-btn{
+    padding: 6px 9px;
+    font-size: 13px;
+  }
+
+  .menu-btn{
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  /* ---------- HERO / SLIDER ---------- */
+  header{
+    height: 56vh;              /* вместо 88vh */
+    min-height: 320px;
+  }
+
+  .slides{ transition: transform 0.55s ease; }
+
+  .slide img{
+    object-fit: cover;         /* НЕ contain */
+    object-position: center;
+  }
+
+  .slideshow-watermark{
+    width: clamp(140px, 38vw, 260px);
+    right: 10px;
+    bottom: -120px;            /* было -190px, на мобиле слишком низко */
+  }
+
+  .slider-pagination{
+    bottom: 14px;
+    gap: 8px;
+  }
+  .slider-pagination span{
+    width: 7px;
+    height: 7px;
+  }
+
+  /* ---------- QUOTE ---------- */
+  .quote-banner{
+    padding: 28px 14px;
+    margin-top: 18px;
+  }
+  .quote-banner blockquote{
+    font-size: 1.35rem;
+    line-height: 1.35;
+  }
+  .quote-banner cite{
+    font-size: 1.15rem;
+  }
+
+  /* ---------- BIO (текст + видео) ---------- */
+  #bio-row{
+    grid-template-columns: 1fr !important; /* колонка */
+    gap: 20px !important;
+  }
+
+  .bio-text p{ font-size: 1.05rem; }
+
+  /* орнаменты на видео лучше убрать на мобиле */
+  .ornament-wrap::before,
+  .ornament-wrap::after{ display:none; }
+
+  
 /* =========================
    DESKTOP RESTORE (>= 901px)
    ========================= */
@@ -1027,3 +1108,4 @@ header, .slider, .slides, .slide{
 }
 
 }
+
