@@ -4,10 +4,11 @@
 <link rel="stylesheet" href="http://fonts-online.ru/fonts/karsten/stylesheet.css">
 <!-- Swiper CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="lightbox2/css/lightbox.min.css">
 <script src="lightbox2/js/lightbox-plus-jquery.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?
 family=Caveat:wght@600&
 family=Bad+Script&
@@ -128,45 +129,91 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
   padding-left: 0;
   padding-right: 0;
 }
-    /* ===================== INDEX-ONLY: MOBILE ===================== */
 
-/* Планшет/телефон: 3 книги в ряд */
-/* ===================== INDEX: Books mobile ===================== */
+/* ==================== Мобильная версия ==================== */
+@media (max-width: 768px) {
 
-/* 3 книги в ряд на мобилках */
-@media (max-width: 900px){
-  .books-swiper .swiper-slide{
-    flex: 0 0 calc(100% / 3);
-    max-width: calc(100% / 3);
+  /* Контейнер с книгами: уменьшаем количество слайдов в ряду */
+  .books-swiper .swiper-slide {
+    flex: 0 0 calc(100% / 2); /* каждая книга занимает 50% ширины */
+    max-width: calc(100% / 2);
   }
-  .book-card img{ height: 210px; }
 
-  .section-head{
-    gap: 12px;
-    align-items: center;
+  /* Уменьшаем высоту изображений книг */
+  .book-card img {
+    height: 230px;
   }
-  .see-all{ white-space: nowrap; font-size: 1.05rem; }
 
-  .books-pagination{ gap: 6px; }
-  .books-page-bullet{ width: 8px; height: 8px; }
-  .books-page-bullet.active{ transform: scale(1.12); }
+  /* Пагинация точками: уменьшаем размер */
+  .books-pagination {
+    gap: 5px;
+  }
 
-  /* hover на тачах не залипает */
-  .book-card:hover{ transform:none; box-shadow:none; }
+  .books-page-bullet {
+    width: 8px;
+    height: 8px;
+  }
+
+  .books-page-bullet.active {
+    transform: scale(1.1);
+  }
+
+  /* Заголовок секции с книгами: делаем более компактным */
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .see-all {
+    font-size: 1.2rem;
+  }
 }
 
-/* телефон: тоже 3 книги в ряд (как ты просила) */
-@media (max-width: 520px){
-  .books-swiper .swiper-slide{
-    flex: 0 0 calc(100% / 3);
-    max-width: calc(100% / 3);
-  }
-  .book-card img{ height: 170px; }
+@media (max-width: 480px) {
 
-  .books-pagination{ gap: 4px; }
-  .books-page-bullet{ width: 6px; height: 6px; }
-  .books-page-bullet.active{ transform: scale(1.06); }
+  /* Контейнер с книгами: делаем еще больше адаптивным */
+  .books-swiper .swiper-slide {
+    flex: 0 0 100%; /* каждая книга занимает 100% ширины */
+    max-width: 100%;
+  }
+
+  /* Уменьшаем высоту изображений книг */
+  .book-card img {
+    height: 200px;
+  }
+
+  /* Пагинация точками: еще меньше */
+  .books-pagination {
+    gap: 3px;
+  }
+
+  .books-page-bullet {
+    width: 6px;
+    height: 6px;
+  }
+
+  .books-page-bullet.active {
+    transform: scale(1.05);
+  }
+
+  /* Заголовок секции с книгами: делаем еще более компактным */
+  .section-head {
+    gap: 5px;
+  }
+
+  .see-all {
+    font-size: 1rem;
+  }
+
+  /* Убираем отступы у контейнера с книгами */
+  #books.container {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
+
+
 
 
           </style>
@@ -272,8 +319,11 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
       <p>
         Сейіт Асқарұлы Қасқабасов — қазақ фольклортану және әдебиеттану
       ғылымының көрнекті өкілі, ҚР ҰҒА академигі, филология ғылымдарының
-       докторы, профессор, Қазақстан Республикасының Мемлекеттік сыйлығының
-      лауреаты. Сейіт Асқарұлы Қасқабасовтың ғылыми, қоғамдық және педагогикалық қызметі өткен ғасырдың 60-жылдарынан бастап қазақ фольклортануы мен әдебиеттану ғылымдарының дамуымен тығыз байланысты болды.Ол республикадағы ұлттық фольклортану ғылымына үлкен үлес қосып, мифтану мен ауызша проза сияқты фольклортану салаларының негізін қалады.
+      докторы, профессор, Қазақстан Республикасының Мемлекеттік сыйлығының
+      лауреаты. Зерттеулері эпос, миф, ертегі, аңыз және ауызша проза
+      жанрларының тарихы мен поэтикасын кешенді қарастырады, қазақ фольклоры
+      мен әдебиетінің ежелгі тамырынан бүгінгіге дейінгі даму заңдылықтарын
+      жүйелі түрде айқындайды.
       </p>
 <p>...</p> <!-- последний абзац краткого био -->
 <div class="bio-more">
@@ -403,11 +453,11 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 
   </main>
 
- <footer style="padding: 0; margin: 0;">
-  <div class="footer-content" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; padding:40px 20px 10px;">
+<footer style="padding: 0; margin: 0;">
+  <div class="footer-content" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; ">
 <div class="footer-links left" style="flex: 1; min-width: 200px;">
   <h3>Материалдар</h3>
-  <div style="display: flex; ">
+  <div style="display: flex;">
     <ul style="list-style: none; padding: 0;">
       <li><a href="bio.html">- Өмірбаяны</a></li>
           <li><a href="books.html">- Кітаптар мен монографиялар</a></li>
@@ -420,7 +470,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
           <li><a href="news.html">- Жаңалықтар</a></li>
           <li><a href="dissertations.html">- Академик С.Қасқабасовтың ғылыми мектебі</a></li>
         
-    </ul>
+       </ul>
   </div>
 </div>
 <div class="footer-gallery-block">
@@ -440,7 +490,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 
 
     <div class="footer-contact" style="margin-top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 12px;">
- <div class="contact-info" style="display: flex; gap: 20px;font-size: 1.3rem; color:#343c43;">
+ <div class="contact-info" style="display: flex; font-size: 1.3rem; color:#343c43;">
         <span>📞 +7 777 877 8787</span>
         <span>📧 seyt.kaskabasov@mail.kz</span>
       </div>
@@ -640,12 +690,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
