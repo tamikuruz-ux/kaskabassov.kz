@@ -5,8 +5,6 @@
 <!-- Swiper CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link rel="stylesheet" href="lightbox2/css/lightbox.min.css">
-<script src="lightbox2/js/lightbox-plus-jquery.min.js"></script>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?
@@ -217,17 +215,12 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 
 
           </style>
-<!-- Lightbox CSS -->
-<link href="lightbox.css" rel="stylesheet" />
-
 <!-- Твой основной CSS -->
 <link href="style.css" rel="stylesheet" />
 
 <!-- jQuery (CDN — если нет локального подключения) -->
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 
-<!-- Lightbox JS -->
-<script src="lightbox-plus-jquery.js"></script>
 </head>
 <body>
 
@@ -687,7 +680,17 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
+  <script src="lightbox2/js/lightbox-plus-jquery.min.js"></script>
+<script>
+  lightbox.option({
+    resizeDuration: 200,
+    wrapAround: true
+  });
+</script>
+
+
 
 </body>
 </html>
+
 
