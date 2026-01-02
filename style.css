@@ -953,62 +953,122 @@ header, .slider, .slides, .slide{
 } 
 }
 
-/* если где-то есть 100vw — переопредели */
-@media (max-width: 900px){
- :root { --topbar-h: 60px; }
+/* =========================================================
+   PHONE VERSION (320–480px) + SMALL PHONES (<=360px)
+   Вставь В САМЫЙ КОНЕЦ CSS. Старые mobile @media убери.
+   ========================================================= */
 
-  .container {
-    padding: 28px 16px;
+/* --------- 1) ОБЩЕЕ: ВСЕ ТЕЛЕФОНЫ (<=480px) --------- */
+@media (max-width: 480px){
+
+  /* anti horizontal scroll */
+  html, body{
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  img, video, svg, canvas{
+    max-width: 100%;
+    height: auto;
   }
 
-  /* ---------- TOP BAR ---------- */
+  /* =========================
+     TOP HEADER (logo/signature not flattened)
+     ========================= */
+  :root{ --topbar-h: 78px; }
+
   .header-top{
-    padding: 10px 14px;
-    gap: 12px;
-    height: auto;              /* важно: не зажимать в 64px */
+    height: var(--topbar-h);
+    padding: 10px 12px;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
   }
 
-  .logo-img{ height: 76px; }
+  .signature-block{
+    display: flex;
+    align-items: center;
+    min-width: 0;
+  }
+
+  /* ключ: width:auto + object-fit:contain => не "приплющивает" */
+  .logo-img{
+    height: 86px;
+    width: auto;
+    object-fit: contain;
+  }
+
   .signature-img{
-    height: 44px;
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+    display: block;
     margin: 0;
     margin-left: -10px;
+    margin-bottom: 10px; /* похожая посадка как на ПК */
   }
 
-  .header-actions{ gap: 10px; }
+  .site-title{
+    font-size: 28px;
+    margin: 0 0 0 12px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .header-actions{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
 
   .language-switcher{ gap: 6px; }
   .lang-btn{
     padding: 6px 9px;
     font-size: 13px;
   }
-
   .menu-btn{
     padding: 8px 12px;
     font-size: 13px;
   }
 
-  /* ---------- HERO / SLIDER ---------- */
+  /* =========================
+     SLIDESHOW (no empty squares)
+     ========================= */
   header{
-    height: 56vh;              /* вместо 88vh */
+    width: 100%;
+    max-width: 100%;
+    height: 54vh;          /* меньше высота => кадр плотнее */
     min-height: 320px;
+    overflow: hidden;
   }
 
-  .slides{ transition: transform 0.55s ease; }
+  .slider,
+  .slides,
+  .slide{
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+  }
 
+  .slide{
+    background: #000;      /* на случай задержки загрузки фото */
+  }
+
+  /* ключ: cover + height:100% */
   .slide img{
-    object-fit: cover;         /* НЕ contain */
-    object-position: center;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover !important;
+    object-position: center !important;
   }
 
-  .slideshow-watermark{
-    width: clamp(140px, 38vw, 260px);
-    right: 10px;
-    bottom: -120px;            /* было -190px, на мобиле слишком низко */
-  }
-
+  /* пагинация видимая */
   .slider-pagination{
-    bottom: 14px;
+    bottom: 12px;
+    z-index: 30;
     gap: 8px;
   }
   .slider-pagination span{
@@ -1016,96 +1076,400 @@ header, .slider, .slides, .slide{
     height: 7px;
   }
 
-  /* ---------- QUOTE ---------- */
+  /* watermark не улетает */
+  .slideshow-watermark{
+    width: 220px;
+    right: 10px;
+    bottom: 10px;
+    z-index: 20;
+  }
+
+  header .content{
+    right: 12px;
+    left: 12px;
+    bottom: 12px;
+    z-index: 25;
+  }
+  .main-title{ font-size: 2.05rem; }
+  header p{ font-size: 1.05rem; }
+
+  /* =========================
+     QUOTE (thin strip full width)
+     ========================= */
   .quote-banner{
-    padding: 28px 14px;
-    margin-top: 18px;
+    padding: 18px 14px;
+    margin-top: 16px;
+  }
+  .quote-inner{
+    padding: 0 10px;
   }
   .quote-banner blockquote{
-    font-size: 1.35rem;
+    font-size: 1.15rem;
     line-height: 1.35;
   }
   .quote-banner cite{
-    font-size: 1.15rem;
+    margin-top: 8px;
+    font-size: 1.0rem;
   }
 
-  /* ---------- BIO (текст + видео) ---------- */
-  #bio-row{
-    grid-template-columns: 1fr !important; /* колонка */
-    gap: 20px !important;
+  /* =========================
+     BIO (smaller text + smaller video)
+     ========================= */
+  /* в колонку */
+  #bio-row,
+  .bio-video,
+  .bio-grid{
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    margin: 18px 0 !important;
   }
 
-  .bio-text p{ font-size: 1.05rem; }
+  /* видео первым */
+  #bio-row .bio-media{ order: 1 !important; }
+  #bio-row .bio-text{ order: 2 !important; }
 
-  /* орнаменты на видео лучше убрать на мобиле */
+  .bio-text p{
+    font-size: 1.02rem;
+    line-height: 1.6;
+  }
+
+  /* орнаменты выключить на телефонах */
   .ornament-wrap::before,
-  .ornament-wrap::after{ display:none; }
-
-  
-/* =========================
-   DESKTOP RESTORE (>= 901px)
-   ========================= */
-@media (min-width: 901px){
-
-  /* Слайдер на ПК обратно: фото можно cover (как раньше) */
-  .slide img{
-    object-fit: cover !important;
-    object-position: center !important;
-  }
-
-  /* Видео на ПК обратно по прежним лимитам */
-  :root{
-    --v-max-w: 600px;
-    --v-max-h: 480px;
-    --orn-w: 62px;
-    --orn-gap: 18px;
-    --orn-over: 10px;
+  .ornament-wrap::after{
+    display: none !important;
   }
 
   .ornament-wrap > video{
     width: 100% !important;
-    max-width: var(--v-max-w) !important;
-    max-height: var(--v-max-h) !important;
+    max-width: 420px !important;
+    max-height: 280px !important;
+    height: auto !important;
+    object-fit: contain !important;
   }
 
-  /* Орнамент гарантированно включён */
-  .ornament-wrap{ overflow: visible !important; position: relative !important; }
+  /* =========================
+     FOOTER (smaller links)
+     ========================= */
+  .footer-content{
+    padding: 24px 14px 10px;
+    gap: 18px;
+    column-gap: 0;
+  }
+
+  .footer-links h3{
+    font-size: 1.55rem;
+  }
+
+  .footer-links ul li a{
+    font-size: 1.05rem;
+  }
+
+  .footer-gallery{
+    max-width: 100%;
+  }
+  .footer-gallery img{
+    width: 100%;
+    height: 86px;
+  }
+
+  .footer-contact{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 1.05rem;
+    padding-top: 14px;
+  }
+
+  .order-btn{
+    width: 100%;
+    text-align: center;
+    font-size: 1.05rem;
+    padding: 12px 16px;
+  }
+
+  .copyright{
+    font-size: .98rem;
+    padding: 14px;
+  }
+
+  /* =========================
+     LIGHTBOX2 (fix close + arrows on phone)
+     ========================= */
+  .lightbox,
+  .lb-outerContainer,
+  .lb-dataContainer{
+    z-index: 99999 !important;
+  }
+
+  .lb-nav a{
+    opacity: 1 !important;
+    display: block !important;
+  }
+
+  .lb-data .lb-close{
+    opacity: 1 !important;
+    display: block !important;
+  }
+}
+
+/* --------- 2) ОЧЕНЬ МАЛЕНЬКИЕ ТЕЛЕФОНЫ (<=360px) --------- */
+@media (max-width: 360px){
+
+  :root{ --topbar-h: 74px; }
+
+  .logo-img{ height: 78px; }
+  .signature-img{
+    height: 46px;
+    margin-left: -8px;
+  }
+
+  .site-title{
+    font-size: 26px;
+    margin-left: 10px;
+  }
+
+  header{
+    height: 52vh;
+    min-height: 300px;
+  }
+
+  .slideshow-watermark{
+    width: 200px;
+  }
+
+  .quote-banner blockquote{ font-size: 1.08rem; }
+  .quote-banner cite{ font-size: .95rem; }
+
+  .ornament-wrap > video{
+    max-width: 380px !important;
+    max-height: 260px !important;
+  }
+
+  .footer-links ul li a{
+    font-size: 1.0rem;
+  }
+}
+/* =========================================================
+   MOBILE FIX PACK (<= 900px) — вставь В САМЫЙ КОНЕЦ файла
+   ========================================================= */
+@media (max-width: 900px){
+
+  /* --- base: никаких горизонтальных вылетов --- */
+  html, body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+  }
+  img, video, svg, canvas{
+    max-width:100%;
+    height:auto;
+  }
+
+  /* =========================
+     TOP HEADER (logo/signature)
+     ========================= */
+  :root{ --topbar-h: 72px; } /* чуть выше, чтобы не “плющило” */
+
+  .header-top{
+    height: var(--topbar-h);
+    padding: 10px 14px;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  .signature-block{
+    min-width: 0;
+    align-items: center;
+  }
+
+  /* ВАЖНО: width:auto + object-fit:contain убирает “приплюснутость” */
+  .logo-img{
+    height: 84px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .signature-img{
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    margin: 0;
+    margin-left: -10px;
+    margin-bottom: 10px; /* как на ПК визуально */
+  }
+
+  .site-title{
+    font-size: 28px;
+    margin-left: 14px;
+    white-space: nowrap;
+  }
+
+  .header-actions{ gap: 8px; }
+  .language-switcher{ gap: 6px; }
+  .lang-btn{ padding: 6px 9px; font-size: 13px; }
+  .menu-btn{ padding: 8px 12px; font-size: 13px; }
+
+  /* =========================
+     SLIDESHOW (без пустых квадратов)
+     ========================= */
+  header{
+    height: 52vh;          /* меньше по высоте */
+    min-height: 320px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .slider, .slides, .slide{
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+  }
+
+  .slide{
+    background: #000;      /* если фото не успело загрузиться */
+  }
+
+  /* Ключ: cover + 100% высоты */
+  .slide img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important;
+    object-position: center !important;
+    display:block;
+  }
+
+  /* Пагинация на месте и видимая */
+  .slider-pagination{
+    bottom: 12px;
+    z-index: 20;
+    gap: 8px;
+  }
+  .slider-pagination span{
+    width: 7px;
+    height: 7px;
+  }
+
+  /* watermark не должен улетать вниз */
+  .slideshow-watermark{
+    width: clamp(150px, 42vw, 260px);
+    right: 10px;
+    bottom: 10px;
+    z-index: 10;
+  }
+
+  header .content{
+    right: 14px;
+    left: 14px;
+    bottom: 14px;
+  }
+  .main-title{ font-size: 2.05rem; }
+  header p{ font-size: 1.05rem; }
+
+  /* =========================
+     QUOTE (тоньше, текст меньше)
+     ========================= */
+  .quote-banner{
+    padding: 18px 14px;
+    margin-top: 16px;
+  }
+  .quote-banner blockquote{
+    font-size: 1.18rem;
+    line-height: 1.35;
+  }
+  .quote-banner cite{
+    margin-top: 8px;
+    font-size: 1.02rem;
+  }
+
+  /* =========================
+     BIO (компактнее)
+     ========================= */
+  #bio-row,
+  .bio-video,
+  .bio-grid{
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    margin: 18px 0 !important;
+  }
+
+  .bio-text p{
+    font-size: 1.02rem;
+    line-height: 1.6;
+  }
+
   .ornament-wrap::before,
   .ornament-wrap::after{
-    content:"" !important;
-    display:block !important;
-    position:absolute !important;
-    top: calc(-1 * var(--orn-over)) !important;
-    bottom: calc(-1 * var(--orn-over)) !important;
-    width: var(--orn-w) !important;
-    background-image: url("images/ornament-vertical.png") !important;
-    background-repeat: repeat-y !important;
-    background-size: contain !important;
-    opacity: .8 !important;
-    pointer-events: none !important;
-    z-index: 2 !important;
+    display:none !important;
   }
-  .ornament-wrap::before{ left: calc(-1 * (var(--orn-w) + var(--orn-gap))) !important; }
-  .ornament-wrap::after { right: calc(-1 * (var(--orn-w) + var(--orn-gap))) !important; }
-}
-/* =========================
-   MOBILE ONLY (<= 900px)
-   ========================= */
-@media (max-width: 900px){
-  html, body{ overflow-x: hidden; }
 
-  /* убираем “пустоту справа” */
-  header, .slider, .slides, .slide{ width:100%; max-width:100%; }
+  .ornament-wrap > video{
+    max-width: 420px !important;  /* видео меньше */
+    max-height: 300px !important;
+    width: 100% !important;
+    height: auto !important;
+  }
 
-  /* фото в слайдере на мобилке полностью */
-  .slide{ background:#000; }
-  .slide img{ object-fit: contain !important; }
-
-  /* видео раньше текста в био */
-  #bio-row{ grid-template-columns: 1fr !important; }
+  /* видео над текстом */
   #bio-row .bio-media{ order: 1 !important; }
   #bio-row .bio-text{ order: 2 !important; }
-}
 
-}
+  /* =========================
+     FOOTER (ссылки меньше)
+     ========================= */
+  .footer-content{
+    padding: 26px 16px 10px;
+    gap: 18px;
+    column-gap: 0;
+  }
 
+  .footer-links h3{
+    font-size: 1.55rem;
+  }
+
+  .footer-links ul li a{
+    font-size: 1.05rem;
+  }
+
+  .footer-gallery{
+    max-width: 100%;
+  }
+  .footer-gallery img{
+    width: 100%;
+    height: 86px;
+  }
+
+  .order-btn{
+    width: 100%;
+    text-align: center;
+    font-size: 1.05rem;
+    padding: 12px 16px;
+  }
+
+  .copyright{
+    font-size: .98rem;
+    padding: 14px;
+  }
+
+  /* =========================
+     LIGHTBOX2 — вернуть крестик и стрелки
+     ========================= */
+  .lightbox,
+  .lb-outerContainer,
+  .lb-dataContainer{
+    z-index: 99999 !important;
+  }
+
+  /* Кнопки навигации */
+  .lb-nav a{
+    opacity: 1 !important;
+    display: block !important;
+  }
+
+  /* Крестик закрытия */
+  .lb-data .lb-close{
+    opacity: 1 !important;
+    display: block !important;
+    filter: none !important;
+  }
+}
