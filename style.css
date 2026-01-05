@@ -865,13 +865,13 @@ column-gap: 120px;
   }
 
   .logo-img{
-    height: 86px;   /* было 74 */
+    height: 150px;   /* было 74 */
     width: auto;
     object-fit: contain;
   }
 
   .signature-img{
-    height: 54px;   /* было 42 */
+    height: 130px;   /* было 42 */
     width: auto;
     object-fit: contain;
 
@@ -1024,7 +1024,29 @@ column-gap: 120px;
     padding: 14px;
   }
 
-  /* Lightbox (на всякий случай) */
-  .lightbox, .lb-outerContainer, .lb-dataContainer{ z-index: 99999 !important; }
-  .lb-nav a, .lb-data .lb-close{ opacity: 1 !important; display: block !important; }
+/* === Lightbox2 FIX: show arrows (icons + visibility) === */
+.lb-nav a.lb-prev,
+.lb-nav a.lb-next{
+  opacity: 1 !important;
+  display: block !important;
+  visibility: visible !important;
 }
+
+.lb-nav a.lb-prev{
+  background-image: url("lightbox2/images/prev.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: left 48% !important;
+}
+
+.lb-nav a.lb-next{
+  background-image: url("lightbox2/images/next.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 48% !important;
+}
+
+.lb-data .lb-close{
+  background-image: url("lightbox2/images/close.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: right top !important;
+}
+
