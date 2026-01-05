@@ -9,11 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Bad+Script&family=Italianno&family=Parisienne&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet" />
 
-  <!-- Swiper -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">  
 
   <!-- Your main CSS -->
-  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="lightbox2/css/lightbox.min.css" />
 
   <style>
@@ -196,6 +193,18 @@
 }
 
           </style>
+
+  <!-- Lightbox CSS -->
+<link href="lightbox.css" rel="stylesheet" />
+
+<!-- Твой основной CSS -->
+<link href="style.css" rel="stylesheet" />
+
+<!-- jQuery (CDN — если нет локального подключения) -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+<!-- Lightbox JS -->
+<script src="lightbox-plus-jquery.js"></script>
 
 </head>
 <body>
@@ -470,12 +479,11 @@
 
 </footer>
 
-
-  <script>
+<script>
 (function() {
   const slider = document.querySelector('.slider');
   const slides = slider.querySelector('.slides');
-  const slideCount = slides.children.length;  // Учитываем пустой слайд
+  const slideCount = slides.children.length - 1;  // Учитываем пустой слайд
   const pagination = document.querySelector('.slider-pagination');
   let idx = 0;
   let timer;
@@ -538,28 +546,18 @@
 
 
 <script>
+  // Инициализация слайдера
 const booksSwiper = new Swiper('.books-swiper', {
+  slidesPerView: 'auto',   // ширина задаётся CSS
+  slidesPerGroup: 5,       // листаем по 5
+  spaceBetween: 0,         // расстояние контролируем через CSS, не Swiper
   loop: true,
-  spaceBetween: 0,
   autoplay: {
     delay: 3000,
-    disableOnInteraction: false,
+    disableOnInteraction: false
   },
-
-  /* ПК по умолчанию */
-  slidesPerView: 5,
-  slidesPerGroup: 5,
-
-  /* Мобильная версия */
-  breakpoints: {
-    0: {
-      slidesPerView: 3,
-      slidesPerGroup: 3
-    },
-    769: {
-      slidesPerView: 5,
-      slidesPerGroup: 5
-    }
+  pagination: {
+    el: null
   }
 });
 
@@ -665,21 +663,17 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-<script src="lightbox2/js/lightbox-plus-jquery.min.js"></script>
 
-<script>
-  lightbox.option({
-    resizeDuration: 200,
-    wrapAround: true,
-    alwaysShowNavOnTouchDevices: true
-  });
-</script>
+
+</body>
+</html>
+
 
 
 
 </body>
 </html>
+
 
 
 
