@@ -10,12 +10,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Bad+Script&family=Italianno&family=Parisienne&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet" />
 
   <!-- Swiper -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-<link href="lightbox.css" rel="stylesheet" />
-  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">  
 
   <!-- Your main CSS -->
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="lightbox2/css/lightbox.min.css" />
+
   <style>
   
     .section-head {
@@ -194,22 +194,6 @@
     padding-right: 0;
   }
 }
-
-    /* Lightbox2: принудительно показать стрелки */
-.lb-nav a.lb-prev,
-.lb-nav a.lb-next {
-  display: block !important;
-  opacity: 1 !important;
-}
-
-.lb-nav {
-  z-index: 999999 !important;
-}
-
-.lb-prev, .lb-next {
-  cursor: pointer !important;
-}
-
 
           </style>
 
@@ -486,17 +470,6 @@
 
 </footer>
 
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-<script src="lightbox-plus-jquery.js"></script>
-  
-<script>
-  lightbox.option({
-    resizeDuration: 200,
-    wrapAround: true,
-    alwaysShowNavOnTouchDevices: true
-  });
-</script>
-
 
   <script>
 (function() {
@@ -692,10 +665,22 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="lightbox2/js/lightbox-plus-jquery.min.js"></script>
+
+<script>
+  lightbox.option({
+    resizeDuration: 200,
+    wrapAround: true,
+    alwaysShowNavOnTouchDevices: true
+  });
+</script>
+
 
 
 </body>
 </html>
+
 
 
 
