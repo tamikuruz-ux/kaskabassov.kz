@@ -195,6 +195,21 @@
   }
 }
 
+    /* Lightbox2: принудительно показать стрелки */
+.lb-nav a.lb-prev,
+.lb-nav a.lb-next {
+  display: block !important;
+  opacity: 1 !important;
+}
+
+.lb-nav {
+  z-index: 999999 !important;
+}
+
+.lb-prev, .lb-next {
+  cursor: pointer !important;
+}
+
 
           </style>
 
@@ -681,6 +696,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
