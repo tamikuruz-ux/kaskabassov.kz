@@ -492,154 +492,190 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <script>
-    /* HERO slider */
-    (function () {
-      const slider = document.querySelector('.slider');
-      const slides = slider.querySelector('.slides');
-      const slideCount = slides.children.length;
-      const pagination = document.querySelector('.slider-pagination');
-      let idx = 0;
+(function() {
+  const slider = document.querySelector('.slider');
+  const slides = slider.querySelector('.slides');
+  const slideCount = slides.children.length - 1;  // Учитываем пустой слайд
+  const pagination = document.querySelector('.slider-pagination');
+  let idx = 0;
+  let timer;
 
-      // dots
-      for (let i = 0; i < slideCount; i++) {
-        const dot = document.createElement('span');
-        dot.addEventListener('click', () => goToSlide(i));
-        pagination.appendChild(dot);
-      }
+  // Создаем точки пагинации
+  for (let i = 0; i < slideCount; i++) {
+    const dot = document.createElement('span');
+    dot.addEventListener('click', () => goToSlide(i));
+    pagination.appendChild(dot);
+  }
 
-      function updateDots(i){
-        const dots = pagination.querySelectorAll('span');
-        dots.forEach((d, k) => d.classList.toggle('active', k === i));
-      }
+  function goToSlide(i) {
+    slides.style.transform = `translateX(${-i * 100}%)`;
+    updatePagination(i);
+    idx = i;
+  }
 
-      function goToSlide(i){
-        slides.style.transform = `translateX(${-i * 100}%)`;
-        idx = i;
-        updateDots(i);
-      }
+  function updatePagination(i) {
+    const dots = document.querySelectorAll('.slider-pagination span');
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === i);
+    });
+  }
 
-      function nextSlide(){
-        goToSlide((idx + 1) % slideCount);
-      }
+  function nextSlide() {
+    goToSlide((idx + 1) % slideCount);
+  }
 
-      goToSlide(0);
-      setInterval(nextSlide, 4000);
-    })();
+  function startAuto() {
+    timer = setInterval(nextSlide, 4000);
+  }
+
+  function stopAuto() {
+    clearInterval(timer);
+  }
+
+  // Запуск слайдера с начальной позиции
+  goToSlide(0);
+  startAuto();
+})();
+
   </script>
 
   <script>
-    /* BOOKS swiper: PC=5, mobile=3, 1 bullet = group */
-    const booksSwiper = new Swiper('.books-swiper', {
-      spaceBetween: 0,
-      loop: true,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
-
-      // default desktop
-      slidesPerView: 5,
-      slidesPerGroup: 5,
-
-      breakpoints: {
-        0:   { slidesPerView: 3, slidesPerGroup: 3 },
-        769: { slidesPerView: 5, slidesPerGroup: 5 }
-      }
-    });
-
-    // custom pagination
-    const paginationEl = document.querySelector('.books-pagination');
-    if (paginationEl) {
-      function buildBullets(){
-        paginationEl.innerHTML = '';
-
-        const spg = booksSwiper.params.slidesPerGroup;
-        // loop duplicates slides; use original count:
-        const realSlidesCount = booksSwiper.slides.length - (booksSwiper.loopedSlides * 2);
-        const totalPages = Math.ceil(realSlidesCount / spg);
-
-        for (let i = 0; i < totalPages; i++) {
-          const bullet = document.createElement('span');
-          bullet.className = 'books-page-bullet' + (i === 0 ? ' active' : '');
-          bullet.addEventListener('click', () => booksSwiper.slideToLoop(i * spg));
-          paginationEl.appendChild(bullet);
-        }
-      }
-
-      function setActive(){
-        const spg = booksSwiper.params.slidesPerGroup;
-        const page = Math.floor(booksSwiper.realIndex / spg);
-        paginationEl.querySelectorAll('.books-page-bullet')
-          .forEach((b, i) => b.classList.toggle('active', i === page));
-      }
-
-      buildBullets();
-      setActive();
-
-      booksSwiper.on('slideChange', setActive);
-      booksSwiper.on('breakpoint', () => { buildBullets(); setActive(); });
+    function scrollCarousel(dir) {
+      document.getElementById('bookCarousel').scrollBy({
+        left: dir * 220,
+        behavior: 'smooth'
+      });
     }
   </script>
-
   <script>
-    /* Offcanvas */
-    (() => {
-      const btn = document.querySelector('.menu-btn');
-      const panel = document.getElementById('offcanvas');
-      const backdrop = document.getElementById('offcanvas-backdrop');
-      if (!btn || !panel || !backdrop) return;
+  lightbox.option({
+    'resizeDuration': 200,
+    'wrapAround': true,
+      });
+</script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-      function openMenu(){
-        panel.classList.add('open');
-        backdrop.hidden = false;
-        document.body.style.overflow = 'hidden';
-        btn.setAttribute('aria-expanded','true');
-        panel.setAttribute('aria-hidden','false');
-      }
-      function closeMenu(){
-        panel.classList.remove('open');
-        backdrop.hidden = true;
-        document.body.style.overflow = '';
-        btn.setAttribute('aria-expanded','false');
-        panel.setAttribute('aria-hidden','true');
-      }
 
-      btn.addEventListener('click', () => panel.classList.contains('open') ? closeMenu() : openMenu());
-      panel.querySelector('.offcanvas-close').addEventListener('click', closeMenu);
-      backdrop.addEventListener('click', closeMenu);
-      window.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
-    })();
-  </script>
+<script>
+  // Инициализация слайдера
+const booksSwiper = new Swiper('.books-swiper', {
+  slidesPerView: 'auto',   // ширина задаётся CSS
+  slidesPerGroup: 5,       // листаем по 5
+  spaceBetween: 0,         // расстояние контролируем через CSS, не Swiper
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false
+  },
+  pagination: {
+    el: null
+  }
+});
 
-  <script>
-    /* Video autoplay on view */
-    document.addEventListener('DOMContentLoaded', () => {
-      const video = document.getElementById('bioVideo');
-      if (!video) return;
-      let visible = false;
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          const isNowVisible = entry.isIntersecting && entry.intersectionRatio > 0.3;
-          if (isNowVisible && !visible) {
-            visible = true;
-            video.currentTime = 0;
-            video.play();
-          } else if (!isNowVisible && visible) {
-            visible = false;
-            video.pause();
-            video.currentTime = 0;
-          }
-        });
-      }, { threshold: [0, 0.3, 1] });
+  // Кастомная пагинация «по страницам»
+  const paginationEl = document.querySelector('.books-pagination');
+  if (paginationEl) {
+    const slidesPerGroup = booksSwiper.params.slidesPerGroup;
+    const totalPages = Math.ceil(booksSwiper.slides.length / slidesPerGroup);
 
-      observer.observe(video);
+    for (let i = 0; i < totalPages; i++) {
+      const bullet = document.createElement('span');
+      bullet.classList.add('books-page-bullet');
+      if (i === 0) bullet.classList.add('active');
+
+      bullet.addEventListener('click', () => {
+        booksSwiper.slideToLoop(i * slidesPerGroup);
+      });
+
+      paginationEl.appendChild(bullet);
+    }
+
+    booksSwiper.on('slideChange', () => {
+      const page = Math.floor(booksSwiper.realIndex / slidesPerGroup);
+      document
+        .querySelectorAll('.books-page-bullet')
+        .forEach((b, idx) => b.classList.toggle('active', idx === page));
     });
-  </script>
+  }
+</script>
+
+<script>
+(() => {
+  const btn = document.querySelector('.menu-btn');
+  const panel = document.getElementById('offcanvas');
+  const backdrop = document.getElementById('offcanvas-backdrop');
+
+  if (!btn || !panel || !backdrop) return; // страховка, если HTML не вставлен
+
+  function openMenu(){
+    panel.classList.add('open');
+    backdrop.hidden = false;
+    document.body.style.overflow = 'hidden';
+    btn.setAttribute('aria-expanded','true');
+    panel.setAttribute('aria-hidden','false');
+  }
+  function closeMenu(){
+    panel.classList.remove('open');
+    backdrop.hidden = true;
+    document.body.style.overflow = '';
+    btn.setAttribute('aria-expanded','false');
+    panel.setAttribute('aria-hidden','true');
+  }
+
+  btn.addEventListener('click', () => {
+    panel.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  panel.querySelector('.offcanvas-close').addEventListener('click', closeMenu);
+  backdrop.addEventListener('click', closeMenu);
+  window.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+})();
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const video = document.getElementById('bioVideo');
+  let visible = false;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const isNowVisible = entry.isIntersecting && entry.intersectionRatio > 0.3;
+
+      if (isNowVisible && !visible) {
+        visible = true;
+        video.currentTime = 0;
+        video.play();
+      } else if (!isNowVisible && visible) {
+        visible = false;
+        video.pause();
+        video.currentTime = 0; // возвращаемся к первому кадру
+      }
+    });
+  }, { threshold: [0, 0.3, 1] });
+
+  observer.observe(video);
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const title = document.querySelector('.site-title');
+  if (!title) return;
+
+  // Делаем заголовок доступным как ссылка (клавиатура/скринридеры)
+  title.setAttribute('tabindex','0');
+  title.setAttribute('role','link');
+  title.setAttribute('aria-label','На главную: Сейіт Қасқабасов');
+
+  const goHome = () => { window.location.href = 'index.html'; };
+
+  title.addEventListener('click', goHome);
+  title.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goHome(); }
+  });
+});
+</script>
+
 
 </body>
 </html>
-
-
-
-
