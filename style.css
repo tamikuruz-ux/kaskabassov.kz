@@ -1024,29 +1024,24 @@ column-gap: 120px;
     padding: 14px;
   }
 
-/* === Lightbox2 FIX: show arrows (icons + visibility) === */
+/* === LIGHTBOX: фикс стрелок и крестика === */
+
+.lb-nav a.lb-prev {
+  background-image: url("lightbox-images/prev.png") !important;
+}
+
+.lb-nav a.lb-next {
+  background-image: url("lightbox-images/next.png") !important;
+}
+
+.lb-data .lb-close {
+  background-image: url("lightbox-images/close.png") !important;
+}
+
 .lb-nav a.lb-prev,
-.lb-nav a.lb-next{
+.lb-nav a.lb-next,
+.lb-data .lb-close {
   opacity: 1 !important;
   display: block !important;
-  visibility: visible !important;
-}
-
-.lb-nav a.lb-prev{
-  background-image: url("lightbox2/images/prev.png") !important;
-  background-repeat: no-repeat !important;
-  background-position: left 48% !important;
-}
-
-.lb-nav a.lb-next{
-  background-image: url("lightbox2/images/next.png") !important;
-  background-repeat: no-repeat !important;
-  background-position: right 48% !important;
-}
-
-.lb-data .lb-close{
-  background-image: url("lightbox2/images/close.png") !important;
-  background-repeat: no-repeat !important;
-  background-position: right top !important;
 }
 
