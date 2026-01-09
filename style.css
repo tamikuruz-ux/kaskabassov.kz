@@ -933,7 +933,7 @@ column-gap: 120px;
   .slideshow-watermark{
     width: 210px;     /* было 240 */
     right: 10px;
-    bottom: -25px;    /* ниже (чуть уходит вниз) */
+    bottom: -40px;    /* ниже (чуть уходит вниз) */
   }}
 
   /* =========================
@@ -1058,5 +1058,6 @@ column-gap: 120px;
   opacity: 1 !important;
   display: block !important;
 }
+
 
 
