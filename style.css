@@ -1054,6 +1054,47 @@ column-gap: 120px;
   margin-top: 8px;
   font-size: 1.1rem;      /* меньше подпись */
 }
+  .footer-links h3{
+  text-align: center;
+}
+  .footer-links{
+  width: 100%;
+}
+
+.footer-links > div{
+  justify-content: center;     /* центрируем два столбца */
+  gap: 40px;                   /* больше расстояние между ними */
+}
+
+.footer-links ul{
+  text-align: center;
+}
+
+.footer-links ul li a{
+  font-size: 1.05rem;          /* чуть компактнее */
+}
+.footer-gallery-block{
+  align-items: center;
+  margin-top: 24px;
+}
+
+.footer-gallery{
+  justify-content: center;
+}
+
+.full-gallery-link{
+  text-align: center;
+}
+.contact-info{
+  font-size: 0.9rem;
+  gap: 4px;
+}
+
+.order-btn{
+  font-size: 0.95rem;
+  padding: 8px 14px;
+}
+
 
 /* === LIGHTBOX: фикс стрелок и крестика === */
 
@@ -1075,6 +1116,7 @@ column-gap: 120px;
   opacity: 1 !important;
   display: block !important;
 }
+
 
 
 
