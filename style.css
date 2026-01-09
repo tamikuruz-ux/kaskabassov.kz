@@ -870,12 +870,12 @@ column-gap: 120px;
   }
 
   .logo-img{
-    height: 60px;          /* побольше, но не раздувает шапку */
+    height: 70px;          /* побольше, но не раздувает шапку */
     width: auto;
     object-fit: contain;
   }
  .signature-img{
-    height: 52px;          /* побольше */
+    height: 57px;          /* побольше */
     width: auto;
     object-fit: contain;
     margin: 0;             /* убираем твои отступы вниз */
@@ -1075,6 +1075,7 @@ column-gap: 120px;
   opacity: 1 !important;
   display: block !important;
 }
+
 
 
 
