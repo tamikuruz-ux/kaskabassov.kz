@@ -858,36 +858,49 @@ column-gap: 120px;
      TOP HEADER (logo чуть больше, signature ниже)
      ========================= */
   .header-top{
-    padding: 10px 14px;
+    padding: 6px 14px;     /* было 10px 14px — станет “уже” */
+    height: 56px;          /* фиксируем более компактную высоту */
+    align-items: center;   /* центр по высоте */
     gap: 10px;
-    align-items: flex-start; /* чтобы signature можно было опустить */
-    height: auto;
+  }
+  .signature-block{
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 
   .logo-img{
-    height: 150px;   /* было 74 */
+    height: 60px;          /* побольше, но не раздувает шапку */
     width: auto;
     object-fit: contain;
   }
-
-  .signature-img{
-    height: 130px;   /* было 42 */
+ .signature-img{
+    height: 52px;          /* побольше */
     width: auto;
     object-fit: contain;
-
-    /* ОПУСКАЕМ ПОДПИСЬ НИЖЕ */
-    margin: 0;
-    margin-left: -8px;
-    margin-top: 32px;     /* ключ: делает ниже */
-    margin-bottom: -8px;  /* чуть “вниз” визуально */
+    margin: 0;             /* убираем твои отступы вниз */
+    margin-left: -10px;    /* чуть “подвинуть” как раньше */
   }
 
   /* actions справа */
   .header-actions{ gap: 8px; align-items: center; }
   .language-switcher{ gap: 6px; }
-  .lang-btn{ padding: 6px 10px; font-size: .92rem; }
-  .menu-btn{ padding: 8px 12px; font-size: .95rem; }
+.lang-btn{
+    padding: 4px 8px;
+    font-size: .82rem;
+  }
 
+  .menu-btn{
+    padding: 6px 10px;
+    font-size: .85rem;
+    gap: 7px;
+  }
+  
+  .menu-icon,
+  .menu-icon::before,
+  .menu-icon::after{
+    width: 16px;
+  }
   /* =========================
      SLIDESHOW (оставляем как было у тебя)
      ========================= */
@@ -916,11 +929,12 @@ column-gap: 120px;
   header p{ font-size: 1.15rem; }
 
   /* watermark */
+ /* ===== подпись поверх слайдшоу: ниже и меньше ===== */
   .slideshow-watermark{
-    width: 240px;
+    width: 210px;     /* было 240 */
     right: 10px;
-    bottom: 10px;
-  }
+    bottom: -25px;    /* ниже (чуть уходит вниз) */
+  }}
 
   /* =========================
      BIO: в столбик + ВКЛЮЧИТЬ ОРНАМЕНТЫ ВОКРУГ ВИДЕО
@@ -1044,4 +1058,5 @@ column-gap: 120px;
   opacity: 1 !important;
   display: block !important;
 }
+
 
