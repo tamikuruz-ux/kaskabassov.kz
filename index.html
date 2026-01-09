@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="kk">
 <head>
-<meta charset="UTF-8">
+<link rel="stylesheet" href="http://fonts-online.ru/fonts/karsten/stylesheet.css">
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?
+family=Caveat:wght@600&
+family=Bad+Script&
+family=Italianno&
+family=Parisienne&
+display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
+
+
+
+  <meta charset="UTF-8">
   <title>Сейіт Қасқабасов – Басты бет</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="http://fonts-online.ru/fonts/karsten/stylesheet.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Bad+Script&family=Italianno&family=Parisienne&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet" />
-
-
-  <!-- Your main CSS -->
-  <link rel="stylesheet" href="lightbox2/css/lightbox.min.css" />
-
   <style>
   
     .section-head {
@@ -37,6 +42,8 @@
 }
 
 .books-swiper .swiper-slide {
+  flex: 0 0 calc(100% / 5);   /* каждая книга занимает 1/5 ширины */
+  max-width: calc(100% / 5);
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -123,6 +130,12 @@
 /* ==================== Мобильная версия ==================== */
 @media (max-width: 768px) {
 
+  /* Контейнер с книгами: уменьшаем количество слайдов в ряду */
+  .books-swiper .swiper-slide {
+    flex: 0 0 calc(100% / 2); /* каждая книга занимает 50% ширины */
+    max-width: calc(100% / 2);
+  }
+
   /* Уменьшаем высоту изображений книг */
   .book-card img {
     height: 230px;
@@ -156,6 +169,11 @@
 
 @media (max-width: 480px) {
 
+  /* Контейнер с книгами: делаем еще больше адаптивным */
+  .books-swiper .swiper-slide {
+    flex: 0 0 100%; /* каждая книга занимает 100% ширины */
+    max-width: 100%;
+  }
 
   /* Уменьшаем высоту изображений книг */
   .book-card img {
@@ -192,9 +210,11 @@
   }
 }
 
-          </style>
 
-  <!-- Lightbox CSS -->
+
+
+          </style>
+<!-- Lightbox CSS -->
 <link href="lightbox.css" rel="stylesheet" />
 
 <!-- Твой основной CSS -->
@@ -205,7 +225,6 @@
 
 <!-- Lightbox JS -->
 <script src="lightbox-plus-jquery.js"></script>
-
 </head>
 <body>
 
@@ -267,6 +286,7 @@
       <div class="slide"><img src="images/show6.jpg" alt=""></div>
       <div class="slide"><img src="images/show7.jpg" alt=""></div>
       <!-- Пустой слайд для анимации -->
+      <div class="slide empty"></div>
     </div>
 
     <!-- Подпись на слайдшоу -->
@@ -426,6 +446,7 @@
     <!-- точки -->
     <div class="books-pagination"></div>
   </div>
+</section>
 
   </main>
 
@@ -478,8 +499,7 @@
 </div>
 
 </footer>
-
-<script>
+  <script>
 (function() {
   const slider = document.querySelector('.slider');
   const slides = slider.querySelector('.slides');
@@ -667,15 +687,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
-
-
-
-
-</body>
-</html>
-
-
-
-
-
-
