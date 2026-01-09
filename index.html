@@ -168,16 +168,13 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 }
 
 @media (max-width: 480px) {
-
-  /* Контейнер с книгами: делаем еще больше адаптивным */
   .books-swiper .swiper-slide {
-    flex: 0 0 100%; /* каждая книга занимает 100% ширины */
-    max-width: 100%;
+    flex: 0 0 calc(100% / 3);  /* 3 книги в ряд */
+    max-width: calc(100% / 3);
   }
 
-  /* Уменьшаем высоту изображений книг */
   .book-card img {
-    height: 200px;
+    height: 170px; /* можно 160–190 под вкус */
   }
 
   /* Пагинация точками: еще меньше */
@@ -687,3 +684,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
