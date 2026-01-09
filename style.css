@@ -931,10 +931,11 @@ column-gap: 120px;
   /* watermark */
  /* ===== подпись поверх слайдшоу: ниже и меньше ===== */
   .slideshow-watermark{
-    width: 210px;     /* было 240 */
+    width: 210px;
     right: 10px;
-    bottom: -40px;    /* ниже (чуть уходит вниз) */
-  }}
+    bottom: -40px;
+  }
+
 
   /* =========================
      BIO: в столбик + ВКЛЮЧИТЬ ОРНАМЕНТЫ ВОКРУГ ВИДЕО
@@ -1058,6 +1059,7 @@ column-gap: 120px;
   opacity: 1 !important;
   display: block !important;
 }
+
 
 
 
