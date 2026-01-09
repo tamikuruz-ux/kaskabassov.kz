@@ -933,7 +933,7 @@ column-gap: 120px;
   .slideshow-watermark{
     width: 210px;
     right: 10px;
-    bottom: -50px;
+    bottom: -60px;
   }
 
 
@@ -1039,6 +1039,22 @@ column-gap: 120px;
     padding: 14px;
   }
 
+  /* ===== MOBILE: компактная цитата-полоска ===== */
+.quote-banner{
+  padding: 18px 14px;     /* было 60px — делаем низким */
+  margin-top: 18px;       /* меньше воздуха сверху */
+}
+
+.quote-banner blockquote{
+  font-size: 1.2rem;      /* меньше текст */
+  line-height: 1.35;
+}
+
+.quote-banner cite{
+  margin-top: 8px;
+  font-size: 1.1rem;      /* меньше подпись */
+}
+
 /* === LIGHTBOX: фикс стрелок и крестика === */
 
 .lb-nav a.lb-prev {
@@ -1059,6 +1075,7 @@ column-gap: 120px;
   opacity: 1 !important;
   display: block !important;
 }
+
 
 
 
