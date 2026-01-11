@@ -296,15 +296,20 @@ header {
 .slider-pagination span.active { background-color: rgba(255, 255, 255, 1); }
 .slide.empty { display: none; }
 
-.slideshow-watermark {
+/* watermark всегда относительно слайдера */
+.slider{ position: relative; }
+
+.slideshow-watermark{
   position: absolute;
-  right: 5px;
-  bottom: -190px;
-  width: 400px;
+  right: 16px;
+  bottom: 16px;
+  width: 220px;
   height: auto;
-  opacity: 1;
-  z-index: 5;
+  z-index: 10;           /* поверх всего */
   pointer-events: none;
+  opacity: 0.95;
+}
+
   filter: none !important;
   mix-blend-mode: normal;
   image-rendering: -webkit-optimize-contrast;
@@ -348,6 +353,7 @@ header::after {
   );
   z-index:1;
 }
+.slider{ z-index: 2; }                 /* слайдер выше overlay */
 
 /* header-actions (ПОСЛЕДНЯЯ версия — оставляем её) */
 .header-actions {
@@ -934,11 +940,10 @@ column-gap: 120px;
   /* watermark */
  /* ===== подпись поверх слайдшоу: ниже и меньше ===== */
   .slideshow-watermark{
-    width: 210px;
+     .slideshow-watermark{
+    right: 10px;
     bottom: 10px;
-   right: 10px !important;
-  z-index: 6 !important;
-  opacity: 0.95;
+    width: 170px;
   }
 
 
@@ -1162,6 +1167,7 @@ column-gap: 120px;
   opacity: 1 !important;
   display: block !important;
 }
+
 
 
 
