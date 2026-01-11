@@ -301,13 +301,12 @@ header {
 
 .slideshow-watermark{
   position: absolute;
-  right: 16px;
-  bottom: 16px;
-  width: 220px;
-  height: auto;
+  right: 5px; 
+  bottom: -190px; width: 400px; 
+  height: auto; 
+  opacity: 1;
   z-index: 10;           /* поверх всего */
   pointer-events: none;
-  opacity: 0.95;
 }
 
   filter: none !important;
@@ -1167,6 +1166,7 @@ column-gap: 120px;
   opacity: 1 !important;
   display: block !important;
 }
+
 
 
 
