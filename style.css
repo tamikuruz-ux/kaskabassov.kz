@@ -858,15 +858,18 @@ column-gap: 120px;
      TOP HEADER (logo чуть больше, signature ниже)
      ========================= */
   .header-top{
-    padding: 6px 14px;     /* было 10px 14px — станет “уже” */
-    height: 56px;          /* фиксируем более компактную высоту */
-    align-items: center;   /* центр по высоте */
-    gap: 10px;
+  height: auto !important;
+  padding: 8px 12px !important;
+  align-items: center;
+}
+
   }
   .signature-block{
     display: flex;
     align-items: center;
     gap: 8px;
+    flex: 0 1 auto;
+
   }
 
   .logo-img{
@@ -932,7 +935,10 @@ column-gap: 120px;
  /* ===== подпись поверх слайдшоу: ниже и меньше ===== */
   .slideshow-watermark{
     width: 210px;
-    bottom: -30px;
+    bottom: 10px;
+   right: 10px !important;
+  z-index: 6 !important;
+  opacity: 0.95;
   }
 
 
@@ -1156,6 +1162,7 @@ column-gap: 120px;
   opacity: 1 !important;
   display: block !important;
 }
+
 
 
 
