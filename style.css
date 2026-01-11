@@ -870,12 +870,12 @@ column-gap: 120px;
   }
 
   .logo-img{
-    height: 70px;          /* побольше, но не раздувает шапку */
+    height: 85px;          /* побольше, но не раздувает шапку */
     width: auto;
     object-fit: contain;
   }
  .signature-img{
-    height: 57px;          /* побольше */
+    height: 70px;          /* побольше */
     width: auto;
     object-fit: contain;
     margin: 0;             /* убираем твои отступы вниз */
@@ -932,8 +932,8 @@ column-gap: 120px;
  /* ===== подпись поверх слайдшоу: ниже и меньше ===== */
   .slideshow-watermark{
     width: 210px;
-    right: 5px;
-    bottom: -65px;
+    right: -5px;
+    bottom: -5px;
   }
 
 
@@ -1157,6 +1157,7 @@ column-gap: 120px;
   opacity: 1 !important;
   display: block !important;
 }
+
 
 
 
