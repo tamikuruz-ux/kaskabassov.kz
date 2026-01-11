@@ -932,8 +932,7 @@ column-gap: 120px;
  /* ===== подпись поверх слайдшоу: ниже и меньше ===== */
   .slideshow-watermark{
     width: 210px;
-    right: -5px;
-    bottom: -5px;
+    bottom: -30px;
   }
 
 
@@ -1157,6 +1156,7 @@ column-gap: 120px;
   opacity: 1 !important;
   display: block !important;
 }
+
 
 
 
