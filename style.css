@@ -893,23 +893,25 @@ column-gap: 120px;
     gap: 8px;
   }
 
- /* === MOBILE: logo + signature bigger (header) === */
-.logo-img{
-  height: 150px;      /* было 85 */
-  width: auto;
-  object-fit: contain;
-}
-
-.signature-img{
-  height: 140px;      /* было 70 */
-  width: auto;
-  object-fit: contain;
-  margin: 0;
-  margin-left: -14px; /* было -10, чуть ближе как на ПК */
-}
+@media (max-width: 768px){
 
 
-  /* actions справа */
+  /* реально заметно больше */
+  .header-top .logo-img{
+    height: 50px !important;  /* было 150/145 */
+    width: auto !important;
+    max-height: none !important;
+  }
+
+  .header-top .signature-img{
+    height: 40px !important;  /* было 100/70 */
+    width: auto !important;
+    max-height: none !important;
+    margin: 0 !important;
+    margin-left: -14px !important;
+  }
+
+ /* actions справа */
   .header-actions{ gap: 8px; align-items: center; }
   .language-switcher{ gap: 6px; }
 .lang-btn{
@@ -1200,6 +1202,7 @@ column-gap: 120px;
   opacity: 1 !important;
   display: block !important;
 }    
+
 
 
 
