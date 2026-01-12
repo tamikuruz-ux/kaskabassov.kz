@@ -882,19 +882,14 @@ column-gap: 120px;
      TOP HEADER (logo чуть больше, signature ниже)
      ========================= */
   .header-top{
-    padding: 6px 14px;     /* было 10px 14px — станет “уже” */
-    height: 56px;          /* фиксируем более компактную высоту */
+    padding: 6px 14px;     /* было 10px 14px — станет “уже” *        /* фиксируем более компактную высоту */
     align-items: center;   /* центр по высоте */
-    gap: 10px;
   }
   .signature-block{
     display: flex;
     align-items: center;
     gap: 8px;
   }
-
-@media (max-width: 768px){
-
 
   /* реально заметно больше */
   .header-top .logo-img{
@@ -1202,6 +1197,7 @@ column-gap: 120px;
   opacity: 1 !important;
   display: block !important;
 }    
+
 
 
 
