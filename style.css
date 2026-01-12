@@ -827,6 +827,30 @@ column-gap: 120px;
   border-radius:0 !important;
 }
 
+/* LIGHTBOX ДЛЯ КНИГ: без белого фона и без стрелок */
+.lb-outerContainer,
+.lb-container{
+  background: transparent !important;
+}
+
+.lb-image{
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* скрыть навигацию в любом случае */
+.lb-nav,
+.lb-prev,
+.lb-next{
+  display: none !important;
+}
+
+/* крестик оставляем */
+.lb-data .lb-close{
+  opacity: 1 !important;
+}
+
 /* =========================================================
    ================== MOBILE ONLY (в самом конце) ==========
    ========================================================= */
@@ -1176,6 +1200,7 @@ column-gap: 120px;
   opacity: 1 !important;
   display: block !important;
 }    
+
 
 
 
