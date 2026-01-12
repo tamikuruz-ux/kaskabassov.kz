@@ -296,19 +296,15 @@ header {
 .slider-pagination span.active { background-color: rgba(255, 255, 255, 1); }
 .slide.empty { display: none; }
 
-/* watermark всегда относительно слайдера */
-.slider{ position: relative; }
-
-.slideshow-watermark{
+.slideshow-watermark {
   position: absolute;
-  right: 5px; 
-  bottom: -190px; width: 400px; 
-  height: auto; 
+  right: 5px;
+  bottom: -190px;
+  width: 400px;
+  height: auto;
   opacity: 1;
-  z-index: 10;           /* поверх всего */
+  z-index: 5;
   pointer-events: none;
-}
-
   filter: none !important;
   mix-blend-mode: normal;
   image-rendering: -webkit-optimize-contrast;
@@ -352,7 +348,6 @@ header::after {
   );
   z-index:1;
 }
-.slider{ z-index: 2; }                 /* слайдер выше overlay */
 
 /* header-actions (ПОСЛЕДНЯЯ версия — оставляем её) */
 .header-actions {
@@ -863,32 +858,32 @@ column-gap: 120px;
      TOP HEADER (logo чуть больше, signature ниже)
      ========================= */
   .header-top{
-  height: auto !important;
-  padding: 8px 12px !important;
-  align-items: center;
-}
-
+    padding: 6px 14px;     /* было 10px 14px — станет “уже” */
+    height: 56px;          /* фиксируем более компактную высоту */
+    align-items: center;   /* центр по высоте */
+    gap: 10px;
   }
   .signature-block{
     display: flex;
     align-items: center;
     gap: 8px;
-    flex: 0 1 auto;
-
   }
 
-  .logo-img{
-    height: 85px;          /* побольше, но не раздувает шапку */
-    width: auto;
-    object-fit: contain;
-  }
- .signature-img{
-    height: 70px;          /* побольше */
-    width: auto;
-    object-fit: contain;
-    margin: 0;             /* убираем твои отступы вниз */
-    margin-left: -10px;    /* чуть “подвинуть” как раньше */
-  }
+ /* === MOBILE: logo + signature bigger (header) === */
+.logo-img{
+  height: 96px;      /* было 85 */
+  width: auto;
+  object-fit: contain;
+}
+
+.signature-img{
+  height: 78px;      /* было 70 */
+  width: auto;
+  object-fit: contain;
+  margin: 0;
+  margin-left: -14px; /* было -10, чуть ближе как на ПК */
+}
+
 
   /* actions справа */
   .header-actions{ gap: 8px; align-items: center; }
@@ -937,13 +932,13 @@ column-gap: 120px;
   header p{ font-size: 1.15rem; }
 
   /* watermark */
- /* ===== подпись поверх слайдшоу: ниже и меньше ===== */
-  .slideshow-watermark{
-     .slideshow-watermark{
-    right: 10px;
-    bottom: 10px;
-    width: 170px;
-  }
+/* === MOBILE: watermark lower + more to the right === */
+.slideshow-watermark{
+  width: 190px;     /* чуть компактнее */
+  right: -6px;      /* правее (можно -10 если хочешь ещё) */
+  bottom: -44px;    /* ниже (можно -55 если прям “вниз”) */
+}
+
 
 
   /* =========================
@@ -1165,19 +1160,6 @@ column-gap: 120px;
 .lb-data .lb-close {
   opacity: 1 !important;
   display: block !important;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
+}    
 
 
