@@ -957,7 +957,7 @@ column-gap: 120px;
 .slideshow-watermark{
   width: 190px;     /* чуть компактнее */
   right: -10px;      /* правее (можно -10 если хочешь ещё) */
-  bottom: -64px;    /* ниже (можно -55 если прям “вниз”) */
+  bottom: -75px;    /* ниже (можно -55 если прям “вниз”) */
 }
 
 
@@ -1160,20 +1160,7 @@ column-gap: 120px;
   font-size: 0.95rem;
   padding: 8px 14px;
 }
-  /* FORCE: bigger logo + signature only on mobile */
-.header-top .logo-img{
-  height: 150px !important;
-  width: auto !important;
-  max-height: none !important;
-}
-
-.header-top .signature-img{
-  height: 100px !important;
-  width: auto !important;
-  max-height: none !important;
-  margin-left: -14px !important;
-  margin-bottom: 0 !important;
-}
+  
 
 
 
@@ -1197,6 +1184,7 @@ column-gap: 120px;
   opacity: 1 !important;
   display: block !important;
 }    
+
 
 
 
