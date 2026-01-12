@@ -1139,6 +1139,21 @@ column-gap: 120px;
   font-size: 0.95rem;
   padding: 8px 14px;
 }
+  /* FORCE: bigger logo + signature only on mobile */
+.header-top .logo-img{
+  height: 96px !important;
+  width: auto !important;
+  max-height: none !important;
+}
+
+.header-top .signature-img{
+  height: 78px !important;
+  width: auto !important;
+  max-height: none !important;
+  margin-left: -14px !important;
+  margin-bottom: 0 !important;
+}
+
 
 
 /* === LIGHTBOX: фикс стрелок и крестика === */
@@ -1161,5 +1176,6 @@ column-gap: 120px;
   opacity: 1 !important;
   display: block !important;
 }    
+
 
 
