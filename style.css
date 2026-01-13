@@ -882,7 +882,7 @@ column-gap: 120px;
      TOP HEADER (logo чуть больше, signature ниже)
      ========================= */
   .header-top{
-    padding: 6px 14px;     /* было 10px 14px — станет “уже” *        /* фиксируем более компактную высоту */
+    padding: 5px 14px;     /* было 10px 14px — станет “уже” *        /* фиксируем более компактную высоту */
     align-items: center;   /* центр по высоте */
       flex-wrap: nowrap !important;
 
@@ -897,7 +897,7 @@ column-gap: 120px;
 
   /* реально заметно больше */
   .header-top .logo-img{
-    height: 70px !important;  /* было 150/145 */
+    height: 65px !important;  /* было 150/145 */
     width: auto !important;
     max-height: none !important;
       flex: 0 0 auto !important;
@@ -905,7 +905,7 @@ column-gap: 120px;
   }
 
   .header-top .signature-img{
-    height: 60px !important;  /* было 100/70 */
+    height: 50px !important;  /* было 100/70 */
     width: auto !important;
     max-height: none !important;
     margin: 0 !important;
@@ -1196,6 +1196,7 @@ column-gap: 120px;
   opacity: 1 !important;
   display: block !important;
 }    
+
 
 
 
