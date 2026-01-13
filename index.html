@@ -349,7 +349,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
      <div class="swiper-slide">
   <a class="book-card"
      href="images/book1.png"
-     data-lightbox="book1"
+     data-lightbox="books"
      data-title="">
     <img src="images/book1.png" alt="">
   </a>
@@ -360,7 +360,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
       <div class="swiper-slide">
   <a class="book-card"
      href="images/book2.png"
-     data-lightbox="book2"
+     data-lightbox="books"
      data-title="">
     <img src="images/book2.png" alt="">
   </a>
@@ -370,7 +370,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
       <div class="swiper-slide">
   <a class="book-card"
      href="images/book3.png"
-     data-lightbox="book3"
+     data-lightbox="books"
      data-title="">
     <img src="images/book3.png" alt="">
   </a>
@@ -379,7 +379,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
    <div class="swiper-slide">
   <a class="book-card"
      href="images/book4.png"
-     data-lightbox="book4"
+     data-lightbox="books"
      data-title="">
     <img src="images/book4.png" alt="">
   </a>
@@ -389,7 +389,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
    <div class="swiper-slide">
   <a class="book-card"
      href="images/book5.png"
-     data-lightbox="book5"
+     data-lightbox="books"
      data-title="">
     <img src="images/book5.png" alt="">
   </a>
@@ -400,7 +400,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
      <div class="swiper-slide">
   <a class="book-card"
      href="images/book6.png"
-     data-lightbox="book6"
+     data-lightbox="books"
      data-title="">
     <img src="images/book6.png" alt="">
   </a>
@@ -410,7 +410,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
      <div class="swiper-slide">
   <a class="book-card"
      href="images/book7.png"
-     data-lightbox="book7"
+     data-lightbox="books"
      data-title="">
     <img src="images/book7.png" alt="">
   </a>
@@ -420,7 +420,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
       <div class="swiper-slide">
   <a class="book-card"
      href="images/book8.png"
-     data-lightbox="book8"
+     data-lightbox="books"
      data-title="">
     <img src="images/book8.png" alt="">
   </a>
@@ -430,7 +430,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
      <div class="swiper-slide">
   <a class="book-card"
      href="images/book9.png"
-     data-lightbox="book9"
+     data-lightbox="books"
      data-title="">
     <img src="images/book9.png" alt="">
   </a>
@@ -440,7 +440,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
      <div class="swiper-slide">
   <a class="book-card"
      href="images/book10.png"
-     data-lightbox="book10"
+     data-lightbox="books"
      data-title="">
     <img src="images/book10.png" alt="">
   </a>
@@ -450,7 +450,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
  <div class="swiper-slide">
   <a class="book-card"
      href="images/book11.png"
-     data-lightbox="book11"
+     data-lightbox="books"
      data-title="">
     <img src="images/book11.png" alt="">
   </a>
@@ -460,7 +460,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
  <div class="swiper-slide">
   <a class="book-card"
      href="images/book12.png"
-     data-lightbox="book12"
+     data-lightbox="books"
      data-title="">
     <img src="images/book12.png" alt="">
   </a>
@@ -470,7 +470,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
  <div class="swiper-slide">
   <a class="book-card"
      href="images/book13.png"
-     data-lightbox="book13"
+     data-lightbox="books"
      data-title="">
     <img src="images/book13.png" alt="">
   </a>
@@ -480,7 +480,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
  <div class="swiper-slide">
   <a class="book-card"
      href="images/book14.png"
-     data-lightbox="book14"
+     data-lightbox="books"
      data-title="">
     <img src="images/book14.png" alt="">
   </a>
@@ -490,7 +490,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 <div class="swiper-slide">
   <a class="book-card"
      href="images/book15.png"
-     data-lightbox="book15"
+     data-lightbox="books"
      data-title="">
     <img src="images/book15.png" alt="">
   </a>
@@ -773,12 +773,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 </script>
+  <script>
+document.addEventListener('lightbox:opened', () => {
+  const img = document.querySelector('.lb-image');
+  if (!img) return;
+
+  // определить какой альбом открыт Lightbox2 напрямую сложно,
+  // поэтому самый простой хак: смотрим по URL картинки
+  const src = img.getAttribute('src') || '';
+  const isBook = src.includes('/images/book') || src.includes('images/book');
+
+  document.body.classList.toggle('lb-books', isBook);
+});
+</script>
 
 
 
 
 </body>
 </html>
+
 
 
 
