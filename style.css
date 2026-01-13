@@ -882,8 +882,12 @@ column-gap: 120px;
      TOP HEADER (logo чуть больше, signature ниже)
      ========================= */
   .header-top{
-    padding: 5px 14px;     /* было 10px 14px — станет “уже” *        /* фиксируем более компактную высоту */
-    align-items: center;   /* центр по высоте */
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    align-items: center !important;
+    padding: 6px 8px !important;     /* меньше боковые поля = больше места лого */
+    column-gap: 6px !important;
+    height: 64px !important;         
       flex-wrap: nowrap !important;
 
   }
@@ -897,46 +901,60 @@ column-gap: 120px;
 
   /* реально заметно больше */
   .header-top .logo-img{
-    height: 65px !important;  /* было 150/145 */
+    height: 58px !important;  /* было 150/145 */
     width: auto !important;
-    max-height: none !important;
       flex: 0 0 auto !important;
 
   }
 
   .header-top .signature-img{
-    height: 50px !important;  /* было 100/70 */
+    height: 32px !important;  /* было 100/70 */
     width: auto !important;
     max-height: none !important;
+    max-width: 100% !important;
+    flex: 1 1 auto !important;       /* пусть занимает оставшуюся ширину */
+    object-fit: contain !important;
     margin: 0 !important;
-    margin-left: -14px !important;
-      flex: 0 0 auto !important;
+    margin-left: -8px !important;    /* лёгкое "сближение" */
+
 
   }
 
  /* actions справа */
-  .header-actions{ gap: 6px; align-items: center; flex: 0 0 auto !important;   /* правая часть не растягивается */
-  margin-left: 8px; }
+  .header-actions{ 
+    gap: 6px; 
+    align-items: center;   /* правая часть не растягивается */
+  margin-left: 8px; 
+    display:flex !important;    
+    gap: 4px !important;
+    justify-self:end !important;
+    flex: 0 0 auto !important;}
   .language-switcher{ gap: 4px; }
 .lang-btn{
-    padding: 3px 6px;
-    font-size: .75rem;
+    padding: 2px 6px;
+    font-size: .68rem;
+  line-height: 1 !important;
+    border-radius: 999px !important;
     min-width: auto !important;
 
   }
 
   .menu-btn{
-    padding: 5px 8px;
-    font-size: .8rem;
-    gap: 5px;
-      border-radius: 999px;
+    padding: 3px 8px !important;
+    font-size: .70rem !important;
+    line-height: 1 !important;
+    gap: 5px !important;
+    border-radius: 999px !important;
   }
   
   .menu-icon,
   .menu-icon::before,
   .menu-icon::after{
-    width: 14px;
+    width: 12px;
+    height: 2px !important;
   }
+  .menu-icon::before{ top: -5px !important; }
+  .menu-icon::after { top:  5px !important; }
   /* =========================
      SLIDESHOW (оставляем как было у тебя)
      ========================= */
@@ -1196,6 +1214,7 @@ column-gap: 120px;
   opacity: 1 !important;
   display: block !important;
 }    
+
 
 
 
