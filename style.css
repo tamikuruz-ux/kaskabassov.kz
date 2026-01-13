@@ -839,17 +839,16 @@ column-gap: 120px;
   box-shadow: none !important;
 }
 
-/* скрыть навигацию в любом случае */
-.lb-nav,
-.lb-prev,
-.lb-next{
-  display: none !important;
+/* по умолчанию навигация включена */
+.lb-nav, .lb-prev, .lb-next { display: block !important; }
+
+/* если открыт лайтбокс книги, выключаем */
+body.lb-books .lb-nav,
+body.lb-books .lb-prev,
+body.lb-books .lb-next{
+  display:none !important;
 }
 
-/* крестик оставляем */
-.lb-data .lb-close{
-  opacity: 1 !important;
-}
 
 /* =========================================================
    ================== MOBILE ONLY (в самом конце) ==========
