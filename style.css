@@ -915,24 +915,27 @@ column-gap: 120px;
   }
 
  /* actions справа */
-  .header-actions{ gap: 8px; align-items: center; flex: 0 0 auto !important;   /* правая часть не растягивается */
+  .header-actions{ gap: 6px; align-items: center; flex: 0 0 auto !important;   /* правая часть не растягивается */
   margin-left: 8px; }
-  .language-switcher{ gap: 6px; }
+  .language-switcher{ gap: 4px; }
 .lang-btn{
-    padding: 4px 8px;
-    font-size: .82rem;
+    padding: 3px 6px;
+    font-size: .75rem;
+    min-width: auto !important;
+
   }
 
   .menu-btn{
-    padding: 6px 10px;
-    font-size: .85rem;
-    gap: 7px;
+    padding: 5px 8px;
+    font-size: .8rem;
+    gap: 5px;
+      border-radius: 999px;
   }
   
   .menu-icon,
   .menu-icon::before,
   .menu-icon::after{
-    width: 16px;
+    width: 14px;
   }
   /* =========================
      SLIDESHOW (оставляем как было у тебя)
@@ -1193,6 +1196,7 @@ column-gap: 120px;
   opacity: 1 !important;
   display: block !important;
 }    
+
 
 
 
