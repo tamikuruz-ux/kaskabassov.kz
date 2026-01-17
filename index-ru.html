@@ -555,7 +555,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 </div>
 
 </footer>
-  <script>
+   <script>
 (function() {
   const slider = document.querySelector('.slider');
   const slides = slider.querySelector('.slides');
@@ -623,7 +623,7 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 
 <script>
   // Инициализация слайдера
-cconst booksSwiper = new Swiper('.books-swiper', {
+const booksSwiper = new Swiper('.books-swiper', {
   speed: 650,
   loop: false,
   rewind: true,
@@ -716,7 +716,7 @@ document.addEventListener('DOMContentLoaded', () => {
   title.setAttribute('role','link');
   title.setAttribute('aria-label','На главную: Сейіт Қасқабасов');
 
-  const goHome = () => { window.location.href = 'index-ru.html'; };
+  const goHome = () => { window.location.href = 'index.html'; };
 
   title.addEventListener('click', goHome);
   title.addEventListener('keydown', (e) => {
@@ -733,13 +733,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  let booksPage = "books-ru.html";
+  let booksPage = "books.html";
 
   // 1) запоминаем куда вести (по клику на карточку)
   document.addEventListener("click", (e) => {
     const a = e.target.closest("a.book-lightbox");
     if (!a) return;
-    booksPage = a.getAttribute("data-books-page") || "books-ru.html";
+    booksPage = a.getAttribute("data-books-page") || "books.html";
   });
 
   // 2) второй клик: по картинке внутри лайтбокса
@@ -753,7 +753,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Второй клик: когда картинка уже в лайтбоксе, по тапу переходим на страницу книг
   document.addEventListener('click', function(e){
     if(e.target && e.target.classList && e.target.classList.contains('lb-image')){
-      window.location.href = 'books-ru.html';
+      window.location.href = 'books.html';
     }
   });
 </script>
@@ -776,6 +776,8 @@ document.addEventListener('lightbox:opened', () => {
 
 </body>
 </html>
+
+
 
 
 
