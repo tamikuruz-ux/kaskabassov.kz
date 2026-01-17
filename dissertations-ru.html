@@ -40,12 +40,61 @@
     .dissertation-item h2 { margin: 0 0 0.4rem; font-size: 1.25rem; }
     .dissertation-item p { margin: 5px 0 10px; font-size: 1.1rem; color: #515e6a; }
 
-    @media (max-width: 768px) {
-      .wrap { padding: 0 10px; }
-      .page-title { font-size: 2rem; }
-      .intro-text { font-size: 1rem; }
-      .dissertation-item { padding: 15px; }
-    }
+   @media (max-width: 768px) {
+  .wrap {
+    padding: 0 10px;
+  }
+  .page-title {
+    font-size: 2rem;
+  }
+  .intro-text {
+    font-size: 1rem;
+  }
+  .dissertation-item {
+    padding: 15px; /* Уменьшаем отступ на мобильных */
+  }
+}
+/* Очень маленькие телефоны */
+@media (max-width: 480px) {
+
+  .wrap{
+    margin: 16px auto;
+    padding: 0 12px;
+  }
+
+  .page-title{
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+  }
+
+  .intro-text{
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+
+  .section-title{
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  .dissertation-item{
+    padding: 12px;
+    margin-bottom: 10px;
+  }
+
+  .dissertation-item h2{
+    font-size: 1.02rem;
+    line-height: 1.25;
+  }
+
+  .dissertation-item p{
+    font-size: 0.9rem;
+    line-height: 1.45;
+    margin: 6px 0 8px;
+  }
+}
+
   </style>
 </head>
 
@@ -293,10 +342,10 @@
 </main>
 
 <footer style="padding: 0; margin: 0;">
-  <div class="footer-content" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; padding:40px 20px 10px;">
+  <div class="footer-content" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
     <div class="footer-links left" style="flex: 1; min-width: 200px;">
       <h3>Материалы</h3>
-      <div style="display: flex; gap: 150px;">
+      <div style="display: flex;">
         <ul style="list-style: none; padding: 0;">
           <li><a href="bio-ru.html">- Биография</a></li>
           <li><a href="books-ru.html">- Книги и монографии</a></li>
@@ -339,18 +388,60 @@
   </div>
 </footer>
 
-<script>
-  lightbox.option({ resizeDuration: 200, wrapAround: true });
+  <script>
+    function scrollCarousel(dir) {
+      document.getElementById('bookCarousel').scrollBy({
+        left: dir * 220,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+  <script>
+  lightbox.option({
+    'resizeDuration': 200,
+    'wrapAround': true,
+      });
 </script>
-
+<!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+<script>
+  const booksSwiper = new Swiper('.books-swiper', {
+    spaceBetween: 24,
+    loop: true,
+    speed: 700,
+
+    /* 5 на экране и листаемся группами по 5 */
+    slidesPerView: 5,
+    slidesPerGroup: 5,
+
+    autoplay: {
+      delay: 3500,
+      disableOnInteraction: false
+    },
+
+    pagination: {
+      el: '.books-swiper .swiper-pagination',
+      clickable: true
+    },
+
+    /* адаптивность */
+    breakpoints: {
+      1200: { slidesPerView: 5, slidesPerGroup: 5 },
+      992:  { slidesPerView: 4, slidesPerGroup: 4 },
+      768:  { slidesPerView: 3, slidesPerGroup: 3 },
+      576:  { slidesPerView: 2, slidesPerGroup: 2 },
+      0:    { slidesPerView: 1, slidesPerGroup: 1 }
+    }
+  });
+</script>
 <script>
 (() => {
   const btn = document.querySelector('.menu-btn');
   const panel = document.getElementById('offcanvas');
   const backdrop = document.getElementById('offcanvas-backdrop');
-  if (!btn || !panel || !backdrop) return;
+
+  if (!btn || !panel || !backdrop) return; // страховка, если HTML не вставлен
 
   function openMenu(){
     panel.classList.add('open');
@@ -367,11 +458,31 @@
     panel.setAttribute('aria-hidden','true');
   }
 
-  btn.addEventListener('click', () => panel.classList.contains('open') ? closeMenu() : openMenu());
+  btn.addEventListener('click', () => {
+    panel.classList.contains('open') ? closeMenu() : openMenu();
+  });
   panel.querySelector('.offcanvas-close').addEventListener('click', closeMenu);
   backdrop.addEventListener('click', closeMenu);
   window.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
 })();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const title = document.querySelector('.site-title');
+  if (!title) return;
+
+  // Делаем заголовок доступным как ссылка (клавиатура/скринридеры)
+  title.setAttribute('tabindex','0');
+  title.setAttribute('role','link');
+  title.setAttribute('aria-label','На главную: Сейіт Қасқабасов');
+
+  const goHome = () => { window.location.href = 'index.html'; };
+
+  title.addEventListener('click', goHome);
+  title.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goHome(); }
+  });
+});
 </script>
 
 </body>
