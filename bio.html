@@ -106,28 +106,26 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 
   /* 2) Лента: всегда сверху и прилипает */
   .bio-rail{
-    position: fixed !important;
-    top: 474px !important;
-    left: 0 !important;
-    right: 0 !important;
-    z-index: 9999 !important;
+  position: sticky !important;
+  top: 0;
+  z-index: 50 !important;
 
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 12px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 12px !important;
 
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    -webkit-overflow-scrolling: touch !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
 
-    padding: 10px 14px !important;
-    margin: 0 !important;        /* растягиваем до краёв контейнера */
-    background: #f9f9f4 !important;
-    border-bottom: 1px solid rgba(52,60,67,0.12) !important;
+  height: 165px !important;          /* ВОТ ЭТО важно */
+  padding: 12px 14px !important;
+  margin: 0 -16px 10px !important;
 
-    scrollbar-width: none !important;       /* Firefox */
-  }
+  background: #f9f9f4 !important;
+  border-bottom: 1px solid rgba(52,60,67,0.12) !important;
+}
+
 
   .bio-rail::-webkit-scrollbar{ display: none; } /* iOS/Chrome */
 
@@ -156,7 +154,6 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
   .bio-content{
     font-size: 1rem !important;
     line-height: 1.65 !important;
-    padding-top: 165px !important; /* подгони если поменяешь высоту ленты */
 
   }
  .bio-layout{
@@ -629,6 +626,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
