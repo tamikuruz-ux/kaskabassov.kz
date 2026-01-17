@@ -1249,13 +1249,16 @@ body.lb-books .lb-next{
 }
 
 .site-header .breadcrumb{
-  margin: 0 !important;
    margin-top: 10px;
   line-height: 1.2;
   font-size: 0.95rem;
+  max-width: 90%;
+    margin: 0 auto;
+    white-space: normal;
 }
 
 }
+
 
 
 
