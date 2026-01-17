@@ -626,9 +626,15 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
   // Инициализация слайдера
 const booksSwiper = new Swiper('.books-swiper', {
   speed: 650,
-  loop: false,      // важно: без клонов
-  rewind: true,     // “по кругу” без loop
+  loop: false,
+  rewind: true,
   spaceBetween: 0,
+
+  autoplay: {
+    delay: 3500,
+    disableOnInteraction: false,  // ключевое
+    pauseOnMouseEnter: false
+  },
 
   pagination: {
     el: '.books-pagination',
@@ -638,8 +644,8 @@ const booksSwiper = new Swiper('.books-swiper', {
   },
 
   breakpoints: {
-    0: { slidesPerView: 3, slidesPerGroup: 3 },    // мобилка: 3 книги -> 5 точек
-    769: { slidesPerView: 5, slidesPerGroup: 5 }   // десктоп как было
+    0:   { slidesPerView: 3, slidesPerGroup: 3 },
+    769: { slidesPerView: 5, slidesPerGroup: 5 }
   }
 });
 
@@ -771,6 +777,7 @@ document.addEventListener('lightbox:opened', () => {
 
 </body>
 </html>
+
 
 
 
