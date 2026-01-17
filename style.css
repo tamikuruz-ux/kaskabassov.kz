@@ -1221,11 +1221,12 @@ body.lb-books .lb-next{
    HERO — ВЕРТИКАЛЬНЫЙ ЦЕНТР (как раньше)
    ========================= */
 .site-header{
-  height: 48vh;          /* компактнее, чем 62vh */
+ background-image: url("images/header-awards-mobile.png");
+ background-size: cover;
+ background-position: center;
+ height: 48vh;          /* компактнее, чем 62vh */
     min-height: 320px;          /* нормальная высота hero */
   display: flex;
-  background-size: cover;
-  background-position: center 30%;
   align-items: center;       /* ВАЖНО: вертикальный центр */
   justify-content: center;
 }
@@ -1255,6 +1256,7 @@ body.lb-books .lb-next{
 }
 
 }
+
 
 
 
