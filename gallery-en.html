@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Photo Gallery – Seit Kaskabasov</title>
+  <title>Seit Kaskabasov - Photo Gallery </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="http://fonts-online.ru/fonts/karsten/stylesheet.css">
@@ -14,23 +14,197 @@
   <link href="style.css" rel="stylesheet">
 
   <style>
-.gallery-wrap{max-width:1400px;margin:15px auto 40px;padding:0 4px;}
-.gallery-masonry{column-count:6;column-gap:8px;}
-@media (max-width:1200px){.gallery-masonry{column-count:4;}}
-@media (max-width:760px){.gallery-masonry{column-count:3;}}
-@media (max-width:540px){.gallery-masonry{column-count:2;}}
-.gallery-item{display:block;margin-bottom:10px;break-inside:avoid;}
-.gallery-item img{
-  width:100%;height:auto;display:block;border-radius:0;box-shadow:none;cursor:zoom-in;
-  transition:transform .2s ease, filter .2s ease;
+
+/* Герой-шапка галереи с библиотекой */
+.gallery-hero {
+  position: relative;
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,0.38), rgba(0,0,0,0.50)),
+      url('images/library-bg.jpg'); /* твой фон библиотеки */
+  background-size: cover;
+  background-position: center 30%;  /* можно, при желании, center top */
+  background-repeat: no-repeat;
+  color: #f5f5f5;
+
+  height: 480px;            /* ниже, чем было */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px 15px;
+  text-align: center;
 }
-.gallery-item:hover img{transform:scale(1.02);filter:brightness(1.03);}
-@media (max-width:768px){
-  .gallery-wrap{max-width:100%;padding:0 10px;}
-  .gallery-masonry{column-count:2;}
-  .gallery-item{margin-bottom:12px;}
+
+.gallery-hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
 }
-@media (max-width:480px){.gallery-masonry{column-count:1;}.gallery-item{margin-bottom:14px;}}
+
+.gallery-hero-breadcrumbs {
+  font-size: 0.9rem;
+  color: #d0d7dd;
+  margin-bottom: 6px;
+}
+
+.gallery-hero-breadcrumbs a {
+  color: inherit;
+  text-decoration: none;
+}
+.gallery-hero-breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+.gallery-hero h1 {
+  margin: 0 0 6px;
+  font-size: 2.6rem;        /* крупный заголовок в центре */
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.6);
+}
+
+.gallery-hero p {
+  margin: 0;
+  font-size: 1rem;
+  color: #e4ebf1;
+}
+
+
+ /* Контейнер галереи – чуть меньше отступы слева/справа */
+.gallery-wrap {
+  max-width: 1400px;          /* шире, меньше пустого поля */
+  margin: 15px auto 40px;
+  padding: 0 4px;            /* уменьшили отступы */
+}
+
+/* Masonry-раскладка как у nurshaikhov.kz */
+.gallery-masonry {
+  column-count: 6;            /* 5 колонок на десктопе */
+  column-gap: 8px;           /* маленький зазор */
+}
+
+/* На планшете – поменьше колонок */
+@media (max-width: 1200px) {
+  .gallery-masonry {
+    column-count: 4;
+  }
+}
+@media (max-width: 760px) {
+  .gallery-masonry {
+    column-count: 3;
+  }
+}
+@media (max-width: 540px) {
+  .gallery-masonry {
+    column-count: 2;
+  }
+}
+
+/* Один элемент галереи */
+.gallery-item {
+  display: block;
+  margin-bottom: 10px;
+  break-inside: avoid;        /* чтобы картинки не рвались между колонками */
+}
+
+/* Картинка – без фона, без скругления, без серого */
+.gallery-item img {
+  width: 100%;
+  height: auto;               /* НИКАКОГО object-fit */
+  display: block;
+  border-radius: 0;           /* убрали мягкие углы */
+  box-shadow: none;           /* можно включить, если захочешь */
+  cursor: zoom-in;
+  transition: transform .2s ease, filter .2s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.02);
+  filter: brightness(1.03);
+}
+
+
+/* ==================== Мобильная версия ==================== */
+@media (max-width: 768px) {
+
+  /* HERO */
+  .gallery-hero{
+    height: 340px;
+    padding: 20px 14px;
+    background-position: center 35%;
+  }
+
+  .gallery-hero h1{
+    font-size: 2.05rem;
+    margin-bottom: 6px;
+  }
+
+  .gallery-hero p{
+    font-size: 0.95rem;
+  }
+
+  /* Контейнер */
+  .gallery-wrap{
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  /* 🔥 4 колонки на больших мобильных / планшетах */
+  .gallery-masonry{
+    column-count: 4;
+    column-gap: 8px;
+  }
+
+  .gallery-item{
+    margin-bottom: 10px;
+  }
+
+  /* Мягкий hover для тача */
+  .gallery-item img{
+    transition: transform .15s ease, filter .15s ease;
+  }
+
+  .gallery-item:hover img{
+    transform: scale(1.015);
+    filter: brightness(1.03);
+  }
+}
+
+/* Обычные телефоны */
+@media (max-width: 480px) {
+
+  .gallery-hero{
+    height: 300px;
+    padding: 18px 12px;
+  }
+
+  .gallery-hero h1{
+    font-size: 1.65rem;
+  }
+
+  .gallery-hero p{
+    font-size: 0.88rem;
+  }
+
+  .gallery-wrap{
+    padding: 0 8px;
+  }
+
+  /* 🔥 3 колонки даже на маленьких */
+  .gallery-masonry{
+    column-count: 3;
+    column-gap: 6px;
+  }
+
+  .gallery-item{
+    margin-bottom: 8px;
+  }
+
+  /* почти без hover */
+  .gallery-item:hover img{
+    transform: scale(1.01);
+    filter: brightness(1.02);
+  }
+}
   </style>
 </head>
 
@@ -309,10 +483,10 @@
 </main>
 
 <footer style="padding:0;margin:0;">
-  <div class="footer-content" style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;padding:40px 20px 10px;">
+  <div class="footer-content" style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;">
     <div class="footer-links left" style="flex:1;min-width:200px;">
       <h3>Materials</h3>
-      <div style="display:flex;gap:150px;">
+      <div style="display:flex;">
         <ul style="list-style:none;padding:0;">
           <li><a href="bio-en.html">- Biography</a></li>
           <li><a href="books-en.html">- Books & Monographs</a></li>
@@ -353,6 +527,7 @@
   </div>
 </footer>
 
+<!-- Скрипты -->
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 <script src="lightbox-plus-jquery.js"></script>
 
@@ -363,12 +538,24 @@
   const backdrop = document.getElementById('offcanvas-backdrop');
   if (!btn || !panel || !backdrop) return;
 
-  function openMenu(){ panel.classList.add('open'); backdrop.hidden = false; document.body.style.overflow='hidden';
-    btn.setAttribute('aria-expanded','true'); panel.setAttribute('aria-hidden','false'); }
-  function closeMenu(){ panel.classList.remove('open'); backdrop.hidden = true; document.body.style.overflow='';
-    btn.setAttribute('aria-expanded','false'); panel.setAttribute('aria-hidden','true'); }
+  function openMenu(){
+    panel.classList.add('open');
+    backdrop.hidden = false;
+    document.body.style.overflow = 'hidden';
+    btn.setAttribute('aria-expanded','true');
+    panel.setAttribute('aria-hidden','false');
+  }
+  function closeMenu(){
+    panel.classList.remove('open');
+    backdrop.hidden = true;
+    document.body.style.overflow = '';
+    btn.setAttribute('aria-expanded','false');
+    panel.setAttribute('aria-hidden','true');
+  }
 
-  btn.addEventListener('click', () => panel.classList.contains('open') ? closeMenu() : openMenu());
+  btn.addEventListener('click', () => {
+    panel.classList.contains('open') ? closeMenu() : openMenu();
+  });
   panel.querySelector('.offcanvas-close').addEventListener('click', closeMenu);
   backdrop.addEventListener('click', closeMenu);
   window.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
@@ -376,7 +563,10 @@
 </script>
 
 <script>
-  lightbox.option({ resizeDuration: 200, wrapAround: true });
+  lightbox.option({
+    resizeDuration: 200,
+    wrapAround: true
+  });
 </script>
 
 </body>
