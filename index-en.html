@@ -725,7 +725,7 @@ document.addEventListener('DOMContentLoaded', () => {
   title.setAttribute('role','link');
   title.setAttribute('aria-label','На главную: Сейіт Қасқабасов');
 
-  const goHome = () => { window.location.href = 'index.html'; };
+  const goHome = () => { window.location.href = 'index-en.html'; };
 
   title.addEventListener('click', goHome);
   title.addEventListener('keydown', (e) => {
@@ -742,13 +742,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  let booksPage = "books.html";
+  let booksPage = "books-en.html";
 
   // 1) запоминаем куда вести (по клику на карточку)
   document.addEventListener("click", (e) => {
     const a = e.target.closest("a.book-lightbox");
     if (!a) return;
-    booksPage = a.getAttribute("data-books-page") || "books.html";
+    booksPage = a.getAttribute("data-books-page") || "books-en.html";
   });
 
   // 2) второй клик: по картинке внутри лайтбокса
@@ -762,7 +762,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Второй клик: когда картинка уже в лайтбоксе, по тапу переходим на страницу книг
   document.addEventListener('click', function(e){
     if(e.target && e.target.classList && e.target.classList.contains('lb-image')){
-      window.location.href = 'books.html';
+      window.location.href = 'books-en.html';
     }
   });
 </script>
