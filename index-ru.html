@@ -623,46 +623,31 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 
 <script>
   // Инициализация слайдера
-const booksSwiper = new Swiper('.books-swiper', {
-  slidesPerView: 'auto',   // ширина задаётся CSS
-  slidesPerGroup: 5,       // листаем по 5
-  spaceBetween: 0,         // расстояние контролируем через CSS, не Swiper
-  loop: true,
+cconst booksSwiper = new Swiper('.books-swiper', {
+  speed: 650,
+  loop: false,
+  rewind: true,
+  spaceBetween: 0,
+
   autoplay: {
-    delay: 3000,
-    disableOnInteraction: false
+    delay: 3500,
+    disableOnInteraction: false,  // ключевое
+    pauseOnMouseEnter: false
   },
+
   pagination: {
-    el: null
+    el: '.books-pagination',
+    clickable: true,
+    bulletClass: 'books-page-bullet',
+    bulletActiveClass: 'active'
+  },
+
+  breakpoints: {
+    0:   { slidesPerView: 3, slidesPerGroup: 3 },
+    769: { slidesPerView: 5, slidesPerGroup: 5 }
   }
 });
 
-
-  // Кастомная пагинация «по страницам»
-  const paginationEl = document.querySelector('.books-pagination');
-  if (paginationEl) {
-    const slidesPerGroup = booksSwiper.params.slidesPerGroup;
-    const totalPages = Math.ceil(booksSwiper.slides.length / slidesPerGroup);
-
-    for (let i = 0; i < totalPages; i++) {
-      const bullet = document.createElement('span');
-      bullet.classList.add('books-page-bullet');
-      if (i === 0) bullet.classList.add('active');
-
-      bullet.addEventListener('click', () => {
-        booksSwiper.slideToLoop(i * slidesPerGroup);
-      });
-
-      paginationEl.appendChild(bullet);
-    }
-
-    booksSwiper.on('slideChange', () => {
-      const page = Math.floor(booksSwiper.realIndex / slidesPerGroup);
-      document
-        .querySelectorAll('.books-page-bullet')
-        .forEach((b, idx) => b.classList.toggle('active', idx === page));
-    });
-  }
 </script>
 
 <script>
