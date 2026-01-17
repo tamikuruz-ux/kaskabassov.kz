@@ -133,52 +133,85 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 /* ==================== Мобильная версия ==================== */
 /* ==================== MOBILE (INDEX) ==================== */
 
-/* Планшеты и телефоны — 3 книги в ряд */
-@media (max-width: 900px){
-  .books-swiper .swiper-slide{
-    flex: 0 0 33.333%;
-    max-width: 33.333%;
+@media (max-width: 768px) {
+
+  /* Контейнер с книгами: уменьшаем количество слайдов в ряду */
+  .books-swiper .swiper-slide {
+    flex: 0 0 calc(100% / 2); /* каждая книга занимает 50% ширины */
+    max-width: calc(100% / 2);
   }
 
-  .book-card img{
-    height: 210px;
+  /* Уменьшаем высоту изображений книг */
+  .book-card img {
+    height: 230px;
   }
 
-  .section-head{
-    gap: 12px;
-    align-items: center;
+  /* Пагинация точками: уменьшаем размер */
+  .books-pagination {
+    gap: 5px;
   }
 
-  .see-all{
-    white-space: nowrap;
-    mentioned: nowrap;
-    font-size: 1.05rem;
+  .books-page-bullet {
+    width: 8px;
+    height: 8px;
   }
 
-  .books-pagination{ gap: 6px; }
-  .books-page-bullet{ width: 8px; height: 8px; }
+  .books-page-bullet.active {
+    transform: scale(1.1);
+  }
+
+  /* Заголовок секции с книгами: делаем более компактным */
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .see-all {
+    font-size: 1.2rem;
+  }
 }
 
-/* Очень маленькие телефоны — ВСЁ РАВНО 3 книги */
-@media (max-width: 520px){
-  .books-swiper .swiper-slide{
-    flex: 0 0 33.333%;
-    max-width: 33.333%;
+@media (max-width: 480px) {
+  .books-swiper .swiper-slide {
+    flex: 0 0 calc(100% / 3);  /* 3 книги в ряд */
+    max-width: calc(100% / 3);
   }
 
-  .book-card img{
-    height: 180px;
+  .book-card img {
+    height: 170px; /* можно 160–190 под вкус */
   }
 
-  .see-all{
+  /* Пагинация точками: еще меньше */
+  .books-pagination {
+    gap: 3px;
+  }
+
+  .books-page-bullet {
+    width: 6px;
+    height: 6px;
+  }
+
+  .books-page-bullet.active {
+    transform: scale(1.05);
+  }
+
+  /* Заголовок секции с книгами: делаем еще более компактным */
+  .section-head {
+    gap: 5px;
+  }
+
+  .see-all {
     font-size: 1rem;
   }
 
-  #books.container{
+  /* Убираем отступы у контейнера с книгами */
+  #books.container {
     padding-left: 0;
     padding-right: 0;
   }
 }
+
 
 
 
