@@ -10,36 +10,156 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <style>
-.page-title{font-weight:700;margin-bottom:.8rem;color:#343c43;font-size:1.9rem;}
-.intro-text{max-width:70ch;font-size:1rem;color:#555;margin-bottom:2rem;line-height:1.6;}
-.interview-list{display:grid;gap:1.5rem;}
-.interview-card{background:#fff;border:1px solid #e2e4de;border-radius:14px;padding:1.4rem 1.6rem;box-shadow:0 4px 14px rgba(0,0,0,.05);transition:all .2s ease;}
-.interview-card:hover{transform:translateY(-3px);border-color:#cfd5ce;box-shadow:0 8px 22px rgba(0,0,0,.08);}
-.interview-card h2{margin:0 0 .4rem;font-size:1.25rem;color:#343c43;}
-.meta{font-size:.9rem;color:#666;margin-bottom:.8rem;}
-.desc{font-size:1rem;color:#2c2c2c;margin-bottom:.8rem;line-height:1.55;}
-.read-link{font-weight:600;color:#0a66c2;text-decoration:none;transition:color .2s ease;}
-.read-link:hover{color:#094b97;text-decoration:underline;}
-@media (min-width:640px){.interview-list{grid-template-columns:repeat(2,1fr);}}
-@media (max-width:768px){
-  .page-title{font-size:1.5rem;}
-  .intro-text{font-size:.95rem;max-width:100%;}
-  .interview-list{grid-template-columns:1fr;}
-  .interview-card{padding:1rem;}
-  .interview-card h2{font-size:1.1rem;}
-  .meta{font-size:.85rem;}
-  .desc{font-size:.95rem;}
-  .read-link{font-size:1rem;}
+
+.page-title {
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: #343c43;
+  font-size: 1.9rem;
 }
-@media (max-width:480px){
-  .page-title{font-size:1.3rem;}
-  .intro-text{font-size:.9rem;}
-  .interview-card{padding:.8rem;}
-  .interview-card h2{font-size:1rem;}
-  .meta{font-size:.8rem;}
-  .desc{font-size:.9rem;}
-  .read-link{font-size:.95rem;}
+
+.intro-text {
+  max-width: 70ch;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 2rem;
+  line-height: 1.6;
 }
+
+/* --- Interview list --- */
+.interview-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* --- Interview card --- */
+.interview-card {
+  background: #fff;
+  border: 1px solid #e2e4de;
+  border-radius: 14px;
+  padding: 1.4rem 1.6rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.interview-card:hover {
+  transform: translateY(-3px);
+  border-color: #cfd5ce;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+.interview-card h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1.25rem;
+  color:#343c43;
+}
+
+.meta {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.8rem;
+}
+
+.desc {
+  font-size: 1rem;
+  color: #2c2c2c;
+  margin-bottom: 0.8rem;
+  line-height: 1.55;
+}
+
+.read-link {
+  font-weight: 600;
+  color: #0a66c2;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.read-link:hover {
+  color: #094b97;
+  text-decoration: underline;
+}
+
+/* --- Responsive layout --- */
+@media (min-width: 640px) {
+  .interview-list{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* ==================== Мобильная версия ==================== */
+@media (max-width: 768px) {
+
+  .page-title{
+    font-size: 1.55rem;
+  }
+
+  .intro-text{
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
+
+  /* 🔥 2 колонки, а не 1 */
+  .interview-list{
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .interview-card{
+    padding: 1.1rem 1.2rem;
+  }
+
+  .interview-card h2{
+    font-size: 1.1rem;
+    line-height: 1.25;
+  }
+
+  .meta{ font-size: 0.85rem; }
+  .desc{ font-size: 0.95rem; line-height: 1.45; }
+}
+
+  /* hover на таче мягкий */
+  .interview-card:hover{
+    transform: none;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+  }
+}
+
+/* Очень маленькие телефоны — ТОЖЕ 2 колонки */
+@media (max-width: 480px) {
+
+  .page-title{
+    font-size: 1.35rem;
+  }
+
+  .intro-text{
+    font-size: 0.9rem;
+  }
+
+  .interview-list{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .interview-card{
+    padding: 0.95rem 1rem;
+  }
+
+  .interview-card h2{
+    font-size: 1rem;
+  }
+
+  .meta{
+    font-size: 0.8rem;
+  }
+
+  .desc{
+    font-size: 0.9rem;
+  }
+
+  .read-link{
+    font-size: 0.95rem;
+  }
+}
+
 </style>
 
 <link href="lightbox.css" rel="stylesheet" />
@@ -194,10 +314,10 @@
 
 <!-- ФУТЕР оставлен как у тебя -->
 <footer style="padding:0;margin:0;">
-  <div class="footer-content" style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;padding:40px 20px 10px;">
+  <div class="footer-content" style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;">
     <div class="footer-links left" style="flex:1;min-width:200px;">
       <h3>Материалы</h3>
-      <div style="display:flex;gap:150px;">
+      <div style="display:flex;">
         <ul style="list-style:none;padding:0;">
           <li><a href="bio-ru.html">- Биография</a></li>
           <li><a href="books-ru.html">- Книги и монографии</a></li>
@@ -239,36 +359,103 @@
 </footer>
 
 <script>
-lightbox.option({ resizeDuration: 200, wrapAround: true });
+    function scrollCarousel(dir) {
+      document.getElementById('bookCarousel').scrollBy({
+        left: dir * 220,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+  <script>
+  lightbox.option({
+    'resizeDuration': 200,
+    'wrapAround': true,
+      });
 </script>
+<!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+<script>
+  const booksSwiper = new Swiper('.books-swiper', {
+    spaceBetween: 24,
+    loop: true,
+    speed: 700,
+
+    /* 5 на экране и листаемся группами по 5 */
+    slidesPerView: 5,
+    slidesPerGroup: 5,
+
+    autoplay: {
+      delay: 3500,
+      disableOnInteraction: false
+    },
+
+    pagination: {
+      el: '.books-swiper .swiper-pagination',
+      clickable: true
+    },
+
+    /* адаптивность */
+    breakpoints: {
+      1200: { slidesPerView: 5, slidesPerGroup: 5 },
+      992:  { slidesPerView: 4, slidesPerGroup: 4 },
+      768:  { slidesPerView: 3, slidesPerGroup: 3 },
+      576:  { slidesPerView: 2, slidesPerGroup: 2 },
+      0:    { slidesPerView: 1, slidesPerGroup: 1 }
+    }
+  });
+</script>
 <script>
 (() => {
   const btn = document.querySelector('.menu-btn');
   const panel = document.getElementById('offcanvas');
   const backdrop = document.getElementById('offcanvas-backdrop');
-  if (!btn || !panel || !backdrop) return;
+
+  if (!btn || !panel || !backdrop) return; // страховка, если HTML не вставлен
 
   function openMenu(){
-    panel.classList.add('open'); backdrop.hidden = false;
+    panel.classList.add('open');
+    backdrop.hidden = false;
     document.body.style.overflow = 'hidden';
     btn.setAttribute('aria-expanded','true');
     panel.setAttribute('aria-hidden','false');
   }
   function closeMenu(){
-    panel.classList.remove('open'); backdrop.hidden = true;
+    panel.classList.remove('open');
+    backdrop.hidden = true;
     document.body.style.overflow = '';
     btn.setAttribute('aria-expanded','false');
     panel.setAttribute('aria-hidden','true');
   }
 
-  btn.addEventListener('click', () => panel.classList.contains('open') ? closeMenu() : openMenu());
+  btn.addEventListener('click', () => {
+    panel.classList.contains('open') ? closeMenu() : openMenu();
+  });
   panel.querySelector('.offcanvas-close').addEventListener('click', closeMenu);
   backdrop.addEventListener('click', closeMenu);
   window.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
 })();
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const title = document.querySelector('.site-title');
+  if (!title) return;
+
+  // Делаем заголовок доступным как ссылка (клавиатура/скринридеры)
+  title.setAttribute('tabindex','0');
+  title.setAttribute('role','link');
+  title.setAttribute('aria-label','На главную: Сейіт Қасқабасов');
+
+  const goHome = () => { window.location.href = 'index.html'; };
+
+  title.addEventListener('click', goHome);
+  title.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goHome(); }
+  });
+});
+</script>
 
 </body>
 </html>
+
+
