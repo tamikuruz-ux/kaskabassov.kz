@@ -959,7 +959,7 @@ body.lb-books .lb-next{
      ========================= */
   header{
     height: 62vh;
-    min-height: 420px;
+    min-height: 410px;
     overflow: hidden;
   }
 
@@ -1251,6 +1251,7 @@ body.lb-books .lb-next{
 }
 
 }
+
 
 
 
