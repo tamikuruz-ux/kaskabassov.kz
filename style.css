@@ -1252,12 +1252,14 @@ body.lb-books .lb-next{
    margin-top: 10px;
   line-height: 1.2;
   font-size: 0.95rem;
-  max-width: 90%;
+  max-width: 80%;
+    align-items: center;
     margin: 0 auto;
     white-space: normal;
 }
 
 }
+
 
 
 
