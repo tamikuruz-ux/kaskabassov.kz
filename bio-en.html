@@ -588,6 +588,65 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+ <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const rail = document.querySelector('.bio-rail');
+  if (!rail) return;
+ if (window.matchMedia('(min-width: 769px)').matches) return;
+
+
+  let rafId = null;
+  let running = true;
+  let dir = 1;              // 1 = вправо, -1 = влево
+  const speed = 0.45;       // скорость (пикс/кадр). 0.35–0.8 норм
+  const edgePauseMs = 900;  // пауза на краях
+
+  function maxScrollLeft() {
+    return rail.scrollWidth - rail.clientWidth;
+  }
+
+  function tick() {
+    if (!running) { rafId = requestAnimationFrame(tick); return; }
+
+    const max = maxScrollLeft();
+    if (max <= 0) { rafId = requestAnimationFrame(tick); return; }
+
+    rail.scrollLeft += dir * speed;
+
+    // дошли до края
+    if (rail.scrollLeft >= max - 1) {
+      running = false;
+      dir = -1;
+      setTimeout(() => { running = true; }, edgePauseMs);
+    } else if (rail.scrollLeft <= 1) {
+      running = false;
+      dir = 1;
+      setTimeout(() => { running = true; }, edgePauseMs);
+    }
+
+    rafId = requestAnimationFrame(tick);
+  }
+
+  // стопаем, когда юзер трогает (чтобы не драться с человеком)
+  const stop = () => { running = false; };
+  const start = () => { running = true; };
+
+  rail.addEventListener('touchstart', stop, { passive: true });
+  rail.addEventListener('pointerdown', stop);
+  rail.addEventListener('mouseenter', stop);
+
+  rail.addEventListener('touchend', () => setTimeout(start, 1200), { passive: true });
+  rail.addEventListener('pointerup', () => setTimeout(start, 1200));
+  rail.addEventListener('mouseleave', () => setTimeout(start, 400));
+
+  // iOS: при возврате на вкладку перезапускаем
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') running = true;
+  });
+
+  tick();
+});
+</script>
 
 </body>
 </html>
