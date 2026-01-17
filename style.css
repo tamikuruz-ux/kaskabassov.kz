@@ -1221,8 +1221,11 @@ body.lb-books .lb-next{
    HERO — ВЕРТИКАЛЬНЫЙ ЦЕНТР (как раньше)
    ========================= */
 .site-header{
-  min-height: 60vh;          /* нормальная высота hero */
+  height: 48vh;          /* компактнее, чем 62vh */
+    min-height: 320px;          /* нормальная высота hero */
   display: flex;
+  background-size: cover;
+  background-position: center 30%;
   align-items: center;       /* ВАЖНО: вертикальный центр */
   justify-content: center;
 }
@@ -1240,17 +1243,19 @@ body.lb-books .lb-next{
 .site-header .header-title{
   margin: 0 !important;
   line-height: 1.05;
-  font-size: clamp(42px, 10vw, 72px);
+ font-size: 2.3rem;     /* НЕ уменьшаю в ноль, просто адекват */
   max-width: 92vw;
 }
 
 .site-header .breadcrumb{
   margin: 0 !important;
+   margin-top: 10px;
   line-height: 1.2;
   font-size: 0.95rem;
 }
 
 }
+
 
 
 
