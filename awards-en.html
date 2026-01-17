@@ -69,28 +69,120 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
     border-radius:0 0 12px 12px;
   }
 
-  @media (max-width:768px){
-    .page-title{font-size:1.8rem;}
-    .intro-text{font-size:.95rem;line-height:1.5;}
-    .award-card{padding:14px;gap:12px;}
-    .award-icon-circle{width:48px;height:48px;font-size:24px;}
-    .award-name{font-size:1rem;}
-    .award-text,.award-meta{font-size:.9rem;}
-    .awards-gallery-grid{grid-template-columns:repeat(2,1fr);gap:15px;}
-    .awards-gallery-caption{font-size:1rem;}
+ @media (max-width: 768px) {
+    .page-title {
+      font-size: 1.8rem;
+    }
+
+    .intro-text {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .award-card {
+      padding: 14px 14px;
+      gap: 12px;
+    }
+
+    .award-icon-circle {
+      width: 48px;
+      height: 48px;
+      font-size: 24px;
+    }
+
+    .award-name {
+      font-size: 1rem;
+    }
+
+    .award-text,
+    .award-meta {
+      font-size: 0.9rem;
+    }
+
+    /* Галерея: 2 карточки в строку */
+    .awards-gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .awards-gallery-caption {
+      font-size: 1rem;
+    }
   }
 
-  @media (max-width:480px){
-    .page-title{font-size:1.5rem;margin-bottom:8px;}
-    .intro-text{font-size:.9rem;line-height:1.4;}
-    .awards-list{gap:12px;}
-    .award-card{padding:10px 12px;gap:10px;}
-    .award-icon-circle{width:42px;height:42px;font-size:20px;}
-    .award-name{font-size:.95rem;}
-    .award-text,.award-meta{font-size:.8rem;}
-    .awards-gallery-grid{grid-template-columns:1fr;gap:10px;}
-    .awards-gallery-caption{font-size:.9rem;}
+  /* ====== АДАПТИВ ДЛЯ ТЕЛЕФОНОВ (до 480px) ====== */
+/* ====== АДАПТИВ ДЛЯ ТЕЛЕФОНОВ (до 480px) ====== */
+@media (max-width: 480px) {
+
+  .page-title {
+    font-size: 1.55rem;
+    margin-bottom: 10px;
   }
+
+  .intro-text {
+    font-size: 0.92rem;
+    line-height: 1.45;
+  }
+
+  .awards-list {
+    gap: 14px;
+  }
+
+  .award-card {
+    padding: 14px 14px;
+    gap: 12px;
+    border-radius: 12px;
+  }
+
+  /* Иконка — чуть компактнее, но читаемо */
+  .award-icon-circle {
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
+  }
+
+  /* Заголовок + год смотрятся легче */
+  .award-name {
+    font-size: 0.98rem;
+    line-height: 1.3;
+  }
+
+  .award-year {
+    font-size: 0.85rem;
+    margin-left: 6px;
+  }
+
+  .award-text,
+  .award-meta {
+    font-size: 0.85rem;
+    line-height: 1.45;
+  }
+
+  /* Галерея: 1 карточка, но с нормальным отступом */
+ .awards-gallery-grid{
+    grid-template-columns: repeat(2, 1fr); /* ВАЖНО */
+    gap: 12px;
+  }
+
+  .award-scan.large-award{
+    grid-column: span 2; /* горизонтальные — на всю ширину */
+  }
+
+  .award-scan img{
+    aspect-ratio: 3 / 4;   /* вертикальный формат */
+    object-fit: cover;
+  }
+
+  .award-scan.large-award img{
+    aspect-ratio: auto;
+    object-fit: contain;
+  }
+  .awards-gallery-caption {
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 8px;
+  }
+}
 </style>
 </head>
 <body>
@@ -341,10 +433,10 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 </main>
 
 <footer style="padding:0;margin:0;">
-  <div class="footer-content" style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;padding:40px 20px 10px;">
+  <div class="footer-content" style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;">
     <div class="footer-links left" style="flex:1;min-width:200px;">
       <h3>Materials</h3>
-      <div style="display:flex;gap:150px;">
+      <div style="display:flex;">
         <ul style="list-style:none;padding:0;">
           <li><a href="bio-en.html">- Biography</a></li>
           <li><a href="books-en.html">- Books & Monographs</a></li>
