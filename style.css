@@ -1217,38 +1217,39 @@ body.lb-books .lb-next{
   /* =========================
    HERO (site-header) FIX: чтобы h1 не наслаивался
    ========================= */
+/* =========================
+   HERO — ВЕРТИКАЛЬНЫЙ ЦЕНТР (как раньше)
+   ========================= */
 .site-header{
-  min-height: 48vh;              /* чтобы было место под заголовок */
+  min-height: 60vh;          /* нормальная высота hero */
+  display: flex;
+  align-items: center;       /* ВАЖНО: вертикальный центр */
+  justify-content: center;
 }
 
 .site-header .header-content{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 10px;                      /* расстояние между заголовком и крошками */
-  padding: 92px 16px 18px;        /* верхний отступ под верхнюю панель */
+  gap: 8px;                  /* расстояние между h1 и breadcrumb */
+  padding: 0 16px;           /* УБРАЛИ padding-top */
   text-align: center;
+  transform: translateY(-6%);/* лёгкий подъём (можно 0% / -4%) */
 }
 
 .site-header .header-title{
-  margin: 0 !important;           /* убираем дефолтный жирный margin у h1 */
+  margin: 0 !important;
   line-height: 1.05;
-  font-size: clamp(38px, 9vw, 64px);
+  font-size: clamp(42px, 10vw, 72px);
   max-width: 92vw;
-  word-break: break-word;
 }
 
 .site-header .breadcrumb{
   margin: 0 !important;
-  padding: 0 16px 10px;
   line-height: 1.2;
+  font-size: 1.05rem;
 }
 
-/* если ниже в контенте есть второй h1 - делаем ему нормальный отступ сверху */
-main h1{
-  margin-top: 18px !important;
-}
 }
 
 
