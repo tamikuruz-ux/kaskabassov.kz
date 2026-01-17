@@ -30,14 +30,15 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
   margin-top: 0 !important;
 }
 
+
 /* Левая лента-рейл */
 .bio-rail{
   position:sticky;
-  top:16px;
+  top:16px;                 /* сколько «прилипает» от верха */
   display:flex;
   flex-direction:column;
   gap:12px;
-  padding-right:6px;
+  padding-right:6px;        /* место под скроллбар */
   scrollbar-width:thin;
 }
 .bio-rail::-webkit-scrollbar{width:8px}
@@ -46,9 +47,9 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 /* Превьюшки */
 .bio-thumb{
   width:100%;
-  object-fit:contain;
+  object-fit:contain;     /* Показывает фото полностью */
   border-radius:12px;
-  padding:4px;
+  padding:4px;            /* небольшая «рамка», чтобы горизонтальные фото не прилипали к границам */
   display:block;
   filter:brightness(0.98);
   transition:transform .2s ease, filter .2s ease, box-shadow .2s ease;
@@ -74,98 +75,114 @@ display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
 }
 .bio-content p{ margin:0 0 16px; }
 
-/* Адаптив: на планшетах/мобилках фото-лента становится горизонтальной */
-@media (max-width: 992px){
+/* Адаптив: на планшетах/мобилках фото-лента становится горизонтальной полосой сверху */
+/* ============================
+   BIO MOBILE (замени весь старый mobile-блок на этот)
+   Работает красиво на маленьких/больших телефонах
+   ============================ */
+
+/* 0) базово: карусель сверху, текст ниже (сработает для всех <= 992px) */
+/* =========================
+   BIO MOBILE: BIG HORIZONTAL RAIL (NO SWIPER)
+   ========================= */
+
+/* 1) На мобилке: лента сверху, текст снизу */
+/* =========================
+   BIO MOBILE: BIG HORIZONTAL RAIL (NO SWIPER)
+   ========================= */
+
+/* 1) На мобилке: лента сверху, текст снизу */
+@media (max-width: 768px){
+
   .bio-layout{
-    grid-template-columns:1fr;
-    gap:20px;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
   }
+
+  /* 2) Лента: всегда сверху и прилипает */
   .bio-rail{
-    position:static;
-    display:flex;
-    flex-direction:row;
-    gap:10px;
-    padding: 2px 0 6px;
-    margin-bottom:4px;
+  position: sticky !important;
+  top: 0;
+  z-index: 50 !important;
+
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 12px !important;
+
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+
+  height: 165px !important;          /* ВОТ ЭТО важно */
+  padding: 12px 14px !important;
+  margin: 0 -16px 10px !important;
+
+  background: #f9f9f4 !important;
+  border-bottom: 1px solid rgba(52,60,67,0.12) !important;
+}
+
+
+  .bio-rail::-webkit-scrollbar{ display: none; } /* iOS/Chrome */
+
+  /* 3) Карточки фоток: БОЛЬШЕ (ширина+высота) */
+  .bio-rail a{
+    flex: 0 0 auto !important;
+    display: block !important;
   }
+
   .bio-thumb{
-    width:180px;
-    aspect-ratio:3/4;
-    flex:0 0 auto;
+    width: 200px !important;     /* было 140–180, делаем жирно */
+    height: 140px !important;    /* фиксируем высоту, чтобы не было “сосисок” */
+    border-radius: 14px !important;
+
+    object-fit: cover !important; /* красиво заполняет */
+    object-position: center !important;
+
+    box-shadow: 0 2px 14px rgba(0,0,0,.12) !important;
+    padding: 0 !important;        /* убираем рамки, которые “сужали” */
+    background: transparent !important;
+
+    display: block !important;
+  }
+
+  /* 4) Текст ниже */
+  .bio-content{
+    font-size: 1rem !important;
+    line-height: 1.65 !important;
+
+  }
+ .bio-layout{
+    padding-top: 0 !important;
+  }
+
+}
+
+/* Средние телефоны (побольше) */
+@media (max-width: 480px){
+  .bio-rail{
+    padding: 10px 12px !important;
+    margin: 0 -16px 6px !important;
+    gap: 10px !important;
+  }
+
+  .bio-thumb{
+    width: 200px !important;
+    height: 140px !important;
+    border-radius: 14px !important;
   }
 }
 
-/* ==================== Мобильная версия ==================== */
-@media (max-width: 768px) {
-  .section-head {
-    flex-direction: column;
-    gap: 10px;
+/* Очень маленькие телефоны */
+@media (max-width: 360px){
+  .bio-thumb{
+    width: 180px !important;
+    height: 130px !important;
   }
 
-  .see-all {
-    font-size: 1.2rem;
-  }
 
-  .bio-layout {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .bio-rail {
-    position: static;
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    padding: 2px 0 6px;
-    margin-bottom: 4px;
-  }
-
-  .bio-thumb {
-    width: 180px;
-    aspect-ratio: 3/4;
-    flex: 0 0 auto;
-  }
-
-  .bio-content {
-    font-size: 1rem;
-  }
-
-  .bio-content h3 {
-    font-size: 1.2rem;
-  }
 }
 
-@media (max-width: 480px) {
-  .section-head {
-    gap: 5px;
-  }
-
-  .see-all {
-    font-size: 1rem;
-  }
-
-  .bio-layout {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .bio-rail {
-    padding: 0 0 4px;
-    margin-bottom: 3px;
-  }
-
-  .bio-thumb {
-    width: 150px;
-  }
-
-  .bio-content {
-    font-size: 0.95rem;
-  }
-
-  .bio-content h3 {
-    font-size: 1.1rem;
-  }
-}
   </style>
 
 <!-- Lightbox CSS -->
@@ -429,10 +446,10 @@ was held in honor of his 85th anniversary.</p>
 </main>
 
 <footer style="padding: 0; margin: 0;">
-  <div class="footer-content" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; padding:40px 20px 10px;">
+  <div class="footer-content" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; ">
     <div class="footer-links left" style="flex: 1; min-width: 200px;">
       <h3>Материалы</h3>
-       <div style="display: flex; gap: 150px;">
+       <div style="display: flex;">
     <ul style="list-style: none; padding: 0;">
       <li><a href="bio-en.html">- Bioagraphy</a></li>
           <li><a href="books-en.html">- Books & Monographs</a></li>
@@ -475,36 +492,44 @@ was held in honor of his 85th anniversary.</p>
     © 2025 The family and descendants of Seit Kaskabasov</div>
 </footer>
 
-<script>
-  function scrollCarousel(dir) {
-    document.getElementById('bookCarousel').scrollBy({
-      left: dir * 220,
-      behavior: 'smooth'
-    });
-  }
-</script>
-<script>
+ <script>
+    function scrollCarousel(dir) {
+      document.getElementById('bookCarousel').scrollBy({
+        left: dir * 220,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+  <script>
   lightbox.option({
     'resizeDuration': 200,
     'wrapAround': true,
-  });
+      });
 </script>
+<!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 <script>
   const booksSwiper = new Swiper('.books-swiper', {
     spaceBetween: 24,
     loop: true,
     speed: 700,
+
+    /* 5 на экране и листаемся группами по 5 */
     slidesPerView: 5,
     slidesPerGroup: 5,
+
     autoplay: {
       delay: 3500,
       disableOnInteraction: false
     },
+
     pagination: {
       el: '.books-swiper .swiper-pagination',
       clickable: true
     },
+
+    /* адаптивность */
     breakpoints: {
       1200: { slidesPerView: 5, slidesPerGroup: 5 },
       992:  { slidesPerView: 4, slidesPerGroup: 4 },
@@ -520,7 +545,7 @@ was held in honor of his 85th anniversary.</p>
   const panel = document.getElementById('offcanvas');
   const backdrop = document.getElementById('offcanvas-backdrop');
 
-  if (!btn || !panel || !backdrop) return;
+  if (!btn || !panel || !backdrop) return; // страховка, если HTML не вставлен
 
   function openMenu(){
     panel.classList.add('open');
@@ -550,11 +575,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const title = document.querySelector('.site-title');
   if (!title) return;
 
+  // Делаем заголовок доступным как ссылка (клавиатура/скринридеры)
   title.setAttribute('tabindex','0');
   title.setAttribute('role','link');
-  title.setAttribute('aria-label','На главную: Сеит Каскабасов');
+  title.setAttribute('aria-label','На главную: Сейіт Қасқабасов');
 
-  const goHome = () => { window.location.href = 'index-ru.html'; };
+  const goHome = () => { window.location.href = 'index.html'; };
 
   title.addEventListener('click', goHome);
   title.addEventListener('keydown', (e) => {
