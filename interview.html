@@ -85,7 +85,7 @@
 
 /* --- Responsive layout --- */
 @media (min-width: 640px) {
-  .interview-list {
+  .interview-list{
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -103,8 +103,8 @@
 
   /* 🔥 2 колонки, а не 1 */
   .interview-list{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.2rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .interview-card{
@@ -113,17 +113,12 @@
 
   .interview-card h2{
     font-size: 1.1rem;
-    line-height: 1.3;
+    line-height: 1.25;
   }
 
-  .meta{
-    font-size: 0.85rem;
-  }
-
-  .desc{
-    font-size: 0.95rem;
-    line-height: 1.45;
-  }
+  .meta{ font-size: 0.85rem; }
+  .desc{ font-size: 0.95rem; line-height: 1.45; }
+}
 
   /* hover на таче мягкий */
   .interview-card:hover{
@@ -542,5 +537,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
