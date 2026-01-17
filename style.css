@@ -886,7 +886,7 @@ body.lb-books .lb-next{
     align-items: center !important;
     padding: 6px 8px !important;     /* меньше боковые поля = больше места лого */
     column-gap: 6px !important;
-    height: 64px !important;         
+    height: 65px !important;         
       flex-wrap: nowrap !important;
 
   }
@@ -900,7 +900,7 @@ body.lb-books .lb-next{
 
   /* реально заметно больше */
   .header-top .logo-img{
-    height: 58px !important;  /* было 150/145 */
+    height: 63px !important;  /* было 150/145 */
     width: auto !important;
       flex: 0 0 auto !important;
 
@@ -1251,6 +1251,7 @@ body.lb-books .lb-next{
 }
 
 }
+
 
 
 
