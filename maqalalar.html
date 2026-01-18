@@ -138,17 +138,32 @@
 
 
   </style>
+<!-- Lightbox CSS -->
+<link href="lightbox.css" rel="stylesheet" />
 
+<!-- Твой основной CSS -->
+<link href="style.css" rel="stylesheet" />
+
+<!-- jQuery (CDN — если нет локального подключения) -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+<!-- Lightbox JS -->
+<script src="lightbox-plus-jquery.js"></script>
+</head>
 <body>
 
 <!-- Верхняя серая шапка -->
 <div class="header-top">
-  <div class="signature-block">
-
-    <a href="index.html" class="logo-link">
-      <img src="images/sign.png" alt="Сейіт Қасқабасов" class="signature-img">
+ <div class="signature-block">
+<a href="index.html" class="logo-link">
+      <img src="images/logo.png" alt="Логотип С.А. Қасқабасов" class="logo-img">
     </a>
-  </div>
+<a href="index.html" class="logo-link">
+  <img src="images/sign.png" alt="Сейіт Қасқабасов" class="signature-img">
+    </a>
+</div>
+
+
 
   <div class="header-actions">
     <div class="language-switcher" role="group" aria-label="Тіл таңдау">
@@ -162,6 +177,8 @@
     </button>
   </div>
 </div>
+
+
 
 <!-- Выезжающее меню -->
 <aside id="offcanvas" class="offcanvas" aria-hidden="true">
@@ -696,6 +713,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
