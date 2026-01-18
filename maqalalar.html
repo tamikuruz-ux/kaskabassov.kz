@@ -300,9 +300,11 @@ const I18N = {
     {y:2010,t:'Мәдени мұра – ұлттық рухтың тірегі',s:'Мәдени мұра',d:'№2',p:'4–9'},
     {y:2010,t:'Мұхтар Мағауиннің «Жарма» романы',s:'Қазақ әдебиеті',d:'15 қаңтар',p:'1–4'},
     {y:2010,t:'Он екі беттік дәптерден басталған жазушылық сапар',s:'Қазақ әдебиеті',d:'7 мамыр (№18)',p:'5'},
-    {y:2010,t:'Поэтика его судьбы',s:'Казахстанская правда',d:'17 февраль',p:'6'},
+    {y:2010,t:'Поэтика его судьбы',s:'Казахстанская правда',d:'17 ақпан',p:'6'},
     {y:2010,t:'Немеркнущий шедевр',s:'Studii de slavistic',d:'№16',p:'—'},
-    {y:2010,t:'Немецкие ученые…',s:'Deutsche Allgemeine Zeitung',d:'21 август',p:'—'},
+    {y:2010,t:'Вольные заметы на полях книги «Ойoріс»',s:'Deutsche Allgemeine Zeitung',d:'10 маусым',p:'—', url:'https://daz.asia/ru/volnye-zamety-na-polyah-knigi-ojoris/'},
+    {y:2010,t:'Сеит Каскабасов о немецкой литературе',s:'Deutsche Allgemeine Zeitung',d:'26 тамыз',p:'—', url:'https://daz.asia/ru/seit-kaskabasov-o-nemetskoj-literatur/'},
+    
 {
     y: 2000,
     t: 'Ғылымның адамы',
@@ -334,6 +336,7 @@ const I18N = {
     d: 'Алматы, 2013',
     p: '273–274 б.',
     about: true
+    url:'https://kazneb.kz/kk/bookView/view?brId=1153133&simple=true'
   },
   {
     y: 2014,
@@ -342,6 +345,7 @@ const I18N = {
     d: 'Алматы, 2014',
     p: '330–338 б.',
     about: true
+   url:' https://termincom.kz/assets/pdf/fa27ed2cfb351c0c8e68655627c4d15d.pdf'
   },
   {
     y: 2014,
@@ -392,6 +396,7 @@ const I18N = {
     d: '№3, 2015',
     p: '140–147 б.',
     about: true
+
   },
   {
     y: 2015,
@@ -408,6 +413,7 @@ const I18N = {
     d: '3 октября 2015',
     p: '12 с.',
     about: true
+    url: 'https://kazpravda.kz/n/folklorist-mirovogo-masshtaba/'
   },
 
   // 2017+
@@ -418,6 +424,8 @@ const I18N = {
     d: '3–9 қараша 2017 (№45)',
     p: '6 б.',
     about: true
+    url: 'https://qazaqadebieti.kz/12607/folklortanudy-birgili'
+
   },
   {
     y: 2020,
@@ -426,6 +434,8 @@ const I18N = {
     d: '24 маусым 2020',
     p: '—',
     about: true
+    url: 'https://egemen.kz/article/240209-seyit'
+
   },
   {
     y: 2020,
@@ -434,6 +444,7 @@ const I18N = {
     d: '24 июня 2020',
     p: '—',
     about: true
+    url: 'https://kazpravda.kz/n/zolotoe-slovo-kazahstanskoy-folkloristiki/'
   },
   {
     y: 2022,
@@ -442,7 +453,28 @@ const I18N = {
     d: '22 маусым 2022',
     p: '—',
     about: true
-  }
+      url: 'https://aikyn.kz/202519/zerdeli-zertteushi'
+
+  },
+    {
+  y: 2025,
+  t: 'Золотая жила Сеита Каскабасова',
+  s: 'Казахстанская правда',
+  d: '24 июня 2025',
+  p: '—',
+  about: true,
+  url: 'https://kazpravda.kz/n/zolotaya-zhila-seita-kaskabasova/'
+},
+{
+  y: 2025,
+  t: 'Слово о наставнике и друге',
+  s: 'Казахстанская правда',
+  d: '29 апреля 2025',
+  p: '—',
+  about: true,
+  url: 'https://kazpravda.kz/n/slovo-o-nastavnike-i-druge/'
+}
+
   ];
 
 
@@ -476,14 +508,21 @@ function render(){
   const slice = base.slice(start, start + PER_PAGE);
 
   // список
-  listEl.innerHTML = slice.map(it => `
-    <article class="article-card">
-      <span class="year">${it.y}</span>
-      <h2 class="title">${it.t}</h2>
-      <div class="meta">${it.s}${it.d ? ` • ${it.d}` : ''}</div>
-      ${it.p ? `<div class="pages">${I18N[LANG].pages}: ${it.p}</div>` : ''}
-    </article>
-  `).join('');
+ listEl.innerHTML = slice.map(it => {
+  const inner = `
+    <span class="year">${it.y}</span>
+    <h2 class="title">${it.t}</h2>
+    <div class="meta">${it.s}${it.d ? ` • ${it.d}` : ''}</div>
+    ${it.p ? `<div class="pages">${I18N[LANG].pages}: ${it.p}</div>` : ''}
+  `;
+
+  return it.url
+    ? `<a class="card-link" href="${it.url}" target="_blank" rel="noopener noreferrer">
+         <article class="article-card">${inner}</article>
+       </a>`
+    : `<article class="article-card">${inner}</article>`;
+}).join('');
+
 
   // пагинация
   pager.innerHTML = '';
@@ -657,6 +696,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
